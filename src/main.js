@@ -4,7 +4,7 @@ import App from './App'
 import router from './router'
 import fastclick from 'fastclick'
 
-import './common/stylus/index.styl'
+import './common/scss/index.scss'
 
 /* eslint-disable no-unused-vars */
 // import vConsole from 'vconsole'
