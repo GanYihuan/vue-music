@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    hello world
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 export default {
   name: 'App'
 }
 </script>
 
-<style>
+<style lang="stylus" rel="stylesheet/stylus">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
