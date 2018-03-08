@@ -47,3 +47,20 @@ cnpm install babel-polyfill --save-dev
 
 ## 3-2
 ## router, tab
+
+
+## 4-1
+## 后端数据
+## chrome 工具使用
+
+
+## 4-2
+## jsonp
+## 创建script标签,没有同源限制，可以跨域，script src指向服务端地址
+cnpm install jsonp --save
+## jsonp.js ?
+
+
+## 4-3
+cnpm install axios --save
+## 轮播图数据抓取
