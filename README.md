@@ -38,8 +38,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ## es6转义
 npm install babel-runtime --save
-## 移动端点击300
-ms延迟
+## 移动端点击300ms延迟
 cnpm install fastclick --save
 ## 补丁，es6转义
 cnpm install babel-polyfill --save-dev
