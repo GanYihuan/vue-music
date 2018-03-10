@@ -1,6 +1,6 @@
 <template>
   <div class="recommend" ref="recommend">
-    <div class="recommend-content">
+    <scroll class="recommend-content" :data="discList" ref="scroll">
       <div>
         <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
           <slider>
@@ -26,7 +26,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    </scroll>
   </div>
 </template>
 
@@ -34,6 +34,7 @@
   import { getRecommend, getDiscList } from '../../api/recommend'
   import { ERR_OK } from '../../api/config'
   import Slider from '../../base/slider/slider.vue'
+  import Scroll from '../../base/scroll/scroll.vue'
 
   export default {
     data () {
@@ -68,7 +69,8 @@
       }
     },
     components: {
-      Slider
+      Slider,
+      Scroll
     }
   }
 </script>
