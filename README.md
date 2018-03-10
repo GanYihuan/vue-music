@@ -102,3 +102,9 @@ host: '0.0.0.0',
 
 
 ## 4-11 防止轮播图延迟加载，导致高度缺失
+
+
+## 4-12 
+## 图片懒加载
+cnpm install vue-lazyload --save
+## needsclick
