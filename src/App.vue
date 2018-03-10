@@ -2,6 +2,7 @@
   <div id="app">
     <m-header></m-header>
     <tab></tab>
+    <!-- 声明周期缓存到内存中 -->
     <keep-alive>
       <router-view></router-view>
     </keep-alive>

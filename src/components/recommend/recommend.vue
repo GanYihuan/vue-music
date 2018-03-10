@@ -22,18 +22,21 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import { getRecommend } from '../../api/recommend'
+  import { getRecommend, getDiscList } from '../../api/recommend'
   import { ERR_OK } from '../../api/config'
   import Slider from '../../base/slider/slider.vue'
 
   export default {
     data () {
       return {
-        recommends: []
+        recommends: [],
+        discList: [],
+        title: '加载呢，客观别急 ~(*^▽^*)~'
       }
     },
     created () {
       this._getRecommend()
+      this._getDiscList()
     },
     methods: {
       _getRecommend () {
@@ -42,6 +45,15 @@
             if (res.code === ERR_OK) {
               console.log(res.data.slider)
               this.recommends = res.data.slider
+            }
+          })
+      },
+      _getDiscList () {
+        getDiscList()
+          .then((res) => {
+            if (res.code === ERR_OK) {
+              console.log(res.data.list)
+              this.discList = res.data.list
             }
           })
       }

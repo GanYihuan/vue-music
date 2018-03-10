@@ -77,5 +77,21 @@ cnpm install axios --save
 cnpm install better-scroll@^0.1.15 --save
 
 
+## 4-7
+## 歌单数据接口
+
+
+## 4-8
+## 介绍和后端接口代理
+cnpm install axios --save
+## build > webpack.dev.conf.js
+## 1.修改config目录下的index.js文件
+## 修改host
+> /config/index.js
+```
+host: '0.0.0.0',
+```
+## 2.修改webpack.dev.conf.js
+> /build/webpack.dev.conf.js
 
 
