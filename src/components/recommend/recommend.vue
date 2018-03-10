@@ -26,6 +26,9 @@
           </ul>
         </div>
       </div>
+      <div class="loading-container">
+        <loading v-show="!discList.length" :title="this.title"></loading>
+      </div>
     </scroll>
   </div>
 </template>
@@ -35,13 +38,14 @@
   import { ERR_OK } from '../../api/config'
   import Slider from '../../base/slider/slider.vue'
   import Scroll from '../../base/scroll/scroll.vue'
+  import Loading from '../../base/loading/loading'
 
   export default {
     data () {
       return {
         recommends: [],
         discList: [],
-        title: '加载呢，客观别急 ~(*^▽^*)~'
+        title: '正在载入...'
       }
     },
     created () {
@@ -77,7 +81,8 @@
     },
     components: {
       Slider,
-      Scroll
+      Scroll,
+      Loading
     }
   }
 </script>

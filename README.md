@@ -108,3 +108,6 @@ host: '0.0.0.0',
 ## 图片懒加载
 cnpm install vue-lazyload --save
 ## needsclick
+
+
+## 4-13 loading
