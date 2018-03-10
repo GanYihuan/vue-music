@@ -95,3 +95,19 @@ host: '0.0.0.0',
 > /build/webpack.dev.conf.js
 
 
+## 4-9 歌单列表组件
+
+
+## 4-10 SCROLL组件
+
+
+## 4-11 防止轮播图延迟加载，导致高度缺失
+
+
+## 4-12 
+## 图片懒加载
+cnpm install vue-lazyload --save
+## needsclick
+
+
+## 4-13 loading
