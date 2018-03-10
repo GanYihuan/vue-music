@@ -74,6 +74,8 @@ cnpm install axios --save
 
 ## 4-4, 4-5, 4-6
 ## 轮播图组件
-cnpm install better-scroll --save
+cnpm install better-scroll@^0.1.15 --save
+
+
 
 
