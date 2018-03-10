@@ -46,3 +46,52 @@ cnpm install babel-polyfill --save-dev
 
 ## 3-2
 ## router, tab
+
+
+## 4-1
+## 后端数据
+## chrome 工具使用
+## 从qq音乐抓取数据
+https://m.y.qq.com/
+https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
+
+
+## 4-2
+## jsonp原理:
+> 动态创建script标签,没有同源限制，可以跨域，script src指向服务端地址
+## install jsonp
+cnpm install jsonp --save
+## jsonp.js 封装
+
+
+## 4-3
+cnpm install axios --save
+## 轮播图数据抓取
+## recommend.js 抓取数据函数
+## config.js 配置参数, qq音乐里面定义好的数据, fcg
+## 发送jsonp请求
+
+
+## 4-4, 4-5, 4-6
+## 轮播图组件
+cnpm install better-scroll@^0.1.15 --save
+
+
+## 4-7
+## 歌单数据接口
+
+
+## 4-8
+## 介绍和后端接口代理
+cnpm install axios --save
+## build > webpack.dev.conf.js
+## 1.修改config目录下的index.js文件
+## 修改host
+> /config/index.js
+```
+host: '0.0.0.0',
+```
+## 2.修改webpack.dev.conf.js
+> /build/webpack.dev.conf.js
+
+
