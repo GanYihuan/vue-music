@@ -6,7 +6,7 @@
           <slider>
             <div v-for="(item, index) in recommends" :key="index">
               <a :href="item.linkUrl">
-                <img :src="item.picUrl"/>
+                <img :src="item.picUrl" @load="loadImage"/>
               </a>
             </div>
           </slider>
@@ -66,6 +66,13 @@
               this.discList = res.data.list
             }
           })
+      },
+      // 防止轮播图延迟加载，导致高度缺失
+      loadImage () {
+        if (!this.checkloaded) {
+          this.$refs.scroll.refresh()
+          this.checkloaded = true
+        }
       }
     },
     components: {
