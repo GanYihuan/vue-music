@@ -38,8 +38,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ## es6转义
 npm install babel-runtime --save
-## 移动端点击300
-ms延迟
+## 移动端点击300ms延迟
 cnpm install fastclick --save
 ## 补丁，es6转义
 cnpm install babel-polyfill --save-dev
@@ -52,13 +51,17 @@ cnpm install babel-polyfill --save-dev
 ## 4-1
 ## 后端数据
 ## chrome 工具使用
+## 从qq音乐抓取数据
+https://m.y.qq.com/
+https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
 
 
 ## 4-2
-## jsonp
-## 创建script标签,没有同源限制，可以跨域，script src指向服务端地址
+## jsonp原理:
+> 动态创建script标签,没有同源限制，可以跨域，script src指向服务端地址
+## install jsonp
 cnpm install jsonp --save
-## jsonp.js ?
+## jsonp.js 封装
 
 
 ## 4-3
