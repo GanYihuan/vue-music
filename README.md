@@ -67,3 +67,6 @@ cnpm install jsonp --save
 ## 4-3
 cnpm install axios --save
 ## 轮播图数据抓取
+## recommend.js 抓取数据函数
+## config.js 配置参数, qq音乐里面定义好的数据, fcg
+## 发送jsonp请求
