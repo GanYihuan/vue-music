@@ -70,3 +70,10 @@ cnpm install axios --save
 ## recommend.js 抓取数据函数
 ## config.js 配置参数, qq音乐里面定义好的数据, fcg
 ## 发送jsonp请求
+
+
+## 4-4, 4-5, 4-6
+## 轮播图组件
+cnpm install better-scroll --save
+
+
