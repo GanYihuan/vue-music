@@ -1,6 +1,6 @@
 <template>
   <div class="singer">
-    <ListView :data="singers" @select="selectSinger"></ListView>
+    <ListView :data="singers"></ListView>
     <router-view></router-view>
   </div>
 </template>
