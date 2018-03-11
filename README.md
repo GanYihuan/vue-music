@@ -111,3 +111,7 @@ cnpm install vue-lazyload --save
 
 
 ## 4-13 loading
+
+
+## 5-1
+## singer后端接口
