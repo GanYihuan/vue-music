@@ -1,5 +1,6 @@
 <template>
   <div class="singer">
+    <ListView :data="singers" @select="selectSinger"></ListView>
     <router-view></router-view>
   </div>
 </template>
@@ -8,6 +9,7 @@
   import { getSingerList } from '../../api/singer'
   import { ERR_OK } from '../../api/config'
   import Singer from '../../common/js/singer'
+  import ListView from '../../base/listview/listview.vue'
 
   const HOT_NAME = '热门'
   const HOT_SINGER_LEN = 10
@@ -37,7 +39,6 @@
             items: []
           }
         }
-
         list.forEach((item, index) => {
           if (index < HOT_SINGER_LEN) {
             map.hot.items.push(new Singer({
@@ -57,7 +58,6 @@
             id: item.Fsinger_mid
           }))
         })
-
         // 对象遍历是无序的，此处处理为有序列表
         let ret = []
         let hot = []
@@ -75,7 +75,9 @@
         return hot.concat(ret)
       }
     },
-    components: {}
+    components: {
+      ListView
+    }
   }
 </script>
 
