@@ -24,6 +24,19 @@
         </ul>
       </li>
     </ul>
+    <div
+      class="list-shortcut"
+      @touchstart="onShortCutTouchStart"
+      @touchmove.stop.prevent="onShortCutTouchMove">
+      <ul>
+        <li v-for="(item, index) in shortcutList"
+            :key="index"
+            class="item"
+            :data-index="index"
+            :class="{'current': currentIndex === index}"
+        >{{item}}</li>
+      </ul>
+    </div>
     <div class="loading-container" v-show="!data.length">
       <loading></loading>
     </div>
@@ -39,11 +52,10 @@
   const FIXED_TITLE_HEIGHT = 30
 
   export default {
-    props: {
-      data: {
-        type: Array,
-        default: []
-      }
+    created () {
+      this.touch = {}
+      this.listenScroll = true
+      this.probeType = 3
     },
     data () {
       return {
@@ -52,10 +64,38 @@
         diff: -1
       }
     },
-    created () {
-      this.touch = {}
-      this.listenScroll = true
-      this.probeType = 3
+    props: {
+      data: {
+        type: Array,
+        default: []
+      }
+    },
+    computed: {
+      shortcutList () {
+        return this.data.map((group) => {
+          return group.title.substr(0, 1)
+        })
+      }
+    },
+    methods: {
+      onShortCutTouchStart (e) {
+        let anchorIndex = getData(e.target, 'index')
+        let firstTouch = e.touches[0]
+        this.touch.y1 = firstTouch.pageY
+        this.touch.anchorIndex = anchorIndex
+        this._scrollTo(anchorIndex)
+      },
+      onShortCutTouchMove (e) {
+        // 判断移动时距离 / 每个字母高度，得到detal，再据此移动到目标分类
+        let firstTouch = e.touches[0]
+        this.touch.y2 = firstTouch.pageY
+        let detal = Math.floor((this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT)
+        let anchorIndex = parseInt(this.touch.anchorIndex) + detal
+        this._scrollTo(anchorIndex)
+      },
+      _scrollTo (index) {
+        this.$refs.listview.scrollToElement(this.$refs.listGroup[index])
+      },
     },
     components: {
       scroll,
