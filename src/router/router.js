@@ -71,13 +71,13 @@ export default new Router({
     {
       path: '/singer',
       component: Singer
-      // !children router bug!
-      // children: [
-      //   {
-      //     path: ':id',
-      //     component: SingerDetail
-      //   }
-      // ]
+      ,
+      children: [
+        {
+          path: ':id',
+          component: SingerDetail
+        }
+      ]
     },
     {
       path: '/rank',
@@ -86,10 +86,11 @@ export default new Router({
     {
       path: '/search',
       component: Search
-    },
-    {
-      path: '/singerDetail/:id',
-      component: SingerDetail
     }
+    // ,
+    // {
+    //   path: '/singerDetail/:id',
+    //   component: SingerDetail
+    // }
   ]
 })

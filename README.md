@@ -146,3 +146,7 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 ## 6-3 -- 6-4 
 ## Vuex
 ## cnpm install vuex --save 
+
+
+## 6-5 -- 6-7
+## 歌手数据
