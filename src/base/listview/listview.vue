@@ -57,6 +57,7 @@
   import loading from '../../base/loading/loading'
 
   const ANCHOR_HEIGHT = 18
+  // .list-group-title
   const FIXED_TITLE_HEIGHT = 30
 
   export default {
@@ -70,6 +71,7 @@
         // 事实滚动位置
         scrollY: -1,
         currentIndex: 0,
+        // 当前区块上限和上个区块下限之间的间隔
         diff: -1
       }
     },
@@ -157,12 +159,23 @@
           // 向上滚动时，y 为负值
           if (-newY >= height1 && -newY < height2) {
             this.currentIndex = i
+            // diff: 当前区块上限和上个区块下限之间的间隔
             this.diff = newY + height2
             return
           }
         }
         // 当滚动到底部, 且-newY大于最后一个元素的上限
         this.currentIndex = heightList.length - 2
+      },
+      diff (newVal) {
+        let fixedTop = (newVal > 0 && newVal < FIXED_TITLE_HEIGHT) ? newVal - FIXED_TITLE_HEIGHT : 0
+        if (this.fixedTop === fixedTop) {
+          return
+        }
+        this.fixedTop = fixedTop
+        // 开启GPU加速
+        this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`
+        // this.$refs.fixed.style.top = `${fixedTop}px`
       }
     },
     components: {
