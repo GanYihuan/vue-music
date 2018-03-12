@@ -140,7 +140,7 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 
 
 ## 6-2
-## 子路由跳转到singer-detail bug!
+## 子路由跳转到singer-detail bug
 
 
 ## 6-3 -- 6-4 
