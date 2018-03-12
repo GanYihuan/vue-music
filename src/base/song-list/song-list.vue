@@ -1,5 +1,5 @@
 <template>
-  <div>top-list</div>
+
 </template>
 
 <script type="text/ecmascript-6">
