@@ -17,9 +17,10 @@
         <h2 class="list-group-title">{{group.title}}</h2>
         <ul>
           <li
+            class="list-group-item"
             v-for="(item, index) in group.items"
             :key="index"
-            class="list-group-item"
+            @click="selectItem(item)"
           >
             <img v-lazy="item.avatar" class="avatar"/>
             <span class="name">{{item.name}}</span>
@@ -30,7 +31,8 @@
     <div
       class="list-shortcut"
       @touchstart="onShortCutTouchStart"
-      @touchmove.stop.prevent="onShortCutTouchMove">
+      @touchmove.stop.prevent="onShortCutTouchMove"
+    >
       <ul>
         <li
           class="item"
@@ -95,6 +97,10 @@
       }
     },
     methods: {
+      selectItem (item) {
+        // 派发事件出去
+        this.$emit('select', item)
+      },
       onShortCutTouchStart (e) {
         let anchorIndex = getData(e.target, 'index')
         let firstTouch = e.touches[0]
