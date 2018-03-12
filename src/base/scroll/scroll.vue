@@ -43,6 +43,7 @@
         if (this.listenScroll) {
           let _this = this
           this.scroll.on('scroll', (pos) => {
+            // 派发事件出去
             _this.$emit('scroll', pos)          // 向父级派发scroll事件
           })
         }
