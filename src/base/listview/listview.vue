@@ -42,6 +42,9 @@
         </li>
       </ul>
     </div>
+    <div class="list-fixed" v-show="fixedTitle" ref="fixed">
+      <h2 class="fixed-title">{{fixedTitle}}</h2>
+    </div>
     <div class="loading-container" v-show="!data.length">
       <loading></loading>
     </div>
@@ -81,6 +84,12 @@
         return this.data.map((group) => {
           return group.title.substr(0, 1)
         })
+      },
+      fixedTitle () {
+        if (this.scrollY > 0) {
+          return ''
+        }
+        return this.data[this.currentIndex] ? this.data[this.currentIndex].title : ''
       }
     },
     methods: {
