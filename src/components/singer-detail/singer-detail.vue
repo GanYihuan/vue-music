@@ -5,7 +5,19 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import { mapGetters } from 'vuex'
 
+  export default {
+    computed: {
+      ...mapGetters([
+        'singer'
+      ])
+    },
+    created() {
+      console.log(this.singer)
+      // this._getDetail()
+    }
+  }
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
