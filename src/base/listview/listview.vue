@@ -29,12 +29,14 @@
       @touchstart="onShortCutTouchStart"
       @touchmove.stop.prevent="onShortCutTouchMove">
       <ul>
-        <li v-for="(item, index) in shortcutList"
-            :key="index"
-            class="item"
-            :data-index="index"
-            :class="{'current': currentIndex === index}"
-        >{{item}}</li>
+        <li
+          v-for="(item, index) in shortcutList"
+          :key="index"
+          class="item"
+          :data-index="index"
+          :class="{'current': currentIndex === index}"
+        >{{item}}
+        </li>
       </ul>
     </div>
     <div class="loading-container" v-show="!data.length">
@@ -86,16 +88,16 @@
         this._scrollTo(anchorIndex)
       },
       onShortCutTouchMove (e) {
-        // 判断移动时距离 / 每个字母高度，得到detal，再据此移动到目标分类
+        // 判断移动时距离 / 每个字母高度，得到 delta，再据此移动到目标分类
         let firstTouch = e.touches[0]
         this.touch.y2 = firstTouch.pageY
-        let detal = Math.floor((this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT)
-        let anchorIndex = parseInt(this.touch.anchorIndex) + detal
+        let delta = Math.floor((this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT)
+        let anchorIndex = parseInt(this.touch.anchorIndex) + delta
         this._scrollTo(anchorIndex)
       },
       _scrollTo (index) {
         this.$refs.listview.scrollToElement(this.$refs.listGroup[index])
-      },
+      }
     },
     components: {
       scroll,
