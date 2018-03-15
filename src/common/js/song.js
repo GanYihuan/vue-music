@@ -1,5 +1,5 @@
 export default class Song {
-  constructor ({id, mid, singer, name, album, duration, image, url}) {
+  constructor({ id, mid, singer, name, album, duration, image, url }) {
     this.id = id
     this.mid = mid
     this.singer = singer
@@ -11,7 +11,7 @@ export default class Song {
   }
 }
 
-export function createSons (musicData) {
+export function createSons(musicData) {
   return new Song({
     id: musicData.songid,
     mid: musicData.songmid,
@@ -19,18 +19,23 @@ export function createSons (musicData) {
     name: musicData.songname,
     album: musicData.albumname,
     duration: musicData.interval,
-    image: `https://y.gtimg.cn/music/photo_new/T002R300x300M000${musicData.albummid}.jpg?max_age=2592000`,
+    image: `https://y.gtimg.cn/music/photo_new/T002R300x300M000${musicData.
+      albummid}.jpg?max_age=2592000`,
     url: `http://isure.stream.qqmusic.qq.com/C100${musicData.songmid}.m4a?fromtag=32`,
   })
 }
 
-function filterSinger (singer) {
+
+function filterSinger(singer) {
   let ret = []
-  if (!singer) {
+
+  if(!singer) {
     return ''
   }
+
   singer.forEach((item) => {
     ret.push(item.name)
   })
+
   return ret.join('/')
 }

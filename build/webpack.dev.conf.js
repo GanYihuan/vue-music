@@ -23,7 +23,7 @@ const PORT = process.env.PORT && Number(process.env.PORT)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
-    rules: utils.styleLoaders({sourceMap: config.dev.cssSourceMap, usePostCSS: true})
+    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
   },
   // cheap-module-eval-source-map is faster for development
   devtool: config.dev.devtool,
@@ -32,29 +32,26 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devServer: {
     // 代理接口实现
     // referer浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的，服务器基此可以获得一些信息用于处理。
-    before (app) {
+    before(app) {
       app.get('/api/getDiscList', (req, res) => {
         var url = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'
-        axios
-          .get(url, {
-            headers: {
-              referer: 'https://c.y.qq.com/',
-              host: 'c.y.qq.com'
-            },
-            params: req.query
-          })
-          .then((response) => {
-            res.json(response.data)
-          })
-          .catch((e) => {
-            console.log(e)
-          })
+        axios.get(url, {
+          headers: {
+            referer: 'https://c.y.qq.com/',
+            host: 'c.y.qq.com'
+          },
+          params: req.query
+        }).then((response) => {
+          res.json(response.data)
+        }).catch((e) => {
+          console.log(e)
+        })
       })
     },
     clientLogLevel: 'warning',
     historyApiFallback: {
       rewrites: [
-        {from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html')},
+        { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') },
       ],
     },
     hot: true,
@@ -64,7 +61,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     port: PORT || config.dev.port,
     open: config.dev.autoOpenBrowser,
     overlay: config.dev.errorOverlay
-      ? {warnings: false, errors: true}
+      ? { warnings: false, errors: true }
       : false,
     publicPath: config.dev.assetsPublicPath,
     proxy: config.dev.proxyTable,
@@ -114,8 +111,8 @@ module.exports = new Promise((resolve, reject) => {
           messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
         },
         onErrors: config.dev.notifyOnErrors
-          ? utils.createNotifierCallback()
-          : undefined
+        ? utils.createNotifierCallback()
+        : undefined
       }))
 
       resolve(devWebpackConfig)

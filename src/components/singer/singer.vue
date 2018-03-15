@@ -1,53 +1,46 @@
 <template>
   <div class="singer">
-    <Listview :data="singers" @select="selectSinger" ref="list"></Listview>
+    <Listview :data="singers" @select="selectSinger"></Listview>
     <router-view></router-view>
   </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
   // Syntactic sugar
-  import {mapMutations} from 'vuex'
-  import {getSingerList} from 'api/singer'
-  import {ERR_OK} from 'api/config'
+  import { getSingerList } from 'api/singer'
+  import { ERR_OK } from 'api/config'
+  import { mapMutations } from 'vuex'
   import Singer from 'common/js/singer'
-  import Listview from 'base/listview/listview.vue'
+  import Listview from 'base/listview/listview'
 
   const HOT_NAME = '热门'
   const HOT_SINGER_LEN = 10
 
   export default {
-    data () {
+    data() {
       return {
         singers: [],
       }
     },
-    created () {
+    created() {
       this._getSingerList()
     },
     methods: {
       ...mapMutations({
         setSinger: 'SET_SINGER'
       }),
-      selectSinger (singer) {
-        // !children router bug!
+      selectSinger(singer) {
         this.$router.push({
-          // path: `/rank`
-          // path: `/${singer.id}`
-          path: `/singerDetail/${singer.id}`
+          path: `/singer/${singer.id}`
         })
-        console.log('selectSinger2')
         this.setSinger(singer)
       },
-      _getSingerList () {
-        getSingerList()
-          .then((res) => {
-            // this.singers = res.data.list
-            // console.log(this.singers)
-            this.singers = this._normalizeSinger(res.data.list)
-          })
+      _getSingerList(){
+        getSingerList().then((res) => {
+          this.singers = this._normalizeSinger(res.data.list)
+        })
       },
-      _normalizeSinger (list) {
+      _normalizeSinger(list) {
         let map = {
           hot: {
             title: HOT_NAME,
@@ -55,14 +48,14 @@
           }
         }
         list.forEach((item, index) => {
-          if (index < HOT_SINGER_LEN) {
+          if(index < HOT_SINGER_LEN) {
             map.hot.items.push(new Singer({
               name: item.Fsinger_name,
               id: item.Fsinger_mid
             }))
           }
           let key = item.Findex
-          if (!map[key]) {
+          if(!map[key]) {
             map[key] = {
               title: key,
               items: []
@@ -76,11 +69,11 @@
         // 对象遍历是无序的，此处处理为有序列表
         let ret = []
         let hot = []
-        for (let key in map) {
+        for(let key in map) {
           let val = map[key]
-          if (val.title.match(/[a-zA-z]/)) {
+          if(val.title.match(/[a-zA-z]/)) {
             ret.push(val)
-          } else if (val.title === HOT_NAME) {
+          }else if(val.title === HOT_NAME) {
             hot.push(val)
           }
         }
@@ -96,6 +89,6 @@
   }
 </script>
 
-<style lang="scss" rel="stylesheet/scss">
+<style scoped lang="scss" rel="stylesheet/scss">
   @import "./singer.scss";
 </style>

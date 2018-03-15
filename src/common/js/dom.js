@@ -1,23 +1,27 @@
-export function addClass (el, className) {
-  if (hasClass(el, className)) {
+export function addClass(el, className) {
+  if(hasClass(el, className)) {
     return
   }
-  let newClass = el.className.split(' ')
-  newClass.push(className)
-  el.className = newClass.join(' ')
+
+  let newClass = el.className.split(' ');
+  newClass.push(className);
+
+  el.className = newClass.join(' ');
 }
 
-export function hasClass (el, className) {
-  let reg = new RegExp('(^|\\s)' + className + '(\\s|$)')
-  return reg.test(el.className)
+export function hasClass(el, className) {
+  let reg = new RegExp('(^|\\s)' + className + '(\\s|$)');
+
+  return reg.test(el.className);
 }
 
-export function getData (e, name, val) {
+export function getData(e, name, val) {
   let prefix = 'data-'
   name = prefix + name
-  if (val) {
+
+  if(val) {
     return e.setAttribute(name, val)
-  } else {
+  }else{
     return e.getAttribute(name)
   }
 }

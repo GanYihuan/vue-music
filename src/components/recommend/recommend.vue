@@ -1,13 +1,13 @@
 <template>
-  <div class="recommend" ref="recommend">
-    <scroll class="recommend-content" :data="discList" ref="scroll">
+  <div class="recommend">
+    <scroll ref="scroll" class="recommend-content" :data="discList">
       <div>
         <!-- v-if="recommends.length": prevent Asynchronous load delay -->
-        <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
+        <div v-if="recommends.length" class="slider-wrapper">
           <slider>
-            <div v-for="(item, index) in recommends" :key="index">
+            <div v-for="(item,index) in recommends" :key="index">
               <a :href="item.linkUrl">
-                <img :src="item.picUrl" @load="loadImage"/>
+                <img :src="item.picUrl" @load="loadImage">
               </a>
             </div>
           </slider>
@@ -19,7 +19,7 @@
               <div class="icon">
                 <!-- v-lazy: Load only when scrolling. -->
                 <!-- class="needsclick": fastclick does not intercept the click process. -->
-                <img class="needsclick" v-lazy="item.imgurl" width="60" height="60"/>
+                <img v-lazy="item.imgurl" width="60" height="60">
               </div>
               <div class="text">
                 <h2 class="name" v-html="item.creator.name"></h2>
@@ -36,45 +36,41 @@
   </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script >
+  import Slider from 'base/slider/slider'
+  import Scroll from 'base/scroll/scroll'
+  import Loading from 'base/loading/loading'
   import {getRecommend, getDiscList} from 'api/recommend'
   import {ERR_OK} from 'api/config'
-  import Slider from 'base/slider/slider.vue'
-  import Scroll from 'base/scroll/scroll.vue'
-  import Loading from 'base/loading/loading'
 
   export default {
-    data () {
+    data() {
       return {
         recommends: [],
         discList: [],
         title: '正在载入...'
       }
     },
-    created () {
-      this._getRecommend()
-      this._getDiscList()
+    created() {
+      this._getRecommend();
+      this._getDiscList();
     },
     methods: {
-      _getRecommend () {
-        getRecommend()
-          .then((res) => {
-            // js -> fcg -> Response -> jsonp(data)
-            // https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
-            if (res.code === ERR_OK) {
-              // console.log(res.data.slider)
-              this.recommends = res.data.slider
-            }
-          })
+      _getRecommend() {
+        getRecommend().then((res) => {
+          // js -> fcg -> Response -> jsonp(data)
+          // https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
+          if(res.code === ERR_OK) {
+            this.recommends = res.data.slider
+          }
+        }) 
       },
-      _getDiscList () {
-        getDiscList()
-          .then((res) => {
-            if (res.code === ERR_OK) {
-              // console.log(res.data.list)
-              this.discList = res.data.list
-            }
-          })
+      _getDiscList() {
+        getDiscList().then((res) => {
+          if (res.code === ERR_OK) {
+            this.discList = res.data.list
+          }
+        })
       },
       // Prevent wheel-seeding graph from delaying loading, resulting in high loss
       loadImage () {
@@ -92,7 +88,7 @@
   }
 </script>
 
-<style lang="scss" rel="stylesheet/scss">
+<style scoped lang="scss" rel="stylesheet/scss">
   @import "../../common/scss/variable.scss";
   @import "./recommend.scss";
 </style>

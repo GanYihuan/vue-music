@@ -159,6 +159,10 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 ## loading
 
 
+## 6-1
+## introduce
+
+
 ## 6-2
 ## 子路由跳转到singer-detail bug
 

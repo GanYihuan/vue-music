@@ -1,11 +1,14 @@
 <template>
-
+  <div class="song-list">
+    song-list
+  </div>
 </template>
 
-<script type="text/ecmascript-6">
-
+<script>
+  export default {
+  }
 </script>
 
-<style lang="scss" rel="stylesheet/scss">
+<style scoped lang="stylus" rel="stylesheet/stylus">
 
 </style>

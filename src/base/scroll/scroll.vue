@@ -4,9 +4,8 @@
   </div>
 </template>
 
-<script type="text/ecmascript-6">
-  import BScroll from 'better-scroll'
-
+<script>
+  import BScorll from 'better-scroll'
   export default {
     props: {
       probeType: {
@@ -19,57 +18,48 @@
       },
       data: {
         type: Array,
-        default: null
+        default: true
       },
       listenScroll: {
         type: Boolean,
         default: false
       }
     },
-    mounted () {
+    mounted(){
       // Ensure dom rendering
       setTimeout(() => {
         this._initScroll()
-      }, 20)
+      },20)
     },
     methods: {
-      _initScroll () {
-        if (!this.$refs.wrapper) {
-          return
-        }
-        this.scroll = new BScroll(this.$refs.wrapper, {
+      _initScroll() {
+        this.scroll = new BScorll(this.$refs.wrapper, {
           probeType: this.probeType,
           click: this.click
         })
-        if (this.listenScroll) {
+
+        if(this.listenScroll) {
           let _this = this
           this.scroll.on('scroll', (pos) => {
-            // 派发事件出去
-            _this.$emit('scroll', pos)          // 向父级派发scroll事件
+            // 向父级派发scroll事件
+            _this.$emit('scroll', pos)          
           })
         }
       },
-      enable () {
-        this.scroll && this.scroll.enable()
+      refresh() {
+        this.scroll && this.scroll.refresh();
       },
-      disable () {
-        this.scroll && this.scroll.disable()
-      },
-      refresh () {
-        this.scroll && this.scroll.refresh()
-      },
-      scrollTo () {
-        // apply: Accept Parameters
+      scrollTo() {
         this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
       },
-      scrollToElement () {
+      scrollToElement() {
         this.scroll && this.scroll.scrollToElement.apply(this.scroll, arguments)
       }
     },
     watch: {
-      data () {
+      data() {
         setTimeout(() => {
-          this.refresh()
+          this.refresh();
         }, 20)
       }
     }
