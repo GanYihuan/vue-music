@@ -2,6 +2,7 @@
   <div class="recommend" ref="recommend">
     <scroll class="recommend-content" :data="discList" ref="scroll">
       <div>
+        <!-- v-if="recommends.length": prevent Asynchronous load delay -->
         <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
           <slider>
             <div v-for="(item, index) in recommends" :key="index">
@@ -14,8 +15,10 @@
         <div class="recommend-list">
           <h1 class="list-title">热门歌单推荐</h1>
           <ul>
-            <li v-for="item in discList" class="item">
+            <li v-for="(item,index) in discList" :key="index" class="item">
               <div class="icon">
+                <!-- v-lazy: Load only when scrolling. -->
+                <!-- class="needsclick": fastclick does not intercept the click process. -->
                 <img class="needsclick" v-lazy="item.imgurl" width="60" height="60"/>
               </div>
               <div class="text">
@@ -34,11 +37,11 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import { getRecommend, getDiscList } from '../../api/recommend'
-  import { ERR_OK } from '../../api/config'
-  import Slider from '../../base/slider/slider.vue'
-  import Scroll from '../../base/scroll/scroll.vue'
-  import Loading from '../../base/loading/loading'
+  import {getRecommend, getDiscList} from 'api/recommend'
+  import {ERR_OK} from 'api/config'
+  import Slider from 'base/slider/slider.vue'
+  import Scroll from 'base/scroll/scroll.vue'
+  import Loading from 'base/loading/loading'
 
   export default {
     data () {
@@ -56,8 +59,10 @@
       _getRecommend () {
         getRecommend()
           .then((res) => {
+            // js -> fcg -> Response -> jsonp(data)
+            // https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
             if (res.code === ERR_OK) {
-              console.log(res.data.slider)
+              // console.log(res.data.slider)
               this.recommends = res.data.slider
             }
           })
@@ -66,12 +71,12 @@
         getDiscList()
           .then((res) => {
             if (res.code === ERR_OK) {
-              console.log(res.data.list)
+              // console.log(res.data.list)
               this.discList = res.data.list
             }
           })
       },
-      // 防止轮播图延迟加载，导致高度缺失
+      // Prevent wheel-seeding graph from delaying loading, resulting in high loss
       loadImage () {
         if (!this.checkloaded) {
           this.$refs.scroll.refresh()

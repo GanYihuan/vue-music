@@ -27,6 +27,7 @@
       }
     },
     mounted () {
+      // Ensure dom rendering
       setTimeout(() => {
         this._initScroll()
       }, 20)
@@ -74,6 +75,6 @@
   }
 </script>
 
-<style lang="scss" rel="stylesheet/scss">
+<style scoped lang="scss" rel="stylesheet/scss">
 
 </style>

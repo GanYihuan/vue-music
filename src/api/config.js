@@ -1,3 +1,9 @@
+/**
+ * 配置参数
+ * Network -> fcg -> js -> Query String Parameters
+ * @type {{g_tk: number, inCharset: string, outCharset: string, notice: number, format: string}}
+ */
+
 export const commonParams = {
   g_tk: 1928093487,
   inCharset: 'utf-8',

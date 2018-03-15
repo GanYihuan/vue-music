@@ -34,9 +34,9 @@
 
 <script type="text/ecmascript-6">
   import {mapActions} from 'vuex'
-  import Scroll from '../../base/scroll/scroll'
-  import songList from '../../base/song-list/song-list'
-  import Loading from '../../base/loading/loading'
+  import Scroll from 'base/scroll/scroll'
+  import songList from 'base/song-list/song-list'
+  import Loading from 'base/loading/loading'
 
   export default {
     props: {

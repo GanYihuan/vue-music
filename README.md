@@ -24,13 +24,24 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ## Vue-开发移动端音乐WebApp
 
 
+## 2-2
+vue init webpack imooc-music
+
+
 ## webpack.base.conf.js别名配置
+## 使用后在main.js直接引入
+import 'common/scss/index.scss'
 ```
-  resolve: {
+context: path.resolve(__dirname, '..', dir),
+resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
+      'vue$': 'vue/dist/vue.esm.js',
       'src': resolve('src'),
-      'common': resolve('src/common')
+      'common': resolve('src/common'),
+      'components': resolve('src/components'),
+      'api': resolve('src/api'),
+      'base': resolve('src/base'),
     }
   },
 ```
@@ -58,7 +69,10 @@ https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
 
 ## 4-2
 ## jsonp原理:
-> 动态创建script标签,没有同源限制，可以跨域，script src指向服务端地址
+> 动态创建script标签,没有同源限制，可以跨域，script src地址指向第三方的API网址
+> 并提供一个回调函数来接收数据,第三方产生的响应为json数据的包装
+> 浏览器会调用callback函数，并传递解析后json对象作为参数。
+> 本站脚本可在callback函数里处理所传入的数据。   
 ## install jsonp
 cnpm install jsonp --save
 ## jsonp.js 封装
@@ -74,7 +88,7 @@ cnpm install axios --save
 
 ## 4-4, 4-5, 4-6
 ## 轮播图组件
-cnpm install better-scroll@^0.1.15 --save
+cnpm install better-scroll@0.1.15 --save
 
 
 ## 4-7
@@ -82,38 +96,43 @@ cnpm install better-scroll@^0.1.15 --save
 
 
 ## 4-8
-## 介绍和后端接口代理
+## 介绍和后端接口代理 
+## ajax库axios,发起HTTPRequest
 cnpm install axios --save
-## build > webpack.dev.conf.js
 ## 1.修改config目录下的index.js文件
 ## 修改host
 > /config/index.js
 ```
 host: '0.0.0.0',
 ```
-## 2.修改webpack.dev.conf.js
-> /build/webpack.dev.conf.js
+## 2.修改/build/webpack.dev.conf.js
+> 异步定义后端接口
+## 3. recommend.js -> getDiscList 调用后端接口
 
 
-## 4-9 歌单列表组件
+## 4-9 
+## 歌单列表组件
 
 
-## 4-10 SCROLL组件
+## 4-10 
+## scroll组件
 
 
-## 4-11 防止轮播图延迟加载，导致高度缺失
+## 4-11 
+## 防止轮播图延迟加载，导致高度缺失
 
 
 ## 4-12 
 ## 图片懒加载
 cnpm install vue-lazyload --save
-## needsclick
+## class="needsclick"
 
 
-## 4-13 loading
+## 4-13 
+## loading
 
 
-## 5-1 --- 5-2
+## 5-1, 5-2
 ## singer后端接口
 
 
@@ -126,7 +145,7 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 ## singer.vue 界面实现
 
 
-## 5-5 -- 5-6 -- 5-7 -- 5-8 
+## 5-5, 5-6, 5-7, 5-8 
 ## listivew.vue 右侧滚动
 
 
@@ -143,10 +162,10 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 ## 子路由跳转到singer-detail bug
 
 
-## 6-3 -- 6-4 
+## 6-3, 6-4 
 ## Vuex
 ## cnpm install vuex --save 
 
 
-## 6-5 -- 6-7
+## 6-5, 6-7
 ## 歌手数据
