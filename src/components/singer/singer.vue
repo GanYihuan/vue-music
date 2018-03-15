@@ -6,12 +6,12 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import { getSingerList } from '../../api/singer'
-  import { ERR_OK } from '../../api/config'
-  // 语法糖
-  import { mapMutations } from 'vuex'
-  import Singer from '../../common/js/singer'
-  import Listview from '../../base/listview/listview.vue'
+  // Syntactic sugar
+  import {mapMutations} from 'vuex'
+  import {getSingerList} from 'api/singer'
+  import {ERR_OK} from 'api/config'
+  import Singer from 'common/js/singer'
+  import Listview from 'base/listview/listview.vue'
 
   const HOT_NAME = '热门'
   const HOT_SINGER_LEN = 10
@@ -30,7 +30,6 @@
         setSinger: 'SET_SINGER'
       }),
       selectSinger (singer) {
-        // console.log('selectSinger')
         // !children router bug!
         this.$router.push({
           // path: `/rank`

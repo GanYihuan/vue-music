@@ -9,9 +9,9 @@
   >
     <ul>
       <li
+        class="list-group"
         v-for="(group, index) in data"
         :key="index"
-        class="list-group"
         ref="listGroup"
       >
         <h2 class="list-group-title">{{group.title}}</h2>
@@ -39,12 +39,17 @@
           v-for="(item, index) in shortcutList"
           :key="index"
           :data-index="index"
-          :class="{'current': currentIndex === index}">
+          :class="{'current': currentIndex === index}"
+        >
           {{item}}
         </li>
       </ul>
     </div>
-    <div class="list-fixed" v-show="fixedTitle" ref="fixed">
+    <div
+      class="list-fixed"
+      v-show="fixedTitle"
+      ref="fixed"
+    >
       <h2 class="fixed-title">{{fixedTitle}}</h2>
     </div>
     <div class="loading-container" v-show="!data.length">
@@ -54,34 +59,35 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import { getData } from '../../common/js/dom'
-  import scroll from '../../base/scroll/scroll'
-  import loading from '../../base/loading/loading'
+  import {getData} from 'common/js/dom'
+  import scroll from 'base/scroll/scroll'
+  import loading from 'base/loading/loading'
 
   const ANCHOR_HEIGHT = 18
   // .list-group-title
   const FIXED_TITLE_HEIGHT = 30
 
   export default {
-    created () {
-      this.touch = {}
-      this.listenScroll = true
-      this.probeType = 3
-    },
-    data () {
-      return {
-        // 事实滚动位置
-        scrollY: -1,
-        currentIndex: 0,
-        // 当前区块上限和上个区块下限之间的间隔
-        diff: -1
-      }
-    },
     props: {
       data: {
         type: Array,
         default: []
       }
+    },
+    data () {
+      return {
+        // 事实滚动位置
+        scrollY: -1,
+        // 当前应该显示第几个
+        currentIndex: 0,
+        // 当前区块上限和上个区块下限之间的间隔
+        diff: -1
+      }
+    },
+    created () {
+      this.touch = {}
+      this.listenScroll = true
+      this.probeType = 3
     },
     computed: {
       shortcutList () {
@@ -103,8 +109,10 @@
       },
       onShortCutTouchStart (e) {
         let anchorIndex = getData(e.target, 'index')
+        // touches: Finger position
         let firstTouch = e.touches[0]
         this.touch.y1 = firstTouch.pageY
+        // Position anchor Point at the start point
         this.touch.anchorIndex = anchorIndex
         this._scrollTo(anchorIndex)
       },
@@ -117,7 +125,7 @@
         this._scrollTo(anchorIndex)
       },
       scroll (pos) {
-        // 获得滑动距离
+        // 事实滚动位置
         this.scrollY = pos.y
       },
       _scrollTo (index) {
@@ -134,8 +142,9 @@
         this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
       },
       _calculateHeight () {
-        let height = 0
         let listGroup = this.$refs.listGroup
+        let height = 0
+        // heightList 比listGroup多一个元素
         this.heightList = []
         this.heightList.push(height)
         for (let i = 0; i < listGroup.length; i++) {
@@ -159,6 +168,7 @@
           return
         }
         // 在中间部分滚动
+        // length - 1, 不考虑最后一个
         for (let i = 0; i < heightList.length - 1; i++) {
           let height1 = heightList[i]
           let height2 = heightList[i + 1]
@@ -170,11 +180,14 @@
             return
           }
         }
-        // 当滚动到底部, 且-newY大于最后一个元素的上限
+        // 当滚动到底部最后一个元素, 且-newY大于最后一个元素的上限
+        // heightList 比listGroup多一个元素
         this.currentIndex = heightList.length - 2
       },
       diff (newVal) {
+        // title上顶
         let fixedTop = (newVal > 0 && newVal < FIXED_TITLE_HEIGHT) ? newVal - FIXED_TITLE_HEIGHT : 0
+        // title不上顶
         if (this.fixedTop === fixedTop) {
           return
         }

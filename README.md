@@ -133,12 +133,13 @@ cnpm install vue-lazyload --save
 
 
 ## 5-1, 5-2
-## singer后端接口
+## singer 后端接口
 
 
 ## 5-3
 ## 歌手数据
 https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&g_tk=295327561&jsonpCallback=GetSingerListCallback&loginUin=583520052&hostUin=0&format=jsonp&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0
+## singer 数据处理
 
 
 ## 5-4
@@ -153,7 +154,7 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 ## fixtitle
 
 
-## 5-10
+## 5-10****
 ## 区块切换时，fixtitle有顶上去的效果
 ## loading
 
