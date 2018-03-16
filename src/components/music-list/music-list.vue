@@ -11,7 +11,7 @@
           <span class="text">随机播放全部</span>
         </div>
       </div>
-      <div class="filter"></div>
+      <div class="filter" ref="filter"></div>
     </div>
     <div class="bg-layer" ref="layer"></div>
     <scroll
@@ -38,6 +38,8 @@
   import songList from "base/song-list/song-list"
   import Loading from "base/loading/loading"
 
+  const RESERVED_HEIGHT = 40
+
   export default {
     props: {
       songs: {
@@ -55,8 +57,9 @@
     },
     data () {
       return {
+        // 事实滚动位置
         scrollY: 0
-      };
+      }
     },
     created () {
       this.probeType = 3
@@ -72,6 +75,7 @@
         this.$router.back()
       },
       scroll (pos) {
+        // 事实滚动位置
         this.scrollY = pos.y
       },
       selectItem (item, index) {
@@ -84,7 +88,7 @@
     },
     mounted () {
       this.bgImgHeight = this.$refs.bgImg.clientHeight
-      this.minTranslateY = -this.bgImgHeight + 40
+      this.minTranslateY = -this.bgImgHeight + RESERVED_HEIGHT
       this.$refs.list.$el.style.top = `${this.bgImgHeight}px`
     },
     watch: {
@@ -93,13 +97,15 @@
         let scale = 1
         let blur = 0
         let translateY = Math.max(this.minTranslateY, newY)
+
         if (this.translateY === translateY) {
           return
         }
         this.translateY = translateY
-
+        // 绝对值
         const percent = Math.abs(newY / this.bgImgHeight)
 
+        // 往下拉
         if (newY > 0) {
           scale = 1 + percent
           zIndex = 10
@@ -107,17 +113,21 @@
           blur = Math.min(20 * percent, 20)
         }
 
+        // 大小变化
         this.$refs.bgImg.style["transform"] = `scale(${scale})`
         this.$refs.bgImg.style["webkitTransform"] = `scale(${scale})`
-        this.$refs.bgImg.style["backdrop-filter"] = `blur(${blur}px)`
-        this.$refs.bgImg.style["webkitBackdrop-filter"] = `blur(${blur}px)`
+        // 高斯模糊: apple手机能查看
+        this.$refs.filter.style["backdrop-filter"] = `blur(${blur}px)`
+        this.$refs.filter.style["webkitBackdrop-filter"] = `blur(${blur}px)`
+        // 动画,位移
         this.$refs.layer.style["transform"] = `translate3d(0, ${translateY}px, 0)`
         this.$refs.layer.style["webkitTransform"] = `translate3d(0, ${translateY}px, 0)`
 
+        // 滚动到顶部
         if (newY < this.minTranslateY) {
           zIndex = 10
           this.$refs.bgImg.style.paddingTop = 0
-          this.$refs.bgImg.style.height = 40 + "px"
+          this.$refs.bgImg.style.height = `${RESERVED_HEIGHT}px`
           this.$refs.playBtn.style.display = "none"
         } else {
           this.$refs.bgImg.style.paddingTop = "70%"
