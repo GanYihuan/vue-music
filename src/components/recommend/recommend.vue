@@ -36,7 +36,7 @@
   </div>
 </template>
 
-<script >
+<script>
   import Slider from 'base/slider/slider'
   import Scroll from 'base/scroll/scroll'
   import Loading from 'base/loading/loading'
@@ -44,28 +44,28 @@
   import {ERR_OK} from 'api/config'
 
   export default {
-    data() {
+    data () {
       return {
         recommends: [],
         discList: [],
         title: '正在载入...'
       }
     },
-    created() {
+    created () {
       this._getRecommend();
       this._getDiscList();
     },
     methods: {
-      _getRecommend() {
+      _getRecommend () {
         getRecommend().then((res) => {
           // js -> fcg -> Response -> jsonp(data)
           // https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
-          if(res.code === ERR_OK) {
+          if (res.code === ERR_OK) {
             this.recommends = res.data.slider
           }
-        }) 
+        })
       },
-      _getDiscList() {
+      _getDiscList () {
         getDiscList().then((res) => {
           if (res.code === ERR_OK) {
             this.discList = res.data.list
