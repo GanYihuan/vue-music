@@ -6,6 +6,7 @@
 
 <script>
   import BScorll from 'better-scroll'
+
   export default {
     props: {
       probeType: {
@@ -25,39 +26,38 @@
         default: false
       }
     },
-    mounted(){
+    mounted () {
       // Ensure dom rendering
       setTimeout(() => {
         this._initScroll()
-      },20)
+      }, 20)
     },
     methods: {
-      _initScroll() {
+      _initScroll () {
         this.scroll = new BScorll(this.$refs.wrapper, {
           probeType: this.probeType,
           click: this.click
         })
-
-        if(this.listenScroll) {
+        if (this.listenScroll) {
           let _this = this
           this.scroll.on('scroll', (pos) => {
             // 向父级派发scroll事件
-            _this.$emit('scroll', pos)          
+            _this.$emit('scroll', pos)
           })
         }
       },
-      refresh() {
+      refresh () {
         this.scroll && this.scroll.refresh();
       },
-      scrollTo() {
+      scrollTo () {
         this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
       },
-      scrollToElement() {
+      scrollToElement () {
         this.scroll && this.scroll.scrollToElement.apply(this.scroll, arguments)
       }
     },
     watch: {
-      data() {
+      data () {
         setTimeout(() => {
           this.refresh();
         }, 20)

@@ -36,7 +36,7 @@
   import {mapActions} from "vuex"
   import {prefixStyle} from 'common/js/dom'
   import Scroll from "base/scroll/scroll"
-  import songList from "base/song-list/song-list"
+  import SongList from "base/song-list/song-list"
   import Loading from "base/loading/loading"
 
   const RESERVED_HEIGHT = 40
@@ -116,12 +116,20 @@
           blur = Math.min(20 * percent, 20)
         }
 
+        // bug!
         // 大小变化
-        this.$refs.bgImg.style[transform] = `scale(${scale})`
+        // this.$refs.bgImg.style[transform] = `scale(${scale})`
         // 高斯模糊: apple手机能查看
-        this.$refs.filter.style[backdrop] = `blur(${blur}px)`
+        // this.$refs.filter.style[backdrop] = `blur(${blur}px)`
         // 动画,位移
-        this.$refs.layer.style[transform] = `translate3d(0, ${translateY}px, 0)`
+        // this.$refs.layer.style[transform] = `translate3d(0, ${translateY}px, 0)`
+
+        this.$refs.bgImg.style["transform"] = `scale(${scale})`;
+        this.$refs.bgImg.style["webkitTransform"] = `scale(${scale})`;
+        this.$refs.bgImg.style["backdrop-filter"] = `blur(${blur}px)`;
+        this.$refs.bgImg.style["webkitBackdrop-filter"] = `blur(${blur}px)`;
+        this.$refs.layer.style["transform"] = `translate3d(0, ${translateY}px, 0)`;
+        this.$refs.layer.style["webkitTransform"] = `translate3d(0, ${translateY}px, 0)`;
 
         // 滚动到顶部
         if (newY < this.minTranslateY) {
@@ -139,7 +147,7 @@
     },
     components: {
       Scroll,
-      songList,
+      SongList,
       Loading
     }
   }
