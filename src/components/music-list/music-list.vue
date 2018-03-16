@@ -15,10 +15,10 @@
     </div>
     <div class="bg-layer" ref="layer"></div>
     <scroll
+      class="list"
       :probe-type="probeType"
       :listen-scroll="listenScroll"
       :data="songs"
-      class="list"
       ref="list"
       @scroll="scroll"
     >
@@ -33,10 +33,10 @@
 </template>
 
 <script>
+  import {mapActions} from "vuex"
   import Scroll from "base/scroll/scroll"
   import songList from "base/song-list/song-list"
   import Loading from "base/loading/loading"
-  import {mapActions} from "vuex"
 
   export default {
     props: {
