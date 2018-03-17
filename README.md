@@ -223,3 +223,8 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 
 ## 7-11
 ## 获取歌曲播放时间
+
+
+## 7-12, 7-13
+## 不同浏览器css的配置 bug!
+## 歌曲进度条, 可以拖动
