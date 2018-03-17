@@ -41,11 +41,11 @@
             <span class="dot"></span>
           </div>
           <div class="progress-wrapper">
-            <span class="time time-l"></span>
+            <span class="time time-l">{{format(currentTime)}}</span>
             <div class="progress-bar-wrapper">
               <!--<progress-bar :percent="percent" ></progress-bar>-->
             </div>
-            <span class="time time-r"></span>
+            <span class="time time-r">{{format(this.currentSong.duration)}}</span>
           </div>
           <div class="operators">
             <div class="icon i-left">
@@ -89,6 +89,7 @@
       ref="audio"
       @canplay="ready"
       @error='error'
+      @timeupdate="updateTime"
     >
     </audio>
   </div>
@@ -106,7 +107,7 @@
       return {
         songReady: false,
         currentTime: 0
-      };
+      }
     },
     computed: {
       // 传入 vuex 的 state
@@ -214,6 +215,25 @@
       },
       error () {
         this.songReady = true
+      },
+      updateTime (e) {
+        this.currentTime = e.target.currentTime
+      },
+      format (interval) {
+        // 取整
+        interval = interval | 0
+        const minute = (interval / 60) | 0
+        const second = this._pad(interval % 60)
+        return `${minute}:${second}`
+      },
+      // 用 0 补位, 补 2 位
+      _pad (num, n = 2) {
+        let len = num.toString().length
+        while (len < n) {
+          num = "0" + num
+          len++
+        }
+        return num
       },
       _getPosAndScale () {
         // 缩小后的圆图
