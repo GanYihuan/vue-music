@@ -1,5 +1,6 @@
 import {getLyric} from 'api/song'
 import {ERR_OK} from 'api/config'
+// String decoding
 import {Base64} from 'js-base64'
 
 export default class Song {
@@ -14,6 +15,7 @@ export default class Song {
     this.url = url
   }
 
+  // getLyric: return promise
   getLyric () {
     if (this.lyric) {
       return Promise.resolve(this.lyric)

@@ -106,6 +106,8 @@
   import animations from "create-keyframe-animation";
   import ProgressBar from "base/progress-bar/progress-bar"
   import ProgressCircle from "base/progress-circle/progress-circle"
+  // 解析字符串, 传入lyric,执行到一个时间点后执行handle函数
+  import Lyric from 'lyric-parser'
 
   const transform = prefixStyle('transform')
 
@@ -114,7 +116,8 @@
       return {
         songReady: false,
         currentTime: 0,
-        radius: 32
+        radius: 32,
+        currentLyric: null
       }
     },
     computed: {
@@ -282,6 +285,23 @@
           return item.id === this.currentSong.id
         })
         this.setCurrentIndex(index)
+      },
+      getLyric () {
+        this.currentSong.getLyric()
+          .then((lyric) => {
+            if (this.currentSong.lyric !== lyric) {
+              return
+            }
+            this.currentLyric = new Lyric(lyric, this.handleLyric)
+            if (this.playing) {
+              this.currentLyric.play()
+            }
+          })
+          .catch(() => {
+            this.currentLyric = null
+            this.playingLyric = ''
+            this.currentLineNum = 0
+          })
       },
       // 用 0 补位, 补 2 位
       _pad (num, n = 2) {
