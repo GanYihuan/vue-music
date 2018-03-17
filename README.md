@@ -189,7 +189,7 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 
 
 ## 6-13
-## 不同浏览器css的配置
+## 不同浏览器css的配置 bug!
 
 
 ## 6-14
@@ -210,3 +210,8 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 
 ## 7-4
 ## 播放器基本设置
+
+
+## 7-5, 7-6, 7-7
+## 动画效果
+## 不同浏览器css的配置 bug!

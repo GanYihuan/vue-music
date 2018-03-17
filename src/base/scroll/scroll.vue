@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import BScorll from 'better-scroll'
+  import BScroll from "better-scroll"
 
   export default {
     props: {
@@ -34,20 +34,20 @@
     },
     methods: {
       _initScroll () {
-        this.scroll = new BScorll(this.$refs.wrapper, {
+        this.scroll = new BScroll(this.$refs.wrapper, {
           probeType: this.probeType,
           click: this.click
         })
         if (this.listenScroll) {
           let _this = this
-          this.scroll.on('scroll', (pos) => {
+          this.scroll.on("scroll", pos => {
             // 向父级派发scroll事件
-            _this.$emit('scroll', pos)
+            _this.$emit("scroll", pos)
           })
         }
       },
       refresh () {
-        this.scroll && this.scroll.refresh();
+        this.scroll && this.scroll.refresh()
       },
       scrollTo () {
         this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
@@ -59,11 +59,11 @@
     watch: {
       data () {
         setTimeout(() => {
-          this.refresh();
+          this.refresh()
         }, 20)
       }
     }
-  }
+  };
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
