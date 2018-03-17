@@ -330,9 +330,11 @@
         }
         // setTimeout: 解决DOM异常, $nextTick替代
         // $nextTick: 在下次DOM更新循环结束之后执行的延迟回调。在修改数据之后立即使用这个方法，获取更新后的DOM。
-        this.$nextTick(() => {
+        clearTimeout(this.timer)
+        this.timer = setTimeout(() => {
           this.$refs.audio.play()
-        })
+          this.getLyric()
+        }, 1000)
       },
       playing (newPlaying) {
         const audio = this.$refs.audio

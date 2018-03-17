@@ -236,3 +236,7 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 
 ## 7-16, 7-17, 7-18 
 ## 播放模式 ?
+
+
+## 7-19
+## 抓取歌词数据, 后端，不理解 ? 
