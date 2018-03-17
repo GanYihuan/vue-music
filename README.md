@@ -215,3 +215,7 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 ## 7-5, 7-6, 7-7
 ## 动画效果
 ## 不同浏览器css的配置 bug!
+
+
+## 7-8, 7-9, 7-10
+## 歌曲控件,播放,前进,站厅,旋转

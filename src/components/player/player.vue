@@ -21,7 +21,7 @@
         <div class="middle">
           <div class="middle-l">
             <div class="cd-wrapper" ref="cdWrapper">
-              <div class="cd">
+              <div class="cd" :class="cdCls">
                 <img class="image" :src="currentSong.image">
               </div>
             </div>
@@ -51,14 +51,14 @@
             <div class="icon i-left">
               <i class="icon-sequence"></i>
             </div>
-            <div class="icon i-left">
-              <i class="icon-prev"></i>
+            <div class="icon i-left" :class="disableCls">
+              <i class="icon-prev" @click="prevSong"></i>
             </div>
-            <div class="icon i-center">
-              <i></i>
+            <div class="icon i-center" :class="disableCls">
+              <i :class="playIcon" @click="togglePlaying"></i>
             </div>
-            <div class="icon i-right">
-              <i class="icon-next"></i>
+            <div class="icon i-right" :class="disableCls">
+              <i class="icon-next" @click="nextSong"></i>
             </div>
             <div class="icon i-right">
               <i class="icon icon-not-favorite"></i>
@@ -70,20 +70,27 @@
     <transition name="mini">
       <div class="mini-player" v-show="!fullScreen" @click="open">
         <div class="icon">
-          <img width="40" height="40" :src="currentSong.image">
+          <img :class="cdCls" width="40" height="40" :src="currentSong.image">
         </div>
         <div class="text">
           <h2 class="name" v-html="currentSong.name"></h2>
           <p class="desc" v-html="currentSong.singer"></p>
         </div>
-        <div class="control">
-          <i></i>
+        <div class="control" @click.stop="togglePlaying">
+          <i :class="playMiniIcon"></i>
         </div>
         <div class="control">
           <i class="icon-playlist"></i>
         </div>
       </div>
     </transition>
+    <audio
+      :src="currentSong.url"
+      ref="audio"
+      @canplay="ready"
+      @error='error'
+    >
+    </audio>
   </div>
 </template>
 
@@ -95,6 +102,12 @@
   const transform = prefixStyle('transform')
 
   export default {
+    data () {
+      return {
+        songReady: false,
+        currentTime: 0
+      };
+    },
     computed: {
       // 传入 vuex 的 state
       ...mapGetters([
@@ -103,7 +116,22 @@
         "currentSong",
         "playing",
         "currentIndex"
-      ])
+      ]),
+      playIcon () {
+        return this.playing ? "icon-pause" : "icon-play"
+      },
+      playMiniIcon () {
+        return this.playing ? "icon-pause-mini" : "icon-play-mini"
+      },
+      cdCls () {
+        return this.playing ? "play" : "play pause"
+      },
+      disableCls () {
+        return this.songReady ? "" : "disable"
+      },
+      percent () {
+        return this.currentTime / this.currentSong.duration
+      }
     },
     methods: {
       back () {
@@ -150,6 +178,43 @@
         this.$refs.cdWrapper.style.transition = ""
         this.$refs.cdWrapper.style.transform = ""
       },
+      togglePlaying () {
+        this.setPlayingState(!this.playing)
+      },
+      prevSong () {
+        if (!this.songReady) {
+          return
+        }
+        let index = this.currentIndex - 1
+        if (index === -1) {
+          index = this.playList.length - 1
+        }
+        this.setCurrentIndex(index)
+        if (!this.playing) {
+          this.togglePlaying()
+        }
+        this.songReady = false
+      },
+      nextSong () {
+        if (!this.songReady) {
+          return;
+        }
+        let index = this.currentIndex + 1
+        if (index === this.playList.length) {
+          index = 0
+        }
+        this.setCurrentIndex(index)
+        if (!this.playing) {
+          this.togglePlaying()
+        }
+        this.songReady = false
+      },
+      ready () {
+        this.songReady = true
+      },
+      error () {
+        this.songReady = true
+      },
       _getPosAndScale () {
         // 缩小后的圆图
         const targetWidth = 40
@@ -174,6 +239,21 @@
         setPlayingState: "SET_PLAYING_STATE",
         setCurrentIndex: "SET_CURRENT_INDEX"
       })
+    },
+    watch: {
+      currentSong () {
+        // setTimeout: 解决DOM异常
+        setTimeout(() => {
+          this.$refs.audio.play()
+        }, 20)
+      },
+      playing (newPlaying) {
+        const audio = this.$refs.audio
+        // setTimeout: 解决DOM异常
+        setTimeout(() => {
+          newPlaying ? audio.play() : audio.pause()
+        })
+      }
     }
   }
 </script>
