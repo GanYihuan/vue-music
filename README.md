@@ -206,3 +206,7 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 
 ## 7-3
 ## vuex
+
+
+## 7-4
+## 播放器基本设置
