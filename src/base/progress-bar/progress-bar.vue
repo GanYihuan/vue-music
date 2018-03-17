@@ -52,7 +52,12 @@
         this._triggerPercent()
       },
       progressClick (e) {
-        this._offset(e.offsetX)
+        // getBoundingClientRect: 左侧时间距离最左侧距离
+        const rect = this.$refs.progressBar.getBoundingClientRect()
+        const offsetWidth = e.pageX - rect.left
+        this._offset(offsetWidth)
+        // 这里当我们点击 progressBtn 的时候，e.offsetX 获取不对
+        // this._offset(e.offsetX)
         this._triggerPercent()
       },
       _triggerPercent () {

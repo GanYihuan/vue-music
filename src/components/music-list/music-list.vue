@@ -6,7 +6,7 @@
     <h1 class="title" v-html="title"></h1>
     <div class="bg-image" :style="bgStyle" ref="bgImg">
       <div class="play-wrapper">
-        <div class="play" v-show="songs.length>0" ref="playBtn">
+        <div class="play" v-show="songs.length>0" ref="playBtn" @click="random">
           <i class="icon-play"></i>
           <span class="text">随机播放全部</span>
         </div>
@@ -89,8 +89,16 @@
           index: index
         })
       },
+      random () {
+        this.randomPlay({
+          list: this.songs
+        })
+      },
       // 传入 vuex 的 action
-      ...mapActions(["selectPlay"])
+      ...mapActions([
+        "selectPlay",
+        "randomPlay"
+      ])
     },
     mounted () {
       this.bgImgHeight = this.$refs.bgImg.clientHeight

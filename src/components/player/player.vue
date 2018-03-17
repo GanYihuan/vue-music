@@ -48,8 +48,8 @@
             <span class="time time-r">{{format(this.currentSong.duration)}}</span>
           </div>
           <div class="operators">
-            <div class="icon i-left">
-              <i class="icon-sequence"></i>
+            <div class="icon i-left" @click="changeMode">
+              <i :class="iconMode"></i>
             </div>
             <div class="icon i-left" :class="disableCls">
               <i class="icon-prev" @click="prevSong"></i>
@@ -92,6 +92,7 @@
       @canplay="ready"
       @error='error'
       @timeupdate="updateTime"
+      @ended="end"
     >
     </audio>
   </div>
@@ -100,6 +101,8 @@
 <script type="text/ecmascript-6">
   import {mapGetters, mapMutations} from "vuex"
   import {prefixStyle} from 'common/js/dom'
+  import {playMode} from 'common/js/config'
+  import {shuffle} from 'common/js/util'
   import animations from "create-keyframe-animation";
   import ProgressBar from "base/progress-bar/progress-bar"
   import ProgressCircle from "base/progress-circle/progress-circle"
@@ -121,10 +124,15 @@
         "playList",
         "currentSong",
         "playing",
-        "currentIndex"
+        "currentIndex",
+        "mode",
+        "sequenceList"
       ]),
       playIcon () {
         return this.playing ? "icon-pause" : "icon-play"
+      },
+      iconMode () {
+        return this.mode === playMode.sequence ? 'icon-sequence' : this.mode === playMode.loop ? 'icon-loop' : 'icon-random'
       },
       miniIcon () {
         return this.playing ? 'icon-pause-mini' : 'icon-play-mini'
@@ -190,6 +198,22 @@
       togglePlaying () {
         this.setPlayingState(!this.playing)
       },
+      end () {
+        if (this.mode === playMode.loop) {
+          this.loop()
+        } else {
+          this.next()
+        }
+      },
+      loop () {
+        this.$refs.audio.currentTime = 0
+        this.$refs.audio.play()
+        this.setPlayingState(true)
+        if (this.currentLyric) {
+          //
+          this.currentLyric.seek(0)
+        }
+      },
       prevSong () {
         if (!this.songReady) {
           return
@@ -240,6 +264,25 @@
         const second = this._pad(interval % 60)
         return `${minute}:${second}`
       },
+      changeMode () {
+        const mode = (this.mode + 1) % 3
+        this.setPlayMode(mode)
+        let list = null
+        if (mode === playMode.random) {
+          list = shuffle(this.sequence)
+        } else {
+          list = this.sequenceList
+        }
+        this.resetCurrentIndex(list)
+        this.setPlayList(list)
+      },
+      // 确保切换模式的时候，当前歌曲是不变的
+      resetCurrentIndex (list) {
+        let index = list.findIndex((item) => {
+          return item.id === this.currentSong.id
+        })
+        this.setCurrentIndex(index)
+      },
       // 用 0 补位, 补 2 位
       _pad (num, n = 2) {
         let len = num.toString().length
@@ -268,23 +311,33 @@
           scale
         }
       },
+      // 数据通过mutations设置到state上
       ...mapMutations({
         setFullScreen: "SET_FULL_SCREEN",
         setPlayingState: "SET_PLAYING_STATE",
-        setCurrentIndex: "SET_CURRENT_INDEX"
+        setCurrentIndex: "SET_CURRENT_INDEX",
+        setPlayMode: 'SET_PLAY_MODE',
+        setPlayList: 'SET_PLAY_LIST'
       })
     },
     watch: {
-      currentSong () {
-        // setTimeout: 解决DOM异常
-        setTimeout(() => {
+      currentSong (newSong, oldSong) {
+        if (!newSong.id) {
+          return
+        }
+        if (newSong.id === oldSong.id) {
+          return
+        }
+        // setTimeout: 解决DOM异常, $nextTick替代
+        // $nextTick: 在下次DOM更新循环结束之后执行的延迟回调。在修改数据之后立即使用这个方法，获取更新后的DOM。
+        this.$nextTick(() => {
           this.$refs.audio.play()
-        }, 20)
+        })
       },
       playing (newPlaying) {
         const audio = this.$refs.audio
         // setTimeout: 解决DOM异常
-        setTimeout(() => {
+        this.$nextTick(() => {
           newPlaying ? audio.play() : audio.pause()
         })
       }
