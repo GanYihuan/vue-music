@@ -33,6 +33,7 @@
 </template>
 
 <script>
+  // 传入 vuex 的 action
   import {mapActions} from "vuex"
   import {prefixStyle} from 'common/js/dom'
   import Scroll from "base/scroll/scroll"
@@ -40,8 +41,8 @@
   import Loading from "base/loading/loading"
 
   const RESERVED_HEIGHT = 40
-  const transform = prefixStyle('transform')
-  const backdrop = prefixStyle('backdrop-filter')
+  // const transform = prefixStyle('transform')
+  // const backdrop = prefixStyle('backdrop-filter')
 
   export default {
     props: {
@@ -82,11 +83,13 @@
         this.scrollY = pos.y
       },
       selectItem (item, index) {
+        // 调用 vuex 的 action
         this.selectPlay({
           list: this.songs,
           index: index
         })
       },
+      // 传入 vuex 的 action
       ...mapActions(["selectPlay"])
     },
     mounted () {
