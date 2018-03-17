@@ -1,6 +1,7 @@
 import * as types from './mutation-types.js'
 
-export const selectPlay = function({commit, state}, {list, index}) {
+// 定义动作
+export const selectPlay = function ({commit, state}, {list, index}) {
   commit(types.SET_SEQUENCE_LIST, list)
   commit(types.SET_PLAY_LIST, list)
   commit(types.SET_CURRENT_INDEX, index)
