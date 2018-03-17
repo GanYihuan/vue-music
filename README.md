@@ -228,3 +228,7 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 ## 7-12, 7-13, 7-14
 ## 不同浏览器css的配置 bug!
 ## 歌曲进度条, 可以拖动
+
+
+## 7-15
+## mini 播放器环形进度条
