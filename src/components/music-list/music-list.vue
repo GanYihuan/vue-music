@@ -37,6 +37,7 @@
   import Loading from 'base/loading/loading'
   import SongList from 'base/song-list/song-list'
   import {prefixStyle} from 'common/js/dom'
+  // 公共代码
   import {playlistMixin} from 'common/js/mixin'
   // 传入 vuex 的 action
   import {mapActions} from 'vuex'
@@ -46,6 +47,7 @@
   const backdrop = prefixStyle('backdrop-filter')
 
   export default {
+    // 插入mixin, 组件同名方法覆盖mixin里面的方法
     mixins: [playlistMixin],
     props: {
       bgImage: {
@@ -86,6 +88,7 @@
       this.$refs.list.$el.style.top = `${this.imageHeight}px`
     },
     methods: {
+      // 如果出现mini播放器，则歌手列表bottom要增加相应高度来显示它
       handlePlaylist (playlist) {
         const bottom = playlist.length > 0 ? '60px' : ''
         this.$refs.list.$el.style.bottom = bottom

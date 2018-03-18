@@ -1,16 +1,22 @@
 <template>
-  <scroll class="listview" 
-          :data="data"  
-          ref="listview"
-          :listenScroll="listenScroll"
-          :probeType='probeType'
-          @scroll="scroll"
+  <scroll
+    class="listview"
+    ref="listview"
+    :data="data"
+    :listenScroll="listenScroll"
+    :probeType='probeType'
+    @scroll="scroll"
   >
     <ul>
       <li v-for="(group,index) in data" :key="index" class="list-group" ref="listGroup">
         <h2 class="list-group-title">{{group.title}}</h2>
         <ul>
-          <li @click="selectItem(item)" v-for="(item,index) in group.items" :key="index" class="list-group-item">
+          <li
+            class="list-group-item"
+            v-for="(item,index) in group.items"
+            :key="index"
+            @click="selectItem(item)"
+          >
             <img v-lazy="item.avatar" class="avatar">
             <span class="name">{{item.name}}</span>
           </li>
@@ -20,12 +26,14 @@
 
     <div class="list-shortcut" @touchstart="onShortCutTouchStart" @touchmove.stop.prevent="onShortCutTouchMove">
       <ul>
-        <li v-for="(item, index) in shortcutList" 
-            :key="index"
-            class="item" 
-            :data-index="index"
-            :class="{'current': currentIndex === index}"
-        >{{item}}</li>
+        <li
+          v-for="(item, index) in shortcutList"
+          :key="index"
+          class="item"
+          :data-index="index"
+          :class="{'current': currentIndex === index}"
+        >{{item}}
+        </li>
       </ul>
     </div>
 
@@ -48,12 +56,12 @@
   const FIXED_TITLE_HEIGHT = 30
 
   export default {
-    created() {
+    created () {
       this.touch = {}
       this.listenScroll = true
       this.probeType = 3
     },
-    data() {
+    data () {
       return {
         // 事实滚动位置
         scrollY: -1,
@@ -70,24 +78,24 @@
       }
     },
     computed: {
-      shortcutList() {
+      shortcutList () {
         return this.data.map((group) => {
           return group.title.substr(0, 1)
         })
       },
-      fixedTitle() {
-        if(this.scrollY > 0) {
+      fixedTitle () {
+        if (this.scrollY > 0) {
           return ''
         }
         return this.data[this.currentIndex] ? this.data[this.currentIndex].title : ''
       }
     },
     methods: {
-      selectItem(item) {
+      selectItem (item) {
         // 派发事件出去
         this.$emit('select', item)
       },
-      onShortCutTouchStart(e) {
+      onShortCutTouchStart (e) {
         let anchorIndex = getData(e.target, 'index')
         // touches: Finger position
         let firstTouch = e.touches[0]
@@ -96,7 +104,7 @@
         this.touch.anchorIndex = anchorIndex
         this._scrollTo(anchorIndex)
       },
-      onShortCutTouchMove(e) {
+      onShortCutTouchMove (e) {
         // 判断移动时距离 / 每个字母高度，得到detal，再据此移动到目标分类
         let firstTouch = e.touches[0]
         this.touch.y2 = firstTouch.pageY
@@ -104,11 +112,14 @@
         let anchorIndex = parseInt(this.touch.anchorIndex) + detal
         this._scrollTo(anchorIndex)
       },
-      scroll(pos) {
-        // 获得滑动距离
-        this.scrollY = pos.y          
+      refresh () {
+        this.$refs.listview.refresh();
       },
-      _scrollTo(index) {
+      scroll (pos) {
+        // 获得滑动距离
+        this.scrollY = pos.y
+      },
+      _scrollTo (index) {
         if (!index && index !== 0) {
           return
         }
@@ -121,13 +132,13 @@
         // second params: animate duration
         this.$refs.listview.scrollToElement(this.$refs.listGroup[index])
       },
-      _calculateHeight() {
+      _calculateHeight () {
         let height = 0
         let listGroup = this.$refs.listGroup
         // heightList 比listGroup多一个元素
         this.heightList = []
         this.heightList.push(height)
-        for(let i=0; i<listGroup.length; i++) {
+        for (let i = 0; i < listGroup.length; i++) {
           let item = listGroup[i]
           height += item.clientHeight
           this.heightList.push(height)
@@ -139,21 +150,21 @@
       loading
     },
     watch: {
-      data() {
+      data () {
         setTimeout(() => {
           this._calculateHeight()
-        },20)
+        }, 20)
       },
-      diff(newVal) {
+      diff (newVal) {
         let fixedTop = (newVal > 0 && newVal < FIXED_TITLE_HEIGHT) ? newVal - FIXED_TITLE_HEIGHT : 0
-        if(this.fixedTop === fixedTop) {
+        if (this.fixedTop === fixedTop) {
           return
         }
         this.fixedTop = fixedTop
         this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`   //开启GPU加速
         // this.$refs.fixed.style.top = `${fixedTop}px`
       },
-      scrollY(newY) {
+      scrollY (newY) {
         let heightList = this.heightList
         // 当滚动到顶部, newY > 0
         if (newY > 0) {
@@ -162,10 +173,10 @@
         }
         // 在中间部分滚动
         // length - 1, 不考虑最后一个
-        for(let i=0; i<heightList.length; i++) {
+        for (let i = 0; i < heightList.length; i++) {
           let height1 = heightList[i]
           let height2 = heightList[i + 1]
-          if(-newY >= height1 && -newY < height2) {
+          if (-newY >= height1 && -newY < height2) {
             this.currentIndex = i
             // diff: 当前区块上限和上个区块下限之间的间隔
             this.diff = newY + height2
@@ -193,71 +204,7 @@
   }
 </script>
 
-
-<style scoped lang="stylus" rel="stylesheet/stylus">
-  @import "~common/stylus/variable"
-
-  .listview
-    position: relative
-    width: 100%
-    height: 100%
-    overflow: hidden
-    background: $color-background
-    .list-group
-      padding-bottom: 30px
-      .list-group-title
-        height: 30px
-        line-height: 30px
-        padding-left: 20px
-        font-size: $font-size-small
-        color: $color-text-l
-        background: $color-highlight-background
-      .list-group-item
-        display: flex
-        align-items: center
-        padding: 20px 0 0 30px
-        .avatar
-          width: 50px
-          height: 50px
-          border-radius: 50%
-        .name
-          margin-left: 20px
-          color: $color-text-l
-          font-size: $font-size-medium
-    .list-shortcut
-      position: absolute
-      z-index: 30
-      right: 0
-      top: 50%
-      transform: translateY(-50%)
-      width: 20px
-      padding: 20px 0
-      border-radius: 10px
-      text-align: center
-      background: $color-background-d
-      font-family: Helvetica
-      .item
-        padding: 3px
-        line-height: 1
-        color: $color-text-l
-        font-size: $font-size-small
-        &.current
-          color: $color-theme
-    .list-fixed
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
-      .fixed-title
-        height: 30px
-        line-height: 30px
-        padding-left: 20px
-        font-size: $font-size-small
-        color: $color-text-l
-        background: $color-highlight-background
-    .loading-container
-      position: absolute
-      width: 100%
-      top: 50%
-      transform: translateY(-50%)
+<style scoped lang="scss" rel="stylesheet/scss">
+  @import "../../common/scss/variable.scss";
+  @import "./listview.scss";
 </style>

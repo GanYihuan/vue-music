@@ -1,46 +1,51 @@
 <template>
-  <div class="singer">
-    <Listview :data="singers" @select="selectSinger"></Listview>
+  <div class="singer" ref="singer">
+    <list-view @select="selectSinger" :data="singers" ref="list"></list-view>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-  // Syntactic sugar
-  import { getSingerList } from 'api/singer'
-  import { ERR_OK } from 'api/config'
-  import { mapMutations } from 'vuex'
+  import {mapMutations} from 'vuex'
+  import {getSingerList} from 'api/singer'
+  import {ERR_OK} from 'api/config'
+  import {playlistMixin} from 'common/js/mixin'
+  import ListView from 'base/listview/listview'
   import Singer from 'common/js/singer'
-  import Listview from 'base/listview/listview'
 
-  const HOT_NAME = '热门'
   const HOT_SINGER_LEN = 10
+  const HOT_NAME = '热门'
 
   export default {
-    data() {
+    mixins: [playlistMixin],
+    data () {
       return {
-        singers: [],
+        singers: []
       }
     },
-    created() {
+    created () {
       this._getSingerList()
     },
     methods: {
-      ...mapMutations({
-        setSinger: 'SET_SINGER'
-      }),
-      selectSinger(singer) {
+      handlePlaylist (playlist) {
+        const bottom = playlist.length > 0 ? '60px' : ''
+        this.$refs.singer.style.bottom = bottom
+        this.$refs.list.refresh()
+      },
+      selectSinger (singer) {
         this.$router.push({
           path: `/singer/${singer.id}`
         })
         this.setSinger(singer)
       },
-      _getSingerList(){
+      _getSingerList () {
         getSingerList().then((res) => {
-          this.singers = this._normalizeSinger(res.data.list)
+          if (res.code === ERR_OK) {
+            this.singers = this._normalizeSinger(res.data.list)
+          }
         })
       },
-      _normalizeSinger(list) {
+      _normalizeSinger (list) {
         let map = {
           hot: {
             title: HOT_NAME,
@@ -48,14 +53,14 @@
           }
         }
         list.forEach((item, index) => {
-          if(index < HOT_SINGER_LEN) {
+          if (index < HOT_SINGER_LEN) {
             map.hot.items.push(new Singer({
               name: item.Fsinger_name,
               id: item.Fsinger_mid
             }))
           }
-          let key = item.Findex
-          if(!map[key]) {
+          const key = item.Findex
+          if (!map[key]) {
             map[key] = {
               title: key,
               items: []
@@ -66,14 +71,15 @@
             id: item.Fsinger_mid
           }))
         })
+        // 为了得到有序列表，我们需要处理 map
         // 对象遍历是无序的，此处处理为有序列表
         let ret = []
         let hot = []
-        for(let key in map) {
+        for (let key in map) {
           let val = map[key]
-          if(val.title.match(/[a-zA-z]/)) {
+          if (val.title.match(/[a-zA-Z]/)) {
             ret.push(val)
-          }else if(val.title === HOT_NAME) {
+          } else if (val.title === HOT_NAME) {
             hot.push(val)
           }
         }
@@ -81,10 +87,13 @@
           return a.title.charCodeAt(0) - b.title.charCodeAt(0)
         })
         return hot.concat(ret)
-      }
+      },
+      ...mapMutations({
+        setSinger: 'SET_SINGER'
+      })
     },
     components: {
-      Listview
+      ListView
     }
   }
 </script>

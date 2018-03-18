@@ -243,7 +243,7 @@
         this.$refs.audio.play()
         this.setPlayingState(true)
         if (this.currentLyric) {
-          // 歌曲最开始
+          // 歌曲跳到最开始
           this.currentLyric.seek(0)
         }
       },
@@ -344,6 +344,8 @@
           })
           .catch(() => {
             this.currentLyric = null
+            // 不正常时,歌词不显示
+            // playingLyric: 唱碟下面的歌词
             this.playingLyric = ''
             this.currentLineNum = 0
           })
@@ -359,6 +361,7 @@
           // 位于顶部
           this.$refs.lyricList.scrollTo(0, 0, 1000)
         }
+        // playingLyric: 唱碟下面的歌词
         this.playingLyric = txt
       },
       middleTouchStart (e) {
@@ -477,7 +480,7 @@
         }
         // setTimeout: 解决DOM异常, $nextTick替代
         // $nextTick: 在下次DOM更新循环结束之后执行的延迟回调。在修改数据之后立即使用这个方法，获取更新后的DOM。
-        // 保证手机从后台切到前台
+        // setTimeout: 保证手机从后台切到前台js执行能正常播放
         clearTimeout(this.timer)
         this.timer = setTimeout(() => {
           this.$refs.audio.play()

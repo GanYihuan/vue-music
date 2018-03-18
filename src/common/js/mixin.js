@@ -8,6 +8,7 @@ export const playlistMixin = {
       'playlist'
     ])
   },
+  // dom ready
   mounted () {
     this.handlePlaylist(this.playlist)
   },
@@ -20,6 +21,7 @@ export const playlistMixin = {
     }
   },
   methods: {
+    // 组件如果没有定义handlePlaylist,就会调用mixin里面的handlePlaylist
     handlePlaylist () {
       throw new Error('component must implement handlePlaylist method')
     }

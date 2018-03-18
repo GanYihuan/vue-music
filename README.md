@@ -252,3 +252,12 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 
 ## 7-22, 7-23
 ## 歌词左右滑动
+
+
+## 7-24
+## bug fix
+
+
+## 7-25
+## mixin.js: 公共代码
+## 设置mini播放器的正确位置显示
