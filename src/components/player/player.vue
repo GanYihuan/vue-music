@@ -1,5 +1,5 @@
 <template>
-  <div class="player" v-show="playList.length > 0">
+  <div class="player" v-show="playlist.length > 0">
     <transition
       name="normal"
       @enter="enter"
@@ -31,7 +31,7 @@
               </div>
             </div>
             <div class="playing-lyric-wrapper">
-              <div class="playing-lyric"></div>
+              <div class="playing-lyric">{{playingLyric}}</div>
             </div>
           </div>
           <!-- currentLyric != null -->
@@ -137,14 +137,15 @@
         // 当前歌词所在行,高亮
         currentLineNum: 0,
         // 唱片碟界面与歌词界面
-        currentShow: 'cd'
+        currentShow: 'cd',
+        playingLyric: ''
       }
     },
     computed: {
       // 传入 vuex 的 state
       ...mapGetters([
         "fullScreen",
-        "playList",
+        "playlist",
         "currentSong",
         "playing",
         "currentIndex",
@@ -222,7 +223,13 @@
         this.$refs.cdWrapper.style.transform = ""
       },
       togglePlaying () {
+        if (!this.songReady) {
+          return
+        }
         this.setPlayingState(!this.playing)
+        if (this.currentLyric) {
+          this.currentLyric.togglePlay()
+        }
       },
       end () {
         if (this.mode === playMode.loop) {
@@ -236,35 +243,45 @@
         this.$refs.audio.play()
         this.setPlayingState(true)
         if (this.currentLyric) {
-          //
+          // 歌曲最开始
           this.currentLyric.seek(0)
         }
-      },
-      prevSong () {
-        if (!this.songReady) {
-          return
-        }
-        let index = this.currentIndex - 1
-        if (index === -1) {
-          index = this.playList.length - 1
-        }
-        this.setCurrentIndex(index)
-        if (!this.playing) {
-          this.togglePlaying()
-        }
-        this.songReady = false
       },
       nextSong () {
         if (!this.songReady) {
           return;
         }
-        let index = this.currentIndex + 1
-        if (index === this.playList.length) {
-          index = 0
+        if (this.playlist.length === 1) {
+          this.loop()
+          return
+        } else {
+          let index = this.currentIndex + 1
+          if (index === this.playlist.length) {
+            index = 0
+          }
+          this.setCurrentIndex(index)
+          if (!this.playing) {
+            this.togglePlaying()
+          }
         }
-        this.setCurrentIndex(index)
-        if (!this.playing) {
-          this.togglePlaying()
+        this.songReady = false
+      },
+      prevSong () {
+        if (!this.songReady) {
+          return
+        }
+        if (this.playlist.length === 1) {
+          this.loop()
+          return
+        } else {
+          let index = this.currentIndex - 1
+          if (index === -1) {
+            index = this.playlist.length - 1
+          }
+          this.setCurrentIndex(index)
+          if (!this.playing) {
+            this.togglePlaying()
+          }
         }
         this.songReady = false
       },
@@ -278,9 +295,14 @@
         this.currentTime = e.target.currentTime
       },
       onProgressBarChange (percent) {
-        this.$refs.audio.currentTime = this.currentSong.duration * percent
+        const currentTime = this.currentSong.duration * percent
+        this.$refs.audio.currentTime = currentTime
         if (!this.playing) {
           this.togglePlaying()
+        }
+        if (this.currentLyric) {
+          // 歌词追随滚动条滚动
+          this.currentLyric.seek(currentTime * 1000)
         }
       },
       format (interval) {
@@ -447,8 +469,15 @@
         if (newSong.id === oldSong.id) {
           return
         }
+        if (this.currentLyric) {
+          this.currentLyric.stop()
+          this.currentTime = 0
+          this.playingLyric = ''
+          this.currentLineNum = 0
+        }
         // setTimeout: 解决DOM异常, $nextTick替代
         // $nextTick: 在下次DOM更新循环结束之后执行的延迟回调。在修改数据之后立即使用这个方法，获取更新后的DOM。
+        // 保证手机从后台切到前台
         clearTimeout(this.timer)
         this.timer = setTimeout(() => {
           this.$refs.audio.play()
@@ -461,6 +490,13 @@
         this.$nextTick(() => {
           newPlaying ? audio.play() : audio.pause()
         })
+      },
+      fullScreen (newVal) {
+        if (newVal) {
+          setTimeout(() => {
+            this.$refs.lyricList.refresh()
+          }, 20)
+        }
       }
     },
     components: {
