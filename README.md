@@ -248,3 +248,7 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 
 ## 7-21
 ## 歌词滚动
+
+
+## 7-22, 7-23
+## 歌词左右滑动
