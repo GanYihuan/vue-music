@@ -179,9 +179,11 @@
     },
     methods: {
       back () {
+        // setFullScreen: mapMutations
         this.setFullScreen(false)
       },
       open () {
+        // setFullScreen: mapMutations
         this.setFullScreen(true)
       },
       enter (el, done) {
