@@ -205,7 +205,7 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 
 
 ## 7-3
-## vuex
+## vuex的具体使用
 
 
 ## 7-4

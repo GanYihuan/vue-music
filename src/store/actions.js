@@ -1,5 +1,5 @@
 /**
- * mutations用action封装,修改mutations
+ * mutations用action封装,修改多个mutations
  */
 
 import * as types from './mutation-types'
@@ -13,18 +13,30 @@ function findIndex (list, song) {
   })
 }
 
-// 定义动作, action 执行, mutation 就会改变, 映射 state 数据
+// 点击歌曲时做出的变化
+// 定义动作, action执行, mutation就会改变, 映射state数据
+// {commit, state} : 提交和获取数据
+// {list, index} : 修改的歌曲列表对象
 export const selectPlay = function ({commit, state}, {list, index}) {
+  // 提交mutation, 改变歌曲顺序列表
   commit(types.SET_SEQUENCE_LIST, list)
+  // 如果播放模式是随机模式
   if (state.mode === playMode.random) {
+    // 洗牌
     let randomList = shuffle(list)
+    // 改变播放列表的歌曲
     commit(types.SET_PLAYLIST, randomList)
+    // 随机抽取歌曲播放
     index = findIndex(randomList, list[index])
   } else {
+    // 改变播放列表
     commit(types.SET_PLAYLIST, list)
   }
+  // 点击的当前歌曲下标
   commit(types.SET_CURRENT_INDEX, index)
+  // 改变为全屏模式
   commit(types.SET_FULL_SCREEN, true)
+  // 改变当前的播放状态
   commit(types.SET_PLAYING_STATE, true)
 }
 

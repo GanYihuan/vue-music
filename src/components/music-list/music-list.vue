@@ -23,7 +23,12 @@
       ref="list"
     >
       <div class="song-list-wrapper">
-        <song-list :songs="songs" :rank="rank" @select="selectItem"></song-list>
+        <song-list
+          :songs="songs"
+          :rank="rank"
+          @select="selectItem"
+        >
+        </song-list>
       </div>
       <div v-show="!songs.length" class="loading-container">
         <loading></loading>
@@ -39,7 +44,7 @@
   import {prefixStyle} from 'common/js/dom'
   // 公共代码
   import {playlistMixin} from 'common/js/mixin'
-  // 传入 vuex 的 action
+  // 传入 vuex 的 actions.js
   import {mapActions} from 'vuex'
 
   const RESERVED_HEIGHT = 40
@@ -102,7 +107,7 @@
         this.$router.back()
       },
       selectItem (item, index) {
-        // 传入 vuex 的 action
+        // vuex 的 actions.js
         this.selectPlay({
           list: this.songs,
           index
@@ -113,7 +118,7 @@
           list: this.songs
         })
       },
-      // 传入 vuex 的 action
+      // 传入 vuex 的 actions.js
       ...mapActions([
         'selectPlay',
         'randomPlay'
@@ -133,7 +138,6 @@
         } else {
           blur = Math.min(20, percent * 20)
         }
-
         this.$refs.layer.style[transform] = `translate3d(0,${translateY}px,0)`
         // 高斯模糊: apple手机能查看
         this.$refs.filter.style[backdrop] = `blur(${blur}px)`

@@ -2,9 +2,9 @@
   <div class="song-list">
     <ul>
       <li
+        class="item"
         v-for="(song, index) in songs"
         :key="index"
-        class="item"
         @click="selectItem(song, index)"
       >
         <div class="content">
@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   export default {
     props: {
       songs: {
@@ -26,6 +26,8 @@
     },
     methods: {
       selectItem (item, index) {
+        // call父类的select方法
+        // <song-list @select="selectItem"></song-list>
         this.$emit('select', item, index)
       },
       getDesc (song) {
