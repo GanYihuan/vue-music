@@ -178,14 +178,18 @@
       this.touch = {}
     },
     methods: {
+      // 唱片界面缩小到底部
       back () {
         // setFullScreen: mapMutations
         this.setFullScreen(false)
       },
+      // 底部界面放大到唱片界面
       open () {
         // setFullScreen: mapMutations
         this.setFullScreen(true)
       },
+      // animate
+      // create-keyframe-animation
       enter (el, done) {
         const {x, y, scale} = this._getPosAndScale()
         let animation = {
@@ -216,13 +220,13 @@
       leave (el, done) {
         const {x, y, scale} = this._getPosAndScale()
         this.$refs.cdWrapper.style.transition = "all 0.4s"
-        this.$refs.cdWrapper.style.transform = `translate3d(${x}px, ${y}px, 0) scale(${scale})`
+        this.$refs.cdWrapper.style[transform] = `translate3d(${x}px, ${y}px, 0) scale(${scale})`
         // 监听事件
         this.$refs.cdWrapper.addEventListener("transitionend", done)
       },
       afterLeave () {
         this.$refs.cdWrapper.style.transition = ""
-        this.$refs.cdWrapper.style.transform = ""
+        this.$refs.cdWrapper.style[transform] = ""
       },
       togglePlaying () {
         if (!this.songReady) {
@@ -439,16 +443,19 @@
         return num
       },
       _getPosAndScale () {
-        // 缩小后的圆图
+        // 缩小后的唱片圆图大小
         const targetWidth = 40
-        // 缩小后的圆图的paddingLeft
+        // 缩小后的唱片圆图paddingLeft
         const paddingLeft = 40
+        // 缩小后的唱片圆图paddingBottom
         const paddingBottom = 30
+        // 大唱片距离容器顶部paddingTop
         const paddingTop = 80
         const width = window.innerWidth * 0.8
+        // 大唱片缩小到小唱片的比例
         const scale = targetWidth / width
-        // 目标点在大圆图的中间, 小圆图 x 位置为负值
-        // 第四象限
+        // 目标点(x,y)位于大圆图的中间
+        // 第四象限,小圆图x位置为负方向
         const x = -(window.innerWidth / 2 - paddingLeft)
         const y = window.innerHeight - paddingTop - width / 2 - paddingBottom
         return {

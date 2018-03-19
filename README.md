@@ -215,6 +215,10 @@ https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pa
 ## 7-5, 7-6, 7-7
 ## 动画效果
 ## 不同浏览器css的配置 bug!
+## 动画
+```
+cnpm install create-keyframe-animation --save
+```
 
 
 ## 7-8, 7-9, 7-10
