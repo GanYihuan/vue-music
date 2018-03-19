@@ -222,7 +222,7 @@ cnpm install create-keyframe-animation --save
 
 
 ## 7-8, 7-9, 7-10
-## 歌曲控件,播放,前进,站厅,旋转
+## 歌曲控件,播放暂停,前进后退,控件失效
 
 
 ## 7-11

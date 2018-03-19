@@ -232,6 +232,7 @@
         if (!this.songReady) {
           return
         }
+        // setPlayingState: mutation
         this.setPlayingState(!this.playing)
         if (this.currentLyric) {
           this.currentLyric.togglePlay()
@@ -255,7 +256,7 @@
       },
       nextSong () {
         if (!this.songReady) {
-          return;
+          return
         }
         if (this.playlist.length === 1) {
           this.loop()
@@ -265,6 +266,7 @@
           if (index === this.playlist.length) {
             index = 0
           }
+          // setCurrentIndex: mutation
           this.setCurrentIndex(index)
           if (!this.playing) {
             this.togglePlaying()
@@ -291,9 +293,11 @@
         }
         this.songReady = false
       },
+      // audio,防止极限点击操作报错
       ready () {
         this.songReady = true
       },
+      // audio,防止极限点击操作报错
       error () {
         this.songReady = true
       },
@@ -474,6 +478,7 @@
       })
     },
     watch: {
+      // 监听,当currentSong变化时调用
       currentSong (newSong, oldSong) {
         if (!newSong.id) {
           return
@@ -487,7 +492,7 @@
           this.playingLyric = ''
           this.currentLineNum = 0
         }
-        // setTimeout: 解决DOM异常, $nextTick替代
+        // setTimeout: 解决DOM异常
         // $nextTick: 在下次DOM更新循环结束之后执行的延迟回调。在修改数据之后立即使用这个方法，获取更新后的DOM。
         // setTimeout: 保证手机从后台切到前台js执行能正常播放
         clearTimeout(this.timer)
@@ -496,9 +501,10 @@
           this.getLyric()
         }, 1000)
       },
+      // 监听playing(state数据), 真正控制播放的是audio播放器
       playing (newPlaying) {
         const audio = this.$refs.audio
-        // setTimeout: 解决DOM异常
+        // $nextTick: 在下次DOM更新循环结束之后执行的延迟回调。在修改数据之后立即使用这个方法，获取更新后的DOM。
         this.$nextTick(() => {
           newPlaying ? audio.play() : audio.pause()
         })
