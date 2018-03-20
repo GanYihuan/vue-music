@@ -284,3 +284,14 @@ cnpm install lyric-parser
 
 ## 8-1
 ## 歌单详情页Vuex数据通讯
+
+
+## 8-2
+## 歌单详情页数据抓取
+## (api/recommend) 1: 
+
+
+## 8-3
+## https://y.qq.com/w/taoge.html?ADTAG=newyqq.taoge&id=3261874488
+## 歌单详情页数据应用
+## bug! jp1 is not defined !
