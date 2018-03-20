@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import {mapMutations} from 'vuex'
   import {getSingerList} from 'api/singer'
   import {ERR_OK} from 'api/config'
