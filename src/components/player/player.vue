@@ -170,6 +170,7 @@
       disableCls () {
         return this.songReady ? "" : "disable"
       },
+      // 进度条播放的比例
       percent () {
         return this.currentTime / this.currentSong.duration
       }
@@ -304,6 +305,7 @@
       updateTime (e) {
         this.currentTime = e.target.currentTime
       },
+      // 进度条进度改变
       onProgressBarChange (percent) {
         const currentTime = this.currentSong.duration * percent
         this.$refs.audio.currentTime = currentTime

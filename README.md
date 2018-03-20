@@ -230,7 +230,7 @@ cnpm install create-keyframe-animation --save
 
 
 ## 7-12, 7-13, 7-14
-## 不同浏览器css的配置 bug!
+## 不同浏览器css的配置
 ## 歌曲进度条, 可以拖动
 
 
