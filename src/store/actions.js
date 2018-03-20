@@ -40,13 +40,20 @@ export const selectPlay = function ({commit, state}, {list, index}) {
   commit(types.SET_PLAYING_STATE, true)
 }
 
+// 随机播放, 没有索引
 export const randomPlay = function ({commit}, {list}) {
+  // 改变播放模式为随机模式
   commit(types.SET_PLAY_MODE, playMode.random)
+  // 提交mutation, 改变歌曲顺序列表
   commit(types.SET_SEQUENCE_LIST, list)
   let randomList = shuffle(list)
+  // 改变播放列表的歌曲
   commit(types.SET_PLAYLIST, randomList)
+  // 点击的当前歌曲下标
   commit(types.SET_CURRENT_INDEX, 0)
+  // 改变为全屏模式
   commit(types.SET_FULL_SCREEN, true)
+  // 改变当前的播放状态
   commit(types.SET_PLAYING_STATE, true)
 }
 

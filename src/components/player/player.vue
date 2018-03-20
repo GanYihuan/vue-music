@@ -326,22 +326,30 @@
         return `${minute}:${second}`
       },
       changeMode () {
+        // % 3: mode 有 3 种状态
         const mode = (this.mode + 1) % 3
+        // setPlayMode: mutation
         this.setPlayMode(mode)
         let list = null
         if (mode === playMode.random) {
+          // 洗牌列表
           list = shuffle(this.sequence)
         } else {
           list = this.sequenceList
         }
+        // 播放模式变化时, 当前歌曲下标重新设置
         this.resetCurrentIndex(list)
+        // mutation: setPlayList
         this.setPlayList(list)
       },
       // 确保切换模式的时候，当前歌曲是不变的
       resetCurrentIndex (list) {
+        // findIndex: es6
         let index = list.findIndex((item) => {
+          // id不变,则当前歌曲不变
           return item.id === this.currentSong.id
         })
+        // mutation: setCurrentIndex
         this.setCurrentIndex(index)
       },
       getLyric () {
@@ -486,6 +494,7 @@
         if (!newSong.id) {
           return
         }
+        // id不变,则什么都不做
         if (newSong.id === oldSong.id) {
           return
         }

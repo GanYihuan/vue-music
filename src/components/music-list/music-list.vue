@@ -114,6 +114,7 @@
         })
       },
       random () {
+        // action: randomPlay
         this.randomPlay({
           list: this.songs
         })
