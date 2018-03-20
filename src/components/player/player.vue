@@ -34,7 +34,7 @@
               <div class="playing-lyric">{{playingLyric}}</div>
             </div>
           </div>
-          <!-- currentLyric != null -->
+          <!-- :data="currentLyric && currentLyric.lines": currentLyric!=null -->
           <scroll class="middle-r" ref="lyricList" :data="currentLyric && currentLyric.lines">
             <div class="lyric-wrapper">
               <div v-if="currentLyric">
@@ -135,7 +135,7 @@
         // 环形进度条大小
         radius: 32,
         currentLyric: null,
-        // 当前歌词所在行,高亮
+        // 当前歌词所在行,用来高亮
         currentLineNum: 0,
         // 唱片碟界面与歌词界面
         currentShow: 'cd',
@@ -372,15 +372,17 @@
             this.currentLineNum = 0
           })
       },
+      // handleLyric: 歌词改变的时候调用
       // lineNum: 当前歌词所在行,高亮
       // txt: 歌词文案
       handleLyric ({lineNum, txt}) {
         this.currentLineNum = lineNum
         if (lineNum > 5) {
+          // 保证高亮歌词在中间, 当前歌词，往上偏移5行
           let lineEl = this.$refs.lyricLine[lineNum - 5]
           this.$refs.lyricList.scrollToElement(lineEl, 1000)
         } else {
-          // 位于顶部
+          // 前五行歌词不发生滚动, 位于顶部
           this.$refs.lyricList.scrollTo(0, 0, 1000)
         }
         // playingLyric: 唱碟下面的歌词
