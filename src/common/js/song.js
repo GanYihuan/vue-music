@@ -36,7 +36,7 @@ export default class Song {
   }
 }
 
-export function createSons (musicData) {
+export function createSong (musicData) {
   return new Song({
     id: musicData.songid,
     mid: musicData.songmid,

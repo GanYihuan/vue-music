@@ -19,6 +19,7 @@ const state = {
   mode: playMode.sequence,
   // 当前播放歌曲索引
   currentIndex: -1,
+  // 歌单对象
   disc: {},
   topList: {},
   searchHistory: loadSearch(),

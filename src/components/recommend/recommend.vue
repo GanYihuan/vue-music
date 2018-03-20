@@ -33,6 +33,7 @@
         <loading></loading>
       </div>
     </scroll>
+    <!-- 二级路由容器 -->
     <router-view></router-view>
   </div>
 </template>
@@ -56,7 +57,6 @@
     },
     created () {
       this._getRecommend()
-
       this._getDiscList()
     },
     methods: {
@@ -76,6 +76,7 @@
         this.$router.push({
           path: `/recommend/${item.dissid}`
         })
+        // mutation: setDisc
         this.setDisc(item)
       },
       _getRecommend () {
@@ -95,6 +96,7 @@
         })
       },
       ...mapMutations({
+        // 设置歌单对象
         setDisc: 'SET_DISC'
       })
     },
