@@ -388,12 +388,16 @@
         // playingLyric: 唱碟下面的歌词
         this.playingLyric = txt
       },
+      // 点击唱片部分
       middleTouchStart (e) {
         this.touch.initiated = true
         // 用来判断是否是一次移动
         this.touch.moved = false
+        // 手指点击
         const touch = e.touches[0]
+        // 手指点击位置x
         this.touch.startX = touch.pageX
+        // 手指点击位置y
         this.touch.startY = touch.pageY
       },
       middleTouchMove (e) {
@@ -401,23 +405,26 @@
           return
         }
         const touch = e.touches[0]
+        // 移动的位置
         const deltaX = touch.pageX - this.touch.startX
         const deltaY = touch.pageY - this.touch.startY
-        // 只支持横向滚动
+        // 是否发生横向滚动切换唱片界面和歌词界面，取决于横向滚动比纵向滚动多
         if (Math.abs(deltaY) > Math.abs(deltaX)) {
           return
         }
         if (!this.touch.moved) {
           this.touch.moved = true
         }
+        // 歌词界面还是唱片界面，二选一
         const left = this.currentShow === 'cd' ? 0 : -window.innerWidth
+        // 歌词露出的宽带, 左滑动取负值
         const offsetWidth = Math.min(0, Math.max(-window.innerWidth, left + deltaX))
         this.touch.percent = Math.abs(offsetWidth / window.innerWidth)
-        // lyricList: vue组件, $el来访问
-        this.$refs.lyricList.$el.style["transform"] = `translate3d(${offsetWidth}px,0,0)`
-        this.$refs.lyricList.$el.style["transitionDuration"] = 0
+        // lyricList: vue组件, $el来访问dom
+        this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
+        this.$refs.lyricList.$el.style[transitionDuration] = 0
         this.$refs.middleL.style.opacity = 1 - this.touch.percent
-        this.$refs.middleL.style["transitionDuration"] = 0
+        this.$refs.middleL.style[transitionDuration] = 0
       },
       middleTouchEnd () {
         if (!this.touch.moved) {
@@ -445,10 +452,10 @@
           }
         }
         const time = 300
-        this.$refs.lyricList.$el.style["transform"] = `translate3d(${offsetWidth}px,0,0)`
-        this.$refs.lyricList.$el.style["transitionDuration"] = `${time}ms`
+        this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
+        this.$refs.lyricList.$el.style[transitionDuration] = `${time}ms`
         this.$refs.middleL.style.opacity = opacity
-        this.$refs.middleL.style["transitionDuration"] = `${time}ms`
+        this.$refs.middleL.style[transitionDuration] = `${time}ms`
         this.touch.initiated = false
       },
       // 用 0 补位(补 2 位)
