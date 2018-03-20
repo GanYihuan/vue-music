@@ -236,6 +236,7 @@ cnpm install create-keyframe-animation --save
 
 ## 7-15
 ## mini 播放器环形进度条
+## svg
 
 
 ## 7-16, 7-17, 7-18 

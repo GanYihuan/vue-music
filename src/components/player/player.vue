@@ -132,6 +132,7 @@
       return {
         songReady: false,
         currentTime: 0,
+        // 环形进度条大小
         radius: 32,
         currentLyric: null,
         // 当前歌词所在行,高亮

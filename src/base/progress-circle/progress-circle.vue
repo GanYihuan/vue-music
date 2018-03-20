@@ -27,6 +27,7 @@
         :stroke-dashoffset="dashOffset"
       />
     </svg>
+    <!-- i标签插入slot -->
     <slot></slot>
   </div>
 </template>
