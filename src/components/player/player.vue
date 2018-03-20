@@ -316,7 +316,7 @@
         }
       },
       format (interval) {
-        // 取整
+        // |: 由整数向下取整(Math.floor)
         interval = interval | 0
         const minute = (interval / 60) | 0
         const second = this._pad(interval % 60)
@@ -437,7 +437,7 @@
         this.$refs.middleL.style["transitionDuration"] = `${time}ms`
         this.touch.initiated = false
       },
-      // 用 0 补位, 补 2 位
+      // 用 0 补位(补 2 位)
       _pad (num, n = 2) {
         let len = num.toString().length
         while (len < n) {
