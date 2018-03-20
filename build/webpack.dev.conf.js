@@ -48,24 +48,31 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         })
       })
       app.get('/api/lyric', (req, res) => {
-        var url = 'https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg'
+        // qq音乐播放歌曲界面 -> chrome network -> js fcg preview
+        // 点击fcg就可以在chrome里显示url
+        let url = 'https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg'
         axios
           .get(url, {
             headers: {
+              // 绕过qq音乐限制
               referer: 'https://c.y.qq.com/',
               host: 'c.y.qq.com'
             },
             params: req.query
           })
           .then((response) => {
+            // 数据
             let ret = response.data
             if (typeof ret === 'string') {
+              // 正则匹配
               let reg = /^\w+\(({[^()]+})\)$/
               let matches = ret.match(reg)
               if (matches) {
+                // JSON.parse: 转换为JSON
                 ret = JSON.parse(matches[1])
               }
             }
+            // 输出请求内容出去
             res.json(ret)
           })
           .catch((e) => {
