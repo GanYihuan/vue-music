@@ -139,6 +139,7 @@
         currentLineNum: 0,
         // 唱片碟界面与歌词界面
         currentShow: 'cd',
+        // playingLyric: 唱碟下面显示的一行歌词
         playingLyric: ''
       }
     },
@@ -236,6 +237,7 @@
         }
         // setPlayingState: mutation
         this.setPlayingState(!this.playing)
+        // 当歌词滚动时才能播放,防止停止播放时歌词还在滚动
         if (this.currentLyric) {
           this.currentLyric.togglePlay()
         }
@@ -251,6 +253,7 @@
         this.$refs.audio.currentTime = 0
         this.$refs.audio.play()
         this.setPlayingState(true)
+        // 进入循环播放时，歌曲一开始就要求歌词位于最开始
         if (this.currentLyric) {
           // 歌曲跳到最开始
           this.currentLyric.seek(0)
@@ -314,7 +317,7 @@
           this.togglePlaying()
         }
         if (this.currentLyric) {
-          // 歌词追随滚动条滚动
+          // 歌词追随进度条滚动而一一对应
           this.currentLyric.seek(currentTime * 1000)
         }
       },
@@ -385,7 +388,7 @@
           // 前五行歌词不发生滚动, 位于顶部
           this.$refs.lyricList.scrollTo(0, 0, 1000)
         }
-        // playingLyric: 唱碟下面的歌词
+        // playingLyric: 唱碟下面显示的一行歌词
         this.playingLyric = txt
       },
       // 点击唱片部分
@@ -508,7 +511,9 @@
         if (newSong.id === oldSong.id) {
           return
         }
+        // currentLyric里面有计时器，当切下一首歌时，该计时器会代入下一首歌
         if (this.currentLyric) {
+          // 先停止上首歌的计时器
           this.currentLyric.stop()
           this.currentTime = 0
           this.playingLyric = ''
