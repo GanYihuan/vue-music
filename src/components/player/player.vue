@@ -120,7 +120,7 @@
   import animations from "create-keyframe-animation";
   import ProgressBar from "base/progress-bar/progress-bar"
   import ProgressCircle from "base/progress-circle/progress-circle"
-  // 解析字符串, 传入lyric,执行到一个时间点后执行handle函数
+  // 视频作者编写, 歌词解析, 每执行到时间点时都执行回调函数
   import Lyric from 'lyric-parser'
   import Scroll from 'base/scroll/scroll'
 
@@ -352,6 +352,7 @@
         // mutation: setCurrentIndex
         this.setCurrentIndex(index)
       },
+      // 获取歌词
       getLyric () {
         this.currentSong.getLyric()
           .then((lyric) => {

@@ -254,7 +254,15 @@ cnpm install create-keyframe-animation --save
 
 
 ## 7-20
-## 播放器歌词数据解析 ?
+## 播放器歌词数据解析
+## base64解码
+```
+cnpm install js-base64 --save
+```
+## 视频作者编写, 歌词解析, 每执行到时间点时都执行回调函数
+```
+cnpm install lyric-parser
+```
 
 
 ## 7-21
