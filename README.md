@@ -295,3 +295,11 @@ cnpm install lyric-parser
 ## https://y.qq.com/w/taoge.html?ADTAG=newyqq.taoge&id=3261874488
 ## 歌单详情页数据应用
 ## bug! jp1 is not defined !
+
+
+## 9-1
+## introduce
+
+
+## 9-2
+## 抓取数据,jsonp请求
