@@ -36,6 +36,8 @@
       >
       </suggest>
     </div>
+    <!-- 二级路由 -->
+    <router-view></router-view>
   </div>
 </template>
 

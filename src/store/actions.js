@@ -7,6 +7,7 @@ import {playMode} from 'common/js/config'
 import {shuffle} from 'common/js/util'
 import {saveSearch, clearSearch, deleteSearch, savePlay, saveFavorite, deleteFavorite} from 'common/js/cache'
 
+// 查找列表中是否有song这首歌曲，如果有返回该索引
 function findIndex (list, song) {
   return list.findIndex((item) => {
     return item.id === song.id
@@ -57,7 +58,9 @@ export const randomPlay = function ({commit}, {list}) {
   commit(types.SET_PLAYING_STATE, true)
 }
 
+// 点击搜索界面歌曲并添加到播放列表
 export const insertSong = function ({commit, state}, song) {
+  // 副本,不会对state修改
   let playlist = state.playlist.slice()
   let sequenceList = state.sequenceList.slice()
   let currentIndex = state.currentIndex
@@ -79,6 +82,7 @@ export const insertSong = function ({commit, state}, song) {
       playlist.splice(fpIndex + 1, 1)
     }
   }
+  // sequenceList 插入位置
   let currentSIndex = findIndex(sequenceList, currentSong) + 1
   let fsIndex = findIndex(sequenceList, song)
   sequenceList.splice(currentSIndex, 0, song)

@@ -49,7 +49,7 @@
           let {musicData} = item
           // ES6 解构赋值
           if (musicData.songid && musicData.albummid) {
-            ret.push(createSons(musicData))
+            ret.push(createSong(musicData))
           }
         })
         return ret

@@ -36,7 +36,7 @@
   import {ERR_OK} from "api/config"
   import {createSong} from "common/js/song"
   import {mapMutations, mapActions} from "vuex"
-  // import Singer from "common/js/singer"
+  import Singer from "common/js/singer"
 
   const TYPE_SINGER = "singer"
   // perpage: 每页返回的个数
@@ -112,8 +112,10 @@
           this.$router.push({
             path: `/search/${singer.id}`
           })
+          // vuex: mutation
           this.setSinger(singer)
         } else {
+          // vuex: action
           this.insertSong(item)
         }
         this.$emit("select", item)
@@ -161,7 +163,9 @@
       ...mapMutations({
         setSinger: "SET_SINGER"
       }),
-      ...mapActions(["insertSong"])
+      ...mapActions([
+        "insertSong"
+      ])
     },
     watch: {
       query (newQuery) {
@@ -171,7 +175,8 @@
     components: {
       Scroll,
       Loading,
-      NoResult
+      NoResult,
+      Singer
     }
   }
 </script>
