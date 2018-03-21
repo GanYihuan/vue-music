@@ -302,4 +302,8 @@ cnpm install lyric-parser
 
 
 ## 9-2
-## 抓取数据,jsonp请求
+## 排行榜界面抓取数据,jsonp请求
+
+
+## 9-3
+## 排行榜界面数据应用
