@@ -63,6 +63,7 @@
         this.$router.push({
           path: `/rank/${item.id}`
         });
+        // vuex: mutation
         this.setTopList(item)
       },
       _getTopList () {
@@ -73,6 +74,7 @@
             }
           })
       },
+      // vuex: mutation
       ...mapMutations({
         setTopList: "SET_TOP_LIST"
       })

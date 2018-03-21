@@ -307,3 +307,7 @@ cnpm install lyric-parser
 
 ## 9-3
 ## 排行榜界面数据应用
+
+
+## 9-4
+## 排行榜界面Vuex数据通讯

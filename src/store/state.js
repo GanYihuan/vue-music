@@ -21,6 +21,7 @@ const state = {
   currentIndex: -1,
   // 歌单对象
   disc: {},
+  // 排行榜界面跳转的界面
   topList: {},
   searchHistory: loadSearch(),
   playHistory: loadPlay(),
