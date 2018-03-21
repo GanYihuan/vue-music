@@ -319,3 +319,7 @@ cnpm install lyric-parser
 
 ## 10-1
 ## introduce search-page
+
+
+## 10-2
+## search-box的搜索栏
