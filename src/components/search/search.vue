@@ -33,6 +33,7 @@
       <suggest
         ref="suggest"
         :query="query"
+        @listScroll="blurInput"
       >
       </suggest>
     </div>

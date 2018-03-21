@@ -24,12 +24,16 @@
       </li>
       <loading v-show="hasMore" title=""></loading>
     </ul>
+    <div v-show="!hasMore && !result.length" class="no-result-wrapper">
+      <no-result title="抱歉，暂无搜索结果"></no-result>
+    </div>
   </scroll>
 </template>
 
 <script type="text/ecmascript-6">
   import Scroll from "base/scroll/scroll"
   import Loading from "base/loading/loading"
+  // 404
   import NoResult from "base/no-result/no-result"
   // 前端请求jsonp
   import {search} from "api/search"

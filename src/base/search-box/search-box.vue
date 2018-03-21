@@ -7,6 +7,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  // 优化请求节流函数
   import {debounce} from "common/js/util"
 
   export default {
@@ -28,11 +29,13 @@
       setQuery (query) {
         this.query = query
       },
+      // 当滚动时, search框失去焦点, 目的是移动端取消键盘
       blur () {
         this.$refs.query.blur()
       }
     },
     created () {
+      // 节流函数,优化请求
       this.$watch(
         "query",
         debounce(newQuery => {

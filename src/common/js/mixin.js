@@ -108,6 +108,7 @@ export const searchMixin = {
     onQueryChange (query) {
       this.query = query
     },
+    // 当滚动时, search框失去焦点, 目的是移动端取消键盘
     blurInput () {
       this.$refs.searchBox.blur()
     },
