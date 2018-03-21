@@ -35,6 +35,7 @@
 <script type="text/ecmascript-6">
   import Scroll from "base/scroll/scroll"
   import Loading from "base/loading/loading"
+  // jsonp
   import {getTopList} from "api/rank"
   import {ERR_OK} from "api/config"
   // 设置mini播放器的正确位置显示

@@ -12,6 +12,7 @@
 
 <script type="text/ecmascript-6">
   import MusicList from "components/music-list/music-list"
+  // jsonp
   import {getMusicList} from "api/rank"
   import {ERR_OK} from "api/config"
   import {mapGetters} from "vuex"
@@ -48,12 +49,14 @@
           this.$router.push("/rank")
           return
         }
-        getMusicList(this.topList.id).then(res => {
-          if (res.code === ERR_OK) {
-            this.songs = this._normalizeSongs(res.songlist)
-          }
-        })
+        getMusicList(this.topList.id)
+          .then(res => {
+            if (res.code === ERR_OK) {
+              this.songs = this._normalizeSongs(res.songlist)
+            }
+          })
       },
+      // 处理数据
       _normalizeSongs (list) {
         let ret = []
         list.forEach(item => {
