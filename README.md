@@ -345,3 +345,11 @@ cnpm install lyric-parser
 ## 当没有搜索结果时返回404
 ## 优化请求节流函数
 ## 滚动时失去焦点
+
+
+## 10-11, 10-12, 10-13 ?
+## 搜索历史数据
+## 缓存, localStorage
+```
+cnpm install good-storage --save
+```

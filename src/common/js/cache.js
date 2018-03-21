@@ -1,11 +1,11 @@
 import storage from 'good-storage'
 
+// 内部的值
 const SEARCH_KEY = '__search__'
+// 缓存15条数据
 const SEARCH_MAX_LEN = 15
-
 const PLAY_KEY = '__play__'
 const PLAY_MAX_LEN = 200
-
 const FAVORITE_KEY = '__favorite__'
 const FAVORITE_MAX_LEN = 200
 
@@ -30,6 +30,7 @@ function deleteFromArray (arr, compare) {
   }
 }
 
+// localStorage
 export function saveSearch (query) {
   let searches = storage.get(SEARCH_KEY, [])
   insertArray(searches, query, (item) => {
@@ -53,6 +54,7 @@ export function clearSearch () {
   return []
 }
 
+// 从本地缓存去读search-list
 export function loadSearch () {
   return storage.get(SEARCH_KEY, [])
 }
@@ -91,4 +93,3 @@ export function deleteFavorite (song) {
 export function loadFavorite () {
   return storage.get(FAVORITE_KEY, [])
 }
-

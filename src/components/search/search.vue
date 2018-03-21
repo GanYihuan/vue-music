@@ -34,6 +34,7 @@
         ref="suggest"
         :query="query"
         @listScroll="blurInput"
+        @select="saveSearch"
       >
       </suggest>
     </div>
@@ -75,7 +76,10 @@
               this.hotKey = res.data.hotkey.slice(0, 10)
             }
           })
-      }
+      },
+      ...mapActions([
+        "clearSearchHistory"
+      ])
     },
     components: {
       SearchBox,

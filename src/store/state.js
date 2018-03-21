@@ -23,6 +23,7 @@ const state = {
   disc: {},
   // 排行榜界面跳转的界面: 榜单详情界面
   topList: {},
+  // loadSearch: 从本地缓存去读search-list
   searchHistory: loadSearch(),
   playHistory: loadPlay(),
   favoriteList: loadFavorite()
