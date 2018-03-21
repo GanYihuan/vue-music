@@ -327,3 +327,7 @@ cnpm install lyric-parser
 
 ## 10-3
 ## search jsonp
+
+
+## 10-4
+## 搜索歌曲功能

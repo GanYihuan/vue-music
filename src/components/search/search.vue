@@ -1,9 +1,13 @@
 <template>
   <div class="search">
     <div class="search-box-wrapper">
-      <search-box ref="searchBox"></search-box>
+      <search-box ref="searchBox" @query="onQueryChange"></search-box>
     </div>
-    <div ref="shortcutWrapper" class="shortcut-wrapper">
+    <div
+      ref="shortcutWrapper"
+      class="shortcut-wrapper"
+      v-show="!query"
+    >
       <scroll
         ref="shortcut"
         class="shortcut"
@@ -25,6 +29,13 @@
         </div>
       </scroll>
     </div>
+    <div class="search-result" v-show="query" ref="searchResult">
+      <suggest
+        ref="suggest"
+        :query="query"
+      >
+      </suggest>
+    </div>
   </div>
 </template>
 
@@ -35,6 +46,7 @@
   import {playlistMixin, searchMixin} from "common/js/mixin"
   import Scroll from "base/scroll/scroll"
   import SearchBox from "base/search-box/search-box"
+  import Suggest from "components/suggest/suggest"
 
   export default {
     mixins: [playlistMixin, searchMixin],
@@ -64,7 +76,8 @@
     },
     components: {
       SearchBox,
-      Scroll
+      Scroll,
+      Suggest
     }
   }
 </script>
