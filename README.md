@@ -315,3 +315,7 @@ cnpm install lyric-parser
 
 ## 9-5
 ## 排行榜详情界面组件扩展, 前三排行奖杯
+
+
+## 10-1
+## introduce search-page
