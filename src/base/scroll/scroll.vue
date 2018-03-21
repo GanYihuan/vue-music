@@ -25,6 +25,7 @@
         type: Array,
         default: null
       },
+      // 是否下拉刷新
       pullup: {
         type: Boolean,
         default: false
@@ -52,22 +53,22 @@
           probeType: this.probeType,
           click: this.click
         })
-
         if (this.listenScroll) {
           let me = this
           this.scroll.on('scroll', (pos) => {
             me.$emit('scroll', pos)
           })
         }
-
+        // pullup: 下拉刷新
         if (this.pullup) {
+          // 监听scrollEnd
           this.scroll.on('scrollEnd', () => {
+            // 屏幕快滚动到底部距离50px时,触发父级scrollToEnd
             if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
               this.$emit('scrollToEnd')
             }
           })
         }
-
         if (this.beforeScroll) {
           this.scroll.on('beforeScrollStart', () => {
             this.$emit('beforeScroll')

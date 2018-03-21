@@ -39,6 +39,7 @@
   // import Singer from "common/js/singer"
 
   const TYPE_SINGER = "singer"
+  // perpage: 每页返回的个数
   const perpage = 20
 
   export default {
@@ -57,6 +58,7 @@
     data () {
       return {
         page: 1,
+        // 下拉刷新
         pullup: true,
         beforeScroll: true,
         hasMore: true,
@@ -69,24 +71,31 @@
       },
       // 请求服务端,抓取search检索数据
       search () {
+        // 刚搜索时
         this.page = 1
         this.hasMore = true
+        // 滚动到顶部
         this.$refs.suggest.scrollTo(0, 0)
         search(this.query, this.page, this.showSinger, perpage).then(res => {
           if (res.code === ERR_OK) {
             this.result = this._genResult(res.data)
+            // 是否有多余数据
             this._checkMore(res.data)
           }
         })
       },
+      // 下拉刷新处理函数
       searchMore () {
         if (!this.hasMore) {
           return
         }
+        // 加载下一页
         this.page++
         search(this.query, this.page, this.showSinger, perpage).then(res => {
           if (res.code === ERR_OK) {
+            // concat: 数组拼接, result变化,数据变化, 传入scroll值变化, scroll 刷新
             this.result = this.result.concat(this._genResult(res.data))
+            // 查看是否还有数据?
             this._checkMore(res.data)
           }
         })
@@ -142,12 +151,10 @@
         })
         return ret
       },
+      // 是否有多余数据
       _checkMore (data) {
         const song = data.song
-        if (
-          !song.list.length ||
-          song.curnum + song.curpage * perpage > song.totalnum
-        ) {
+        if (!song.list.length || song.curnum + song.curpage * perpage > song.totalnum) {
           this.hasMore = false
         }
       },

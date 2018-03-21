@@ -17,7 +17,7 @@ export function getHotKey () {
  * @param query 检索值
  * @param page 检索第几页
  * @param zhida 要歌手这个数据吗？
- * @param perpage
+ * @param perpage: 每页返回的个数
  */
 export function search (query, page, zhida, perpage) {
   const url = 'https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp'
