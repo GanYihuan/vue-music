@@ -29,11 +29,13 @@
           <div class="search-history" v-show="searchHistory.length">
             <h1 class="title">
               <span class="text">搜索历史</span>
-              <span class="clear">
+              <span class="clear" @click="showConfirm">
                 <i class="icon-clear"></i>
               </span>
             </h1>
             <search-list
+              @delete="deleteSearchHistory"
+              @select="addQuery"
               :searches="searchHistory"
             >
             </search-list>
@@ -83,6 +85,9 @@
     methods: {
       handlePlaylist () {
 
+      },
+      showConfirm () {
+        this.$refs.confirm.show();
       },
       addQuery (query) {
         this.$refs.searchBox.setQuery(query)

@@ -357,3 +357,7 @@ cnpm install good-storage --save
 
 ## 10-14
 ## 搜索历史记录展示
+
+
+## 10-15
+## 删除历史记录缓存

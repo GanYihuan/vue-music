@@ -30,7 +30,7 @@ function deleteFromArray (arr, compare) {
   }
 }
 
-// localStorage
+// localStorage, search历史记录
 export function saveSearch (query) {
   let searches = storage.get(SEARCH_KEY, [])
   insertArray(searches, query, (item) => {
@@ -40,6 +40,7 @@ export function saveSearch (query) {
   return searches
 }
 
+// localStorage, search历史记录
 export function deleteSearch (query) {
   let searches = storage.get(SEARCH_KEY, [])
   deleteFromArray(searches, (item) => {
