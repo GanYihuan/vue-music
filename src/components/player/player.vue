@@ -95,7 +95,7 @@
             <i @click.stop="togglePlaying" class="icon-mini" :class="miniIcon"></i>
           </progress-circle>
         </div>
-        <div class="control">
+        <div class="control" @click.stop="showPlaylist">
           <i class="icon-playlist"></i>
         </div>
       </div>
@@ -392,6 +392,9 @@
         }
         // playingLyric: 唱碟下面显示的一行歌词
         this.playingLyric = txt
+      },
+      showPlaylist() {
+        this.$refs.playlist.show();
       },
       // 点击唱片部分
       middleTouchStart (e) {

@@ -1,6 +1,10 @@
 <template>
   <transition name="list-fade">
-    <div class="playlist" @click="hide" v-show="showFlag">
+    <div
+      class="playlist"
+      @click="hide"
+      v-show="showFlag"
+    >
       <div class="list-wrapper" @click.stop>
         <div class="list-header">
           <h1 class="title">
