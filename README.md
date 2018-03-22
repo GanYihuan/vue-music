@@ -369,3 +369,7 @@ cnpm install good-storage --save
 
 ## 10-17
 ## 搜索歌曲滚动设置
+
+
+## 10-18
+## 设置mini播放器的正确位置显示

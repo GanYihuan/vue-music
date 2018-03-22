@@ -96,7 +96,11 @@
     },
     methods: {
       handlePlaylist () {
-
+        const bottom = playlist.length > 0 ? "60px" : ""
+        this.$refs.searchResult.style.bottom = bottom
+        this.$refs.suggest.refresh()
+        this.$refs.shortcutWrapper.style.bottom = bottom
+        this.$refs.shortcut.refresh()
       },
       showConfirm () {
         this.$refs.confirm.show()
@@ -120,8 +124,8 @@
       query (newQuery) {
         if (!newQuery) {
           setTimeout(() => {
-            this.$refs.shortcut.refresh();
-          }, 20);
+            this.$refs.shortcut.refresh()
+          }, 20)
         }
       }
     },
