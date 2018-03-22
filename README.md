@@ -373,3 +373,7 @@ cnpm install good-storage --save
 
 ## 10-18
 ## 设置mini播放器的正确位置显示
+
+
+## 11-1
+## 歌曲列表组件布局和功能介绍

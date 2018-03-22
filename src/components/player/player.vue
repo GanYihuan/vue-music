@@ -100,6 +100,7 @@
         </div>
       </div>
     </transition>
+    <playlist ref="playlist"></playlist>
     <audio
       :src="currentSong.url"
       ref="audio"
@@ -123,6 +124,7 @@
   // 视频作者编写, 歌词解析, 每执行到时间点时都执行回调函数
   import Lyric from 'lyric-parser'
   import Scroll from 'base/scroll/scroll'
+  import Playlist from "components/playlist/playlist"
 
   const transform = prefixStyle('transform')
   const transitionDuration = prefixStyle('transitionDuration')
@@ -547,7 +549,8 @@
     components: {
       ProgressBar,
       ProgressCircle,
-      Scroll
+      Scroll,
+      Playlist
     }
   }
 </script>
