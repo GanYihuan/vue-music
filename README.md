@@ -353,3 +353,7 @@ cnpm install lyric-parser
 ```
 cnpm install good-storage --save
 ```
+
+
+## 10-14
+## 搜索历史记录展示

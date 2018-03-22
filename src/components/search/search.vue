@@ -26,6 +26,18 @@
               </li>
             </ul>
           </div>
+          <div class="search-history" v-show="searchHistory.length">
+            <h1 class="title">
+              <span class="text">搜索历史</span>
+              <span class="clear">
+                <i class="icon-clear"></i>
+              </span>
+            </h1>
+            <search-list
+              :searches="searchHistory"
+            >
+            </search-list>
+          </div>
         </div>
       </scroll>
     </div>
@@ -51,12 +63,18 @@
   import Scroll from "base/scroll/scroll"
   import SearchBox from "base/search-box/search-box"
   import Suggest from "components/suggest/suggest"
+  import SearchList from "base/search-list/search-list"
 
   export default {
     mixins: [playlistMixin, searchMixin],
     data () {
       return {
         hotKey: []
+      }
+    },
+    computed: {
+      shortcut () {
+        return this.hotKey.concat(this.searchHistory);
       }
     },
     created () {
@@ -84,7 +102,8 @@
     components: {
       SearchBox,
       Scroll,
-      Suggest
+      Suggest,
+      SearchList
     }
   }
 </script>
