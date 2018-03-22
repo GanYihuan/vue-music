@@ -11,7 +11,9 @@
       <scroll
         ref="shortcut"
         class="shortcut"
+        :data="shortcut"
       >
+        <!-- 包一个div，计算两部分的滚动 -->
         <div>
           <div class="hot-key">
             <h1 class="title">热门搜索</h1>
@@ -84,19 +86,20 @@
       }
     },
     computed: {
+      // 当hotKey, searchHistory发生变化时，scroll从新设置高度
       shortcut () {
-        return this.hotKey.concat(this.searchHistory);
+        return this.hotKey.concat(this.searchHistory)
       }
     },
     created () {
-      this._getHotKey();
+      this._getHotKey()
     },
     methods: {
       handlePlaylist () {
 
       },
       showConfirm () {
-        this.$refs.confirm.show();
+        this.$refs.confirm.show()
       },
       addQuery (query) {
         this.$refs.searchBox.setQuery(query)
@@ -112,6 +115,15 @@
       ...mapActions([
         "clearSearchHistory"
       ])
+    },
+    watch: {
+      query (newQuery) {
+        if (!newQuery) {
+          setTimeout(() => {
+            this.$refs.shortcut.refresh();
+          }, 20);
+        }
+      }
     },
     components: {
       SearchBox,
