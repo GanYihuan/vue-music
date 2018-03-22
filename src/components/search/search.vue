@@ -52,6 +52,14 @@
       >
       </suggest>
     </div>
+    <!-- @confirm: if true, call func -->
+    <confirm
+      ref="confirm"
+      @confirm="clearSearchHistory"
+      text="是否清空所有搜索历史"
+      confirmBtnText="清空"
+    >
+    </confirm>
     <!-- 二级路由 -->
     <router-view></router-view>
   </div>
@@ -66,6 +74,7 @@
   import SearchBox from "base/search-box/search-box"
   import Suggest from "components/suggest/suggest"
   import SearchList from "base/search-list/search-list"
+  import Confirm from "base/confirm/confirm"
 
   export default {
     mixins: [playlistMixin, searchMixin],
@@ -108,7 +117,8 @@
       SearchBox,
       Scroll,
       Suggest,
-      SearchList
+      SearchList,
+      Confirm
     }
   }
 </script>
