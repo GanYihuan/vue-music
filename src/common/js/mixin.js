@@ -28,6 +28,7 @@ export const playlistMixin = {
   }
 }
 
+// playlist.vue
 export const playerMixin = {
   computed: {
     iconMode () {

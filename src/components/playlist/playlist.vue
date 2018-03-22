@@ -13,10 +13,19 @@
             <span class="clear" @click="showConfirm"><i class="icon-clear"></i></span>
           </h1>
         </div>
-        <scroll ref="listContent" :data="sequenceList" class="list-content" :refreshDelay="refreshDelay">
+        <scroll
+          class="list-content"
+          ref="listContent"
+          :data="sequenceList"
+          :refreshDelay="refreshDelay"
+        >
           <transition-group ref="list" name="list" tag="ul">
-            <li :key="item.id" class="item" v-for="(item,index) in sequenceList"
-                @click="selectItem(item,index)">
+            <li
+              class="item"
+              v-for="(item,index) in sequenceList"
+              :key="item.id"
+              @click="selectItem(item,index)"
+            >
               <i class="current" :class="getCurrentIcon(item)"></i>
               <span class="text">{{item.name}}</span>
               <span @click.stop="toggleFavorite(item)" class="like">
@@ -38,7 +47,13 @@
           <span>关闭</span>
         </div>
       </div>
-      <confirm ref="confirm" @confirm="confirmClear" text="是否清空播放列表" confirmBtnText="清空"></confirm>
+      <confirm
+        ref="confirm"
+        @confirm="confirmClear"
+        text="是否清空播放列表"
+        confirmBtnText="清空"
+      >
+      </confirm>
       <!--<add-song ref="addSong"></add-song>-->
     </div>
   </transition>
@@ -47,10 +62,10 @@
 <script type="text/ecmascript-6">
   import {mapActions} from "vuex"
   import {playMode} from "common/js/config"
+  import {playerMixin} from "common/js/mixin"
   import Scroll from "base/scroll/scroll"
   import Confirm from "base/confirm/confirm"
-//  import AddSong from "components/add-song/add-song"
-  import {playerMixin} from "common/js/mixin"
+  //  import AddSong from "components/add-song/add-song"
 
   export default {
     mixins: [playerMixin],
@@ -70,6 +85,7 @@
     methods: {
       show () {
         this.showFlag = true
+        // 展示后刷新，防止dom没有被正确计算,导致scroll失效
         setTimeout(() => {
           this.$refs.listContent.refresh()
           this.scrollToCurrent(this.currentSong)
@@ -104,10 +120,7 @@
         const index = this.sequenceList.findIndex(song => {
           return current.id === song.id
         })
-        this.$refs.listContent.scrollToElement(
-          this.$refs.list.$el.children[index],
-          300
-        )
+        this.$refs.listContent.scrollToElement(this.$refs.list.$el.children[index], 300)
       },
       deleteOne (item) {
         this.deleteSong(item)
@@ -118,7 +131,10 @@
       addSong () {
         this.$refs.addSong.show()
       },
-      ...mapActions(["deleteSong", "deleteSongList"])
+      ...mapActions([
+        "deleteSong",
+        "deleteSongList"
+      ])
     },
     watch: {
       currentSong (newSong, oldSong) {
