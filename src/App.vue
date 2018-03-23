@@ -2,7 +2,7 @@
   <div id="app">
     <m-header></m-header>
     <tab></tab>
-    <!-- keep-alive: 声明周期缓存到内存中 -->
+    <!-- keep-alive: Declaration Cycle cache to memory -->
     <keep-alive>
       <router-view></router-view>
     </keep-alive>
@@ -25,6 +25,6 @@
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-  /* scoped 属性是一个布尔属性 */
-  /* 如果使用该属性，则样式仅仅应用到 style 元素的父元素及其子元素 */
+  /* scoped: is a Boolean property */
+  /* Styles apply to the parent element of a STYLE element and its child elements */
 </style>

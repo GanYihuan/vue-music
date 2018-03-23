@@ -69,12 +69,20 @@ resolve: {
 ```
 
 
-## es6转义
+## 3-1
+## App.vue
+## es6 escape
+```
 npm install babel-runtime --save
-## 移动端点击300ms延迟
+```
+## Mobile End Clicks 300MS Delay
+```
 cnpm install fastclick --save
-## 补丁，es6转义
+```
+## path，es6 api escape
+```
 cnpm install babel-polyfill --save-dev
+```
 
 
 ## 3-2
