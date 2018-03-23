@@ -28,22 +28,22 @@
             >
               <i class="current" :class="getCurrentIcon(item)"></i>
               <span class="text">{{item.name}}</span>
-              <span @click.stop="toggleFavorite(item)" class="like">
+              <span class="like" @click.stop="toggleFavorite(item)">
                 <i :class="getFavoriteIcon(item)"></i>
               </span>
-              <span @click.stop="deleteOne(item)" class="delete">
+              <span class="delete" @click.stop="deleteOne(item)">
                 <i class="icon-delete"></i>
               </span>
             </li>
           </transition-group>
         </scroll>
         <div class="list-operate">
-          <div @click="addSong" class="add">
+          <div class="add" @click="addSong">
             <i class="icon-add"></i>
             <span class="text">添加歌曲到队列</span>
           </div>
         </div>
-        <div @click="hide" class="list-close">
+        <div class="list-close" @click="hide">
           <span>关闭</span>
         </div>
       </div>
@@ -54,7 +54,7 @@
         confirmBtnText="清空"
       >
       </confirm>
-      <!--<add-song ref="addSong"></add-song>-->
+      <add-song ref="addSong"></add-song>
     </div>
   </transition>
 </template>
@@ -65,7 +65,7 @@
   import {playerMixin} from "common/js/mixin"
   import Scroll from "base/scroll/scroll"
   import Confirm from "base/confirm/confirm"
-  //  import AddSong from "components/add-song/add-song"
+  import AddSong from "components/add-song/add-song"
 
   export default {
     mixins: [playerMixin],
@@ -149,7 +149,7 @@
     },
     components: {
       Scroll,
-//      AddSong
+      AddSong,
       Confirm
     }
   }

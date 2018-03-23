@@ -391,3 +391,7 @@ cnpm install good-storage --save
 
 ## 11-8, 11-9
 ## mixin公共js
+
+
+## 11-10
+## add-song的显示和隐藏的控制
