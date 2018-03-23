@@ -101,14 +101,18 @@ https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
 
 
 ## 4-2
+## jsonp 封装
+## (common -> js -> jsonp.js)
+## Promise，就是一个对象，用来传递异步操作的消息。它代表了某个未来才会知道结果的事件（通常是一个异步操作），并且这个事件提供统一的 API，可供进一步处理。
 ## jsonp原理: 解决跨域问题
 > 动态创建script标签,没有同源限制，可以跨域，script src地址指向第三方的API网址
 > 并提供一个回调函数来接收数据,第三方产生的响应为json数据的包装
 > 浏览器会调用callback函数，并传递解析后json对象作为参数。
 > 本站脚本可在callback函数里处理所传入的数据。   
 ## install jsonp
+```
 cnpm install jsonp --save
-## jsonp.js 封装
+```
 
 
 ## 4-3
