@@ -25,9 +25,19 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 
 ## 2-2
+## init project template
 vue init webpack imooc-music
+## select 'RunTime-only'
+## vue-router 'Y'
+## ESLint 'Y' (es6 style checker)
+## karma, e2e test 'N'
+## start App
+```
+npm run dev
+```
 
 
+## 2-3
 ## webpack.base.conf.js别名配置
 ## 使用后在main.js直接引入
 import 'common/scss/index.scss'
