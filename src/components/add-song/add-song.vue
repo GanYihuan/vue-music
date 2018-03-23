@@ -60,12 +60,12 @@
         >
         </suggest>
       </div>
-      <!--<top-tip ref="topTip">-->
-      <!--<div class="tip-title">-->
-      <!--<i class="icon-ok"></i>-->
-      <!--<span class="text">1首歌曲已经添加到播放列表</span>-->
-      <!--</div>-->
-      <!--</top-tip>-->
+      <top-tip ref="topTip">
+        <div class="tip-title">
+          <i class="icon-ok"></i>
+          <span class="text">1首歌曲已经添加到播放列表</span>
+        </div>
+      </top-tip>
     </div>
   </transition>
 </template>
@@ -76,7 +76,8 @@
   import SearchList from "base/search-list/search-list"
   import Scroll from "base/scroll/scroll"
   import Switches from "base/switches/switches"
-  //  import TopTip from "base/top-tip/top-tip"
+  // 添加歌曲时提示组件
+  import TopTip from "base/top-tip/top-tip"
   import Suggest from "components/suggest/suggest"
   import {searchMixin} from "common/js/mixin"
   import {mapGetters, mapActions} from "vuex"
@@ -140,7 +141,7 @@
       SearchList,
       Scroll,
       Switches,
-//      TopTip,
+      TopTip,
       Suggest
     }
   }

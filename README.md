@@ -412,3 +412,7 @@ cnpm install good-storage --save
 
 ## 11-15
 ## search-list: 搜索历史
+
+
+## 11-16
+## 添加歌曲时提示组件
