@@ -55,6 +55,7 @@
         discList: []
       }
     },
+    // get back-end data
     created () {
       this._getRecommend()
       this._getDiscList()
@@ -80,13 +81,15 @@
         this.setDisc(item)
       },
       _getRecommend () {
-        getRecommend().then((res) => {
-          // js -> fcg -> Response -> jsonp(data)
-          // https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
-          if (res.code === ERR_OK) {
-            this.recommends = res.data.slider
-          }
-        })
+        getRecommend()
+          .then((res) => {
+            // static -> jsonp1.png
+            // res.data.slider <https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg>
+            if (res.code === ERR_OK) {
+              // console.log(res.data.slider)
+              this.recommends = res.data.slider
+            }
+          })
       },
       _getDiscList () {
         getDiscList().then((res) => {

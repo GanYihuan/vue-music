@@ -101,7 +101,7 @@ https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
 
 
 ## 4-2
-## jsonp 封装
+## jsonp package
 ## (common -> js -> jsonp.js)
 ## Promise，就是一个对象，用来传递异步操作的消息。它代表了某个未来才会知道结果的事件（通常是一个异步操作），并且这个事件提供统一的 API，可供进一步处理。
 ## jsonp原理: 解决跨域问题
@@ -116,11 +116,13 @@ cnpm install jsonp --save
 
 
 ## 4-3
+## recommend数据抓取
+## (api -> config(配置参数)) (api -> recommend)
+## 发送jsonp请求,抓取qq音乐里面的数据,
+## 请求后台数据
+```
 cnpm install axios --save
-## 轮播图数据抓取
-## recommend.js 抓取数据函数
-## config.js 配置参数, qq音乐里面定义好的数据, fcg
-## 发送jsonp请求
+```
 
 
 ## 4-4, 4-5, 4-6

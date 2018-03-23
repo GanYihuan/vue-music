@@ -1,7 +1,7 @@
 import originJsonp from 'jsonp'
 
 /**
- * jsonp doc
+ * jsonp package
  * https://github.com/webmodules/jsonp
  * @param url
  * @param data: pass to back-end parameter
