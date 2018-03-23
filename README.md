@@ -91,15 +91,17 @@ cnpm install babel-polyfill --save-dev
 
 
 ## 4-1
-## 后端数据
-## chrome 工具使用
-## 从qq音乐抓取数据
+## Back-end data
+## chrome use(static -> jsonp1.png)
+## Fetching data from QQ music
+```
 https://m.y.qq.com/
 https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
+```
 
 
 ## 4-2
-## jsonp原理:
+## jsonp原理: 解决跨域问题
 > 动态创建script标签,没有同源限制，可以跨域，script src地址指向第三方的API网址
 > 并提供一个回调函数来接收数据,第三方产生的响应为json数据的包装
 > 浏览器会调用callback函数，并传递解析后json对象作为参数。
