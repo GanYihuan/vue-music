@@ -424,3 +424,7 @@ cnpm install good-storage --save
 
 ## 12-1
 ## 用户个人中心页, switch切换
+
+
+## 12-2
+## 收藏功能vuex数据通讯

@@ -27,6 +27,7 @@ const state = {
   searchHistory: loadSearch(),
   // 播放历史
   playHistory: loadPlay(),
+  // 收藏列表
   favoriteList: loadFavorite()
 };
 
