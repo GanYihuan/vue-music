@@ -395,3 +395,8 @@ cnpm install good-storage --save
 
 ## 11-10
 ## add-song的显示和隐藏的控制
+
+
+## 11-11
+## suggest: 搜索后呈现的界面
+## mixin
