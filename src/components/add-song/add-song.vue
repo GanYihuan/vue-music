@@ -16,7 +16,12 @@
         </search-box>
       </div>
       <div class="shortcut" v-show="!query">
-        <!--<switches :switches="switches" :currentIndex="currentIndex" @switch="switchItem"></switches>-->
+        <switches
+          :switches="switches"
+          :currentIndex="currentIndex"
+          @switch="switchItem"
+        >
+        </switches>
         <div class="list-wrapper">
           <scroll
             ref="songList"
@@ -65,7 +70,7 @@
   import SongList from "base/song-list/song-list"
   import SearchList from "base/search-list/search-list"
   import Scroll from "base/scroll/scroll"
-  //  import Switches from "base/switches/switches"
+  import Switches from "base/switches/switches"
   //  import TopTip from "base/top-tip/top-tip"
   import Suggest from "components/suggest/suggest"
   import {searchMixin} from "common/js/mixin"
@@ -116,14 +121,16 @@
       switchItem (index) {
         this.currentIndex = index
       },
-      ...mapActions(["insertSong"])
+      ...mapActions([
+        "insertSong"
+      ])
     },
     components: {
       SearchBox,
       SongList,
       SearchList,
       Scroll,
-//      Switches,
+      Switches,
 //      TopTip,
       Suggest
     }

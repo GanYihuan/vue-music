@@ -400,3 +400,7 @@ cnpm install good-storage --save
 ## 11-11
 ## suggest: 搜索后呈现的界面
 ## mixin
+
+
+## 11-12
+## switches: 切换歌曲列表组件的两个按钮
