@@ -24,9 +24,9 @@
         </switches>
         <div class="list-wrapper">
           <scroll
+            class="list-scroll"
             ref="songList"
             v-if="currentIndex === 0"
-            class="list-scroll"
             :data="playHistory"
           >
             <div class="list-inner">
@@ -92,7 +92,9 @@
       }
     },
     computed: {
-      ...mapGetters(["playHistory"])
+      ...mapGetters([
+        "playHistory"
+      ])
     },
     methods: {
       show () {
@@ -110,6 +112,7 @@
       },
       selectSong (song, index) {
         if (index !== 0) {
+          // 插入歌曲到列表
           this.insertSong(new Song(song))
           this.$refs.topTip.show()
         }

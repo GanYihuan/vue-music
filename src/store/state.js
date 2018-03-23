@@ -25,6 +25,7 @@ const state = {
   topList: {},
   // loadSearch: 从本地缓存去读search-list
   searchHistory: loadSearch(),
+  // 播放历史
   playHistory: loadPlay(),
   favoriteList: loadFavorite()
 };

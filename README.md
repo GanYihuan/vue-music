@@ -404,3 +404,7 @@ cnpm install good-storage --save
 
 ## 11-12
 ## switches: 切换歌曲列表组件的两个按钮
+
+
+## 11-13, 11-14
+## 歌曲列表组件,最近播放列表

@@ -114,7 +114,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import {mapGetters, mapMutations} from "vuex"
+  import {mapGetters, mapMutations, mapActions} from "vuex"
   import {prefixStyle} from 'common/js/dom'
   import {playMode} from 'common/js/config'
   import {shuffle} from 'common/js/util'
@@ -307,6 +307,7 @@
       // audio,防止极限点击操作报错
       error () {
         this.songReady = true
+        this.savePlayHistory(this.currentSong)
       },
       updateTime (e) {
         this.currentTime = e.target.currentTime
@@ -393,7 +394,7 @@
         // playingLyric: 唱碟下面显示的一行歌词
         this.playingLyric = txt
       },
-      showPlaylist() {
+      showPlaylist () {
         this.$refs.playlist.show();
       },
       // 点击唱片部分
@@ -504,7 +505,10 @@
         setCurrentIndex: "SET_CURRENT_INDEX",
         setPlayMode: 'SET_PLAY_MODE',
         setPlayList: 'SET_PLAY_LIST'
-      })
+      }),
+      ...mapActions([
+        "savePlayHistory"
+      ])
     },
     watch: {
       // 监听,当currentSong变化时调用

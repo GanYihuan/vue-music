@@ -4,7 +4,9 @@ import storage from 'good-storage'
 const SEARCH_KEY = '__search__'
 // 缓存15条数据
 const SEARCH_MAX_LEN = 15
+// 播放历史记录
 const PLAY_KEY = '__play__'
+// 播放历史记录最多200条
 const PLAY_MAX_LEN = 200
 const FAVORITE_KEY = '__favorite__'
 const FAVORITE_MAX_LEN = 200
@@ -60,15 +62,19 @@ export function loadSearch () {
   return storage.get(SEARCH_KEY, [])
 }
 
+// 缓存播放历史记录(actions.js调用)
 export function savePlay (song) {
   let songs = storage.get(PLAY_KEY, [])
+  // 插入
   insertArray(songs, song, (item) => {
     return song.id === item.id
   }, PLAY_MAX_LEN)
+  // 缓存到本地
   storage.set(PLAY_KEY, songs)
   return songs
 }
 
+// 读取播放历史记录(state.js会调用)
 export function loadPlay () {
   return storage.get(PLAY_KEY, [])
 }
