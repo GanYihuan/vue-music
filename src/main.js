@@ -12,7 +12,7 @@ Vue.use(VueLazyload, {
   loading: require('common/image/default.png')
 })
 
-import './common/stylus/index.styl'
+import './common/scss/index.scss'
 
 /* eslint-disable no-new */
 new Vue({

@@ -420,3 +420,7 @@ cnpm install good-storage --save
 
 ## 11-17
 ## fix-bug
+
+
+## 12-1
+## 用户个人中心页, switch切换
