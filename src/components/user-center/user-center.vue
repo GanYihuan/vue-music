@@ -101,11 +101,13 @@
       back () {
         this.$router.back()
       },
+      // 随机播放
       random () {
         let list = this.currentIndex === 0 ? this.favoriteList : this.playHistory
         if (list.length === 0) {
           return
         }
+        // Song实例, 获得Song特有方法
         list = list.map(song => {
           return new Song(song)
         })
