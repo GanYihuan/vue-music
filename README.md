@@ -86,7 +86,8 @@ cnpm install babel-polyfill --save-dev
 
 
 ## 3-2
-## router, tab
+## tab.vue: navigation bar
+## router
 
 
 ## 4-1

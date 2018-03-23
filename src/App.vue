@@ -4,6 +4,7 @@
     <tab></tab>
     <!-- keep-alive: Declaration Cycle cache to memory -->
     <keep-alive>
+      <!-- router render here -->
       <router-view></router-view>
     </keep-alive>
     <player></player>
@@ -12,6 +13,7 @@
 
 <script type="text/ecmascript-6">
   import MHeader from 'components/m-header/m-header.vue'
+  // navigation-bar
   import Tab from 'components/tab/tab.vue'
   import Player from 'components/player/player.vue'
 
