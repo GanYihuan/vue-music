@@ -416,3 +416,7 @@ cnpm install good-storage --save
 
 ## 11-16
 ## 添加歌曲时提示组件
+
+
+## 11-17
+## fix-bug

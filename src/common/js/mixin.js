@@ -93,11 +93,13 @@ export const playerMixin = {
   }
 }
 
+// search.vue
 // add-song.vue
 export const searchMixin = {
   data () {
     return {
       query: '',
+      // 延迟scroll refresh保证dom已经加载完毕
       refreshDelay: 120
     }
   },

@@ -7,6 +7,7 @@
       ref="shortcutWrapper"
       class="shortcut-wrapper"
       v-show="!query"
+      :refreshDelay="refreshDelay"
     >
       <scroll
         ref="shortcut"
