@@ -17,12 +17,22 @@
         <span class="text">随机播放全部</span>
       </div>
       <div class="list-wrapper" ref="listWrapper">
-        <scroll ref="favoriteList" class="list-scroll" v-if="currentIndex===0" :data="favoriteList">
+        <scroll
+          ref="favoriteList"
+          class="list-scroll"
+          v-if="currentIndex===0"
+          :data="favoriteList"
+        >
           <div class="list-inner">
             <song-list :songs="favoriteList" @select="selectSong"></song-list>
           </div>
         </scroll>
-        <scroll ref="playList" class="list-scroll" v-if="currentIndex===1" :data="playHistory">
+        <scroll
+          ref="playList"
+          class="list-scroll"
+          v-if="currentIndex===1"
+          :data="playHistory"
+        >
           <div class="list-inner">
             <song-list :songs="playHistory" @select="selectSong"></song-list>
           </div>
@@ -70,7 +80,10 @@
           return "你还没有听过歌曲"
         }
       },
-      ...mapGetters(["favoriteList", "playHistory"])
+      ...mapGetters([
+        "favoriteList",
+        "playHistory"
+      ])
     },
     methods: {
       handlePlaylist (playlist) {
@@ -100,7 +113,10 @@
           list
         })
       },
-      ...mapActions(["insertSong", "randomPlay"])
+      ...mapActions([
+        "insertSong",
+        "randomPlay"
+      ])
     },
     components: {
       Switches,
