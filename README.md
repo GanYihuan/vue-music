@@ -440,3 +440,4 @@ cnpm install good-storage --save
 
 ## 12-5, 12-6
 ## 回退按钮功能, 随机播放按钮功能
+## 用户个人中心页完成
