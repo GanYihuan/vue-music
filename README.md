@@ -38,8 +38,20 @@ npm run dev
 
 
 ## 2-3
-## webpack.base.conf.js别名配置
-## 使用后在main.js直接引入
+## Project introduce:
+## api: (backend request, jsonp request, AJAX request)
+## common: (static resources: img, common js, style file)
+## components: (components)
+## router: (router)
+## store: (Vuex)
+## main.js: entrance
+## npm install (scss)
+```
+    "sass-loader": "^6.0.7",
+    "node-sass": "^4.7.2",
+```
+## webpack.base.conf.js alias configuration
+## After use directly introduce the corresponding file in Main.js
 import 'common/scss/index.scss'
 ```
 context: path.resolve(__dirname, '..', dir),
