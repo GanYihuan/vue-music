@@ -79,7 +79,8 @@
       modeText () {
         return this.mode === playMode.sequence
           ? "顺序播放"
-          : this.mode === playMode.random ? "随机播放" : "单曲循环"
+          : this.mode === playMode.random
+            ? "随机播放" : "单曲循环"
       }
     },
     methods: {
