@@ -428,3 +428,7 @@ cnpm install good-storage --save
 
 ## 12-2
 ## 收藏功能vuex数据通讯
+
+
+## 12-3
+## 收藏功能点击处理
