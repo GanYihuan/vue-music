@@ -36,12 +36,17 @@
           <scroll
             class="list-scroll"
             ref="searchList"
-            v-if="currentIndex===1"
+            v-if="currentIndex === 1"
             :refreshDelay="refreshDelay"
             :data="searchHistory"
           >
             <div class="list-inner">
-              <search-list @delete="deleteSearchHistory" @select="addQuery" :searches="searchHistory"></search-list>
+              <search-list
+                :searches="searchHistory"
+                @delete="deleteSearchHistory"
+                @select="addQuery"
+              >
+              </search-list>
             </div>
           </scroll>
         </div>
@@ -99,6 +104,7 @@
     methods: {
       show () {
         this.showFlag = true
+        // 防止重新渲染没有dom加载
         setTimeout(() => {
           if (this.currentIndex === 0) {
             this.$refs.songList.refresh()

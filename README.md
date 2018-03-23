@@ -408,3 +408,7 @@ cnpm install good-storage --save
 
 ## 11-13, 11-14
 ## 歌曲列表组件,最近播放列表
+
+
+## 11-15
+## search-list: 搜索历史

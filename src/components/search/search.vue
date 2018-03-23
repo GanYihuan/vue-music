@@ -95,7 +95,7 @@
       this._getHotKey()
     },
     methods: {
-      handlePlaylist () {
+      handlePlaylist (playlist) {
         const bottom = playlist.length > 0 ? "60px" : ""
         this.$refs.searchResult.style.bottom = bottom
         this.$refs.suggest.refresh()
