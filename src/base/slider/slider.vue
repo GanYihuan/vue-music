@@ -1,26 +1,30 @@
 <template>
   <div class="slider" ref="slider">
     <div class="slider-group" ref="sliderGroup">
-      <slot>
-      </slot>
+      <!--
+      当子组件模板只有一个没有属性的 slot 时，
+      父组件整个内容片段将插入到 slot 所在的 DOM 位置，并替换掉 slot 标签本身
+      -->
+      <slot></slot>
     </div>
     <div class="dots">
-      <span 
+      <span
         class="dot"
         :class="{active: currentPageIndex === index }"
         v-for="(item, index) in dots"
         :key="index"
-      ></span>
+      >
+      </span>
     </div>
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
   import {addClass} from 'common/js/dom'
   import BScroll from 'better-scroll'
 
   export default {
-    data() {
+    data () {
       return {
         dots: [],
         currentPageIndex: 0
@@ -40,46 +44,46 @@
         default: 4000
       }
     },
-    mounted() {
+    mounted () {
+      // setTimeout: dom 充分加载
       setTimeout(() => {
-        this._setSliderWidth();
-        this._initDots();
-        this._initSlider();
-        if(this.autoPlay) {
-          this._autoPlay();
+        this._setSliderWidth()
+        this._initDots()
+        this._initSlider()
+        if (this.autoPlay) {
+          this._autoPlay()
         }
       }, 20)
-
       window.addEventListener('resize', () => {
-        if(!this.slider) {
+        if (!this.slider) {
           return
         }
-        this._setSliderWidth(true);
-        this.slider.refresh();
+        this._setSliderWidth(true)
+        this.slider.refresh()
       })
     },
     methods: {
-      _setSliderWidth(isResize) {
+      _setSliderWidth (isResize) {
         this.children = this.$refs.sliderGroup.children
-
         let width = 0
         let sliderWidth = this.$refs.slider.clientWidth
         for (let i = 0; i < this.children.length; i++) {
           let child = this.children[i]
           addClass(child, 'slider-item')
-
           child.style.width = sliderWidth + 'px'
           width += sliderWidth
         }
+        // clone two dom (轮播组件)
         if (this.loop && !isResize) {
           width += 2 * sliderWidth
         }
         this.$refs.sliderGroup.style.width = width + 'px'
       },
-      _initDots() {
+      _initDots () {
         this.dots = new Array(this.children.length)
       },
-      _initSlider() {
+      _initSlider () {
+        // 轮播滚动设置
         this.slider = new BScroll(this.$refs.slider, {
           scrollX: true,
           scrollY: false,
@@ -88,33 +92,33 @@
           snapLoop: this.loop,
           snapThreshold: 0.2,
           snapSpeed: 400
-        });
+        })
         this.slider.on('scrollEnd', () => {
-          let pageIndex = this.slider.getCurrentPage().pageX;
-          if(this.loop) {
+          let pageIndex = this.slider.getCurrentPage().pageX
+          if (this.loop) {
             // double copy
-            pageIndex -= 1;
+            pageIndex -= 1
           }
-          this.currentPageIndex = pageIndex;
-          if(this.autoPlay) {
-            clearTimeout(this.timer);
-            this._autoPlay();
+          this.currentPageIndex = pageIndex
+          if (this.autoPlay) {
+            clearTimeout(this.timer)
+            this._autoPlay()
           }
         })
       },
-      _autoPlay() {
+      _autoPlay () {
         let pageIndex = this.currentPageIndex + 1
-        if(this.loop) {
+        if (this.loop) {
           // begin 0
-          pageIndex += 1;
+          pageIndex += 1
         }
         this.timer = setTimeout(() => {
           this.slider.goToPage(pageIndex, 0, 400)
         }, this.interval)
       }
     },
-    destroyed() {
-      clearTimeout(this.timer);     
+    destroyed () {
+      clearTimeout(this.timer)
     }
   }
 </script>

@@ -25,33 +25,36 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 
 ## 2-2
-## init project template
+### init project template
+```
 vue init webpack imooc-music
-## select 'RunTime-only'
-## vue-router 'Y'
-## ESLint 'Y' (es6 style checker)
-## karma, e2e test 'N'
-## start App
+```
+### select 'RunTime-only'
+### vue-router 'Y'
+### ESLint 'Y' (es6 style checker)
+### karma, e2e test 'N'
+### start App
 ```
 npm run dev
 ```
 
 
 ## 2-3
-## Project introduce:
-## api: (backend request, jsonp request, AJAX request)
-## common: (static resources: img, common js, style file)
-## components: (components)
-## router: (router)
-## store: (Vuex)
-## main.js: entrance
-## npm install (scss)
+### Project introduce:
+### api: (backend request, jsonp request, AJAX request)
+### common: (static resources: img, common js, style file)
+### components: (components)
+### base: (basic components)
+### router: (router)
+### store: (Vuex)
+### main.js: entrance
+### npm install (scss)
 ```
-    "sass-loader": "^6.0.7",
-    "node-sass": "^4.7.2",
+"sass-loader": "^6.0.7",
+"node-sass": "^4.7.2",
 ```
-## webpack.base.conf.js alias configuration
-## After use directly introduce the corresponding file in Main.js
+### webpack.base.conf.js alias configuration
+### After use directly introduce the corresponding file in Main.js
 import 'common/scss/index.scss'
 ```
 context: path.resolve(__dirname, '..', dir),
@@ -70,30 +73,30 @@ resolve: {
 
 
 ## 3-1
-## App.vue
-## es6 escape
+### App.vue
+### es6 escape
 ```
 npm install babel-runtime --save
 ```
-## Mobile End Clicks 300MS Delay
+### Mobile End Clicks 300MS Delay
 ```
 cnpm install fastclick --save
 ```
-## path，es6 api escape
+### path，es6 api escape
 ```
 cnpm install babel-polyfill --save-dev
 ```
 
 
 ## 3-2
-## tab.vue: navigation bar
-## router
+### tab.vue: navigation bar
+### router
 
 
 ## 4-1
-## Back-end data
-## chrome use(static -> jsonp1.png)
-## Fetching data from QQ music
+### Back-end data
+### chrome use(static -> jsonp1.png)
+### Fetching data from QQ music
 ```
 https://m.y.qq.com/
 https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
@@ -101,52 +104,58 @@ https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
 
 
 ## 4-2
-## jsonp package
-## (common -> js -> jsonp.js)
-## Promise，就是一个对象，用来传递异步操作的消息。它代表了某个未来才会知道结果的事件（通常是一个异步操作），并且这个事件提供统一的 API，可供进一步处理。
-## jsonp原理: 解决跨域问题
+### jsonp package
+### (common -> js -> jsonp.js)
+### Promise
+> 就是一个对象，用来传递异步操作的消息。它代表了某个未来才会知道结果的事件（通常是一个异步操作），并且这个事件提供统一的 API，可供进一步处理。
+### jsonp原理: 
+> 解决跨域问题
 > 动态创建script标签,没有同源限制，可以跨域，script src地址指向第三方的API网址
 > 并提供一个回调函数来接收数据,第三方产生的响应为json数据的包装
 > 浏览器会调用callback函数，并传递解析后json对象作为参数。
 > 本站脚本可在callback函数里处理所传入的数据。   
-## install jsonp
+### install jsonp
 ```
 cnpm install jsonp --save
 ```
 
 
 ## 4-3
-## recommend数据抓取
-## (api -> config(配置参数)) (api -> recommend)
-## 发送jsonp请求,抓取qq音乐里面的数据,
-## 请求后台数据
+### recommend数据抓取
+### (api -> config(配置参数)) (api -> recommend)
+### 发送jsonp请求,抓取qq音乐里面的数据,
+### 请求后台数据
 ```
 cnpm install axios --save
 ```
 
 
-## 4-4, 4-5, 4-6
-## 轮播图组件
+## 4-4
+### (recommend.vue) (common -> js -> dom.js)
+### <https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg>
+### 轮播滚动组件(作者开发)
+```
 cnpm install better-scroll@0.1.15 --save
+```
 
 
 ## 4-7
-## 歌单数据接口
+### 歌单数据接口
 
 
 ## 4-8
-## 介绍和后端接口代理 
-## ajax库axios,发起HTTPRequest
+### 介绍和后端接口代理 
+### ajax库axios,发起HTTPRequest
 cnpm install axios --save
-## 1.修改config目录下的index.js文件
-## 修改host
+### 1.修改config目录下的index.js文件
+### 修改host
 > /config/index.js
 ```
 host: '0.0.0.0',
 ```
-## 2.修改/build/webpack.dev.conf.js
+### 2.修改/build/webpack.dev.conf.js
 > 异步定义后端接口
-## 3. recommend.js -> getDiscList 调用后端接口
+### 3. recommend.js -> getDiscList 调用后端接口
 
 
 ## 4-9 

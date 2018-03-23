@@ -7,7 +7,7 @@
           <slider>
             <div v-for="(item,index) in recommends" :key="index">
               <a :href="item.linkUrl">
-                <img class="needsclick" @load="loadImage" :src="item.picUrl">
+                <img class="needsclick" @load="loadImage" :src="item.picUrl"/>
               </a>
             </div>
           </slider>
@@ -19,7 +19,7 @@
               <div class="icon">
                 <!-- v-lazy: Load only when scrolling. -->
                 <!-- class="needsclick": fastclick does not intercept the click process. -->
-                <img width="60" height="60" v-lazy="item.imgurl">
+                <img width="60" height="60" v-lazy="item.imgurl"/>
               </div>
               <div class="text">
                 <h2 class="name" v-html="item.creator.name"></h2>
