@@ -209,7 +209,8 @@ cnpm install vue-lazyload --save
 
 
 ## 5-5, 5-6, 5-7, 5-8 
-### listivew.vue 右侧滚动
+### (listivew.vue)
+### 歌手界面右侧滚动组件
 
 
 ## 5-9

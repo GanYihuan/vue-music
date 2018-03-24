@@ -87,6 +87,7 @@
         this.scroll && this.scroll.refresh()
       },
       scrollTo () {
+        // apply:  scrollTo会接受参数, apply传入scroll.scrollTo里面
         this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
       },
       scrollToElement () {

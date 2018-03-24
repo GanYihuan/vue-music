@@ -46,6 +46,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  // get & set
   import {getData} from 'common/js/dom'
   import Scroll from 'base/scroll/scroll'
   import loading from 'base/loading/loading'
@@ -76,6 +77,7 @@
       }
     },
     computed: {
+      // 右侧快速列表A-Z, title集合数组
       shortcutList () {
         return this.data.map((group) => {
           return group.title.substr(0, 1)
@@ -103,11 +105,12 @@
         this._scrollTo(anchorIndex)
       },
       onShortCutTouchMove (e) {
-        // 判断移动时距离 / 每个字母高度，得到detal，再据此移动到目标分类
+        // 判断移动时距离 / 每个字母高度，得到delta，再据此移动到目标分类
         let firstTouch = e.touches[0]
         this.touch.y2 = firstTouch.pageY
-        let detal = Math.floor((this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT)
-        let anchorIndex = parseInt(this.touch.anchorIndex) + detal
+        // |0 : Math.floor
+        let delta = (this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT | 0
+        let anchorIndex = parseInt(this.touch.anchorIndex) + delta
         this._scrollTo(anchorIndex)
       },
       refresh () {
@@ -127,7 +130,8 @@
           index = this.heightList.length - 2
         }
         this.scrollY = -this.heightList[index]
-        // second params: animate duration
+        // scroll 滚动到对应的歌手目的地
+        // 第二个参数: 动画持续时间
         this.$refs.listview.scrollToElement(this.$refs.listGroup[index])
       },
       _calculateHeight () {

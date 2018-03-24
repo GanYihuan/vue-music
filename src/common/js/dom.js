@@ -12,6 +12,7 @@ export function addClass (el, className) {
   el.className = newClass.join(' ')
 }
 
+// get & set
 export function getData (el, name, val) {
   const prefix = 'data-'
   if (val) {
