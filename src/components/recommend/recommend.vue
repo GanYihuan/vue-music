@@ -1,5 +1,6 @@
 <template>
   <div class="recommend" ref="recommend">
+    <!-- :data : 内容撑开scroll的高度 -->
     <scroll ref="scroll" class="recommend-content" :data="discList">
       <div>
         <!-- v-if="recommends.length": prevent Asynchronous load delay -->

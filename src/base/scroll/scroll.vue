@@ -9,6 +9,7 @@
 
   export default {
     props: {
+      // 指定组件监听滚动事件,缓慢拖动能监听,快速拖动能监听
       probeType: {
         type: Number,
         default: 1
@@ -40,6 +41,7 @@
       }
     },
     mounted () {
+      // 确保dom渲染了
       setTimeout(() => {
         this._initScroll()
       }, 20)
