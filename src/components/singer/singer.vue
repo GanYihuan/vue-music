@@ -38,12 +38,15 @@
         })
         this.setSinger(singer)
       },
+      // 从 api/singer.js/getSingerList 获取qq歌手数据
       _getSingerList () {
-        getSingerList().then((res) => {
-          if (res.code === ERR_OK) {
-            this.singers = this._normalizeSinger(res.data.list)
-          }
-        })
+        getSingerList()
+          .then((res) => {
+            if (res.code === ERR_OK) {
+              // console.log(res.data.list)
+              this.singers = this._normalizeSinger(res.data.list)
+            }
+          })
       },
       _normalizeSinger (list) {
         let map = {

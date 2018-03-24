@@ -194,7 +194,7 @@ cnpm install vue-lazyload --save
 
 
 ## 5-2
-### singer 后端接口
+### 获取qq歌手数据
 
 
 ## 5-3
