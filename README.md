@@ -130,7 +130,7 @@ cnpm install axios --save
 ```
 
 
-## 4-4
+## 4-4, 4-5, 4-6
 ### (recommend.vue) (common -> js -> dom.js)
 ### <https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg>
 ### 轮播滚动组件(作者开发)

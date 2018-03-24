@@ -54,6 +54,7 @@
           this._autoPlay()
         }
       }, 20)
+      // 监听窗口改变事件
       window.addEventListener('resize', () => {
         if (!this.slider) {
           return
@@ -91,12 +92,14 @@
           snap: true,
           snapLoop: this.loop,
           snapThreshold: 0.2,
+          // click: true,
           snapSpeed: 400
         })
         this.slider.on('scrollEnd', () => {
+          // 第几个子元素
           let pageIndex = this.slider.getCurrentPage().pageX
           if (this.loop) {
-            // double copy
+            // 默认向第一个元素添加一个copy
             pageIndex -= 1
           }
           this.currentPageIndex = pageIndex
@@ -109,14 +112,18 @@
       _autoPlay () {
         let pageIndex = this.currentPageIndex + 1
         if (this.loop) {
-          // begin 0
+          // this.currentPageIndex下标从0开始
           pageIndex += 1
         }
         this.timer = setTimeout(() => {
+          // pageIndex: x
+          // 0: y
+          // 400: time interval
           this.slider.goToPage(pageIndex, 0, 400)
         }, this.interval)
       }
     },
+    // 好的编程习惯, 有计时器时, 要清理
     destroyed () {
       clearTimeout(this.timer)
     }

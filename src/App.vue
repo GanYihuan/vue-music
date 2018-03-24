@@ -3,6 +3,7 @@
     <m-header></m-header>
     <tab></tab>
     <!-- keep-alive: Declaration Cycle cache to memory -->
+    <!-- 防止切回到recommedn界面时, 界面一闪 -->
     <keep-alive>
       <!-- router render here -->
       <router-view></router-view>
