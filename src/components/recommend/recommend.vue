@@ -69,7 +69,7 @@
         this.$refs.recommend.style.bottom = bottom
         this.$refs.scroll.refresh()
       },
-      // Prevent wheel-seeding graph from delaying loading, resulting in high loss
+      // 防止轮播图延迟加载, 造成高度计算错误
       loadImage () {
         if (!this.checkloaded) {
           this.checkloaded = true
