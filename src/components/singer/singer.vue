@@ -48,6 +48,7 @@
             }
           })
       },
+      // 规范化获取到数据
       _normalizeSinger (list) {
         let map = {
           hot: {
@@ -74,6 +75,7 @@
             id: item.Fsinger_mid
           }))
         })
+        // console.log(map)
         // 为了得到有序列表，我们需要处理 map
         // 对象遍历是无序的，此处处理为有序列表
         let ret = []
@@ -86,6 +88,7 @@
             hot.push(val)
           }
         }
+        // 升序排列
         ret.sort((a, b) => {
           return a.title.charCodeAt(0) - b.title.charCodeAt(0)
         })
