@@ -178,37 +178,41 @@ host: '0.0.0.0',
 
 
 ## 4-12 
-## 图片懒加载: 仅在滚动时加载
+### 图片懒加载: 仅在滚动时加载
 ```
 cnpm install vue-lazyload --save
 ```
-## class="needsclick" : fastclick 不拦截单击过程
+### class="needsclick" : fastclick 不拦截单击过程
 
 
 ## 4-13 
-## loading
+### loading
 
 
-## 5-1, 5-2
-## singer 后端接口
+## 5-1
+### introduce 歌手界面
+
+
+## 5-2
+### singer 后端接口
 
 
 ## 5-3
-## 歌手数据
-https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&g_tk=295327561&jsonpCallback=GetSingerListCallback&loginUin=583520052&hostUin=0&format=jsonp&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0
-## singer 数据处理
+### 歌手数据
+> <https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&g_tk=295327561&jsonpCallback=GetSingerListCallback&loginUin=583520052&hostUin=0&format=jsonp&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0>
+### singer 数据处理
 
 
 ## 5-4
-## singer.vue 界面实现
+### singer.vue 界面实现
 
 
 ## 5-5, 5-6, 5-7, 5-8 
-## listivew.vue 右侧滚动
+### listivew.vue 右侧滚动
 
 
 ## 5-9
-## fixtitle
+### fixtitle
 
 
 ## 5-10****
