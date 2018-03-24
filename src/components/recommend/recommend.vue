@@ -8,6 +8,7 @@
           <slider>
             <div v-for="(item,index) in recommends" :key="index">
               <a :href="item.linkUrl">
+                <!-- class="needsclick": fastclick 不拦截单击过程 -->
                 <img class="needsclick" @load="loadImage" :src="item.picUrl"/>
               </a>
             </div>
@@ -18,8 +19,7 @@
           <ul>
             <li @click="selectItem(item)" v-for="(item,index) in discList" :key="index" class="item">
               <div class="icon">
-                <!-- v-lazy: Load only when scrolling. -->
-                <!-- class="needsclick": fastclick does not intercept the click process. -->
+                <!-- v-lazy: Load only when scrolling -->
                 <img width="60" height="60" v-lazy="item.imgurl"/>
               </div>
               <div class="text">

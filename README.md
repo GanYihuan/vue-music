@@ -174,11 +174,14 @@ host: '0.0.0.0',
 
 ## 4-11 
 ### 防止轮播图延迟加载, 造成高度计算错误
+### 调用better-scroll要保证dom已经渲染,数据变化或者dom变化,better-scroll要调用refresh
 
 
 ## 4-12 
-## 图片懒加载
+## 图片懒加载: 仅在滚动时加载
+```
 cnpm install vue-lazyload --save
+```
 ## class="needsclick"
 
 
