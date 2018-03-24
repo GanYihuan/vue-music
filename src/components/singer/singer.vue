@@ -10,6 +10,7 @@
   import {getSingerList} from 'api/singer'
   import {ERR_OK} from 'api/config'
   import {playlistMixin} from 'common/js/mixin'
+  // 歌手列表
   import ListView from 'base/listview/listview'
   import Singer from 'common/js/singer'
 

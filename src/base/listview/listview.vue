@@ -1,55 +1,53 @@
 <template>
+  <!-- data: 数据改变时,refresh scroll -->
   <scroll
+    @scroll="scroll"
     class="listview"
     ref="listview"
     :data="data"
     :listenScroll="listenScroll"
     :probeType='probeType'
-    @scroll="scroll"
   >
     <ul>
-      <li v-for="(group,index) in data" :key="index" class="list-group" ref="listGroup">
+      <li class="list-group" ref="listGroup" v-for="(group,index) in data" :key="index">
         <h2 class="list-group-title">{{group.title}}</h2>
         <ul>
           <li
+            @click="selectItem(item)"
             class="list-group-item"
             v-for="(item,index) in group.items"
             :key="index"
-            @click="selectItem(item)"
           >
-            <img v-lazy="item.avatar" class="avatar">
+            <img class="avatar" v-lazy="item.avatar"/>
             <span class="name">{{item.name}}</span>
           </li>
         </ul>
       </li>
     </ul>
-
     <div class="list-shortcut" @touchstart="onShortCutTouchStart" @touchmove.stop.prevent="onShortCutTouchMove">
       <ul>
         <li
+          class="item"
           v-for="(item, index) in shortcutList"
           :key="index"
-          class="item"
           :data-index="index"
           :class="{'current': currentIndex === index}"
         >{{item}}
         </li>
       </ul>
     </div>
-
     <div class="list-fixed" v-show="fixedTitle" ref="fixed">
       <h2 class="fixed-title">{{fixedTitle}}</h2>
     </div>
-
     <div class="loading-container" v-show="!data.length">
       <loading></loading>
     </div>
   </scroll>
 </template>
 
-<script>
-  import scroll from 'base/scroll/scroll'
+<script type="text/ecmascript-6">
   import {getData} from 'common/js/dom'
+  import Scroll from 'base/scroll/scroll'
   import loading from 'base/loading/loading'
 
   const ANCHOR_HEIGHT = 18
@@ -146,7 +144,7 @@
       }
     },
     components: {
-      scroll,
+      Scroll,
       loading
     },
     watch: {
