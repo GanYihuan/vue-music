@@ -141,12 +141,16 @@ cnpm install better-scroll@0.1.15 --save
 
 ## 4-7
 ### 抓取歌单数据接口
+### 500服务器端错误, host问题
 
 
 ## 4-8
-### 介绍和后端接口代理 
+### 后端接口代理
+### (build -> webpack.dev.conf.js) 
 ### ajax库axios,发起HTTPRequest
+```
 cnpm install axios --save
+```
 ### 1.修改config目录下的index.js文件
 ### 修改host
 > /config/index.js
@@ -159,15 +163,15 @@ host: '0.0.0.0',
 
 
 ## 4-9 
-## 歌单列表组件
+### 歌单列表组件
 
 
 ## 4-10 
-## scroll组件
+### scroll组件
 
 
 ## 4-11 
-## 防止轮播图延迟加载，导致高度缺失
+### 防止轮播图延迟加载，导致高度缺失
 
 
 ## 4-12 

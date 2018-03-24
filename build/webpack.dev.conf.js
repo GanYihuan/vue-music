@@ -35,13 +35,18 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     before (app) {
       app.get('/api/getDiscList', (req, res) => {
         var url = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'
+        // 发送http请求
         axios.get(url, {
+          // 欺骗qq的请求
           headers: {
             referer: 'https://c.y.qq.com/',
             host: 'c.y.qq.com'
           },
+          // 参数, (recommend.js -> getDiscList -> data) 传递给url地址
           params: req.query
         }).then((response) => {
+          // res: 我们浏览器前端
+          // response.data: qq的响应数据
           res.json(response.data)
         }).catch((e) => {
           console.log(e)

@@ -23,6 +23,7 @@ export function getRecommend () {
  * @returns {Promise.<TResult>|*}
  */
 export function getDiscList () {
+  // 请求后端地址, 后端地址发送http请求给qq音乐来获取数据
   const url = '/api/getDiscList'
   const data = Object.assign({}, commonParams, {
     platform: 'yqq',
@@ -37,6 +38,7 @@ export function getDiscList () {
   })
 
   return axios.get(url, {
+    // 传递给(webpack.dev.conf.js -> app.get('/api/getDiscList', (req, res) =>)
     params: data
   }).then((res) => {
     return Promise.resolve(res.data)
