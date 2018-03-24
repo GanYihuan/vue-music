@@ -3,7 +3,7 @@ import {commonParams, options} from './config'
 import axios from 'axios'
 
 /**
- * fetch data
+ * fetch data (轮播图数据)
  */
 export function getRecommend () {
   // static -> jsonp1.png: open in chrome, copy url(? before)
@@ -18,6 +18,10 @@ export function getRecommend () {
   return jsonp(url, data, options)
 }
 
+/**
+ * fetch data (歌单数据)
+ * @returns {Promise.<TResult>|*}
+ */
 export function getDiscList () {
   const url = '/api/getDiscList'
   const data = Object.assign({}, commonParams, {

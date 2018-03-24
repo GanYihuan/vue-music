@@ -57,7 +57,9 @@
     },
     // get back-end data
     created () {
+      // fetch data (轮播图数据)
       this._getRecommend()
+      // fetch data (歌单数据)
       this._getDiscList()
     },
     methods: {
@@ -92,11 +94,13 @@
           })
       },
       _getDiscList () {
-        getDiscList().then((res) => {
-          if (res.code === ERR_OK) {
-            this.discList = res.data.list
-          }
-        })
+        getDiscList()
+          .then((res) => {
+            if (res.code === ERR_OK) {
+              // console.log(res.data.list)
+              this.discList = res.data.list
+            }
+          })
       },
       ...mapMutations({
         // 设置歌单对象
