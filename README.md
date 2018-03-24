@@ -182,7 +182,7 @@ host: '0.0.0.0',
 ```
 cnpm install vue-lazyload --save
 ```
-## class="needsclick"
+## class="needsclick" : fastclick 不拦截单击过程
 
 
 ## 4-13 
