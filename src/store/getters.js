@@ -1,5 +1,5 @@
 /**
- * 数据的映射
+ * 映射state数据
  * @param state
  */
 

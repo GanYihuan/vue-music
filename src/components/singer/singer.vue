@@ -38,6 +38,7 @@
         this.$router.push({
           path: `/singer/${singer.id}`
         })
+        // this.setSinger: 执行mutation里面的SET_SINGER
         this.setSinger(singer)
       },
       // 从 api/singer.js/getSingerList 获取qq歌手数据
@@ -96,6 +97,7 @@
         })
         return hot.concat(ret)
       },
+      // 调用mutation, 对应mutation-types常量
       ...mapMutations({
         setSinger: 'SET_SINGER'
       })

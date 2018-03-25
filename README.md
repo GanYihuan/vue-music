@@ -233,7 +233,9 @@ cnpm install vue-lazyload --save
 
 ## 6-3, 6-4 
 ### Vuex
-### cnpm install vuex --save 
+```
+cnpm install vuex --save 
+```
 
 
 ## 6-5, 6-7
