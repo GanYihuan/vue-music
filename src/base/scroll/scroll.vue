@@ -18,6 +18,7 @@
         type: Boolean,
         default: true
       },
+      // scroll监听滚动事件?
       listenScroll: {
         type: Boolean,
         default: false
@@ -55,6 +56,7 @@
           probeType: this.probeType,
           click: this.click
         })
+        // scroll 监听滚动
         if (this.listenScroll) {
           let me = this
           this.scroll.on('scroll', (pos) => {
@@ -87,7 +89,7 @@
         this.scroll && this.scroll.refresh()
       },
       scrollTo () {
-        // apply:  scrollTo会接受参数, apply传入scroll.scrollTo里面
+        // apply: scrollTo会接受参数, apply传入scroll.scrollTo里面
         this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
       },
       scrollToElement () {

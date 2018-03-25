@@ -211,6 +211,7 @@ cnpm install vue-lazyload --save
 ## 5-5, 5-6, 5-7, 5-8 
 ### (listivew.vue)
 ### 歌手界面右侧滚动组件
+### clientHeight
 
 
 ## 5-9
@@ -218,21 +219,21 @@ cnpm install vue-lazyload --save
 
 
 ## 5-10****
-## 区块切换时，fixtitle有顶上去的效果
-## loading
+### 区块切换时，fixtitle有顶上去的效果
+### loading
 
 
 ## 6-1
-## introduce
+### introduce
 
 
 ## 6-2
-## 子路由跳转到singer-detail bug
+### 子路由跳转到singer-detail bug
 
 
 ## 6-3, 6-4 
-## Vuex
-## cnpm install vuex --save 
+### Vuex
+### cnpm install vuex --save 
 
 
 ## 6-5, 6-7
