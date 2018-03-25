@@ -21,7 +21,12 @@ export function getSingerList () {
   return jsonp(url, data, options)
 }
 
+/**
+ * 获取歌曲数据
+ * @param singerId
+ */
 export function getSingerDetail (singerId) {
+  // static -> getSingerDetail.png
   const url = 'https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg'
   const data = Object.assign({}, commonParams, {
     hostUin: 0,

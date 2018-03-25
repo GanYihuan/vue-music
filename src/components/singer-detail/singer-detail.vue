@@ -37,11 +37,13 @@
         if (!this.singer.id) {
           this.$router.push('/singer/')
         }
-        getSingerDetail(this.singer.id).then((res) => {
-          if (res.code === ERR_OK) {
-            this.songs = this._normalizeSongs(res.data.list)
-          }
-        })
+        getSingerDetail(this.singer.id)
+          .then((res) => {
+            if (res.code === ERR_OK) {
+              // console.log(res.data.list)
+              this.songs = this._normalizeSongs(res.data.list)
+            }
+          })
       },
       _normalizeSongs (list) {
         // 拿到数据后做标准化处理
