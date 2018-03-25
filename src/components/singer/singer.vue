@@ -1,6 +1,7 @@
 <template>
   <div class="singer" ref="singer">
     <list-view @select="selectSinger" :data="singers" ref="list"></list-view>
+    <!-- singer-detail 将渲染到这里 -->
     <router-view></router-view>
   </div>
 </template>
@@ -10,7 +11,7 @@
   import {getSingerList} from 'api/singer'
   import {ERR_OK} from 'api/config'
   import {playlistMixin} from 'common/js/mixin'
-  // 歌手列表
+  // 歌手列表组件实现
   import ListView from 'base/listview/listview'
   import Singer from 'common/js/singer'
 

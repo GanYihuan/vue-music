@@ -228,7 +228,7 @@ cnpm install vue-lazyload --save
 
 
 ## 6-2
-### 子路由跳转到singer-detail bug
+### 子路由跳转到singer-detail
 
 
 ## 6-3, 6-4 
@@ -237,35 +237,35 @@ cnpm install vue-lazyload --save
 
 
 ## 6-5, 6-7
-## 歌手数据
+### 歌手数据
 
 
 ## 6-8
-## music-list 传入数据
+### music-list 传入数据
 
 
 ## 6-9
-## 列表数据
+### 列表数据
 
 
 ## 6-10, 6-11, 6-12
-## 滚动效果
+### 滚动效果
 
 
 ## 6-13
-## 不同浏览器css的配置 bug!
+### 不同浏览器css的配置 bug!
 
 
 ## 6-14
-## 返回按钮,加载效果
+### 返回按钮,加载效果
 
 
 ## 7-1
-## introduce
+### introduce
 
 
 ## 7-2
-## vuex数据操作定义
+### vuex数据操作定义
 
 
 ## 7-3
