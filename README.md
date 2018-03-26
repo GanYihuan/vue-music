@@ -314,9 +314,10 @@ cnpm install create-keyframe-animation --save
 ### 获取歌曲播放时间
 
 
-## 7-12
+## 7-12, 7-13
 ### (progressbar.vue)
 ## 歌曲控件: 歌曲进度条
+
 
 
 ## 7-12, 7-13, 7-14

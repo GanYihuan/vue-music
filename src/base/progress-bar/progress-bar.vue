@@ -43,15 +43,14 @@
         this.touch.init = true
         // 第一次点击位置
         this.touch.startX = e.touches[0].pageX
-        // this.$refs.progress: 进度条拖动后，生成的进度
-        // 精度条距离容器左侧的距离
+        // this.$refs.progress: 进度条发生偏移，生成的进度宽度
         this.touch.left = this.$refs.progress.clientWidth
       },
       progressTouchMove (e) {
         if (!this.touch.init) {
           return
         }
-        // 进度条能移动的距离: 进度条长度 - 小球长度
+        // progressBarWidth: 进度条能移动的距离: 进度条长度 - 小球长度
         const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
         // 移动距离
         const detailX = e.touches[0].pageX - this.touch.startX
@@ -71,9 +70,9 @@
         this._triggerPercent()
       },
       _triggerPercent () {
-        // 进度条能移动的距离: 进度条长度 - 小球长度
+        // progressBarWidth: 进度条能移动的距离: 进度条长度 - 小球长度
         const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-        // this.$refs.progress: 进度条拖动后，生成的进度
+        // this.$refs.progress: 进度条进度比例
         const percent = this.$refs.progress.clientWidth / progressBarWidth
         // call父类的percentChange方法
         this.$emit('percentChange', percent)
