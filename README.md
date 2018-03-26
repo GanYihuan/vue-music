@@ -242,6 +242,10 @@ cnpm install vuex --save
 ### 抓取歌曲数据
 
 
+## 6-6, 6-7
+### song类封装, 歌曲列表数据处理
+
+
 ## 6-8
 ### music-list 传入数据
 

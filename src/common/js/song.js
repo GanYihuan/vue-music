@@ -36,6 +36,7 @@ export default class Song {
   }
 }
 
+// 抽象出工厂方法
 export function createSong (musicData) {
   return new Song({
     id: musicData.songid,

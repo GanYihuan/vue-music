@@ -49,8 +49,8 @@
         // 拿到数据后做标准化处理
         let ret = []
         list.forEach((item) => {
+          // ES6 结构赋值
           let {musicData} = item
-          // ES6 解构赋值
           if (musicData.songid && musicData.albummid) {
             ret.push(createSong(musicData))
           }
