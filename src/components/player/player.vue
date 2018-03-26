@@ -308,11 +308,10 @@
         }
         this.songReady = false
       },
-      // audio,防止极限点击操作报错
       ready () {
+        // audio,防止极限点击操作报错
         this.songReady = true
       },
-      // audio,防止极限点击操作报错
       error () {
         this.songReady = true
         this.savePlayHistory(this.currentSong)
