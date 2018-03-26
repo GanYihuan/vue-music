@@ -247,7 +247,8 @@ cnpm install vuex --save
 
 
 ## 6-8
-### music-list 传入数据
+### (music-list.vue)
+### 歌手界面处理
 
 
 ## 6-9

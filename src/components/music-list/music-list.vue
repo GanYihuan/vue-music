@@ -79,6 +79,7 @@
       }
     },
     computed: {
+      // 歌手图
       bgStyle () {
         return `background-image:url(${this.bgImage})`
       }
