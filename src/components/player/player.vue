@@ -1,4 +1,5 @@
 <template>
+  <!-- 歌曲控件 -->
   <div class="player" v-show="playlist.length > 0">
     <transition
       name="normal"
