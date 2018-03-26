@@ -298,6 +298,10 @@ cnpm install create-keyframe-animation --save
 ```
 
 
+## 7-8
+### 歌曲控件:前进后退
+
+
 ## 7-8, 7-9, 7-10
 ### 歌曲控件,播放暂停,前进后退,控件失效
 

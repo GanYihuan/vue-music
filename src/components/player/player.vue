@@ -267,6 +267,7 @@
           this.currentLyric.seek(0)
         }
       },
+      // 歌曲后退
       nextSong () {
         if (!this.songReady) {
           return
@@ -287,6 +288,7 @@
         }
         this.songReady = false
       },
+      // 歌曲前进
       prevSong () {
         if (!this.songReady) {
           return

@@ -11,6 +11,7 @@ export const sequenceList = state => state.sequenceList
 export const mode = state => state.mode
 export const currentIndex = state => state.currentIndex
 // 根据state计算属性, playlist,currentIndex计算出currentSong
+// 修改currentIndex, 相当于修改 currentSong, 实现歌曲前进后退功能
 export const currentSong = (state) => {
   return state.playlist[state.currentIndex] || {}
 }
