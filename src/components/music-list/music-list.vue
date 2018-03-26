@@ -41,6 +41,7 @@
   import Scroll from 'base/scroll/scroll'
   import Loading from 'base/loading/loading'
   import SongList from 'base/song-list/song-list'
+  // 不同浏览器css的配置
   import {prefixStyle} from 'common/js/dom'
   // 公共代码
   import {playlistMixin} from 'common/js/mixin'

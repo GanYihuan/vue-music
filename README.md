@@ -257,11 +257,13 @@ cnpm install vuex --save
 
 
 ## 6-10, 6-11, 6-12
+### (song-list.vue)
 ### 歌曲列表滚动效果
 
 
 ## 6-13
-### 不同浏览器css的配置 bug!
+### (common -> js -> dom.js)
+### 不同浏览器css的配置
 
 
 ## 6-14
