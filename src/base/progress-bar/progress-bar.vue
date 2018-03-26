@@ -1,4 +1,5 @@
 <template>
+  <!-- 歌曲控件.png -->
   <div
     class="progress-bar"
     ref="progressBar"
@@ -20,6 +21,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  // css,各大浏览兼容
   import {prefixStyle} from 'common/js/dom'
 
   const progressBtnWidth = 16
@@ -85,8 +87,11 @@
       percent (newPercent) {
         // !this.touch.init: 进度条拖动过程不能够去修改
         if (newPercent >= 0 && !this.touch.init) {
-          // 减去小球宽度
+          // progressBtnWidth: 播放控件小球
+          // this.$refs.progressBar.clientWidth: 歌曲进度条长度
+          // progressBarWidth: 歌曲实际能播放进度条长度
           const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
+          // offsetWidth: 已经播放了的进度条长度
           const offsetWidth = progressBarWidth * newPercent
           this._offset(offsetWidth)
         }
