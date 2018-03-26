@@ -12,6 +12,7 @@ const portfinder = require('portfinder')
 
 // 接口代理 绕过host和referer
 const express = require('express')
+// ajax
 const axios = require('axios')
 const app = express()
 var apiRoutes = express.Router()
@@ -22,7 +23,7 @@ const PORT = process.env.PORT && Number(process.env.PORT)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
+    rules: utils.styleLoaders({sourceMap: config.dev.cssSourceMap, usePostCSS: true})
   },
   // cheap-module-eval-source-map is faster for development
   devtool: config.dev.devtool,
@@ -30,27 +31,64 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   // these devServer options should be customized in /config/index.js
   devServer: {
     // 代理接口实现
-    before(app) {
+    // referer浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的，服务器基此可以获得一些信息用于处理。
+    before (app) {
       app.get('/api/getDiscList', (req, res) => {
         var url = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'
+        // 发送http请求
         axios.get(url, {
+          // 欺骗qq的请求
           headers: {
             referer: 'https://c.y.qq.com/',
             host: 'c.y.qq.com'
           },
+          // 参数, (recommend.js -> getDiscList -> data) 传递给url地址
           params: req.query
         }).then((response) => {
+          // res: 我们浏览器前端
+          // response.data: qq的响应数据
           res.json(response.data)
         }).catch((e) => {
           console.log(e)
         })
       })
-
+      app.get('/api/lyric', (req, res) => {
+        // qq音乐播放歌曲界面 -> chrome network -> js fcg preview
+        // 点击fcg就可以在chrome里显示url
+        let url = 'https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg'
+        axios
+          .get(url, {
+            headers: {
+              // 绕过qq音乐限制
+              referer: 'https://c.y.qq.com/',
+              host: 'c.y.qq.com'
+            },
+            params: req.query
+          })
+          .then((response) => {
+            // 数据
+            let ret = response.data
+            if (typeof ret === 'string') {
+              // 正则匹配
+              let reg = /^\w+\(({[^()]+})\)$/
+              let matches = ret.match(reg)
+              if (matches) {
+                // JSON.parse: 转换为JSON
+                ret = JSON.parse(matches[1])
+              }
+            }
+            // 输出请求内容出去
+            res.json(ret)
+          })
+          .catch((e) => {
+            console.log(e)
+          })
+      })
     },
     clientLogLevel: 'warning',
     historyApiFallback: {
       rewrites: [
-        { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') },
+        {from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html')},
       ],
     },
     hot: true,
@@ -60,7 +98,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     port: PORT || config.dev.port,
     open: config.dev.autoOpenBrowser,
     overlay: config.dev.errorOverlay
-      ? { warnings: false, errors: true }
+      ? {warnings: false, errors: true}
       : false,
     publicPath: config.dev.assetsPublicPath,
     proxy: config.dev.proxyTable,
@@ -110,8 +148,8 @@ module.exports = new Promise((resolve, reject) => {
           messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
         },
         onErrors: config.dev.notifyOnErrors
-        ? utils.createNotifierCallback()
-        : undefined
+          ? utils.createNotifierCallback()
+          : undefined
       }))
 
       resolve(devWebpackConfig)

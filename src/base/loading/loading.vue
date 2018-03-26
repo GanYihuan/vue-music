@@ -1,6 +1,6 @@
 <template>
   <div class="loading">
-    <img width="24" height="24" src="./loading.gif">
+    <img width="24" height="24" src="./loading.gif"/>
     <p class="desc">{{title}}</p>
   </div>
 </template>
@@ -16,7 +16,7 @@
   }
 </script>
 
-<style lang="scss" rel="stylesheet/scss">
+<style scoped lang="scss" rel="stylesheet/scss">
   @import "../../common/scss/variable.scss";
   @import "./loading.scss";
 </style>

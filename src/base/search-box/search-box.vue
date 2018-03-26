@@ -1,0 +1,53 @@
+<template>
+  <div class="search-box">
+    <i class="icon-search"></i>
+    <input ref="query" v-model="query" class="box" :placeholder="placeholder"/>
+    <i @click="clear" v-show="query" class="icon-dismiss"></i>
+  </div>
+</template>
+
+<script type="text/ecmascript-6">
+  // 优化请求节流函数
+  import {debounce} from "common/js/util"
+
+  export default {
+    props: {
+      placeholder: {
+        type: String,
+        default: "搜索歌曲、歌手"
+      }
+    },
+    data () {
+      return {
+        query: ""
+      }
+    },
+    methods: {
+      clear () {
+        this.query = ""
+      },
+      setQuery (query) {
+        this.query = query
+      },
+      // 当滚动时, search框失去焦点, 目的是移动端取消键盘
+      blur () {
+        this.$refs.query.blur()
+      }
+    },
+    created () {
+      // 节流函数,优化请求
+      this.$watch(
+        "query",
+        debounce(newQuery => {
+          // 派发query事件出去
+          this.$emit("query", newQuery)
+        }, 200)
+      )
+    }
+  }
+</script>
+
+<style scoped lang="scss" rel="stylesheet/scss">
+  @import '../../common/scss/variable.scss';
+  @import "./search-box.scss";
+</style>

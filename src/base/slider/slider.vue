@@ -1,21 +1,26 @@
 <template>
   <div class="slider" ref="slider">
     <div class="slider-group" ref="sliderGroup">
-      <slot>
-      </slot>
+      <!--
+      当子组件模板只有一个没有属性的 slot 时，
+      父组件整个内容片段将插入到 slot 所在的 DOM 位置，并替换掉 slot 标签本身
+      -->
+      <slot></slot>
     </div>
     <div class="dots">
       <span
         class="dot"
         :class="{active: currentPageIndex === index }"
         v-for="(item, index) in dots"
-        :key="index"></span>
+        :key="index"
+      >
+      </span>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import { addClass } from '../../common/js/dom'
+  import {addClass} from 'common/js/dom'
   import BScroll from 'better-scroll'
 
   export default {
@@ -40,6 +45,7 @@
       }
     },
     mounted () {
+      // setTimeout: dom 充分加载
       setTimeout(() => {
         this._setSliderWidth()
         this._initDots()
@@ -48,7 +54,7 @@
           this._autoPlay()
         }
       }, 20)
-
+      // 监听窗口改变事件
       window.addEventListener('resize', () => {
         if (!this.slider) {
           return
@@ -60,16 +66,15 @@
     methods: {
       _setSliderWidth (isResize) {
         this.children = this.$refs.sliderGroup.children
-
         let width = 0
         let sliderWidth = this.$refs.slider.clientWidth
         for (let i = 0; i < this.children.length; i++) {
           let child = this.children[i]
           addClass(child, 'slider-item')
-
           child.style.width = sliderWidth + 'px'
           width += sliderWidth
         }
+        // clone two dom (轮播组件)
         if (this.loop && !isResize) {
           width += 2 * sliderWidth
         }
@@ -79,6 +84,7 @@
         this.dots = new Array(this.children.length)
       },
       _initSlider () {
+        // 轮播滚动设置
         this.slider = new BScroll(this.$refs.slider, {
           scrollX: true,
           scrollY: false,
@@ -86,16 +92,17 @@
           snap: true,
           snapLoop: this.loop,
           snapThreshold: 0.2,
+          // click: true,
           snapSpeed: 400
         })
         this.slider.on('scrollEnd', () => {
+          // 第几个子元素
           let pageIndex = this.slider.getCurrentPage().pageX
-
           if (this.loop) {
+            // 默认向第一个元素添加一个copy
             pageIndex -= 1
           }
           this.currentPageIndex = pageIndex
-
           if (this.autoPlay) {
             clearTimeout(this.timer)
             this._autoPlay()
@@ -104,22 +111,26 @@
       },
       _autoPlay () {
         let pageIndex = this.currentPageIndex + 1
-
         if (this.loop) {
+          // this.currentPageIndex下标从0开始
           pageIndex += 1
         }
         this.timer = setTimeout(() => {
+          // pageIndex: x
+          // 0: y
+          // 400: time interval
           this.slider.goToPage(pageIndex, 0, 400)
         }, this.interval)
       }
     },
+    // 好的编程习惯, 有计时器时, 要清理
     destroyed () {
       clearTimeout(this.timer)
     }
   }
 </script>
 
-<style lang="scss" rel="stylesheet/scss">
+<style scoped lang="scss" rel="stylesheet/scss">
   @import "../../common/scss/variable.scss";
   @import "./slider.scss";
 </style>
