@@ -315,14 +315,13 @@ cnpm install create-keyframe-animation --save
 
 
 ## 7-12, 7-13, 7-14
-### (progressbar.vue)
+### (progress-bar.vue)
 ### 歌曲控件: 歌曲进度条
 
 
 ## 7-15
-###
+### (progress-circle.vue)
 ### mini 播放器环形进度条
-### svg
 
 
 ## 7-16, 7-17, 7-18 

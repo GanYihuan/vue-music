@@ -8,24 +8,11 @@
       xmlns="http://www.w3.org/2000/svg"
     >
       <!-- 内层圆 -->
-      <circle
-        class="progress-background"
-        r="50"
-        cx="50"
-        cy="50"
-        fill="transparent"
-      />
+      <circle class="progress-background" r="50" cx="50" cy="50" fill="transparent"/>
       <!-- 外层圆 -->
       <!-- stroke-dashoffset: 描边的偏移 -->
-      <circle
-        class="progress-bar"
-        r="50"
-        cx="50"
-        cy="50"
-        fill="transparent"
-        :stroke-dasharray="dashArray"
-        :stroke-dashoffset="dashOffset"
-      />
+      <circle class="progress-bar" r="50" cx="50" cy="50" fill="transparent" :stroke-dasharray="dashArray"
+              :stroke-dashoffset="dashOffset"/>
     </svg>
     <!-- i标签插入slot -->
     <slot></slot>
