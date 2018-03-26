@@ -191,12 +191,12 @@
     methods: {
       // 唱片界面缩小到底部
       back () {
-        // setFullScreen: mapMutations
+        // vuex mutations.js
         this.setFullScreen(false)
       },
       // 底部界面放大到唱片界面
       open () {
-        // setFullScreen: mapMutations
+        // vuex mutations.js
         this.setFullScreen(true)
       },
       // animate
@@ -495,14 +495,10 @@
         // 大唱片缩小到小唱片的比例
         const scale = targetWidth / width
         // 目标点(x,y)位于大圆图的中间
-        // 第四象限,小圆图x位置为负方向
+        // 第四象限,小圆图x位置到大圆x位置取负方向
         const x = -(window.innerWidth / 2 - paddingLeft)
         const y = window.innerHeight - paddingTop - width / 2 - paddingBottom
-        return {
-          x,
-          y,
-          scale
-        }
+        return {x, y, scale}
       },
       // 数据通过mutations设置到state上
       ...mapMutations({

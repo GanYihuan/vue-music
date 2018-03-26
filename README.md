@@ -280,6 +280,7 @@ cnpm install vuex --save
 
 
 ## 7-3
+### (player.vue)
 ### vuex的具体使用
 
 
@@ -289,9 +290,9 @@ cnpm install vuex --save
 
 
 ## 7-5, 7-6, 7-7
+### (player.vue)
 ### 动画效果
-### 不同浏览器css的配置 bug!
-### 动画
+### 不同浏览器css的配置
 ```
 cnpm install create-keyframe-animation --save
 ```
