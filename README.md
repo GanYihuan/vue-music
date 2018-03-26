@@ -314,43 +314,38 @@ cnpm install create-keyframe-animation --save
 ### 获取歌曲播放时间
 
 
-## 7-12, 7-13
-### (progressbar.vue)
-## 歌曲控件: 歌曲进度条
-
-
-
 ## 7-12, 7-13, 7-14
-## 不同浏览器css的配置
-## 歌曲进度条, 可以拖动
+### (progressbar.vue)
+### 歌曲控件: 歌曲进度条
 
 
 ## 7-15
-## mini 播放器环形进度条
-## svg
+###
+### mini 播放器环形进度条
+### svg
 
 
 ## 7-16, 7-17, 7-18 
-## 播放模式改变,播放列表改变
+### 播放模式改变,播放列表改变
 
 
 ## 7-19
-## 抓取歌词数据:
-## qq音乐播放歌曲界面 -> chrome network -> js fcg preview
-## 点击fcg就可以在chrome里显示url
-## (api/song.js) 1: 前端调用,前台定义代理地址给后台
-## (webpack.dev.conf.js) 2: 后端绕过qq音乐限制,输出请求内容出去
-## (common/js/song.js) 3: 前端调用后端的输出内容
-## (player.vue) 4: 组件里面使用输出内容
+### 抓取歌词数据:
+### qq音乐播放歌曲界面 -> chrome network -> js fcg preview
+### 点击fcg就可以在chrome里显示url
+### (api/song.js) 1: 前端调用,前台定义代理地址给后台
+### (webpack.dev.conf.js) 2: 后端绕过qq音乐限制,输出请求内容出去
+### (common/js/song.js) 3: 前端调用后端的输出内容
+### (player.vue) 4: 组件里面使用输出内容
 
 
 ## 7-20
-## 播放器歌词数据解析
-## base64解码
+### 播放器歌词数据解析
+### base64解码
 ```
 cnpm install js-base64 --save
 ```
-## 视频作者编写, 歌词解析, 每执行到时间点时都执行回调函数
+### 视频作者编写, 歌词解析, 每执行到时间点时都执行回调函数
 ```
 cnpm install lyric-parser
 ```
