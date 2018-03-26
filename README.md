@@ -252,7 +252,8 @@ cnpm install vuex --save
 
 
 ## 6-9
-### 列表数据
+### (song-list.vue)
+### 歌曲列表数据
 
 
 ## 6-10, 6-11, 6-12

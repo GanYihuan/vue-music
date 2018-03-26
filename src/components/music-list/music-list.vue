@@ -15,12 +15,12 @@
     </div>
     <div class="bg-layer" ref="layer"></div>
     <scroll
-      :data="songs"
-      @scroll="scroll"
-      :listen-scroll="listenScroll"
-      :probe-type="probeType"
       class="list"
       ref="list"
+      :data="songs"
+      :listen-scroll="listenScroll"
+      :probe-type="probeType"
+      @scroll="scroll"
     >
       <div class="song-list-wrapper">
         <song-list
