@@ -284,7 +284,8 @@ cnpm install vuex --save
 
 
 ## 7-4
-### 播放器基本设置
+### (player.vue)
+### vuex数据应用
 
 
 ## 7-5, 7-6, 7-7

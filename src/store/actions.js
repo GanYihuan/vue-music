@@ -14,7 +14,7 @@ function findIndex (list, song) {
   })
 }
 
-// 点击歌曲时做出的变化
+// 点击歌曲名称时做出的变化
 // 定义动作, action执行, mutation就会改变, 映射state数据
 // {commit, state} : 提交和获取数据
 // {list, index} : 修改的歌曲列表对象

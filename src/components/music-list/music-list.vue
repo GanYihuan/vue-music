@@ -1,4 +1,5 @@
 <template>
+  <!-- 音乐播放界面 -->
   <div class="music-list">
     <div class="back" @click="back">
       <i class="icon-back"></i>

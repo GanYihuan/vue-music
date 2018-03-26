@@ -1,4 +1,5 @@
 <template>
+  <!-- 歌曲列表 -->
   <div class="song-list">
     <ul>
       <li
@@ -35,6 +36,7 @@
     },
     methods: {
       selectItem (item, index) {
+        // 派发给父组件
         this.$emit("select", item, index)
       },
       getDesc (song) {

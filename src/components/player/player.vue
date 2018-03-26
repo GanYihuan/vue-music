@@ -76,9 +76,9 @@
             </div>
             <div class="icon i-right">
               <i
-                @click="toggleFavorite(currentSong)"
                 class="icon"
                 :class="getFavoriteIcon(currentSong)"
+                @click="toggleFavorite(currentSong)"
               >
               </i>
             </div>
