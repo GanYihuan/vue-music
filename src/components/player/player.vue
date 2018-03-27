@@ -1,5 +1,5 @@
 <template>
-  <!-- 音乐播放界面.png -->
+  <!-- 04-音乐播放界面 -->
   <div class="player" v-show="playlist.length>0">
     <transition
       name="normal"

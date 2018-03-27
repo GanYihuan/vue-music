@@ -380,6 +380,7 @@ cnpm install lyric-parser
 
 
 ## 8-1
+### (disc.vue)
 ### 歌单详情页Vuex数据通讯
 
 

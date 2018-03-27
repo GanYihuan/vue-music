@@ -1,4 +1,5 @@
 <template>
+  <!-- 01/推荐界面 -->
   <div class="recommend" ref="recommend">
     <!-- :data : 内容撑开scroll的高度 -->
     <scroll ref="scroll" class="recommend-content" :data="discList">
