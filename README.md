@@ -385,14 +385,13 @@ cnpm install lyric-parser
 
 
 ## 8-2
+### (api/recommend.js)抓取失败
 ### 歌单详情页数据抓取
-### (api/recommend) 1: 
 
 
 ## 8-3
-### https://y.qq.com/w/taoge.html?ADTAG=newyqq.taoge&id=3261874488
+### (disc.vue)
 ### 歌单详情页数据应用
-### bug! jp1 is not defined !
 
 
 ## 9-1
