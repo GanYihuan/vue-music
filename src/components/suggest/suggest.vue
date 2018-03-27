@@ -1,4 +1,5 @@
 <template>
+  <!-- 搜索结果 -->
   <scroll
     ref="suggest"
     class="suggest"
@@ -80,13 +81,20 @@
         this.hasMore = true
         // 滚动到顶部
         this.$refs.suggest.scrollTo(0, 0)
-        search(this.query, this.page, this.showSinger, perpage).then(res => {
-          if (res.code === ERR_OK) {
-            this.result = this._genResult(res.data)
-            // 是否有多余数据
-            this._checkMore(res.data)
-          }
-        })
+        /**
+         * @param query 检索值
+         * @param page 检索第几页
+         * @param showSinger 要歌手这个数据吗？
+         * @param perpage: 每页返回的个数
+         */
+        search(this.query, this.page, this.showSinger, perpage)
+          .then(res => {
+            if (res.code === ERR_OK) {
+              this.result = this._genResult(res.data)
+              // 是否有多余数据
+              this._checkMore(res.data)
+            }
+          })
       },
       // 下拉刷新处理函数
       searchMore () {
@@ -141,6 +149,7 @@
       _genResult (data) {
         let ret = []
         if (data.zhida && data.zhida.singerid) {
+          // type: 区分搜索结果数据是歌手还是歌曲
           ret.push({...data.zhida, ...{type: TYPE_SINGER}})
         }
         if (data.song) {
@@ -172,7 +181,9 @@
       ])
     },
     watch: {
+      // query: 检索值
       query (newQuery) {
+        // 请求服务端api/search.js
         this.search(newQuery)
       }
     },

@@ -84,7 +84,8 @@
     mixins: [playlistMixin, searchMixin],
     data () {
       return {
-        hotKey: []
+        hotKey: [],
+        query: ''
       }
     },
     computed: {
