@@ -374,6 +374,7 @@ cnpm install lyric-parser
 
 
 ## 7-25
+### (music-list.vue)
 ### mixin.js: 公共代码
 ### 设置mini播放器的正确位置显示
 
