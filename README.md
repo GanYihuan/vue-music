@@ -405,7 +405,8 @@ cnpm install lyric-parser
 
 
 ## 9-3
-### 排行榜详情界面Vuex数据通讯
+### (top-list.vue)
+### 排行榜详情界面: Vuex数据通讯
 
 
 ## 9-4

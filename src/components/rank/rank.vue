@@ -64,8 +64,8 @@
       selectItem (item) {
         this.$router.push({
           path: `/rank/${item.id}`
-        });
-        // vuex: mutation
+        })
+        // mutation
         this.setTopList(item)
       },
       _getTopList () {

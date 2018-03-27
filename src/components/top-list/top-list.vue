@@ -12,7 +12,6 @@
 
 <script type="text/ecmascript-6">
   import MusicList from "components/music-list/music-list"
-  // jsonp
   import {getMusicList} from "api/rank"
   import {ERR_OK} from "api/config"
   import {mapGetters} from "vuex"
@@ -29,7 +28,7 @@
         }
         return ""
       },
-      // vuex: get state
+      // vuex: state
       ...mapGetters([
         "topList"
       ])
