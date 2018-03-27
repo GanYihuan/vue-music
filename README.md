@@ -364,10 +364,12 @@ cnpm install lyric-parser
 
 
 ## 7-22, 7-23
+### (player.vue)
 ### 歌词界面和唱片界面切换
 
 
 ## 7-24
+### (player.vue)
 ### bug fix
 
 
