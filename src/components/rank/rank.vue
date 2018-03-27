@@ -1,4 +1,5 @@
 <template>
+  <!-- 06 -->
   <div class="rank" ref="rank">
     <scroll :data="topList" class="toplist" ref="toplist">
       <ul>
