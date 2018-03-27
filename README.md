@@ -359,55 +359,56 @@ cnpm install lyric-parser
 
 
 ## 7-21
-## 歌词滚动
+### (player.vue)
+### 歌词滚动
 
 
 ## 7-22, 7-23
-## 歌词界面和唱片界面能左右切换
+### 歌词界面和唱片界面能左右切换
 
 
 ## 7-24
-## bug fix
+### bug fix
 
 
 ## 7-25
-## mixin.js: 公共代码
-## 设置mini播放器的正确位置显示
+### mixin.js: 公共代码
+### 设置mini播放器的正确位置显示
 
 
 ## 8-1
-## 歌单详情页Vuex数据通讯
+### 歌单详情页Vuex数据通讯
 
 
 ## 8-2
-## 歌单详情页数据抓取
-## (api/recommend) 1: 
+### 歌单详情页数据抓取
+### (api/recommend) 1: 
 
 
 ## 8-3
-## https://y.qq.com/w/taoge.html?ADTAG=newyqq.taoge&id=3261874488
-## 歌单详情页数据应用
-## bug! jp1 is not defined !
+### https://y.qq.com/w/taoge.html?ADTAG=newyqq.taoge&id=3261874488
+### 歌单详情页数据应用
+### bug! jp1 is not defined !
 
 
 ## 9-1
-## 排行榜界面抓取数据,jsonp请求
+### 排行榜界面抓取数据,jsonp请求
 
 
 ## 9-2
-## 排行榜界面数据应用
+### 排行榜界面数据应用
 
 
 ## 9-3
-## 排行榜详情界面Vuex数据通讯
+### 排行榜详情界面Vuex数据通讯
 
 
 ## 9-4
-## 排行榜详情界面抓取数据和应用,jsonp请求
+### 排行榜详情界面抓取数据和应用,jsonp请求
 
 
 ## 9-5
-## 排行榜详情界面组件扩展, 前三排行奖杯
+### 排行榜详情界面组件扩展, 前三排行奖杯
 
 
 ## 10-1
