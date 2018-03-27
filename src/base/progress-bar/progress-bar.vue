@@ -62,6 +62,7 @@
         this._triggerPercent()
       },
       progressClick (e) {
+        // getBoundingClientRect: static -> getBoundingClientRect.png
         // getBoundingClientRect: 获得页面中某个元素的左，上，右和下分别相对浏览器视窗的位置
         // 左侧时间距离最左侧距离
         const rect = this.$refs.progressBar.getBoundingClientRect()

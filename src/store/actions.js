@@ -7,6 +7,7 @@ import {playMode} from 'common/js/config'
 import {shuffle} from 'common/js/util'
 import {saveSearch, clearSearch, deleteSearch, savePlay, saveFavorite, deleteFavorite} from 'common/js/cache'
 
+// 顺序列表index歌曲对应到随机列表哪首歌曲index,返回该随机列表歌曲索引index
 // 查找列表中是否有song这首歌曲，如果有返回该索引
 function findIndex (list, song) {
   return list.findIndex((item) => {
@@ -27,7 +28,7 @@ export const selectPlay = function ({commit, state}, {list, index}) {
     let randomList = shuffle(list)
     // 改变播放列表的歌曲
     commit(types.SET_PLAYLIST, randomList)
-    // 随机抽取歌曲播放
+    // 顺序列表index歌曲对应到随机列表哪首歌曲index,返回该随机列表歌曲索引index
     index = findIndex(randomList, list[index])
   } else {
     // 改变播放列表

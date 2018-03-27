@@ -332,8 +332,8 @@ cnpm install create-keyframe-animation --save
 ### 各种播放模式情况处理
 
 
-## 7-16, 7-17, 7-18 
-### 播放模式改变,播放列表改变
+## 7-18
+### 歌曲控件: 播放模式改变 fix bug
 
 
 ## 7-19
