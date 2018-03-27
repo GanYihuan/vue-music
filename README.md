@@ -324,6 +324,10 @@ cnpm install create-keyframe-animation --save
 ### mini 播放器环形进度条
 
 
+## 7-16
+### 歌曲控件: 播放模式改变
+
+
 ## 7-16, 7-17, 7-18 
 ### 播放模式改变,播放列表改变
 

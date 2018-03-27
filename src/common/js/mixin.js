@@ -33,7 +33,11 @@ export const playlistMixin = {
 export const playerMixin = {
   computed: {
     iconMode () {
-      return this.mode === playMode.sequence ? 'icon-sequence' : this.mode === playMode.loop ? 'icon-loop' : 'icon-random'
+      return this.mode === playMode.sequence
+        ? 'icon-sequence'
+        : this.mode === playMode.loop
+          ? 'icon-loop'
+          : 'icon-random'
     },
     ...mapGetters([
       'sequenceList',
@@ -46,6 +50,7 @@ export const playerMixin = {
   methods: {
     changeMode () {
       const mode = (this.mode + 1) % 3
+      // mutation
       this.setPlayMode(mode)
       let list = null
       if (mode === playMode.random) {

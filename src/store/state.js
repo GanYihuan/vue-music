@@ -14,6 +14,7 @@ const state = {
   // 播放列表
   playlist: [],
   // 顺序列表(播放模式控制)
+  // 原始列表
   sequenceList: [],
   // 不同播放模式
   mode: playMode.sequence,
