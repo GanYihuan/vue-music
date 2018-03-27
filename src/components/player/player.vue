@@ -325,7 +325,7 @@
       getLyric () {
         this.currentSong
           .getLyric()
-          .then(lyric => {
+          .then((lyric) => {
             if (this.currentSong.lyric !== lyric) {
               return
             }
