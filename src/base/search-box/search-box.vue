@@ -1,8 +1,9 @@
 <template>
+  <!-- 08/搜索框 -->
   <div class="search-box">
     <i class="icon-search"></i>
     <input ref="query" v-model="query" class="box" :placeholder="placeholder"/>
-    <i @click="clear" v-show="query" class="icon-dismiss"></i>
+    <i class="icon-dismiss" v-show="query" @click="clear"></i>
   </div>
 </template>
 

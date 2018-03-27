@@ -1,4 +1,5 @@
 <template>
+  <!-- 08/搜索 -->
   <div class="search">
     <div class="search-box-wrapper">
       <search-box ref="searchBox" @query="onQueryChange"></search-box>
