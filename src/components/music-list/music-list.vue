@@ -69,6 +69,7 @@
         type: String,
         default: ''
       },
+      // 07.png奖杯
       rank: {
         type: Boolean,
         default: false

@@ -9,9 +9,7 @@
         @click="selectItem(song, index)"
       >
         <div class="rank" v-show="rank">
-          <span :class="getRankCls(index)">
-            {{getRankText(index)}}
-          </span>
+          <span :class="getRankCls(index)">{{getRankText(index)}}</span>
         </div>
         <div class="content">
           <h2 class="name">{{song.name}}</h2>
@@ -29,6 +27,7 @@
         type: Array,
         default: []
       },
+      // 为07.png服务,排行奖杯
       rank: {
         type: Boolean,
         default: false
