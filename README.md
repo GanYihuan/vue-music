@@ -337,7 +337,7 @@ cnpm install create-keyframe-animation --save
 
 
 ## 7-19
-### 抓取歌词数据:
+### 抓取歌词数据
 ### qq音乐播放歌曲界面 -> chrome network -> js fcg preview
 ### 点击fcg就可以在chrome里显示url
 ### (api/song.js) 1: 前端调用,前台定义代理地址给后台
