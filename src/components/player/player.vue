@@ -380,26 +380,22 @@
         const touch = e.touches[0]
         // 移动的位置
         const deltaX = touch.pageX - this.touch.startX
-        // 是否发生横向滚动切换唱片界面和歌词界面，取决于横向滚动比纵向滚动多
         const deltaY = touch.pageY - this.touch.startY
+        // 是否发生横向滚动切换唱片界面和歌词界面，取决于横向滚动比纵向滚动多
         if (Math.abs(deltaY) > Math.abs(deltaX)) {
           return
         }
         if (!this.touch.moved) {
           this.touch.moved = true
         }
-        // 歌词界面还是唱片界面，二选一
+        // 歌词界面与唱片界面，二选一
         const left = this.currentShow === "cd" ? 0 : -window.innerWidth
         // 歌词露出的宽带, 左滑动取负值
-        const offsetWidth = Math.min(
-          0,
-          Math.max(-window.innerWidth, left + deltaX)
-        )
+        // 最小值-window.innerWidth, 最大值0
+        const offsetWidth = Math.min(0, Math.max(-window.innerWidth, left + deltaX))
         this.touch.percent = Math.abs(offsetWidth / window.innerWidth)
         // lyricList: vue组件, $el来访问dom
-        this.$refs.lyricList.$el.style[
-          transform
-          ] = `translate3d(${offsetWidth}px,0,0)`
+        this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
         this.$refs.lyricList.$el.style[transitionDuration] = 0
         this.$refs.middleL.style.opacity = 1 - this.touch.percent
         this.$refs.middleL.style[transitionDuration] = 0
@@ -411,6 +407,7 @@
         let offsetWidth
         let opacity
         if (this.currentShow === "cd") {
+          // 从右向左滑动
           if (this.touch.percent > 0.1) {
             offsetWidth = -window.innerWidth
             opacity = 0
@@ -420,6 +417,7 @@
             opacity = 1
           }
         } else {
+          // 从左向右滑动
           if (this.touch.percent < 0.9) {
             offsetWidth = 0
             this.currentShow = "cd"
@@ -430,9 +428,7 @@
           }
         }
         const time = 300
-        this.$refs.lyricList.$el.style[
-          transform
-          ] = `translate3d(${offsetWidth}px,0,0)`
+        this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
         this.$refs.lyricList.$el.style[transitionDuration] = `${time}ms`
         this.$refs.middleL.style.opacity = opacity
         this.$refs.middleL.style[transitionDuration] = `${time}ms`
