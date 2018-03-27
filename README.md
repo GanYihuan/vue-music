@@ -410,7 +410,8 @@ cnpm install lyric-parser
 
 
 ## 9-4
-### 排行榜详情界面抓取数据和应用,jsonp请求
+### (top-list.vue)
+### 排行榜详情界面: 抓取数据和应用
 
 
 ## 9-5
