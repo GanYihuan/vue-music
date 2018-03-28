@@ -1,4 +1,5 @@
 <template>
+  <!-- 12 -->
   <transition name="slide">
     <div class="user-center">
       <div class="back" @click="back">
@@ -6,9 +7,9 @@
       </div>
       <div class="switches-wrapper">
         <switches
-          @switch="switchItem"
           :switches="switches"
           :currentIndex="currentIndex"
+          @switch="switchItem"
         >
         </switches>
       </div>
@@ -46,18 +47,19 @@
 </template>
 
 <script type="text/ecmascript-6">
+  import {mapGetters, mapActions} from "vuex"
+  import {playlistMixin} from "common/js/mixin"
   import Switches from "base/switches/switches"
   import Scroll from "base/scroll/scroll"
   import SongList from "base/song-list/song-list"
   import NoResult from "base/no-result/no-result"
   import Song from "common/js/song"
-  import {mapGetters, mapActions} from "vuex"
-  import {playlistMixin} from "common/js/mixin"
 
   export default {
     mixins: [playlistMixin],
     data () {
       return {
+        // 第一个switches选项
         currentIndex: 0,
         switches: [
           {name: "我喜欢的"},
@@ -86,6 +88,7 @@
       ])
     },
     methods: {
+      // 设置mini播放器正确位置
       handlePlaylist (playlist) {
         const bottom = playlist.length > 0 ? "60px" : ""
         this.$refs.listWrapper.style.bottom = bottom

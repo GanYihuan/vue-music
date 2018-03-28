@@ -543,7 +543,9 @@ cnpm install good-storage --save
 
 
 ## 12-1
-### 用户个人中心页, switch切换
+### (user-center.vue)
+### 点击❤️按钮跳转到用户中心
+### 用户个人中心页: 切换 '我喜欢的' '最近听的'
 
 
 ## 12-2
