@@ -528,7 +528,8 @@ cnpm install good-storage --save
 
 
 ## 11-15
-### search-list: 搜索历史
+### (add-song.vue)
+### 添加歌曲到列表: 搜索历史
 
 
 ## 11-16
