@@ -470,6 +470,7 @@
     watch: {
       // 监听,当currentSong变化时调用
       currentSong (newSong, oldSong) {
+        // 只有一首歌曲的时候
         if (!newSong.id) {
           return
         }

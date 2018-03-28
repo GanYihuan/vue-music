@@ -129,6 +129,7 @@
         this.$refs.listContent.scrollToElement(this.$refs.list.$el.children[index], 300)
       },
       deleteOne (item) {
+        // mutation
         this.deleteSong(item)
         if (!this.playlist.length) {
           this.hide()

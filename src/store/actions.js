@@ -118,13 +118,20 @@ export const clearSearchHistory = function ({commit}) {
   commit(types.SET_SEARCH_HISTORY, clearSearch())
 }
 
+// 删除一首歌
 export const deleteSong = function ({commit, state}, song) {
+  // 不能再其他地方对state修改, 只能在mutation里面修改
+  // 副本,不会对state修改
   let playlist = state.playlist.slice()
   let sequenceList = state.sequenceList.slice()
   let currentIndex = state.currentIndex
+  // 当前这首歌的索引
   let pIndex = findIndex(playlist, song)
+  // 删除该歌曲
   playlist.splice(pIndex, 1)
+  // sequenceList索引
   let sIndex = findIndex(sequenceList, song)
+  // 删除
   sequenceList.splice(sIndex, 1)
   if (currentIndex > pIndex || currentIndex === playlist.length) {
     currentIndex--
@@ -132,6 +139,7 @@ export const deleteSong = function ({commit, state}, song) {
   commit(types.SET_PLAYLIST, playlist)
   commit(types.SET_SEQUENCE_LIST, sequenceList)
   commit(types.SET_CURRENT_INDEX, currentIndex)
+  // 如果全部删除了
   if (!playlist.length) {
     commit(types.SET_PLAYING_STATE, false)
   } else {
