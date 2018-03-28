@@ -513,8 +513,8 @@ cnpm install good-storage --save
 
 
 ## 11-11
-### suggest: 搜索后呈现的界面
-### mixin
+### (add-song.vue)
+### mini歌曲列表：保存搜索结果到localStorage
 
 
 ## 11-12

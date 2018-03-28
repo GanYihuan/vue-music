@@ -131,7 +131,7 @@ export const searchMixin = {
     addQuery (query) {
       this.$refs.searchBox.setQuery(query)
     },
-    // 保存搜索结果
+    // 保存搜索结果到localStorage
     saveSearch () {
       this.saveSearchHistory(this.query)
     },

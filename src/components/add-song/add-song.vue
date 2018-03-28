@@ -89,6 +89,7 @@
     data () {
       return {
         showFlag: false,
+        // 搜索结果没有歌手
         showSinger: false,
         currentIndex: 0,
         songs: [],
@@ -127,6 +128,7 @@
       },
       selectSuggest () {
         this.$refs.topTip.show()
+        // mutation
         this.saveSearch()
       },
       switchItem (index) {
