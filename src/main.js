@@ -6,6 +6,13 @@ import VueLazyload from 'vue-lazyload'
 import fastclick from 'fastclick'
 import store from './store/index'
 
+/**
+ * 移动端调试用的工具
+ */
+/* eslint-disable no-unused-vars */
+import vConsole from 'vconsole'
+console.log('test')
+
 fastclick.attach(document.body)
 Vue.config.productionTip = false
 Vue.use(VueLazyload, {

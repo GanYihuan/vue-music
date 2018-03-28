@@ -600,3 +600,20 @@ node prod.server.js
 ### (package.json)
 ### vue升级, 修改package.json版本号
 > "vue"版本号和"vue-template-compiler"要相等
+
+
+## 14-1
+### (main.js)
+### 移动端调试, 界面多了一个绿色的按钮vConsole
+<https://github.com/Tencent/vConsole>
+```
+cnpm install vconsole
+```
+### 抓包工具charies(Mac) , Fiddler(Win)
+### 默认有个8888端口
+### 电脑IP
+```
+ifconfig
+```
+### iphone代理, 无线局域网, 配置代理, 代理IP手动, 电脑IP, 8888端口。 实现代理到charies
+### android 局域网, 修改网络, 配置http代理, 服务器电脑IP, 8888端口。 实现代理到charies
