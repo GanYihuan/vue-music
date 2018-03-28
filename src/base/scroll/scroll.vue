@@ -37,6 +37,7 @@
         type: Boolean,
         default: false
       },
+      // 刷新延迟
       refreshDelay: {
         type: Number,
         default: 20
