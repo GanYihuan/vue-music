@@ -147,6 +147,7 @@ export const deleteSong = function ({commit, state}, song) {
   }
 }
 
+// 清空mini歌曲列表
 export const deleteSongList = function ({commit}) {
   commit(types.SET_CURRENT_INDEX, -1)
   commit(types.SET_PLAYLIST, [])

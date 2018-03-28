@@ -101,6 +101,7 @@
         this.$refs.confirm.show()
       },
       confirmClear () {
+        // mutation
         this.deleteSongList()
         this.hide()
       },
