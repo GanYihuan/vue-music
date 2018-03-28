@@ -508,7 +508,8 @@ cnpm install good-storage --save
 
 
 ## 11-10
-### add-song的显示和隐藏的控制
+### (add-song.vue)
+### mini歌曲列表：添加歌曲组件的显示和隐藏的控制
 
 
 ## 11-11
