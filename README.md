@@ -518,7 +518,8 @@ cnpm install good-storage --save
 
 
 ## 11-12
-### switches: 切换歌曲列表组件的两个按钮
+### (switches.vue)
+### mini歌曲列表： 切换歌曲列表组件的两个按钮
 
 
 ## 11-13, 11-14
