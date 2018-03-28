@@ -155,7 +155,7 @@ export const deleteSongList = function ({commit}) {
   commit(types.SET_PLAYING_STATE, false)
 }
 
-// player.vue: 播放历史记录
+// 保存播放历史记录
 export const savePlayHistory = function ({commit}, song) {
   commit(types.SET_PLAY_HISTORY, savePlay(song))
 }

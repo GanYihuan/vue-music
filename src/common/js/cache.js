@@ -6,7 +6,7 @@ const SEARCH_KEY = '__search__'
 const SEARCH_MAX_LEN = 15
 // 播放历史记录
 const PLAY_KEY = '__play__'
-// 播放历史记录最多200条
+// 播放历史记录最多缓存200条
 const PLAY_MAX_LEN = 200
 // 收藏
 const FAVORITE_KEY = '__favorite__'
@@ -87,17 +87,18 @@ export function loadSearch () {
 
 // 缓存播放历史记录(actions.js调用)
 export function savePlay (song) {
+  // 获取播放历史记录localStorage
   let songs = storage.get(PLAY_KEY, [])
-  // 插入
+  // 当前歌曲插入到歌曲数组
   insertArray(songs, song, (item) => {
     return song.id === item.id
   }, PLAY_MAX_LEN)
-  // 缓存到本地
+  // 缓存到播放历史记录localStorage
   storage.set(PLAY_KEY, songs)
   return songs
 }
 
-// 读取播放历史记录(state.js会调用)
+// 读取播放历史记录localStorage(state.js会调用)
 export function loadPlay () {
   return storage.get(PLAY_KEY, [])
 }

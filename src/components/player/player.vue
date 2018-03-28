@@ -295,6 +295,8 @@
       ready () {
         // audio,防止极限点击操作报错
         this.songReady = true
+        // mutation
+        // 保存播放历史记录
         this.savePlayHistory(this.currentSong)
       },
       error () {

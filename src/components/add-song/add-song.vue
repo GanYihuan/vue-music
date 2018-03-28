@@ -121,6 +121,7 @@
       },
       selectSong (song, index) {
         if (index !== 0) {
+          // mutation
           // 插入歌曲到列表
           this.insertSong(new Song(song))
           this.$refs.topTip.show()
