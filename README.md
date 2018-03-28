@@ -453,9 +453,9 @@ cnpm install lyric-parser
 ### 滚动时失去焦点
 
 
-## 10-11, 10-12, 10-13 ?
-### 搜索历史数据
-### 缓存, localStorage
+## 10-11, 10-12, 10-13
+### (common/js/cache.js)
+### 搜索界面: 搜索历史数据缓存到localStorage
 ```
 cnpm install good-storage --save
 ```

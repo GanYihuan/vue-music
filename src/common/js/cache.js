@@ -1,8 +1,8 @@
 import storage from 'good-storage'
 
-// 内部的值
+// '__x__': 内部的值
 const SEARCH_KEY = '__search__'
-// 缓存15条数据
+// 最多缓存15条数据
 const SEARCH_MAX_LEN = 15
 // 播放历史记录
 const PLAY_KEY = '__play__'
@@ -13,17 +13,27 @@ const FAVORITE_KEY = '__favorite__'
 // 收藏数量MAX值
 const FAVORITE_MAX_LEN = 200
 
-// 保存到歌曲列表
+/**
+ * 数据插入数组
+ * @param arr: 储存数组
+ * @param val: 储存值
+ * @param compare: 比较函数
+ * @param maxLen: 最大值
+ */
 function insertArray (arr, val, compare, maxLen) {
+  // findIndex: 查找arr数组是否有compare元素, 返回该元素下标
   const index = arr.findIndex(compare)
+  // 第一条数据
   if (index === 0) {
     return
   }
   if (index > 0) {
     arr.splice(index, 1)
   }
+  // 插入到第一个位置
   arr.unshift(val)
   if (maxLen && arr.length > maxLen) {
+    // 末尾的数据删掉
     arr.pop()
   }
 }
@@ -38,10 +48,12 @@ function deleteFromArray (arr, compare) {
 
 // localStorage, search历史记录
 export function saveSearch (query) {
+  // 获取缓存数据, 历史数据
   let searches = storage.get(SEARCH_KEY, [])
   insertArray(searches, query, (item) => {
     return item === query
   }, SEARCH_MAX_LEN)
+  // 设置缓存数据, 历史数据
   storage.set(SEARCH_KEY, searches)
   return searches
 }
@@ -61,7 +73,7 @@ export function clearSearch () {
   return []
 }
 
-// 从本地缓存去读search-list
+// 从本地缓存去读搜索历史记录
 export function loadSearch () {
   return storage.get(SEARCH_KEY, [])
 }
