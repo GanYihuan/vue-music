@@ -1,4 +1,5 @@
 <template>
+  <!-- 11/顶部提示 -->
   <transition name="drop">
     <div class="top-tip" v-show="showFlag" @click.stop="hide">
       <slot></slot>
@@ -9,6 +10,7 @@
 <script type="text/ecmascript-6">
   export default {
     props: {
+      // 延迟
       delay: {
         type: Number,
         default: 2000

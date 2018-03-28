@@ -533,7 +533,8 @@ cnpm install good-storage --save
 
 
 ## 11-16
-### 添加歌曲时提示组件
+### (top-tip.vue)
+### 添加歌曲时提示组件: 顶部提示
 
 
 ## 11-17
