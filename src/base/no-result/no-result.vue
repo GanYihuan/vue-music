@@ -6,14 +6,14 @@
 </template>
 
 <script type="text/ecmascript-6">
-export default {
-  props: {
-    title: {
-      type: String,
-      default: ""
+  export default {
+    props: {
+      title: {
+        type: String,
+        default: ""
+      }
     }
-  }
-};
+  };
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">

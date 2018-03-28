@@ -32,6 +32,7 @@
         type: Boolean,
         default: false
       },
+      // 目的: 取消手机端键盘
       beforeScroll: {
         type: Boolean,
         default: false

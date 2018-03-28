@@ -36,11 +36,10 @@
       }
     },
     created () {
-      // 节流函数,优化请求
-      this.$watch(
-        "query",
-        debounce(newQuery => {
-          // 派发query事件出去
+      // debounce(): common -> js -> util
+      // 节流函数, 优化请求
+      this.$watch("query", debounce(newQuery => {
+          // 派发query事件给父级
           this.$emit("query", newQuery)
         }, 200)
       )
