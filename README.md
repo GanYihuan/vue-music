@@ -479,8 +479,13 @@ cnpm install good-storage --save
 
 
 ## 11-2
+### (playlist.vue)
 ### mini歌曲列表：显示和隐藏的控制
 
+
+## 11-3
+### (playlist.vue)
+### mini歌曲列表：vuex数据
 
 ## 11-3, 11-4, 11-5, 11-6, 11-7
 ### 歌曲列表组件播放列表的实现

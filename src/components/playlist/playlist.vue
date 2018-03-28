@@ -111,15 +111,17 @@
       },
       selectItem (item, index) {
         if (this.mode === playMode.random) {
-          index = this.playlist.findIndex(song => {
+          index = this.playlist.findIndex((song) => {
             return song.id === item.id
           })
         }
+        // mutation
         this.setCurrentIndex(index)
+        // mutation
         this.setPlayingState(true)
       },
       scrollToCurrent (current) {
-        const index = this.sequenceList.findIndex(song => {
+        const index = this.sequenceList.findIndex((song) => {
           return current.id === song.id
         })
         this.$refs.listContent.scrollToElement(this.$refs.list.$el.children[index], 300)
