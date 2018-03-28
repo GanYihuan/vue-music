@@ -61,6 +61,7 @@ export const randomPlay = function ({commit}, {list}) {
 
 // 点击搜索界面歌曲并添加到播放列表
 export const insertSong = function ({commit, state}, song) {
+  // 不能再其他地方对state修改, 只能在mutation里面修改
   // 副本,不会对state修改
   let playlist = state.playlist.slice()
   let sequenceList = state.sequenceList.slice()
@@ -75,7 +76,7 @@ export const insertSong = function ({commit, state}, song) {
   playlist.splice(currentIndex, 0, song)
   // 如果已经包含了这首歌
   if (fpIndex > -1) {
-    // 如果当前插入的序号大于列表中的序号
+    // 如果当前插入的歌曲序号大于列表中的目标歌曲序号
     if (currentIndex > fpIndex) {
       playlist.splice(fpIndex, 1)
       currentIndex--
@@ -83,8 +84,10 @@ export const insertSong = function ({commit, state}, song) {
       playlist.splice(fpIndex + 1, 1)
     }
   }
-  // sequenceList 插入位置
+  // sequenceList: 当前歌曲列表, 不同模式下, 歌曲位置不同
+  // currentSIndex: sequenceList 插入位置
   let currentSIndex = findIndex(sequenceList, currentSong) + 1
+  // 当前歌曲列表中是否有待插入的歌曲并返回其索引
   let fsIndex = findIndex(sequenceList, song)
   sequenceList.splice(currentSIndex, 0, song)
   if (fsIndex > -1) {

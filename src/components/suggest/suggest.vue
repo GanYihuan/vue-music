@@ -118,6 +118,7 @@
         this.$emit("listScroll")
       },
       selectItem (item) {
+        // 如果搜索结果点击项是歌手数据
         if (item.type === TYPE_SINGER) {
           const singer = new Singer({
             id: item.singermid,
@@ -129,6 +130,7 @@
           // vuex: mutation
           this.setSinger(singer)
         } else {
+          // 如果搜索结果点击项是歌曲数据
           // vuex: action
           this.insertSong(item)
         }
