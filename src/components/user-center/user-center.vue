@@ -92,6 +92,7 @@
       handlePlaylist (playlist) {
         const bottom = playlist.length > 0 ? "60px" : ""
         this.$refs.listWrapper.style.bottom = bottom
+        // 使用了v-if值, 有可能不存在, 确保它不是undefined
         this.$refs.favoriteList && this.$refs.favoriteList.refresh()
         this.$refs.playList && this.$refs.playList.refresh()
       },
@@ -108,13 +109,15 @@
       // 随机播放
       random () {
         let list = this.currentIndex === 0 ? this.favoriteList : this.playHistory
+        // 没数据时
         if (list.length === 0) {
           return
         }
-        // Song实例, 获得Song特有方法
+        // list获得Song实例, 获得Song特有方法
         list = list.map(song => {
           return new Song(song)
         })
+        // mutation
         this.randomPlay({
           list
         })
