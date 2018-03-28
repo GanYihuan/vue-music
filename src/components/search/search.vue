@@ -38,9 +38,9 @@
               </span>
             </h1>
             <search-list
+              :searches="searchHistory"
               @delete="deleteSearchHistory"
               @select="addQuery"
-              :searches="searchHistory"
             >
             </search-list>
           </div>
@@ -108,6 +108,7 @@
       showConfirm () {
         this.$refs.confirm.show()
       },
+      // 搜索框填入搜索词query
       addQuery (query) {
         this.$refs.searchBox.setQuery(query)
       },

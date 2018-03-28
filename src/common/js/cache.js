@@ -38,7 +38,11 @@ function insertArray (arr, val, compare, maxLen) {
   }
 }
 
-// 从歌曲列表删除
+/**
+ * 删除数组中的值
+ * @param arr: 指定数组
+ * @param compare: 返回函数
+ */
 function deleteFromArray (arr, compare) {
   const index = arr.findIndex(compare)
   if (index > -1) {
@@ -58,16 +62,19 @@ export function saveSearch (query) {
   return searches
 }
 
-// localStorage, search历史记录
+// localStorage删除对应搜索历史记录
 export function deleteSearch (query) {
+  // 获取缓存数据, 历史数据
   let searches = storage.get(SEARCH_KEY, [])
   deleteFromArray(searches, (item) => {
     return item === query
   })
+  // 设置缓存数据, 历史数据
   storage.set(SEARCH_KEY, searches)
   return searches
 }
 
+// localStorage删除全部搜索历史记录
 export function clearSearch () {
   storage.remove(SEARCH_KEY)
   return []

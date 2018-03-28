@@ -1,7 +1,6 @@
 /**
  * mutations用action封装,修改多个mutations
  */
-
 import * as types from './mutation-types'
 import {playMode} from 'common/js/config'
 import {shuffle} from 'common/js/util'
@@ -109,6 +108,7 @@ export const saveSearchHistory = function ({commit}, query) {
   commit(types.SET_SEARCH_HISTORY, saveSearch(query))
 }
 
+// 从localStorage删除搜索词
 export const deleteSearchHistory = function ({commit}, query) {
   commit(types.SET_SEARCH_HISTORY, deleteSearch(query))
 }
