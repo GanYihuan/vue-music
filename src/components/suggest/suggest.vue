@@ -66,6 +66,7 @@
         // 下拉刷新
         pullup: true,
         beforeScroll: true,
+        // 数据加载完？
         hasMore: true,
         result: []
       }
@@ -78,6 +79,7 @@
       search () {
         // 刚搜索时
         this.page = 1
+        // 有更多数据
         this.hasMore = true
         // 滚动到顶部
         this.$refs.suggest.scrollTo(0, 0)
@@ -91,7 +93,7 @@
           .then(res => {
             if (res.code === ERR_OK) {
               this.result = this._genResult(res.data)
-              // 是否有多余数据
+              // 是否有更多数据?
               this._checkMore(res.data)
             }
           })
@@ -166,7 +168,7 @@
         })
         return ret
       },
-      // 是否有多余数据
+      // 是否有更多数据?
       _checkMore (data) {
         const song = data.song
         if (!song.list.length || song.curnum + song.curpage * perpage > song.totalnum) {
