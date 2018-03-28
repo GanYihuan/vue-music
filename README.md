@@ -566,3 +566,8 @@ cnpm install good-storage --save
 ## 12-5, 12-6
 ### (user-center.vue)
 ### 用户中心页: 回退按钮功能, 随机播放按钮功能, 404界面
+
+
+## 13-1
+### (player.vue)
+### 优化: 1, 2, 3

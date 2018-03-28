@@ -259,6 +259,7 @@
         }
         if (this.playlist.length === 1) {
           this.loop()
+          // 优化: 3 防止播放控件无法触发, return不用调用songReady = false
           return
         } else {
           let index = this.currentIndex + 1
@@ -279,6 +280,7 @@
         }
         if (this.playlist.length === 1) {
           this.loop()
+          // 优化: 3 防止播放控件无法触发, return不用调用songReady = false
           return
         } else {
           let index = this.currentIndex - 1
@@ -328,6 +330,7 @@
         this.currentSong
           .getLyric()
           .then((lyric) => {
+            // 优化: 2 防止快速切换导致歌词无法匹配
             if (this.currentSong.lyric !== lyric) {
               return
             }
@@ -491,9 +494,13 @@
         // setTimeout: 解决DOM异常
         // $nextTick: 在下次DOM更新循环结束之后执行的延迟回调。在修改数据之后立即使用这个方法，获取更新后的DOM。
         // setTimeout: 保证手机从后台切到前台js执行能正常播放
+        // 优化: 1
         clearTimeout(this.timer)
         this.timer = setTimeout(() => {
+          // 同步方法
           this.$refs.audio.play()
+          // 异步方法
+          // 防止调用时机出错, 在getLyric()里面写 优化: 2
           this.getLyric()
         }, 1000)
       },
