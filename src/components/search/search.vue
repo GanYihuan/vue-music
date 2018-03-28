@@ -10,12 +10,13 @@
       v-show="!query"
       :refreshDelay="refreshDelay"
     >
+      <!-- 传入data, scroll根据data变化重新计算高度 -->
       <scroll
         ref="shortcut"
         class="shortcut"
         :data="shortcut"
       >
-        <!-- 包一个div，计算两部分的滚动 -->
+        <!-- scroll里面, 包一个div，计算两部分的滚动 -->
         <div>
           <div class="hot-key">
             <h1 class="title">热门搜索</h1>
@@ -126,6 +127,7 @@
       ])
     },
     watch: {
+      // 防止scroll不在当前界面导致失效
       query (newQuery) {
         if (!newQuery) {
           setTimeout(() => {
