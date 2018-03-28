@@ -2,15 +2,15 @@ import storage from 'good-storage'
 
 // '__x__': 内部的值
 const SEARCH_KEY = '__search__'
-// 最多缓存15条数据
+// 缓存MAX值:15条数据
 const SEARCH_MAX_LEN = 15
 // 播放历史记录
 const PLAY_KEY = '__play__'
-// 播放历史记录最多缓存200条
+// 播放历史记录MAX值:200条
 const PLAY_MAX_LEN = 200
 // 收藏
 const FAVORITE_KEY = '__favorite__'
-// 收藏数量MAX值
+// 收藏数量MAX值:200
 const FAVORITE_MAX_LEN = 200
 
 /**
@@ -50,7 +50,11 @@ function deleteFromArray (arr, compare) {
   }
 }
 
-// localStorage, search历史记录
+/**
+ * localStorage, search历史记录
+ * @param query: 查询值
+ * @returns {*}
+ */
 export function saveSearch (query) {
   // 获取缓存数据, 历史数据
   let searches = storage.get(SEARCH_KEY, [])
@@ -62,7 +66,11 @@ export function saveSearch (query) {
   return searches
 }
 
-// localStorage删除对应搜索历史记录
+/**
+ * localStorage删除对应搜索历史记录
+ * @param query: 查询值
+ * @returns {*}
+ */
 export function deleteSearch (query) {
   // 获取缓存数据, 历史数据
   let searches = storage.get(SEARCH_KEY, [])
@@ -74,18 +82,22 @@ export function deleteSearch (query) {
   return searches
 }
 
-// localStorage删除全部搜索历史记录
+// localStorage删除全部搜索历史记录(state.js会调用)
 export function clearSearch () {
   storage.remove(SEARCH_KEY)
   return []
 }
 
-// 从本地缓存去读搜索历史记录
+// 从本地缓存去读搜索历史记录(state.js会调用)
 export function loadSearch () {
   return storage.get(SEARCH_KEY, [])
 }
 
-// 缓存播放历史记录(actions.js调用)
+/**
+ * 缓存播放历史记录(actions.js调用)
+ * @param song
+ * @returns {*}
+ */
 export function savePlay (song) {
   // 获取播放历史记录localStorage
   let songs = storage.get(PLAY_KEY, [])
@@ -103,18 +115,28 @@ export function loadPlay () {
   return storage.get(PLAY_KEY, [])
 }
 
-// storage保存收藏
+/**
+ * 保存收藏
+ * @param song
+ * @returns {*}
+ */
 export function saveFavorite (song) {
+  // 获取收藏列表localStorage
   let songs = storage.get(FAVORITE_KEY, [])
   // 插入歌曲集合
   insertArray(songs, song, (item) => {
     return song.id === item.id
   }, FAVORITE_MAX_LEN)
+  // 缓存到收藏列表localStorage
   storage.set(FAVORITE_KEY, songs)
   return songs
 }
 
-// storage删除收藏
+/**
+ * storage删除收藏
+ * @param song
+ * @returns {*}
+ */
 export function deleteFavorite (song) {
   let songs = storage.get(FAVORITE_KEY, [])
   deleteFromArray(songs, (item) => {
@@ -125,6 +147,7 @@ export function deleteFavorite (song) {
 }
 
 // 加载收藏列表
+// state初始值获取的时候会用到(state.js会调用)
 export function loadFavorite () {
   return storage.get(FAVORITE_KEY, [])
 }
