@@ -99,6 +99,7 @@
         this.currentIndex = index
       },
       selectSong (song) {
+        // mutation
         this.insertSong(new Song(song))
       },
       back () {

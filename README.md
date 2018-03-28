@@ -559,7 +559,8 @@ cnpm install good-storage --save
 
 
 ## 12-4
-### 收藏功能实现 '我喜欢列表' 和 '最近听的' 列表
+### (user-center.vue)
+### 用户中心页: 添加歌曲到列表
 
 
 ## 12-5, 12-6
