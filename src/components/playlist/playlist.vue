@@ -3,8 +3,8 @@
   <transition name="list-fade">
     <div
       class="playlist"
-      @click="hide"
       v-show="showFlag"
+      @click="hide"
     >
       <div class="list-wrapper" @click.stop>
         <div class="list-header">
