@@ -487,6 +487,12 @@ cnpm install good-storage --save
 ### (playlist.vue)
 ### mini歌曲列表：vuex数据
 
+
+## 11-4
+### (playlist.vue)
+### mini歌曲列表：滚动到当前播放歌曲位置
+
+
 ## 11-3, 11-4, 11-5, 11-6, 11-7
 ### 歌曲列表组件播放列表的实现
 

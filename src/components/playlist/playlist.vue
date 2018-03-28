@@ -90,6 +90,7 @@
         // 展示后刷新，防止dom没有被正确计算,导致scroll失效
         setTimeout(() => {
           this.$refs.listContent.refresh()
+          // currentSong: ...mapGetters(mixin.js)
           this.scrollToCurrent(this.currentSong)
         }, 20)
       },
@@ -124,6 +125,7 @@
         const index = this.sequenceList.findIndex((song) => {
           return current.id === song.id
         })
+        // 滚动到这个列表的元素
         this.$refs.listContent.scrollToElement(this.$refs.list.$el.children[index], 300)
       },
       deleteOne (item) {
