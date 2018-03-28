@@ -473,10 +473,9 @@ cnpm install good-storage --save
 ### 搜索界面: 设置mini播放器的正确位置显示
 
 
-## Git branch: playlist-page
-## mini播放器最右侧的按钮点击后弹出的窗口
 ## 11-1
-## 歌曲列表组件布局和功能介绍
+### mini播放器最右侧的按钮点击后弹出的窗口
+### mini歌曲列表：布局和功能介绍
 
 
 ## 11-2
