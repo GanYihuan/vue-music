@@ -587,3 +587,10 @@ build(){port: 9000}
 node prod.server.js
 ```
 ### chrome -> localhost:9000
+
+
+## 13-3
+### (router/index.js)
+### 路由懒加载
+### npm run build
+### node prod.server.js
