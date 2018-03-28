@@ -571,3 +571,19 @@ cnpm install good-storage --save
 ## 13-1
 ### (player.vue)
 ### 优化: 1, 2, 3
+
+
+## 13-2
+### 编译打包, 后端调用
+```
+npm run build
+```
+### (config/index.js)
+```
+build(){port: 9000}
+```
+### (prod.server.js)
+```
+node prod.server.js
+```
+### chrome -> localhost:9000
