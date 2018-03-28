@@ -87,6 +87,7 @@ export const playerMixin = {
       return 'icon-not-favorite'
     },
     isFavorite (song) {
+      // favoriteList: mutation
       const index = this.favoriteList.findIndex((item) => {
         return item.id === song.id
       })

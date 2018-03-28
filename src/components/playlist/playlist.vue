@@ -1,5 +1,5 @@
 <template>
-  <!-- 10 -->
+  <!-- 10/mini歌曲列表 -->
   <transition name="list-fade">
     <div
       class="playlist"

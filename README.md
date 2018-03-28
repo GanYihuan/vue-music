@@ -554,7 +554,8 @@ cnpm install good-storage --save
 
 
 ## 12-3
-### 收藏功能点击处理
+### (user-center.vue)
+### 用户中心页: 收藏功能处理
 
 
 ## 12-4
