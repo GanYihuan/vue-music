@@ -72,11 +72,12 @@
         let sliderWidth = this.$refs.slider.clientWidth
         for (let i = 0; i < this.children.length; i++) {
           let child = this.children[i]
+          // addClass: 给元素添加class
           addClass(child, 'slider-item')
           child.style.width = sliderWidth + 'px'
           width += sliderWidth
         }
-        // clone two dom (轮播组件)
+        // 复制两个dom来循环播放(轮播组件)
         if (this.loop && !isResize) {
           width += 2 * sliderWidth
         }
@@ -91,8 +92,11 @@
         this.slider = new BScroll(this.$refs.slider, {
           scrollX: true,
           scrollY: false,
+          // 惯性
           momentum: false,
+          // 循环
           snap: true,
+          // 循环
           snapLoop: this.loop,
           snapThreshold: 0.2,
           // click: true,

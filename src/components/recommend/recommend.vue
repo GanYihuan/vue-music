@@ -4,9 +4,10 @@
     <!-- :data : 内容撑开scroll的高度 -->
     <scroll ref="scroll" class="recommend-content" :data="discList">
       <div>
-        <!-- v-if="recommends.length": prevent Asynchronous load delay -->
+        <!-- v-if="recommends.length": 防止异步加载过慢而导致, dom来不及加载 -->
         <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
           <slider>
+            <!-- 里面的内容都被插入slider的slot里面 -->
             <div v-for="(item,index) in recommends" :key="index">
               <a :href="item.linkUrl">
                 <!-- class="needsclick": fastclick 不拦截单击过程 -->
