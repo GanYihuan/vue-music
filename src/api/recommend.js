@@ -1,3 +1,4 @@
+// 利用jsonp抓取数据
 import jsonp from 'common/js/jsonp'
 import { commonParams, options } from './config'
 import axios from 'axios'
@@ -8,7 +9,7 @@ import axios from 'axios'
 export function getRecommend () {
   // static -> jsonp1.png: open in chrome, copy url(? before)
   const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
-  // Object.assign()方法用于将所有可枚举的属性的值从一个或多个源对象复制到目标对象。它将返回目标对象
+  // Object.assign: 用于将所有可枚举的属性的值从一个或多个源对象复制到目标对象。它将返回目标对象
   const data = Object.assign({}, commonParams, {
     platform: 'h5',
     uin: 0,

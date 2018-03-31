@@ -3,9 +3,9 @@ import originJsonp from 'jsonp'
 /**
  * jsonp package
  * https://github.com/webmodules/jsonp
- * @param url
+ * @param url: url地址
  * @param data: pass to back-end parameter
- * @param option
+ * @param option:
  * @returns {Promise}
  */
 export default function jsonp (url, data, option) {

@@ -88,8 +88,8 @@
       _getRecommend () {
         getRecommend()
           .then((res) => {
-            // static -> jsonp1.png
-            // res.data.slider <https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg>
+            // static/jsonp1.png
+            // res.data.slider: 在该网页里面<https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg>
             if (res.code === ERR_OK) {
               // console.log(res.data.slider)
               this.recommends = res.data.slider
