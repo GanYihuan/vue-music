@@ -2,6 +2,8 @@
   <div class="slider" ref="slider">
     <div class="slider-group" ref="sliderGroup">
       <!--
+      vue提供slot
+      外部引用slider的时候，slider包裹的dom会被插入到slot里面
       当子组件模板只有一个没有属性的 slot 时，
       父组件整个内容片段将插入到 slot 所在的 DOM 位置，并替换掉 slot 标签本身
       -->
@@ -20,7 +22,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import {addClass} from 'common/js/dom'
+  import { addClass } from 'common/js/dom'
   import BScroll from 'better-scroll'
 
   export default {
@@ -84,6 +86,7 @@
         this.dots = new Array(this.children.length)
       },
       _initSlider () {
+        // better-scroll
         // 轮播滚动设置
         this.slider = new BScroll(this.$refs.slider, {
           scrollX: true,
@@ -96,10 +99,11 @@
           snapSpeed: 400
         })
         this.slider.on('scrollEnd', () => {
-          // 第几个子元素
+          // pageIndex: 第几个子元素
           let pageIndex = this.slider.getCurrentPage().pageX
           if (this.loop) {
             // 默认向第一个元素添加一个copy
+            // copy: 1, 2, 3, 1, 2, 3
             pageIndex -= 1
           }
           this.currentPageIndex = pageIndex
@@ -110,6 +114,7 @@
         })
       },
       _autoPlay () {
+        // currentPageIndex: 从零开始
         let pageIndex = this.currentPageIndex + 1
         if (this.loop) {
           // this.currentPageIndex下标从0开始
@@ -123,7 +128,7 @@
         }, this.interval)
       }
     },
-    // 好的编程习惯, 有计时器时, 要清理
+    // 有计时器时, 要清理
     destroyed () {
       clearTimeout(this.timer)
     }
