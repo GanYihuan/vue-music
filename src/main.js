@@ -1,25 +1,24 @@
 import 'babel-polyfill'
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
+import router from './router/route'
 import VueLazyload from 'vue-lazyload'
 import fastclick from 'fastclick'
 import store from './store/index'
+import './common/scss/index.scss'
 
 /**
  * 移动端调试用的工具
  */
 /* eslint-disable no-unused-vars */
-import vConsole from 'vconsole'
-console.log('test')
+// import vConsole from 'vconsole'
+// console.log('test')
 
 fastclick.attach(document.body)
 Vue.config.productionTip = false
 Vue.use(VueLazyload, {
   loading: require('common/image/default.png')
 })
-
-import './common/scss/index.scss'
 
 /* eslint-disable no-new */
 new Vue({

@@ -86,11 +86,14 @@ cnpm install fastclick --save
 ```
 cnpm install babel-polyfill --save-dev
 ```
+### (build/webpack.base.config)
+> 别名配置, 缩写应用文件路径
 
 
 ## 3-2
-### tab.vue: navigation bar
-### router
+### (tab.vue)
+### 导航切换
+### 路由
 
 
 ## 4-1
