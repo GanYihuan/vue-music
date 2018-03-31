@@ -142,6 +142,7 @@ cnpm install better-scroll@0.1.15 --save
 
 
 ## 4-7
+### (recommend.js)
 ### 抓取歌单数据接口
 ### 500服务器端错误, host问题
 
