@@ -198,6 +198,7 @@ host: '0.0.0.0',
 
 
 ## 4-12
+### (recommend.vue)
 ### 图片懒加载: 仅在滚动时加载
 ```
 cnpm install vue-lazyload --save
