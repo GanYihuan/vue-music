@@ -190,7 +190,7 @@ cnpm install vue-lazyload --save
 
 
 ## 4-13 
-### loading
+### (loading.vue)
 
 
 ## 5-1
