@@ -207,7 +207,8 @@ cnpm install vue-lazyload --save
 
 
 ## 4-13 
-### (loading.vue)
+### (loading.vue) (recommend.vue)
+### 推荐界面: 请求图
 
 
 ## 5-1
