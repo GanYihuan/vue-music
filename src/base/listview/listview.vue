@@ -30,6 +30,7 @@
         </ul>
       </li>
     </ul>
+    <!-- 右侧的 A-Z -->
     <div
       class="list-shortcut"
       @touchstart="onShortCutTouchStart"
@@ -109,6 +110,7 @@
         this.$emit('select', item)
       },
       onShortCutTouchStart (e) {
+        // getData (common/js/dom.js)
         let anchorIndex = getData(e.target, 'index')
         // touches: Finger position
         let firstTouch = e.touches[0]
@@ -122,7 +124,7 @@
         let firstTouch = e.touches[0]
         this.touch.y2 = firstTouch.pageY
         // |0 : Math.floor
-        // delta: 偏移锚点
+        // delta: 偏移几个锚点
         let delta = (this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT | 0
         // 移动到哪个锚点上
         let anchorIndex = parseInt(this.touch.anchorIndex) + delta
@@ -136,6 +138,7 @@
         this.scrollY = pos.y
       },
       _scrollTo (index) {
+        // index == null -> !index, index == 0 排除这种情况
         if (!index && index !== 0) {
           return
         }
@@ -170,7 +173,7 @@
     },
     watch: {
       data () {
-        // dom 渲染好
+        // 数据到dom的变化有一个延时, dom渲染
         setTimeout(() => {
           this._calculateHeight()
         }, 20)
@@ -184,6 +187,7 @@
         this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`   //开启GPU加速
         // this.$refs.fixed.style.top = `${fixedTop}px`
       },
+      // 落入哪个区间
       scrollY (newY) {
         let heightList = this.heightList
         // 当滚动到顶部, newY > 0
@@ -208,7 +212,8 @@
           this.currentIndex = 0
         }
         // 当滚动到底部最后一个元素, 且 -newY 大于最后一个元素的上限
-        // heightList 比listGroup多一个元素
+        // heightList上下限
+        // heightList 比listGroup多一个元素, 所以 -2
         this.currentIndex = heightList.length - 2
       },
       diff (newVal) {

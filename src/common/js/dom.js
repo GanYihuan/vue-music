@@ -4,6 +4,7 @@ export function hasClass (el, className) {
   return reg.test(el.className)
 }
 
+// 为元素增加 class
 export function addClass (el, className) {
   if (hasClass(el, className)) {
     return

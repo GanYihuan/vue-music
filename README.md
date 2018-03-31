@@ -231,10 +231,13 @@ cnpm install vue-lazyload --save
 ### 歌手界面: 根据歌手数据编写歌手界面
 
 
+## 5-5
+### (listivew.vue) (scroll.vue)
+
+
 ## 5-5, 5-6, 5-7, 5-8 
 ### (listivew.vue)
-### 歌手界面右侧滚动组件
-### clientHeight
+### 歌手界面: 右侧滚动组件
 
 
 ## 5-9
