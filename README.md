@@ -148,15 +148,15 @@ cnpm install better-scroll@0.1.15 --save
 
 
 ## 4-8
-### 后端接口代理
-### (build -> webpack.dev.conf.js) 
+### (build/webpack.dev.conf.js) 
+### 后端接口代理绕过qq检查
 ### ajax库axios,发起HTTPRequest
 ```
 cnpm install axios --save
 ```
 ### 1.修改config目录下的index.js文件
 ### 修改host
-> /config/index.js
+> (config/index.js)
 ```
 host: '0.0.0.0',
 ```
