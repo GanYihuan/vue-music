@@ -164,7 +164,7 @@ cnpm install better-scroll@0.1.15 --save
 
 ## 4-8
 ### (build/webpack.dev.conf.js) 
-### 后端接口代理绕过qq检查
+### 前端请求我们的后端地址, 后端请求qq服务器, 后端接口代理绕过qq检查
 ### ajax库axios,发起HTTPRequest
 ```
 cnpm install axios --save
