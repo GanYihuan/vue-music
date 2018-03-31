@@ -134,7 +134,7 @@ cnpm install axios --save
 ```
 
 
-## 4-4, 4-5, 4-6 
+## 4-4
 ### (recommend.vue) (slider.vue) (common/js/dom.js) 
 ### 轮播图组件: 轮播图片
 ### qq数据<https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg>
@@ -157,6 +157,7 @@ cnpm install better-scroll@0.1.15 --save
 
 ## 4-7
 ### (recommend.js)
+### <keep-alive> 防止闪烁
 ### 抓取歌单数据接口
 ### 500服务器端错误, host问题
 
