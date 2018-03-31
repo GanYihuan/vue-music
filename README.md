@@ -221,8 +221,8 @@ cnpm install vue-lazyload --save
 
 
 ## 5-3
-### (singer.vue)
-### 歌手数据处理
+### (singer.vue) (common/js/singer.js)
+### 歌手界面: 歌手数据处理
 > <https://c.y.qq.com/v8/fcg-bin/v8.fcg?channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&g_tk=295327561&jsonpCallback=GetSingerListCallback&loginUin=583520052&hostUin=0&format=jsonp&inCharset=utf8&outCharset=utf-8&notice=0&platform=yqq&needNewCode=0>
 
 

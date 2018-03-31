@@ -1,4 +1,5 @@
 <template>
+  <!-- static/02.png -->
   <div class="singer" ref="singer">
     <list-view @select="selectSinger" :data="singers" ref="list"></list-view>
     <!-- singer-detail 将渲染到这里 -->
@@ -55,6 +56,7 @@
       },
       // 规范化获取到数据
       _normalizeSinger (list) {
+        // 数据结构
         let map = {
           hot: {
             title: HOT_NAME,
