@@ -1,11 +1,11 @@
 import jsonp from 'common/js/jsonp'
-import {commonParams, options} from 'api/config'
+import { commonParams, options } from 'api/config'
 
 /**
  * 获取qq歌手数据
  */
 export function getSingerList () {
-  // static -> jsonp4.png
+  // static/jsonp4.png
   const url = 'https://c.y.qq.com/v8/fcg-bin/v8.fcg'
   const data = Object.assign({}, commonParams, {
     channel: 'singer',

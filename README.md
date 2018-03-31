@@ -216,6 +216,7 @@ cnpm install vue-lazyload --save
 
 
 ## 5-2
+### (api/singer.js) (singer.vue)
 ### 获取qq歌手数据
 
 

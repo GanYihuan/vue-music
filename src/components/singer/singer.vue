@@ -7,10 +7,10 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import {mapMutations} from 'vuex'
-  import {getSingerList} from 'api/singer'
-  import {ERR_OK} from 'api/config'
-  import {playlistMixin} from 'common/js/mixin'
+  import { mapMutations } from 'vuex'
+  import { getSingerList } from 'api/singer'
+  import { ERR_OK } from 'api/config'
+  import { playlistMixin } from 'common/js/mixin'
   // 歌手列表组件实现
   import ListView from 'base/listview/listview'
   import Singer from 'common/js/singer'
@@ -20,12 +20,14 @@
 
   export default {
     mixins: [playlistMixin],
+    // 储存数据
     data () {
       return {
         singers: []
       }
     },
     created () {
+      // 获取后台的数据
       this._getSingerList()
     },
     methods: {
