@@ -1,7 +1,7 @@
 <template>
   <!-- 01/推荐界面 -->
   <div class="recommend" ref="recommend">
-    <!-- :data : 内容撑开scroll的高度 -->
+    <!-- :data -> 内容撑开scroll的高度, 防止因为刚开始因为数据导入过慢而使scroll判定没有数据而罢工 -->
     <scroll ref="scroll" class="recommend-content" :data="discList">
       <div>
         <!-- v-if="recommends.length": 防止异步加载过慢而导致, dom来不及加载 -->

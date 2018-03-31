@@ -51,6 +51,7 @@
     },
     methods: {
       _initScroll () {
+        // undefined 的时候
         if (!this.$refs.wrapper) {
           return
         }
