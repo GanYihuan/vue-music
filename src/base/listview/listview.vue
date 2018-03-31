@@ -1,4 +1,5 @@
 <template>
+  <!-- static/02.png -->
   <!-- data: 数据改变时,refresh scroll -->
   <scroll
     class="listview"
@@ -9,7 +10,12 @@
     @scroll="scroll"
   >
     <ul>
-      <li class="list-group" ref="listGroup" v-for="(group,index) in data" :key="index">
+      <li
+        class="list-group"
+        ref="listGroup"
+        v-for="(group,index) in data"
+        :key="index"
+      >
         <h2 class="list-group-title">{{group.title}}</h2>
         <ul>
           <li
@@ -24,7 +30,11 @@
         </ul>
       </li>
     </ul>
-    <div class="list-shortcut" @touchstart="onShortCutTouchStart" @touchmove.stop.prevent="onShortCutTouchMove">
+    <div
+      class="list-shortcut"
+      @touchstart="onShortCutTouchStart"
+      @touchmove.stop.prevent="onShortCutTouchMove"
+    >
       <ul>
         <li
           class="item"
@@ -48,7 +58,7 @@
 
 <script type="text/ecmascript-6">
   // get & set
-  import {getData} from 'common/js/dom'
+  import { getData } from 'common/js/dom'
   import Scroll from 'base/scroll/scroll'
   import loading from 'base/loading/loading'
 
@@ -119,7 +129,7 @@
         this._scrollTo(anchorIndex)
       },
       refresh () {
-        this.$refs.listview.refresh();
+        this.$refs.listview.refresh()
       },
       scroll (pos) {
         // 获得滑动距离
