@@ -124,8 +124,7 @@ cnpm install jsonp --save
 
 
 ## 4-3
-### recommend数据抓取
-### (api -> config(配置参数)) (api -> recommend)
+### (api/config(配置参数)) (api/recommend.js(数据抓取))
 ### 发送jsonp请求,抓取qq音乐里面的数据,
 ### 请求后台数据
 ```
