@@ -135,13 +135,18 @@ cnpm install axios --save
 
 
 ## 4-4, 4-5, 4-6 
-### (recommend.vue) (common/js/dom.js)
-### 轮播图组件
+### (recommend.vue) (slider.vue) (common/js/dom.js) 
+### 轮播图组件: 轮播图片
 ### qq数据<https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg>
 ### 
 ```
 cnpm install better-scroll@0.1.15 --save
 ```
+
+
+## 4-5
+### (slider.vue)
+### 轮播图组件: 轮播指示
 
 
 ## 4-7
