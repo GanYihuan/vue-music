@@ -71,8 +71,9 @@
         this.$refs.recommend.style.bottom = bottom
         this.$refs.scroll.refresh()
       },
-      // 防止轮播图延迟加载, 造成高度计算错误
+      // 防止轮播图因为网络而延迟加载, 造成高度计算错误
       loadImage () {
+        // 缺少这个逻辑只执行一次
         if (!this.checkloaded) {
           this.checkloaded = true
           this.$refs.scroll.refresh()
