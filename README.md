@@ -128,8 +128,7 @@ cnpm install jsonp --save
 
 ## 4-3
 ### (api/config(配置参数)) (api/recommend.js(数据抓取))
-### 发送jsonp请求,抓取qq音乐里面的数据,
-### 请求后台数据
+### recommend.vue 调用 recommend.js 来获取后台数据
 ```
 cnpm install axios --save
 ```
