@@ -96,6 +96,7 @@
             }
           })
       },
+      // 后端歌单数据
       _getDiscList () {
         getDiscList()
           .then((res) => {

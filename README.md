@@ -166,12 +166,13 @@ host: '0.0.0.0',
 
 
 ## 4-9 
-### 歌单列表组件
 ### (recommend.vue)
+### 歌单列表组件
 ### 访问 /api/getDiscList 来查看从qq音乐抓取的数据
 
 
 ## 4-10 
+### (scroll.vue)
 ### scroll组件
 
 
