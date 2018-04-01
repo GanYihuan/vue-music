@@ -259,8 +259,9 @@ cnpm install vue-lazyload --save
 ### 子路由跳转到singer-detail
 
 
-## 6-3, 6-4 
-### Vuex
+## 6-3
+### (static/vuex.png)
+### Vuex: 状态管理方式, 管理组件状态
 ```
 cnpm install vuex --save 
 ```
