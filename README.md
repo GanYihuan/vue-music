@@ -303,8 +303,8 @@ cnpm install vuex --save
 
 
 ## 6-13
-### (common -> js -> dom.js)
-### 不同浏览器css的配置
+### (common/js/dom.js)
+### 音乐播放界面: 不同浏览器css的配置
 
 
 ## 6-14
