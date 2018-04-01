@@ -368,12 +368,13 @@ cnpm install create-keyframe-animation --save
 
 ## 7-15
 ### (progress-circle.vue)
-### 音乐播放界面: mini 播放器环形进度条
+### 音乐播放界面: mini播放器环形进度条
 ### SVG
 
 
 ## 7-16
-### 歌曲控件: 播放模式改变
+### (player.vue) (common/js/mixin.js)
+### 音乐播放界面: 歌曲控件播放模式样式改变
 
 
 ## 7-17

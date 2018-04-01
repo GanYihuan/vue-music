@@ -50,7 +50,7 @@ export const playerMixin = {
   methods: {
     changeMode () {
       const mode = (this.mode + 1) % 3
-      // mutation:
+      // vuex (store/mutation.js)
       this.setPlayMode(mode)
       let list = null
       if (mode === playMode.random) {
@@ -61,7 +61,7 @@ export const playerMixin = {
         list = this.sequenceList
       }
       this.resetCurrentIndex(list)
-      // mutation:
+      //  vuex (store/mutation.js)
       this.setPlaylist(list)
     },
     // 播放模式发生变化时, 希望当前歌曲currentSong不改变
