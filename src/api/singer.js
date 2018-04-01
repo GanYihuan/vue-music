@@ -22,6 +22,7 @@ export function getSingerList () {
 }
 
 /**
+ * 03/音乐播放界面.png
  * 获取歌曲数据
  * @param singerId
  */

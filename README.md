@@ -277,7 +277,8 @@ cnpm install vuex --save
 
 
 ## 6-5
-### 抓取歌曲数据
+### (singer.detail.vue)
+### 音乐播放界面: 抓取歌曲数据
 
 
 ## 6-6, 6-7

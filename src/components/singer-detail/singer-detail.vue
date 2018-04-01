@@ -1,4 +1,5 @@
 <template>
+  <!-- 03/音乐播放界面 -->
   <transition name="slide">
     <music-list :songs="songs" :title="title" :bg-image="bgImage"></music-list>
   </transition>
