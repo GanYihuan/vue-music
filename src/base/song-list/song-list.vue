@@ -1,5 +1,5 @@
 <template>
-  <!-- 02/点击歌手/03-歌曲列表 -->
+  <!-- 03/歌曲列表 -->
   <div class="song-list">
     <ul>
       <li
@@ -36,7 +36,7 @@
     methods: {
       selectItem (item, index) {
         // 派发给父组件
-        this.$emit("select", item, index)
+        this.$emit('select', item, index)
       },
       getDesc (song) {
         return `${song.singer}·${song.album}`
@@ -46,7 +46,7 @@
         if (index <= 2) {
           return `icon icon${index}`
         } else {
-          return "text"
+          return 'text'
         }
       },
       getRankText (index) {
