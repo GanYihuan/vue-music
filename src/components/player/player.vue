@@ -224,7 +224,7 @@
         if (!this.songReady) {
           return
         }
-        // setPlayingState: mutation
+        // vuex (store/mutation.js)
         this.setPlayingState(!this.playing)
         // 当歌词滚动时才能播放,防止停止播放时歌词还在滚动
         if (this.currentLyric) {

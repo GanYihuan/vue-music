@@ -342,7 +342,8 @@ cnpm install create-keyframe-animation --save
 
 
 ## 7-8
-### 歌曲控件: 前进后退
+### (player.vue)
+### 音乐播放界面: 歌曲控件播放
 
 
 ## 7-9
