@@ -47,6 +47,7 @@
             }
           })
       },
+      // 处理数据
       _normalizeSongs (list) {
         // 拿到数据后做标准化处理
         let ret = []
@@ -54,6 +55,7 @@
           // ES6 结构赋值
           let {musicData} = item
           if (musicData.songid && musicData.albummid) {
+            // common/song.js/createSong
             ret.push(createSong(musicData))
           }
         })

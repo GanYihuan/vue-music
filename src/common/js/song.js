@@ -1,8 +1,8 @@
 // 视频作者编写, 歌词解析, 每执行到时间点时都执行回调函数
-import {getLyric} from 'api/song'
-import {ERR_OK} from 'api/config'
+import { getLyric } from 'api/song'
+import { ERR_OK } from 'api/config'
 // String decoding
-import {Base64} from 'js-base64'
+import { Base64 } from 'js-base64'
 
 export default class Song {
   constructor ({id, mid, singer, name, album, duration, image, url}) {

@@ -277,12 +277,14 @@ cnpm install vuex --save
 
 
 ## 6-5
-### (singer.detail.vue)
+### (singer-detail.vue)
 ### 音乐播放界面: 抓取歌曲数据
 
 
 ## 6-6, 6-7
-### song类封装, 歌曲列表数据处理
+### (singer-detail.vue) (common/js/song.js)
+### 音乐播放界面: 歌曲列表数据处理
+### song类封装
 
 
 ## 6-8
