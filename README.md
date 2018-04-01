@@ -317,7 +317,8 @@ cnpm install vuex --save
 
 
 ## 7-2
-### vuex数据定义
+### (store/state.js)
+### 播放器vuex数据定义
 
 
 ## 7-3

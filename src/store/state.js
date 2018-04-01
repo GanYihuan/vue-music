@@ -7,17 +7,17 @@ import { loadSearch, loadPlay, loadFavorite } from 'common/js/cache'
 
 const state = {
   singer: {},
-  // 播放
+  // 播放器: 播放
   playing: false,
-  // 全屏
+  // 播放器: 全屏
   fullScreen: false,
-  // 播放列表
+  // 播放器: 播放列表
   playlist: [],
-  // 顺序列表(播放模式控制)
+  // 播放器: 顺序列表(播放模式控制)
   sequenceList: [],
-  // 不同播放模式
+  // 播放器: 不同播放模式
   mode: playMode.sequence,
-  // 当前播放歌曲索引
+  // 播放器: 当前播放歌曲索引
   currentIndex: -1,
   // 歌单对象
   disc: {},
