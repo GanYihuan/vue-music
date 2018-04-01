@@ -141,7 +141,7 @@
           scale = 1 + percent
           zIndex = 10
         } else {
-          blur = Math.min(20, percent * 20)
+          blur = Math.min(percent * 20, 20)
         }
         this.$refs.layer.style[transform] = `translate3d(0,${translateY}px,0)`
         // 高斯模糊: apple手机能查看
