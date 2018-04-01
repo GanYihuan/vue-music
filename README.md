@@ -309,7 +309,7 @@ cnpm install vuex --save
 
 ## 6-14
 ### (music-list.vue)
-### 返回按钮,加载效果
+### 音乐播放界面: 返回按钮, loading加载效果
 
 
 ## 7-1
