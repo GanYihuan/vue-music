@@ -378,7 +378,9 @@ cnpm install create-keyframe-animation --save
 
 
 ## 7-17
-### 各种播放模式情况处理
+### (common/js/mixin.js) (common/js/util.js)
+### 音乐播放界面: 各种播放模式情况处理
+### 洗牌函数 
 
 
 ## 7-18

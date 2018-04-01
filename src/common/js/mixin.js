@@ -70,7 +70,7 @@ export const playerMixin = {
       let index = list.findIndex((item) => {
         return item.id === this.currentSong.id
       })
-      // mutation:
+      // vuex (store/mutation.js)
       this.setCurrentIndex(index)
     },
     toggleFavorite (song) {
