@@ -328,7 +328,7 @@ cnpm install vuex --save
 
 ## 7-4
 ### (player.vue)
-### 音乐播放界面: vuex数据应用
+### 音乐播放界面: 全屏按钮
 
 
 ## 7-5, 7-6, 7-7

@@ -163,7 +163,7 @@
       percent () {
         return this.currentTime / this.currentSong.duration
       },
-      // vuex的(store/getter.js)
+      // vuex (store/getter.js)
       ...mapGetters(['currentIndex', 'fullScreen', 'playing'])
     },
     created () {
@@ -172,12 +172,12 @@
     methods: {
       // 唱片界面缩小到底部
       back () {
-        // vuex mutations.js
+        // vuex (store/mutations.js)
         this.setFullScreen(false)
       },
       // 底部界面放大到唱片界面
       open () {
-        // vuex mutations.js
+        // vuex (store/mutations.js)
         this.setFullScreen(true)
       },
       // animate
