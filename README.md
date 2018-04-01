@@ -352,7 +352,8 @@ cnpm install create-keyframe-animation --save
 
 
 ## 7-10
-### 歌曲控件: 播放时间
+### (player.vue)
+### 歌曲控件: 歌曲控件防止极限点击, 组件变灰
 
 
 ## 7-11
