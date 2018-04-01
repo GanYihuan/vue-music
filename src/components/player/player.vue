@@ -1,5 +1,5 @@
 <template>
-  <!-- 04-音乐播放界面 -->
+  <!-- 04/音乐播放界面 -->
   <div class="player" v-show="playlist.length>0">
     <transition
       name="normal"
@@ -108,25 +108,26 @@
       @error="error"
       @timeupdate="updateTime"
       @ended="end"
-    ></audio>
+    >
+    </audio>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import {mapGetters, mapMutations, mapActions} from "vuex"
-  import animations from "create-keyframe-animation"
-  import {prefixStyle} from "common/js/dom"
-  import ProgressBar from "base/progress-bar/progress-bar"
-  import ProgressCircle from "base/progress-circle/progress-circle"
-  import {playMode} from "common/js/config"
+  import { mapGetters, mapMutations, mapActions } from 'vuex'
+  import animations from 'create-keyframe-animation'
+  import { prefixStyle } from 'common/js/dom'
+  import ProgressBar from 'base/progress-bar/progress-bar'
+  import ProgressCircle from 'base/progress-circle/progress-circle'
+  import { playMode } from 'common/js/config'
   // 视频作者编写, 歌词解析, 每执行到时间点时都执行回调函数
-  import Lyric from "lyric-parser"
-  import Scroll from "base/scroll/scroll"
-  import {playerMixin} from "common/js/mixin"
-  import Playlist from "components/playlist/playlist"
+  import Lyric from 'lyric-parser'
+  import Scroll from 'base/scroll/scroll'
+  import { playerMixin } from 'common/js/mixin'
+  import Playlist from 'components/playlist/playlist'
 
-  const transform = prefixStyle("transform")
-  const transitionDuration = prefixStyle("transitionDuration")
+  const transform = prefixStyle('transform')
+  const transitionDuration = prefixStyle('transitionDuration')
 
   export default {
     mixins: [playerMixin],
@@ -140,30 +141,30 @@
         // 当前歌词所在行,用来高亮
         currentLineNum: 0,
         // 唱片碟界面与歌词界面
-        currentShow: "cd",
+        currentShow: 'cd',
         // playingLyric: 唱碟下面显示的一行歌词
-        playingLyric: ""
+        playingLyric: ''
       }
     },
     computed: {
       cdCls () {
-        return this.playing ? "play" : "play pause"
+        return this.playing ? 'play' : 'play pause'
       },
       playIcon () {
-        return this.playing ? "icon-pause" : "icon-play"
+        return this.playing ? 'icon-pause' : 'icon-play'
       },
       miniIcon () {
-        return this.playing ? "icon-pause-mini" : "icon-play-mini"
+        return this.playing ? 'icon-pause-mini' : 'icon-play-mini'
       },
       disableCls () {
-        return this.songReady ? "" : "disable"
+        return this.songReady ? '' : 'disable'
       },
       // 进度条播放的比例
       percent () {
         return this.currentTime / this.currentSong.duration
       },
-      // 传入 vuex 的 state
-      ...mapGetters(["currentIndex", "fullScreen", "playing"])
+      // vuex的(store/getter.js)
+      ...mapGetters(['currentIndex', 'fullScreen', 'playing'])
     },
     created () {
       this.touch = {}
@@ -197,32 +198,32 @@
         }
 
         animations.registerAnimation({
-          name: "move",
+          name: 'move',
           animation,
           presets: {
             duration: 400,
-            easing: "linear"
+            easing: 'linear'
           }
         })
 
-        animations.runAnimation(this.$refs.cdWrapper, "move", done)
+        animations.runAnimation(this.$refs.cdWrapper, 'move', done)
       },
       afterEnter () {
-        animations.unregisterAnimation("move")
-        this.$refs.cdWrapper.style.animation = ""
+        animations.unregisterAnimation('move')
+        this.$refs.cdWrapper.style.animation = ''
       },
       // 监听事件
       leave (el, done) {
-        this.$refs.cdWrapper.style.transition = "all 0.4s"
+        this.$refs.cdWrapper.style.transition = 'all 0.4s'
         const {x, y, scale} = this._getPosAndScale()
         this.$refs.cdWrapper.style[
           transform
           ] = `translate3d(${x}px,${y}px,0) scale(${scale})`
-        this.$refs.cdWrapper.addEventListener("transitionend", done)
+        this.$refs.cdWrapper.addEventListener('transitionend', done)
       },
       afterLeave () {
-        this.$refs.cdWrapper.style.transition = ""
-        this.$refs.cdWrapper.style[transform] = ""
+        this.$refs.cdWrapper.style.transition = ''
+        this.$refs.cdWrapper.style[transform] = ''
       },
       togglePlaying () {
         if (!this.songReady) {
@@ -343,7 +344,7 @@
             this.currentLyric = null
             // 不正常时,歌词不显示
             // playingLyric: 唱碟下面的歌词
-            this.playingLyric = ""
+            this.playingLyric = ''
             this.currentLineNum = 0
           })
       },
@@ -394,7 +395,7 @@
           this.touch.moved = true
         }
         // 歌词界面与唱片界面，二选一
-        const left = this.currentShow === "cd" ? 0 : -window.innerWidth
+        const left = this.currentShow === 'cd' ? 0 : -window.innerWidth
         // 歌词露出的宽带, 左滑动取负值
         // 最小值-window.innerWidth, 最大值0
         const offsetWidth = Math.min(0, Math.max(-window.innerWidth, left + deltaX))
@@ -411,12 +412,12 @@
         }
         let offsetWidth
         let opacity
-        if (this.currentShow === "cd") {
+        if (this.currentShow === 'cd') {
           // 从右向左滑动
           if (this.touch.percent > 0.1) {
             offsetWidth = -window.innerWidth
             opacity = 0
-            this.currentShow = "lyric"
+            this.currentShow = 'lyric'
           } else {
             offsetWidth = 0
             opacity = 1
@@ -425,7 +426,7 @@
           // 从左向右滑动
           if (this.touch.percent < 0.9) {
             offsetWidth = 0
-            this.currentShow = "cd"
+            this.currentShow = 'cd'
             opacity = 1
           } else {
             offsetWidth = -window.innerWidth
@@ -443,7 +444,7 @@
       _pad (num, n = 2) {
         let len = num.toString().length
         while (len < n) {
-          num = "0" + num
+          num = '0' + num
           len++
         }
         return num
@@ -468,9 +469,9 @@
       },
       // 数据通过mutations设置到state上
       ...mapMutations({
-        setFullScreen: "SET_FULL_SCREEN"
+        setFullScreen: 'SET_FULL_SCREEN'
       }),
-      ...mapActions(["savePlayHistory"])
+      ...mapActions(['savePlayHistory'])
     },
     watch: {
       // 监听,当currentSong变化时调用
@@ -488,7 +489,7 @@
           // 先停止上首歌的计时器
           this.currentLyric.stop()
           this.currentTime = 0
-          this.playingLyric = ""
+          this.playingLyric = ''
           this.currentLineNum = 0
         }
         // setTimeout: 解决DOM异常

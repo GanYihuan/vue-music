@@ -2,9 +2,9 @@
  * mutations用action封装,修改多个mutations
  */
 import * as types from './mutation-types'
-import {playMode} from 'common/js/config'
-import {shuffle} from 'common/js/util'
-import {saveSearch, clearSearch, deleteSearch, savePlay, saveFavorite, deleteFavorite} from 'common/js/cache'
+import { playMode } from 'common/js/config'
+import { shuffle } from 'common/js/util'
+import { saveSearch, clearSearch, deleteSearch, savePlay, saveFavorite, deleteFavorite } from 'common/js/cache'
 
 // 顺序列表index歌曲对应到随机列表哪首歌曲index,返回该随机列表歌曲索引index
 // 查找列表中是否有song这首歌曲，如果有返回该索引

@@ -46,7 +46,7 @@
   import { prefixStyle } from 'common/js/dom'
   // 公共代码
   import { playlistMixin } from 'common/js/mixin'
-  // 传入 vuex 的 actions.js
+  // 传入 vuex 的 (store/actions.js)
   import { mapActions } from 'vuex'
 
   const RESERVED_HEIGHT = 40
@@ -111,7 +111,7 @@
         this.$router.back()
       },
       selectItem (item, index) {
-        // vuex 的 actions.js
+        // vuex 的 (store/actions.js)
         this.selectPlay({
           list: this.songs,
           index

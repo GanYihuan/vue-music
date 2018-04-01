@@ -313,27 +313,27 @@ cnpm install vuex --save
 
 
 ## 7-1
-### introduce
+### introduce 音乐播放界面:
 
 
 ## 7-2
 ### (store/state.js)
-### 播放器vuex数据定义
+### 音乐播放界面: 播放器vuex数据定义
 
 
 ## 7-3
 ### (player.vue)
-### vuex的具体使用
+### 音乐播放界面: vuex的具体使用
 
 
 ## 7-4
 ### (player.vue)
-### vuex数据应用
+### 音乐播放界面: vuex数据应用
 
 
 ## 7-5, 7-6, 7-7
 ### (player.vue)
-### 动画效果
+### 音乐播放界面: 动画效果
 ### 不同浏览器css的配置
 ```
 cnpm install create-keyframe-animation --save
