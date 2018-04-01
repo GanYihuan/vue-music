@@ -246,8 +246,8 @@ cnpm install vue-lazyload --save
 
 
 ## 5-10
-### 区块切换时，fixtitle有顶上去的动画
-### loading
+### (listivew.vue) (loading.vue)
+### 歌手界面: 区块切换时，fixtitle有顶上去的动画
 
 
 ## 6-1

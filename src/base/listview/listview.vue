@@ -180,11 +180,13 @@
       },
       diff (newVal) {
         let fixedTop = (newVal > 0 && newVal < FIXED_TITLE_HEIGHT) ? newVal - FIXED_TITLE_HEIGHT : 0
+        // 当diff在非动画状态时, 不必去变动
         if (this.fixedTop === fixedTop) {
           return
         }
         this.fixedTop = fixedTop
-        this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`   //开启GPU加速
+        //开启GPU加速
+        this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`
         // this.$refs.fixed.style.top = `${fixedTop}px`
       },
       // 落入哪个区间
@@ -217,9 +219,9 @@
         this.currentIndex = heightList.length - 2
       },
       diff (newVal) {
-        // title上顶
+        // fixed-title上顶
         let fixedTop = (newVal > 0 && newVal < FIXED_TITLE_HEIGHT) ? newVal - FIXED_TITLE_HEIGHT : 0
-        // title不上顶
+        // fixed-title不上顶
         if (this.fixedTop === fixedTop) {
           return
         }
