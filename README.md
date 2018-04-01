@@ -334,6 +334,7 @@ cnpm install vuex --save
 ## 7-5, 7-6, 7-7
 ### (player.vue)
 ### 音乐播放界面: 动画效果
+### transition 的事件监听处理
 ### 不同浏览器css的配置
 ```
 cnpm install create-keyframe-animation --save

@@ -180,11 +180,10 @@
         // vuex (store/mutations.js)
         this.setFullScreen(true)
       },
-      // animate
+      // transition animate
       // create-keyframe-animation
       enter (el, done) {
         const {x, y, scale} = this._getPosAndScale()
-
         let animation = {
           0: {
             transform: `translate3d(${x}px,${y}px,0) scale(${scale})`
@@ -196,7 +195,6 @@
             transform: `translate3d(0,0,0) scale(1)`
           }
         }
-
         animations.registerAnimation({
           name: 'move',
           animation,
@@ -205,7 +203,6 @@
             easing: 'linear'
           }
         })
-
         animations.runAnimation(this.$refs.cdWrapper, 'move', done)
       },
       afterEnter () {
@@ -216,9 +213,7 @@
       leave (el, done) {
         this.$refs.cdWrapper.style.transition = 'all 0.4s'
         const {x, y, scale} = this._getPosAndScale()
-        this.$refs.cdWrapper.style[
-          transform
-          ] = `translate3d(${x}px,${y}px,0) scale(${scale})`
+        this.$refs.cdWrapper.style[transform] = `translate3d(${x}px,${y}px,0) scale(${scale})`
         this.$refs.cdWrapper.addEventListener('transitionend', done)
       },
       afterLeave () {
@@ -458,6 +453,7 @@
         const paddingBottom = 30
         // 大唱片距离容器顶部paddingTop
         const paddingTop = 80
+        // 大唱片圆图大小
         const width = window.innerWidth * 0.8
         // 大唱片缩小到小唱片的比例
         const scale = targetWidth / width
