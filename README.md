@@ -267,6 +267,15 @@ cnpm install vuex --save
 ```
 
 
+## 6-4
+### Vuex配置
+### (store/index.js) 项目里使用vuex
+### (store/state.js) 定义基础数据
+### (store/mutation-types.js) 操作修改数据的动作名称
+### (store/mutations.js) 修改数据操作
+### (store/getters.js) 映射state数据, 取数据到组件中
+
+
 ## 6-5
 ### 抓取歌曲数据
 

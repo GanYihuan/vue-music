@@ -8,6 +8,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  // 导入store/mutation的语法糖
   import { mapMutations } from 'vuex'
   import { getSingerList } from 'api/singer'
   import { ERR_OK } from 'api/config'
@@ -101,7 +102,7 @@
         })
         return hot.concat(ret)
       },
-      // 调用mutation, 对应mutation-types常量
+      // 调用mutation, 使用mutation-types常量
       ...mapMutations({
         setSinger: 'SET_SINGER'
       })

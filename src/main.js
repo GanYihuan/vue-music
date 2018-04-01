@@ -4,7 +4,7 @@ import App from './App.vue'
 import router from './router/route'
 import VueLazyload from 'vue-lazyload'
 import fastclick from 'fastclick'
-import store from './store/index'
+import store from './store/vuex'
 import './common/scss/index.scss'
 
 /**

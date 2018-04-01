@@ -5,6 +5,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  // 导入store/getters 的语法糖
   import { mapGetters } from 'vuex'
   import { getSingerDetail } from 'api/singer'
   import { ERR_OK } from 'api/config'
