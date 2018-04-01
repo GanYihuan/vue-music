@@ -43,11 +43,11 @@
   import Loading from 'base/loading/loading'
   import SongList from 'base/song-list/song-list'
   // 不同浏览器css的配置
-  import {prefixStyle} from 'common/js/dom'
+  import { prefixStyle } from 'common/js/dom'
   // 公共代码
-  import {playlistMixin} from 'common/js/mixin'
+  import { playlistMixin } from 'common/js/mixin'
   // 传入 vuex 的 actions.js
-  import {mapActions} from 'vuex'
+  import { mapActions } from 'vuex'
 
   const RESERVED_HEIGHT = 40
   const transform = prefixStyle('transform')
