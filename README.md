@@ -241,7 +241,8 @@ cnpm install vue-lazyload --save
 
 
 ## 5-9
-### fixtitle设置
+### (listivew.vue)
+### 歌手界面: fixtitle设置
 
 
 ## 5-10
