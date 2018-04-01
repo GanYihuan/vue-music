@@ -368,7 +368,8 @@ cnpm install create-keyframe-animation --save
 
 ## 7-15
 ### (progress-circle.vue)
-### mini 播放器环形进度条
+### 音乐播放界面: mini 播放器环形进度条
+### SVG
 
 
 ## 7-16
