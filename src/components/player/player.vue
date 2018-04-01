@@ -304,8 +304,8 @@
       updateTime (e) {
         this.currentTime = e.target.currentTime
       },
-      // |: 由整数向下取整(Math.floor)
       format (interval) {
+        // | 0: 由整数向下取整(Math.floor)
         interval = interval | 0
         const minute = (interval / 60) | 0
         const second = this._pad(interval % 60)
