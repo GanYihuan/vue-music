@@ -255,6 +255,7 @@ cnpm install vue-lazyload --save
 
 
 ## 6-2
+### (singer-detail)
 ### 子路由跳转到singer-detail
 
 
