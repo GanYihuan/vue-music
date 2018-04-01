@@ -347,7 +347,8 @@ cnpm install create-keyframe-animation --save
 
 
 ## 7-9
-### 歌曲控件: 防止极限点击
+### (player.vue)
+### 音乐播放界面: 歌曲控件前进后退, 防止极限点击
 
 
 ## 7-10

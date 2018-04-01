@@ -262,6 +262,7 @@
           if (index === this.playlist.length) {
             index = 0
           }
+          // vuex (store/mutation)
           this.setCurrentIndex(index)
           if (!this.playing) {
             this.togglePlaying()
@@ -291,9 +292,9 @@
         this.songReady = false
       },
       ready () {
-        // audio,防止极限点击操作报错
+        // audio, 防止极限点击操作报错
         this.songReady = true
-        // mutation
+        // vuex (store/mutation)
         // 保存播放历史记录
         this.savePlayHistory(this.currentSong)
       },
