@@ -111,7 +111,7 @@
         this.$router.back()
       },
       selectItem (item, index) {
-        // vuex 的 (store/actions.js)
+        // vuex (store/actions.js)
         this.selectPlay({
           list: this.songs,
           index
