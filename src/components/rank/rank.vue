@@ -76,7 +76,7 @@
             }
           })
       },
-      // vuex: mutation
+      // vuex (store/mutation.js)
       ...mapMutations({
         setTopList: 'SET_TOP_LIST'
       })
