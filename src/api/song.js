@@ -1,7 +1,8 @@
-import {commonParams} from './config'
+import { commonParams } from './config'
 // ajax库axios,发起HTTPRequest
 import axios from 'axios'
 
+// 获取歌词
 export function getLyric (mid) {
   // 浏览器访问地址, 后端代理地址
   const url = '/api/lyric'
