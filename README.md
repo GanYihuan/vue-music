@@ -413,7 +413,7 @@ cnpm install lyric-parser
 
 ## 7-21
 ### (player.vue)
-### 歌词滚动
+### 音乐播放界面: 歌词滚动
 
 
 ## 7-22, 7-23
