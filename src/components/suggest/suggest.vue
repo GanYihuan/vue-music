@@ -32,18 +32,18 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import Scroll from "base/scroll/scroll"
-  import Loading from "base/loading/loading"
+  import Scroll from 'base/scroll/scroll'
+  import Loading from 'base/loading/loading'
   // 404
-  import NoResult from "base/no-result/no-result"
+  import NoResult from 'base/no-result/no-result'
   // 前端请求jsonp
-  import {search} from "api/search"
-  import {ERR_OK} from "api/config"
-  import {createSong} from "common/js/song"
-  import {mapMutations, mapActions} from "vuex"
-  import Singer from "common/js/singer"
+  import { search } from 'api/search'
+  import { ERR_OK } from 'api/config'
+  import { createSong } from 'common/js/song'
+  import { mapMutations, mapActions } from 'vuex'
+  import Singer from 'common/js/singer'
 
-  const TYPE_SINGER = "singer"
+  const TYPE_SINGER = 'singer'
   // perpage: 每页返回的个数
   const perpage = 20
 
@@ -57,7 +57,7 @@
       // search检索词
       query: {
         type: String,
-        default: ""
+        default: ''
       }
     },
     data () {
@@ -115,7 +115,7 @@
         })
       },
       listScroll () {
-        this.$emit("listScroll")
+        this.$emit('listScroll')
       },
       selectItem (item) {
         // 如果搜索结果点击项是歌手数据
@@ -134,7 +134,7 @@
           // vuex: action
           this.insertSong(item)
         }
-        this.$emit("select", item)
+        this.$emit('select', item)
       },
       getDisplayName (item) {
         if (item.type === TYPE_SINGER) {
@@ -145,9 +145,9 @@
       },
       getIconCls (item) {
         if (item.type === TYPE_SINGER) {
-          return "icon-mine"
+          return 'icon-mine'
         } else {
-          return "icon-music"
+          return 'icon-music'
         }
       },
       _genResult (data) {
@@ -178,10 +178,10 @@
         }
       },
       ...mapMutations({
-        setSinger: "SET_SINGER"
+        setSinger: 'SET_SINGER'
       }),
       ...mapActions([
-        "insertSong"
+        'insertSong'
       ])
     },
     watch: {
