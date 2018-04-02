@@ -12,10 +12,10 @@
 
 <script type="text/ecmascript-6">
   import MusicList from 'components/music-list/music-list'
-  import {getSongList} from 'api/recommend'
-  import {ERR_OK} from 'api/config'
-  import {mapGetters} from 'vuex'
-  import {createSong} from 'common/js/song'
+  import { getSongList } from 'api/recommend'
+  import { ERR_OK } from 'api/config'
+  import { mapGetters } from 'vuex'
+  import { createSong } from 'common/js/song'
 
   export default {
     computed: {
@@ -25,7 +25,7 @@
       bgImage () {
         return this.disc.imgurl
       },
-      // vuex,获取state数据
+      // vuex (store/getter.js)
       ...mapGetters([
         'disc'
       ])
