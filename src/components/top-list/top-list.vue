@@ -29,7 +29,7 @@
         }
         return ''
       },
-      // vuex: state
+      // vuex (store/state.js)
       ...mapGetters([
         'topList'
       ])
