@@ -71,15 +71,15 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import {mapActions} from "vuex"
-  import {getHotKey} from "api/search"
-  import {ERR_OK} from "api/config"
-  import {playlistMixin, searchMixin} from "common/js/mixin"
-  import Scroll from "base/scroll/scroll"
-  import SearchBox from "base/search-box/search-box"
-  import Suggest from "components/suggest/suggest"
-  import SearchList from "base/search-list/search-list"
-  import Confirm from "base/confirm/confirm"
+  import { mapActions } from 'vuex'
+  import { getHotKey } from 'api/search'
+  import { ERR_OK } from 'api/config'
+  import { playlistMixin, searchMixin } from 'common/js/mixin'
+  import Scroll from 'base/scroll/scroll'
+  import SearchBox from 'base/search-box/search-box'
+  import Suggest from 'components/suggest/suggest'
+  import SearchList from 'base/search-list/search-list'
+  import Confirm from 'base/confirm/confirm'
 
   export default {
     mixins: [playlistMixin, searchMixin],
@@ -100,7 +100,7 @@
     },
     methods: {
       handlePlaylist (playlist) {
-        const bottom = playlist.length > 0 ? "60px" : ""
+        const bottom = playlist.length > 0 ? '60px' : ''
         this.$refs.searchResult.style.bottom = bottom
         this.$refs.suggest.refresh()
         this.$refs.shortcutWrapper.style.bottom = bottom
@@ -123,7 +123,7 @@
           })
       },
       ...mapActions([
-        "clearSearchHistory"
+        'clearSearchHistory'
       ])
     },
     watch: {

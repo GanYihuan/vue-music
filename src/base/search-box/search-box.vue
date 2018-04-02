@@ -9,23 +9,23 @@
 
 <script type="text/ecmascript-6">
   // 优化请求节流函数
-  import {debounce} from "common/js/util"
+  import { debounce } from 'common/js/util'
 
   export default {
     props: {
       placeholder: {
         type: String,
-        default: "搜索歌曲、歌手"
+        default: '搜索歌曲、歌手'
       }
     },
     data () {
       return {
-        query: ""
+        query: ''
       }
     },
     methods: {
       clear () {
-        this.query = ""
+        this.query = ''
       },
       setQuery (query) {
         this.query = query
@@ -38,9 +38,9 @@
     created () {
       // debounce(): common -> js -> util
       // 节流函数, 优化请求
-      this.$watch("query", debounce(newQuery => {
+      this.$watch('query', debounce(newQuery => {
           // 派发query事件给父级
-          this.$emit("query", newQuery)
+          this.$emit('query', newQuery)
         }, 200)
       )
     }
