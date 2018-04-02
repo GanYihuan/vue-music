@@ -423,7 +423,7 @@ cnpm install lyric-parser
 
 ## 7-24
 ### (player.vue)
-### bug fix
+### 音乐播放界面: fix bug
 
 
 ## 7-25
