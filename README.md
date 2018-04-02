@@ -433,7 +433,7 @@ cnpm install lyric-parser
 
 
 ## 8-1
-### (disc.vue)
+### (route.js) (recommend.vue) (recommend.js) (mutations.js) (getter.js) (disc.vue)
 ### 热门歌单: Vuex数据通讯
 
 
