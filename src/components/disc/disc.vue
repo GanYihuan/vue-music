@@ -1,5 +1,5 @@
 <template>
-  <!-- 01/点击热门歌单/05-热门歌单 -->
+  <!-- 05/热门歌单 -->
   <transition name="slide">
     <music-list
       :title="title"

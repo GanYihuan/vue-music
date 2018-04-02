@@ -434,17 +434,17 @@ cnpm install lyric-parser
 
 ## 8-1
 ### (disc.vue)
-### 歌单详情页: Vuex数据通讯
+### 热门歌单: Vuex数据通讯
 
 
 ## 8-2
-### (api/recommend.js)抓取失败
-### 歌单详情页数据抓取
+### (api/recommend.js) 抓取失败
+### 热门歌单: 数据抓取
 
 
 ## 8-3
 ### (disc.vue)
-### 歌单详情页数据应用
+### 热门歌单: 数据应用
 
 
 ## 9-1
