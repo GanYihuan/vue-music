@@ -1,5 +1,5 @@
 import jsonp from 'common/js/jsonp'
-import {commonParams, options} from './config'
+import { commonParams, options } from './config'
 
 // 排行榜界面jsonp请求
 export function getTopList () {

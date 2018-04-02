@@ -1,5 +1,5 @@
 <template>
-  <!-- 06 -->
+  <!-- 06.png -->
   <div class="rank" ref="rank">
     <scroll :data="topList" class="toplist" ref="toplist">
       <ul>
@@ -34,14 +34,14 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import Scroll from "base/scroll/scroll"
-  import Loading from "base/loading/loading"
+  import Scroll from 'base/scroll/scroll'
+  import Loading from 'base/loading/loading'
   // jsonp
-  import {getTopList} from "api/rank"
-  import {ERR_OK} from "api/config"
+  import { getTopList } from 'api/rank'
+  import { ERR_OK } from 'api/config'
   // 设置mini播放器的正确位置显示
-  import {playlistMixin} from "common/js/mixin"
-  import {mapMutations} from "vuex"
+  import { playlistMixin } from 'common/js/mixin'
+  import { mapMutations } from 'vuex'
 
   export default {
     // 设置mini播放器的正确位置显示
@@ -57,7 +57,7 @@
     methods: {
       // 设置mini播放器的正确位置显示
       handlePlaylist (playlist) {
-        const bottom = playlist.length > 0 ? "60px" : ""
+        const bottom = playlist.length > 0 ? '60px' : ''
         this.$refs.rank.style.bottom = bottom
         this.$refs.toplist.refresh()
       },
@@ -78,7 +78,7 @@
       },
       // vuex: mutation
       ...mapMutations({
-        setTopList: "SET_TOP_LIST"
+        setTopList: 'SET_TOP_LIST'
       })
     },
     watch: {
