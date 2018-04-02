@@ -66,6 +66,7 @@
         // getBoundingClientRect: 获得页面中某个元素的左，上，右和下分别相对浏览器视窗的位置
         // 左侧时间距离最左侧距离
         const rect = this.$refs.progressBar.getBoundingClientRect()
+        // e.pageX:  点击点距离最左侧的距离
         const offsetWidth = e.pageX - rect.left
         this._offset(offsetWidth)
         this._triggerPercent()

@@ -384,7 +384,8 @@ cnpm install create-keyframe-animation --save
 
 
 ## 7-18
-### 歌曲控件: 播放模式改变 fix bug
+### (player.vue)
+### 音乐播放界面: 歌曲控件播放模式改变 fix bug
 
 
 ## 7-19

@@ -17,7 +17,7 @@ export function shuffle (arr) {
   for (let i = 0; i < _arr.length; i++) {
     let j = getRandomInt(0, i)
     let t = _arr[i]
-    // 无相交换
+    // 互相交换
     _arr[i] = _arr[j]
     _arr[j] = t
   }
