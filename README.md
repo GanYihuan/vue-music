@@ -399,8 +399,9 @@ cnpm install create-keyframe-animation --save
 
 
 ## 7-20
+### (player.vue)
 ### 播放器歌词数据解析
-### base64解码
+### base64解码和编码
 ```
 cnpm install js-base64 --save
 ```
