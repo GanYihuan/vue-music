@@ -483,7 +483,7 @@ cnpm install lyric-parser
 
 ## 10-3
 ### (api/search.js)
-### 搜索界面: 抓取数据
+### 搜索界面: 抓取数据, 热门搜索
 
 
 ## 10-4
