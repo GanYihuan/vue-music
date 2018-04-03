@@ -35,6 +35,7 @@
         this.$refs.query.blur()
       }
     },
+    // 不直接在watch里面写 !!
     created () {
       // debounce(): common -> js -> util
       // 节流函数, 优化请求
