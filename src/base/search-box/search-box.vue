@@ -35,9 +35,9 @@
         this.$refs.query.blur()
       }
     },
-    // 不直接在watch里面写 !!
+    // 不直接在watch里面写
     created () {
-      // debounce(): common -> js -> util
+      // debounce(): common/js/util.js
       // 节流函数, 优化请求
       this.$watch('query', debounce(newQuery => {
           // 派发query事件给父级
