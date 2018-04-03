@@ -45,6 +45,7 @@ function insertArray (arr, val, compare, maxLen) {
  */
 function deleteFromArray (arr, compare) {
   const index = arr.findIndex(compare)
+  // 如果存在
   if (index > -1) {
     arr.splice(index, 1)
   }
@@ -82,7 +83,7 @@ export function deleteSearch (query) {
   return searches
 }
 
-// localStorage删除全部搜索历史记录(state.js会调用)
+// localStorage删除全部搜索历史记录(actions.js会调用)
 export function clearSearch () {
   storage.remove(SEARCH_KEY)
   return []

@@ -23,39 +23,39 @@
     props: {
       text: {
         type: String,
-        default: ""
+        default: ''
       },
       confirmBtnText: {
         type: String,
-        default: "确定"
+        default: '确定'
       },
       cancelBtnText: {
         type: String,
-        default: "取消"
+        default: '取消'
       }
     },
     data () {
       return {
         showFlag: false
-      };
+      }
     },
     methods: {
       show () {
-        this.showFlag = true;
+        this.showFlag = true
       },
       hide () {
-        this.showFlag = false;
+        this.showFlag = false
       },
       cancel () {
-        this.hide();
-        this.$emit("cancel");
+        this.hide()
+        this.$emit('cancel')
       },
       confirm () {
-        this.hide();
-        this.$emit("confirm");
+        this.hide()
+        this.$emit('confirm')
       }
     }
-  };
+  }
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
