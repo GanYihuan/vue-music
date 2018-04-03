@@ -134,11 +134,11 @@
           this.$router.push({
             path: `/search/${singer.id}`
           })
-          // vuex: mutation
+          // vuex (store/mutation.js)
           this.setSinger(singer)
         } else {
           // 如果搜索结果点击项是歌曲数据
-          // vuex: action
+          // vuex (store/action.js)
           this.insertSong(item)
         }
         this.$emit('select', item)
