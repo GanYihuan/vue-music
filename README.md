@@ -526,6 +526,7 @@ cnpm install good-storage --save
 
 
 ## 10-17
+### (search.vue)
 ### 搜索界面: 搜索歌曲滚动设置
 
 
