@@ -531,6 +531,7 @@ cnpm install good-storage --save
 
 
 ## 10-18
+### (search.vue)
 ### 搜索界面: 设置mini播放器的正确位置显示
 
 
