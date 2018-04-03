@@ -62,6 +62,7 @@
     },
     data () {
       return {
+        // 第几页
         page: 1,
         // 下拉刷新
         pullup: true,
@@ -152,6 +153,8 @@
       },
       _genResult (data) {
         let ret = []
+        // zhida: 要歌手这个数据吗？
+        // zhida.singerid: 歌手
         if (data.zhida && data.zhida.singerid) {
           // type: 区分搜索结果数据是歌手还是歌曲
           ret.push({...data.zhida, ...{type: TYPE_SINGER}})
@@ -185,7 +188,7 @@
       ])
     },
     watch: {
-      // query: 检索值
+      // query: 检索值  props
       query (newQuery) {
         // 请求服务端api/search.js
         this.search(newQuery)
