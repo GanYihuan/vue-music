@@ -106,6 +106,12 @@
         }
         // 加载下一页
         this.page++
+        /**
+         * query: 检索值
+         * page: 检索第几页
+         * zhida: 要歌手这个数据吗？
+         * perpage: 每页返回的个数
+         */
         search(this.query, this.page, this.showSinger, perpage).then(res => {
           if (res.code === ERR_OK) {
             // concat: 数组拼接, result变化,数据变化, 传入scroll值变化, scroll 刷新
@@ -168,6 +174,7 @@
         let ret = []
         list.forEach(musicData => {
           if (musicData.songid && musicData.albummid) {
+            // 转换为song实例
             ret.push(createSong(musicData))
           }
         })
