@@ -509,6 +509,7 @@ cnpm install lyric-parser
 ## 10-11, 10-12, 10-13
 ### (common/js/cache.js)
 ### 搜索界面: 搜索历史数据缓存到localStorage
+### 作者开发
 ```
 cnpm install good-storage --save
 ```

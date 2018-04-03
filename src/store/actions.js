@@ -103,17 +103,17 @@ export const insertSong = function ({commit, state}, song) {
   commit(types.SET_PLAYING_STATE, true)
 }
 
-// 保存到localStorage
+// 保存到localStorage, saveSearch(调用cache.js)
 export const saveSearchHistory = function ({commit}, query) {
   commit(types.SET_SEARCH_HISTORY, saveSearch(query))
 }
 
-// 从localStorage删除搜索词
+// 从localStorage删除搜索词, deleteSearch(调用cache.js)
 export const deleteSearchHistory = function ({commit}, query) {
   commit(types.SET_SEARCH_HISTORY, deleteSearch(query))
 }
 
-// clearSearch: cache.js 清理缓存
+// clearSearch: cache.js 清理缓存, clearSearch(调用cache.js)
 export const clearSearchHistory = function ({commit}) {
   commit(types.SET_SEARCH_HISTORY, clearSearch())
 }
