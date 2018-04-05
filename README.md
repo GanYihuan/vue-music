@@ -158,9 +158,9 @@ cnpm install better-scroll@0.1.15 --save
 
 ## 4-7
 ### (recommend.js)
-### <keep-alive> 防止闪烁
-### 抓取歌单数据接口
-### 500服务器端错误, host问题
+### Grab the song single data interface.
+### <keep-alive> To prevent flashing
+### 500 server error, host problem.
 
 
 ## 4-8
