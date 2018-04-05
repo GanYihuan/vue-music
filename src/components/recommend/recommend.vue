@@ -22,7 +22,12 @@
         <div class="recommend-list">
           <h1 class="list-title">热门歌单推荐</h1>
           <ul>
-            <li @click="selectItem(item)" v-for="(item,index) in discList" :key="index" class="item">
+            <li
+              class="item"
+              v-for="(item,index) in discList"
+              :key="index"
+              @click="selectItem(item)"
+            >
               <div class="icon">
                 <!-- v-lazy: Load only when scrolling -->
                 <img width="60" height="60" v-lazy="item.imgurl"/>
