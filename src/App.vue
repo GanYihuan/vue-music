@@ -3,7 +3,7 @@
     <m-header></m-header>
     <tab></tab>
     <!-- keep-alive: Declaration Cycle cache to memory -->
-    <!-- dom缓存到内存中, 防止切回到recommend界面时, 界面闪烁 -->
+    <!-- dom Cached in memory, Prevent back to the recommend interface, Interface flashing -->
     <keep-alive>
       <!-- router render here -->
       <router-view></router-view>

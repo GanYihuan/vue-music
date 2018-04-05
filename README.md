@@ -73,12 +73,12 @@ resolve: {
 
 
 ## 3-1
-### App.vue
+### (App.vue)
 ### es6 escape
 ```
 npm install babel-runtime --save
 ```
-### Mobile End Clicks 300MS Delay
+### mobile end Clicks 300MS Delay
 ```
 cnpm install fastclick --save
 ```
@@ -87,13 +87,12 @@ cnpm install fastclick --save
 cnpm install babel-polyfill --save-dev
 ```
 ### (build/webpack.base.config)
-> 别名配置, 缩写应用文件路径
+> Alias configuration, abbreviated application file path.
 
 
 ## 3-2
-### (tab.vue)
-### 导航切换
-### 路由
+### (tab.vue) (App.vue) (route.vue)
+### Navigation switch
 
 
 ## 4-1

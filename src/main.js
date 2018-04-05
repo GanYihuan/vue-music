@@ -14,6 +14,7 @@ import './common/scss/index.scss'
 // import vConsole from 'vconsole'
 // console.log('test')
 
+// mobile end Clicks 300MS Delay
 fastclick.attach(document.body)
 Vue.config.productionTip = false
 Vue.use(VueLazyload, {

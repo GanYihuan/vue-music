@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-// 路由懒加载替代常规方式
+// Routing lazy loading replaces the conventional approach.
 // import Recommend from 'components/recommend/recommend'
 const Recommend = resolve => {
   import('components/recommend/recommend').then(module => {
@@ -53,7 +53,7 @@ const UserCenter = resolve => {
   })
 }
 
-// 路由嵌套, 父子路由关系
+// Routing nested, parent-child routing relationships.
 export default new Router({
   routes: [
     {
