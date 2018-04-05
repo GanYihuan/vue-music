@@ -147,7 +147,7 @@ cnpm install better-scroll@0.1.15 --save
 
 ## 4-5
 ### (slider.vue)
-### 轮播图组件: 轮播指示
+### 推荐界面: Shuffling figure component indicating
 
 
 ## 4-6

@@ -90,6 +90,7 @@
       _initSlider () {
         // better-scroll
         // Rotate the scroll Settings.
+        // BScroll copy two sample into the shuffle graph head and tail, use to loop
         this.slider = new BScroll(this.$refs.slider, {
           scrollX: true,
           scrollY: false,
@@ -102,26 +103,24 @@
           snapSpeed: 400
         })
         this.slider.on('scrollEnd', () => {
-          // pageIndex: 第几个子元素
+          // pageIndex: Child elements
           let pageIndex = this.slider.getCurrentPage().pageX
           if (this.loop) {
-            // 默认向第一个元素添加一个copy
-            // copy: 1, 2, 3, 1, 2, 3
+            // better-scroll Add a copy by default to the first element.
             pageIndex -= 1
           }
           this.currentPageIndex = pageIndex
           if (this.autoPlay) {
-            // 清除定时器
             clearTimeout(this.timer)
             this._autoPlay()
           }
         })
       },
       _autoPlay () {
-        // currentPageIndex: 从零开始
+        // currentPageIndex: Starting from 0
         let pageIndex = this.currentPageIndex + 1
         if (this.loop) {
-          // this.currentPageIndex下标从0开始
+          // better-scroll Add a copy by default to the first element.
           pageIndex += 1
         }
         this.timer = setTimeout(() => {
@@ -132,7 +131,6 @@
         }, this.interval)
       }
     },
-    // 有计时器时, 要清理
     destroyed () {
       clearTimeout(this.timer)
     }
