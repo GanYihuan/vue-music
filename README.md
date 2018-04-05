@@ -128,8 +128,8 @@ cnpm install jsonp --save
 
 
 ## 4-3
-### (api/config(配置参数)) (api/recommend.js(数据抓取))
-### recommend.vue 调用 recommend.js 来获取后台数据
+### (api/config(config params)) (api/recommend.js(fetch data))
+### recommend.vue call recommend.js get back-end data
 ```
 cnpm install axios --save
 ```
@@ -137,8 +137,8 @@ cnpm install axios --save
 
 ## 4-4
 ### (recommend.vue) (slider.vue) (common/js/dom.js) 
-### 轮播图组件: 轮播图片
-### qq数据<https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg>
+### 推荐界面: Shuffling figure component
+### qq data <https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg>
 ### 
 ```
 cnpm install better-scroll@0.1.15 --save

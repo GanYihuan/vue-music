@@ -1,16 +1,19 @@
 <template>
   <!-- 01/推荐界面 -->
   <div class="recommend" ref="recommend">
-    <!-- :data -> 内容撑开scroll的高度, 防止因为刚开始因为数据导入过慢而使scroll判定没有数据而罢工 -->
+    <!--
+     :data -> The content pushes the height of the scroll to prevent it from striking
+     because the data is too slow and the scroll determines that there is no data.
+    -->
     <scroll ref="scroll" class="recommend-content" :data="discList">
       <div>
-        <!-- v-if="recommends.length": 防止异步加载过慢而导致, dom来不及加载 -->
+        <!-- v-if="recommends.length": Prevent asynchronous loading too slowly and the dom is too late to load. -->
         <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
           <slider>
-            <!-- 里面的内容都被插入slider的slot里面 -->
+            <!-- Everything inside is inserted into the slot of the slider. -->
             <div v-for="(item,index) in recommends" :key="index">
               <a :href="item.linkUrl">
-                <!-- class="needsclick": fastclick 不拦截单击过程 -->
+                <!-- class="needsclick": fastclick Do not intercept the click process. -->
                 <img class="needsclick" @load="loadImage" :src="item.picUrl"/>
               </a>
             </div>
@@ -36,7 +39,7 @@
         <loading></loading>
       </div>
     </scroll>
-    <!-- 二级路由容器 -->
+    <!-- Secondary routing container -->
     <router-view></router-view>
   </div>
 </template>
@@ -60,7 +63,7 @@
     },
     // get back-end data
     created () {
-      // fetch data (轮播图数据)
+      // fetch data (Rotograph data)
       this._getRecommend()
       // fetch data (歌单数据)
       this._getDiscList()
@@ -71,9 +74,9 @@
         this.$refs.recommend.style.bottom = bottom
         this.$refs.scroll.refresh()
       },
-      // 防止轮播图因为网络而延迟加载, 造成高度计算错误
+      // Prevent the wheel - broadcast diagram due to network delay loading, resulting in a high calculation error.
       loadImage () {
-        // 缺少这个逻辑只执行一次
+        // This logic is executed only once.
         if (!this.checkloaded) {
           this.checkloaded = true
           this.$refs.scroll.refresh()
@@ -86,12 +89,12 @@
         // mutation: setDisc
         this.setDisc(item)
       },
-      // 来自后端的数据
+      // Data from the back-end.
       _getRecommend () {
         getRecommend()
           .then((res) => {
             // static/jsonp1.png
-            // res.data.slider: 在该网页里面<https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg>
+            // res.data.slider: <https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg>
             if (res.code === ERR_OK) {
               // console.log(res.data.slider)
               this.recommends = res.data.slider
@@ -109,7 +112,7 @@
           })
       },
       ...mapMutations({
-        // 设置歌单对象
+        // Set the song list object.
         setDisc: 'SET_DISC'
       })
     },

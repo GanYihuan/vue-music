@@ -1,10 +1,8 @@
-// 是否有class
 export function hasClass (el, className) {
   let reg = new RegExp('(^|\\s)' + className + '(\\s|$)')
   return reg.test(el.className)
 }
 
-// 为元素增加 class
 export function addClass (el, className) {
   if (hasClass(el, className)) {
     return
@@ -14,7 +12,6 @@ export function addClass (el, className) {
   el.className = newClass.join(' ')
 }
 
-// get & set
 export function getData (el, name, val) {
   const prefix = 'data-'
   if (val) {
@@ -23,7 +20,7 @@ export function getData (el, name, val) {
   return el.getAttribute(prefix + name)
 }
 
-// 不同浏览器css的配置
+// Configuration of different browser CSS.
 let elementStyle = document.createElement('div').style
 let vendor = (() => {
   let transformNames = {

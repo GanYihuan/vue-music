@@ -1,15 +1,16 @@
-// 利用jsonp抓取数据
+// Capture data using jsonp.
 import jsonp from 'common/js/jsonp'
 import { commonParams, options } from './config'
 import axios from 'axios'
 
 /**
- * fetch data (轮播图数据)
+ * fetch data (Rotograph data)
  */
 export function getRecommend () {
   // static -> jsonp1.png: open in chrome, copy url(? before)
   const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
-  // Object.assign: 用于将所有可枚举的属性的值从一个或多个源对象复制到目标对象。它将返回目标对象
+  // Object.assign: Is used to copy the values of all enumerable properties from one or more source objects to the target object.
+  // It will return the target object.
   const data = Object.assign({}, commonParams, {
     platform: 'h5',
     uin: 0,
@@ -24,7 +25,7 @@ export function getRecommend () {
  * @returns {Promise.<TResult>|*}
  */
 export function getDiscList () {
-  // 请求后端地址, 后端地址发送http请求给qq音乐来获取数据
+  // Request the back-end address, the back-end address sends an HTTP request to qq music to obtain the data.
   const url = '/api/getDiscList'
   const data = Object.assign({}, commonParams, {
     platform: 'yqq',
@@ -39,7 +40,7 @@ export function getDiscList () {
   })
 
   return axios.get(url, {
-    // 传递给(webpack.dev.conf.js -> app.get('/api/getDiscList', (req, res) =>)
+    // pass to (webpack.dev.conf.js -> app.get('/api/getDiscList', (req, res) =>)
     params: data
   }).then((res) => {
     return Promise.resolve(res.data)

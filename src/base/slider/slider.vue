@@ -2,10 +2,11 @@
   <div class="slider" ref="slider">
     <div class="slider-group" ref="sliderGroup">
       <!--
-      vue提供slot
-      外部引用slider的时候，slider包裹的dom会被插入到slot里面
-      当子组件模板只有一个没有属性的 slot 时，
-      父组件整个内容片段将插入到 slot 所在的 DOM 位置，并替换掉 slot 标签本身
+        Vue provide slot
+        When the slider is referenced outside, the dom of the slider is inserted into the slot.
+        When the subcomponent template has only one slot without attributes,
+        The entire content fragment of the parent component is inserted into the DOM location
+        of the slot and replaces the slot tag itself.
       -->
       <slot></slot>
     </div>
@@ -47,7 +48,7 @@
       }
     },
     mounted () {
-      // setTimeout: dom 充分加载
+      // setTimeout: dom Fully loaded
       setTimeout(() => {
         this._setSliderWidth()
         this._initDots()
@@ -56,7 +57,7 @@
           this._autoPlay()
         }
       }, 20)
-      // 监听窗口改变事件
+      // Listen to the window and change the event.
       window.addEventListener('resize', () => {
         if (!this.slider) {
           return
@@ -72,12 +73,12 @@
         let sliderWidth = this.$refs.slider.clientWidth
         for (let i = 0; i < this.children.length; i++) {
           let child = this.children[i]
-          // addClass: 给元素添加class
+          // addClass (common/js/dom.js)
           addClass(child, 'slider-item')
           child.style.width = sliderWidth + 'px'
           width += sliderWidth
         }
-        // 复制两个dom来循环播放(轮播组件)
+        // Duplicate the two dom to loop (the multicast component)
         if (this.loop && !isResize) {
           width += 2 * sliderWidth
         }
@@ -88,15 +89,13 @@
       },
       _initSlider () {
         // better-scroll
-        // 轮播滚动设置
+        // Rotate the scroll Settings.
         this.slider = new BScroll(this.$refs.slider, {
           scrollX: true,
           scrollY: false,
-          // 惯性
           momentum: false,
-          // 循环
           snap: true,
-          // 循环
+          // cycle
           snapLoop: this.loop,
           snapThreshold: 0.2,
           // click: true,
