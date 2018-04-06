@@ -243,6 +243,11 @@ cnpm install vue-lazyload --save
 ### 歌手界面: Right scroll component, highlight
 
 
+## 5-8
+### (listivew.vue) (scroll.vue)
+### 歌手界面: Right scroll component, fix bug
+
+
 ## 5-5, 5-6, 5-7, 5-8 
 ### (listivew.vue) (scroll.vue)
 ### 歌手界面: Right scroll component
