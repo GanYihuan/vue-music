@@ -71,20 +71,20 @@
   const FIXED_TITLE_HEIGHT = 30
 
   export default {
-    // created: The values inside are not monitored.
+    // created: The values inside are not monitored
     created () {
       this.touch = {}
       this.listenScroll = true
       this.probeType = 3
     },
-    // data, props The values inside are monitored.
+    // data, props The values inside are monitored
     data () {
       return {
         // Scroll to position
         scrollY: -1,
-        // Which one should be displayed.
+        // Which one should be displayed
         currentIndex: 0,
-        // The interval between the current block cap and the upper limit.
+        // The interval between the current block cap and the upper limit
         diff: -1
       }
     },
@@ -186,12 +186,12 @@
       },
       diff (newVal) {
         let fixedTop = (newVal > 0 && newVal < FIXED_TITLE_HEIGHT) ? newVal - FIXED_TITLE_HEIGHT : 0
-        // 当diff在非动画状态时, 不必去变动
+        // When diff is in a non-animation state, there is no need to change.
         if (this.fixedTop === fixedTop) {
           return
         }
         this.fixedTop = fixedTop
-        //开启GPU加速
+        // open GPU accelerate
         this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`
         // this.$refs.fixed.style.top = `${fixedTop}px`
       },
