@@ -248,19 +248,14 @@ cnpm install vue-lazyload --save
 ### 歌手界面: Right scroll component, fix bug
 
 
-## 5-5, 5-6, 5-7, 5-8 
-### (listivew.vue) (scroll.vue)
-### 歌手界面: Right scroll component
-
-
 ## 5-9
 ### (listivew.vue)
-### 歌手界面: fixtitle设置
+### 歌手界面: fixtitle
 
 
 ## 5-10
 ### (listivew.vue) (loading.vue)
-### 歌手界面: 区块切换时，fixtitle有顶上去的动画
+### 歌手界面: fixtitle animate
 
 
 ## 6-1
