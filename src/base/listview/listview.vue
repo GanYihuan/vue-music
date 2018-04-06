@@ -1,6 +1,6 @@
 <template>
   <!-- static/02.png -->
-  <!-- data: 数据改变时,refresh scroll -->
+  <!-- data: When data changes, refresh scroll -->
   <scroll
     class="listview"
     ref="listview"
@@ -10,6 +10,10 @@
     @scroll="scroll"
   >
     <ul>
+      <!--
+        singer.vue/_normalizeSinger
+        data structure
+      -->
       <li
         class="list-group"
         ref="listGroup"
@@ -30,7 +34,7 @@
         </ul>
       </li>
     </ul>
-    <!-- 右侧的 A-Z -->
+    <!-- On the right side A-Z -->
     <div
       class="list-shortcut"
       @touchstart="onShortCutTouchStart"
