@@ -8,7 +8,6 @@
 </template>
 
 <script type="text/ecmascript-6">
-  // 导入store/mutation的语法糖
   import { mapMutations } from 'vuex'
   import { getSingerList } from 'api/singer'
   import { ERR_OK } from 'api/config'
@@ -55,9 +54,9 @@
             }
           })
       },
-      // 规范化获取到数据
+      // Normalization gets the data.
       _normalizeSinger (list) {
-        // 数据结构
+        // The data structure, myself define
         let map = {
           hot: {
             title: HOT_NAME,
@@ -83,9 +82,7 @@
             id: item.Fsinger_mid
           }))
         })
-        // console.log(map)
-        // 为了得到有序列表，我们需要处理 map
-        // 对象遍历是无序的，此处处理为有序列表
+        // Object traversal is unordered and is handled as an ordered list.
         let ret = []
         let hot = []
         for (let key in map) {
@@ -96,13 +93,13 @@
             hot.push(val)
           }
         }
-        // 升序排列
+        // Ascending order
         ret.sort((a, b) => {
           return a.title.charCodeAt(0) - b.title.charCodeAt(0)
         })
         return hot.concat(ret)
       },
-      // 调用mutation, 使用mutation-types常量
+      // Call mutation, using the mutation-types constant.
       ...mapMutations({
         setSinger: 'SET_SINGER'
       })
