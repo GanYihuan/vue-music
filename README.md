@@ -214,7 +214,7 @@ cnpm install vue-lazyload --save
 
 
 ## 5-1
-### introduce 歌手界面
+### 歌手界面: introduce
 
 
 ## 5-2
@@ -259,7 +259,7 @@ cnpm install vue-lazyload --save
 
 
 ## 6-1
-### introduce
+### 音乐播放界面: introduce
 
 
 ## 6-2
