@@ -95,9 +95,10 @@
       }
     },
     computed: {
-      // 右侧快速列表A-Z, title集合数组
+      //  right side list A-Z, title Set array
       shortcutList () {
         return this.data.map((group) => {
+          // '热门' only one singer string '热'
           return group.title.substr(0, 1)
         })
       },
@@ -110,7 +111,6 @@
     },
     methods: {
       selectItem (item) {
-        // 派发事件出去
         this.$emit('select', item)
       },
       onShortCutTouchStart (e) {
@@ -118,19 +118,21 @@
         let anchorIndex = getData(e.target, 'index')
         // touches: Finger position
         let firstTouch = e.touches[0]
+        // y-axis position
         this.touch.y1 = firstTouch.pageY
-        // 刚开始点的是第几个锚点
+        // The first point is the anchor point.
         this.touch.anchorIndex = anchorIndex
         this._scrollTo(anchorIndex)
       },
       onShortCutTouchMove (e) {
-        // 判断移动时距离 / 每个字母高度，得到delta，再据此移动到目标分类
+        // touches: Finger position
         let firstTouch = e.touches[0]
+        // y-axis position
         this.touch.y2 = firstTouch.pageY
-        // |0 : Math.floor
-        // delta: 偏移几个锚点
+        // | 0: Math.floor
+        // delta: Offset several anchors ?
         let delta = (this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT | 0
-        // 移动到哪个锚点上
+        // Move to which anchor point.
         let anchorIndex = parseInt(this.touch.anchorIndex) + delta
         this._scrollTo(anchorIndex)
       },
@@ -138,24 +140,24 @@
         this.$refs.listview.refresh()
       },
       scroll (pos) {
-        // 获得滑动距离
+        // Gain slip distance
         this.scrollY = pos.y
       },
       _scrollTo (index) {
-        // index == null -> !index, index == 0 排除这种情况
+        // index == null -> !index, index == 0 Rule out
         if (!index && index !== 0) {
           return
         }
-        // '热门'上面黑边部分和最底部黑边部分
+        // '热门' Upper black side and bottom black side.
         if (index < 0) {
           index = 0
         } else if (index > this.heightList.length - 2) {
           index = this.heightList.length - 2
         }
-        // 上限位置
+        // upper limit position
         this.scrollY = -this.heightList[index]
-        // scroll 滚动到对应的歌手目的地
-        // 第二个参数: 动画持续时间
+        // scroll to the corresponding singer destination.
+        // Second parameter: animation duration.
         this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
       },
       _calculateHeight () {
@@ -177,7 +179,7 @@
     },
     watch: {
       data () {
-        // 数据到dom的变化有一个延时, dom渲染
+        // The change in data to the dom has a delay, dom rendering.
         setTimeout(() => {
           this._calculateHeight()
         }, 20)
