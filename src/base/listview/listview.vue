@@ -71,20 +71,20 @@
   const FIXED_TITLE_HEIGHT = 30
 
   export default {
-    // created里面的值不会被监听
+    // created: The values inside are not monitored.
     created () {
       this.touch = {}
       this.listenScroll = true
       this.probeType = 3
     },
-    // data, props里面的值会被监听
+    // data, props The values inside are monitored.
     data () {
       return {
-        // 事实滚动位置
+        // Scroll to position
         scrollY: -1,
-        // 当前应该显示哪个
+        // Which one should be displayed.
         currentIndex: 0,
-        // 当前区块上限和上个区块下限之间的间隔
+        // The interval between the current block cap and the upper limit.
         diff: -1
       }
     },
@@ -95,7 +95,7 @@
       }
     },
     computed: {
-      //  right side list A-Z, title Set array
+      // right side list A-Z, title Set array
       shortcutList () {
         return this.data.map((group) => {
           // '热门' only one singer string '热'
@@ -163,7 +163,7 @@
       _calculateHeight () {
         let height = 0
         let listGroup = this.$refs.listGroup
-        // heightList 比 listGroup 多一个元素
+        // heightList is more one element then listGroup
         this.heightList = []
         this.heightList.push(height)
         for (let i = 0; i < listGroup.length; i++) {
@@ -195,44 +195,42 @@
         this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`
         // this.$refs.fixed.style.top = `${fixedTop}px`
       },
-      // 落入哪个区间
       scrollY (newY) {
         let heightList = this.heightList
-        // 当滚动到顶部, newY > 0
+        // When scrolling to the top. newY > 0
         if (newY > 0) {
           this.currentIndex = 0
           return
         }
-        // 在中间部分滚动
-        // length - 1, 不考虑最后一个
+        // Scroll in the middle.
+        // length - 1, Not thinking about the last one.
         for (let i = 0; i < heightList.length; i++) {
-          // 上限
+          // upper limit
           let height1 = heightList[i]
-          // 下限
+          // lower limit
           let height2 = heightList[i + 1]
-          // -newY 向下滚动newY为负值, 取'-'使其变成正值
+          // -newY Scroll down newY to negative, take '-' to make it positive.
           if (-newY >= height1 && -newY < height2) {
             this.currentIndex = i
-            // diff: 当前区块上限和上个区块下限之间的间隔
+            // diff: The interval between the current block cap and the upper limit.
             this.diff = newY + height2
             return
           }
           this.currentIndex = 0
         }
-        // 当滚动到底部最后一个元素, 且 -newY 大于最后一个元素的上限
-        // heightList上下限
-        // heightList 比listGroup多一个元素, 所以 -2
+        // When scroll to the bottom of the last element, and -newy is greater than the upper limit of the last element.
+        // heightList more one then listGroup, so -2
         this.currentIndex = heightList.length - 2
       },
       diff (newVal) {
-        // fixed-title上顶
+        // fixed-title more to top
         let fixedTop = (newVal > 0 && newVal < FIXED_TITLE_HEIGHT) ? newVal - FIXED_TITLE_HEIGHT : 0
-        // fixed-title不上顶
+        // fixed-title not more to top
         if (this.fixedTop === fixedTop) {
           return
         }
         this.fixedTop = fixedTop
-        // 开启GPU加速
+        // begin GPU accelerate
         this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`
         // this.$refs.fixed.style.top = `${fixedTop}px`
       }
