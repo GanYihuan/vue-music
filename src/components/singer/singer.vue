@@ -22,14 +22,14 @@
 
   export default {
     mixins: [playlistMixin],
-    // 储存数据
+    // Store back-end data.
     data () {
       return {
         singers: []
       }
     },
     created () {
-      // 获取后台的数据
+      // Get back-end singer data.
       this._getSingerList()
     },
     methods: {
@@ -42,10 +42,10 @@
         this.$router.push({
           path: `/singer/${singer.id}`
         })
-        // this.setSinger: 执行mutation里面的SET_SINGER
+        // this.setSinger: call mutation SET_SINGER
         this.setSinger(singer)
       },
-      // 从 api/singer.js/getSingerList 获取qq歌手数据
+      // api/singer.js/getSingerList Get qq singer data.
       _getSingerList () {
         getSingerList()
           .then((res) => {
