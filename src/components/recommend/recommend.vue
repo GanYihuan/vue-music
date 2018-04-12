@@ -12,9 +12,11 @@
           <slider>
             <!-- Everything inside is inserted into the slot of the slider. -->
             <div v-for="(item,index) in recommends" :key="index">
+              <!-- item.linkUrl 查看来源 -->
+              <!-- https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg -->
               <a :href="item.linkUrl">
-                <!-- class="needsclick": fastclick Do not intercept the click process. -->
-                <img class="needsclick" @load="loadImage" :src="item.picUrl"/>
+                <!-- class="needsclick": fastclick Don't intercept the click process. -->
+                <img class="needsclick" :src="item.picUrl" @load="loadImage"/>
               </a>
             </div>
           </slider>

@@ -47,12 +47,13 @@
         default: 4000
       }
     },
+    // dom ready
     mounted () {
       // setTimeout: dom Fully loaded
       setTimeout(() => {
         this._setSliderWidth()
-        this._initDots()
         this._initSlider()
+        this._initDots()
         if (this.autoPlay) {
           this._autoPlay()
         }
@@ -68,17 +69,19 @@
     },
     methods: {
       _setSliderWidth (isResize) {
+        // How many elements are there in the entire list?
         this.children = this.$refs.sliderGroup.children
         let width = 0
+        // The width of the parent container.
         let sliderWidth = this.$refs.slider.clientWidth
         for (let i = 0; i < this.children.length; i++) {
           let child = this.children[i]
-          // addClass (common/js/dom.js)
+          // addClass(): (common/js/dom.js)
           addClass(child, 'slider-item')
           child.style.width = sliderWidth + 'px'
           width += sliderWidth
         }
-        // Duplicate the two dom to loop (the multicast component)
+        // Duplicate the two dom for loop (the multicast component)
         if (this.loop && !isResize) {
           width += 2 * sliderWidth
         }
@@ -89,8 +92,17 @@
       },
       _initSlider () {
         // better-scroll
-        // Rotate the scroll Settings.
-        // BScroll copy two sample into the shuffle graph head and tail, use to loop
+        // BScroll copy two sample into the carousel head and tail, use to loop
+        /**
+         * https://ustbhuangyi.github.io/better-scroll/doc/en/options-advanced.html#snap
+         *
+         * momentum: If setted to true, you can turn on the momentum animation performed when the user quickly flicks on screen.
+         * snap: this option is used to configure Slide component. You can enable slide by configure it as an Object
+         * snapLoop: set to true to support slide loop
+         * snapThreshold: is the threshold of going to the next snap
+         * snapSpeed: is the slide loop scroll animate time
+         * @type {_bscroll.BScroll}
+         */
         this.slider = new BScroll(this.$refs.slider, {
           scrollX: true,
           scrollY: false,

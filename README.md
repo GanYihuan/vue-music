@@ -133,11 +133,12 @@ cnpm install jsonp --save
 *(api/recommend.js)*
 
 
-## 4-4
-##### (recommend.vue) (slider.vue) (common/js/dom.js) 
-##### 推荐界面: Shuffling figure component
-##### qq data <https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg>
-##### 
+## 4-4: 轮播图组件, better-scroll
+*(recommend.vue)*
+*(slider.vue)*
+*(common/js/dom.js)*
+##### 推荐界面: carousel component
+##### better-scroll
 ```
 cnpm install better-scroll@0.1.15 --save
 ```
