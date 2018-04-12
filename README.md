@@ -25,15 +25,17 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 
 ## 2-2
-##### init project template
+##### 安装项目
 ```
 vue init webpack imooc-music
 ```
-##### select 'RunTime-only'
-##### vue-router 'Y'
-##### ESLint 'Y' (es6 style checker)
-##### karma, e2e test 'N'
-##### start App
+##### 'RunTime-only' 更加轻量
+##### vue-router 'Y' vue路由
+##### ESLint 'Y' ES6风格代码检查器
+##### Standard
+##### karma, e2e test 'N' 测试相关
+##### npm install 安装依赖
+##### 运行项目
 ```
 npm run dev
 ```
