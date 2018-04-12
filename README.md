@@ -100,10 +100,9 @@ cnpm install babel-polyfill --save-dev
 ##### Navigation switch
 
 
-## 4-1
-##### Back-end data
-##### chrome use(static/jsonp1.png)
-##### Fetching data from QQ music
+## 4-1: 如何使用chrome操作查看qq音乐后台数据
+##### chrome use (static/jsonp1.png)
+##### data source
 ```
 https://m.y.qq.com/
 https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
