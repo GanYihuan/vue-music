@@ -69,12 +69,14 @@
           }
         }
         list.forEach((item, index) => {
+          // 前十条数据, 含有'热门'
           if (index < HOT_SINGER_LEN) {
             map.hot.items.push(new Singer({
               name: item.Fsinger_name,
               id: item.Fsinger_mid
             }))
           }
+          // 十条数据之后
           const key = item.Findex
           if (!map[key]) {
             map[key] = {
@@ -87,7 +89,7 @@
             id: item.Fsinger_mid
           }))
         })
-        // Object traversal is unordered and is handled as an ordered list.
+        // 对象遍历是无序的，并作为有序列表处理。
         let ret = []
         let hot = []
         for (let key in map) {
@@ -98,7 +100,7 @@
             hot.push(val)
           }
         }
-        // Ascending order
+        // 升序排序
         ret.sort((a, b) => {
           return a.title.charCodeAt(0) - b.title.charCodeAt(0)
         })
