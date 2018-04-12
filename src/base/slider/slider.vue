@@ -129,6 +129,7 @@
           }
           this.currentPageIndex = pageIndex
           if (this.autoPlay) {
+            // 手动拖动轮播图时会生成计时器, 要即使清理
             clearTimeout(this.timer)
             this._autoPlay()
           }

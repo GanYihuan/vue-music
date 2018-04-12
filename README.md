@@ -149,9 +149,9 @@ cnpm install better-scroll@0.1.15 --save
 ##### 推荐界面: carousel component indicating
 
 
-## 4-6
-##### (slider.vue)
-##### 推荐界面: Shuffling figure component fix bug
+## 4-6: 当窗口大小改变时, 当手动拖动轮播图时
+*(slider.vue)*
+##### 推荐界面: carousel component fix bug
 ##### Window changes.
 
 
