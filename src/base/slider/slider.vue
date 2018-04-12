@@ -13,9 +13,9 @@
     <div class="dots">
       <span
         class="dot"
-        :class="{active: currentPageIndex === index }"
         v-for="(item, index) in dots"
         :key="index"
+        :class="{active: currentPageIndex === index }"
       >
       </span>
     </div>
@@ -30,6 +30,7 @@
     data () {
       return {
         dots: [],
+        // currentPageIndex: 当前的子元素
         currentPageIndex: 0
       }
     },
@@ -52,8 +53,8 @@
       // setTimeout: dom Fully loaded
       setTimeout(() => {
         this._setSliderWidth()
-        this._initSlider()
         this._initDots()
+        this._initSlider()
         if (this.autoPlay) {
           this._autoPlay()
         }
@@ -71,6 +72,10 @@
       _setSliderWidth (isResize) {
         // How many elements are there in the entire list?
         this.children = this.$refs.sliderGroup.children
+        // console.log(this.children.length)
+        // 5
+        // BScroll copy two sample into the carousel head and tail, use to loop
+        // dom: 7
         let width = 0
         // The width of the parent container.
         let sliderWidth = this.$refs.slider.clientWidth
@@ -88,6 +93,7 @@
         this.$refs.sliderGroup.style.width = width + 'px'
       },
       _initDots () {
+        // 5
         this.dots = new Array(this.children.length)
       },
       _initSlider () {
@@ -113,11 +119,12 @@
           snapThreshold: 0.2,
           snapSpeed: 400
         })
+        // better-scroll 派发事件
         this.slider.on('scrollEnd', () => {
-          // pageIndex: Child elements
+          // pageIndex: 第几个子元素
           let pageIndex = this.slider.getCurrentPage().pageX
           if (this.loop) {
-            // better-scroll Add a copy by default to the first element.
+            // better-scroll copy two sample into the carousel head and tail, use to loop
             pageIndex -= 1
           }
           this.currentPageIndex = pageIndex
@@ -131,13 +138,16 @@
         // currentPageIndex: Starting from 0
         let pageIndex = this.currentPageIndex + 1
         if (this.loop) {
-          // better-scroll Add a copy by default to the first element.
+          // better-scroll copy two sample into the carousel head and tail, use to loop
           pageIndex += 1
         }
         this.timer = setTimeout(() => {
-          // pageIndex: x
-          // 0: y
-          // 400: time interval
+          /**
+           * better-scroll
+           * pageIndex: x
+           * 0: y
+           * 400: time interval
+           */
           this.slider.goToPage(pageIndex, 0, 400)
         }, this.interval)
       }

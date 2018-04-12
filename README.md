@@ -144,9 +144,9 @@ cnpm install better-scroll@0.1.15 --save
 ```
 
 
-## 4-5
-##### (slider.vue)
-##### 推荐界面: Shuffling figure component indicating
+## 4-5: 小点控制轮播图播放
+*(slider.vue)*
+##### 推荐界面: carousel component indicating
 
 
 ## 4-6
