@@ -155,11 +155,13 @@ cnpm install better-scroll@0.1.15 --save
 ##### Window changes.
 
 
-## 4-7
-##### (recommend.js)
+## 4-7: 获取qq音乐 热门歌单推荐 数据, 要绕过接口限制
+*(App.vue)*
+*(recommend.js)*
+##### 推荐界面: 热门歌单推荐 
 ##### Grab the song single data interface.
-##### <keep-alive> To prevent flashing
-##### 500 server error, host problem.
+##### <keep-alive> dom缓存在内存中，防止返回到推荐界面，界面闪烁
+##### 500 server error, host problem. 要绕过接口限制
 
 
 ## 4-8

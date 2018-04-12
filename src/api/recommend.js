@@ -21,7 +21,7 @@ export function getRecommend () {
 }
 
 /**
- * fetch data (歌单数据)
+ * fetch data (热门歌单推荐数据)
  * @returns {Promise.<TResult>|*}
  */
 export function getDiscList () {

@@ -108,7 +108,7 @@
             }
           })
       },
-      // 歌单 data from the back-end.
+      // 热门歌单推荐 data from the back-end.
       _getDiscList () {
         getDiscList()
           .then((res) => {
