@@ -109,26 +109,23 @@ https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
 ```
 
 
-## 4-2
-##### (common/js/jsonp.js)
-##### jsonp package
-##### Promise
-> Is an object that is used to deliver messages that are asynchronous. 
-> It represents a future event (usually an asynchronous operation) that will know the result.
-> And this event provides a unified API for further processing.
-##### jsonp principle: 
-> solves cross-domain problems
-> creates a script tag dynamically, without the same-origin restriction, which can be cross-domain, 
-> and the script SRC address points to the third-party API url.
-> provides a callback function to receive the data, and the third party generates the response as a wrapper for the json data.
-> The browser invokes the callback function and passes the parsed json object as a parameter
-> This site script can handle incoming data in the callback function.
+## 4-2: jsonp讲解
+*(common/js/jsonp.js)*
+##### Promise:
+> 是一个用于传递异步消息的对象。
+> 表示将来会知道结果的事件(通常是异步操作)。
+> 和这个事件为进一步处理提供了统一的API。
+##### jsonp: 
+> 解决跨域问题
+> 动态地创建一个脚本标记，没有同源限制，它可以是跨域的，
+> 和脚本SRC地址指向第三方API url。
+> 提供一个回调函数来接收数据，而第三方生成响应作为json数据的包装器。
+> 浏览器调用回调函数，并将解析过的json对象作为参数传递。
+> 这个站点脚本可以处理回调函数中的传入数据。
 ##### install jsonp
 ```
 cnpm install jsonp --save
 ```
-**promise**
-**jsonp**
 
 
 ## 4-3
