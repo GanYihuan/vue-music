@@ -31,8 +31,9 @@
         singers: []
       }
     },
+    // get back-end data
     created () {
-      // Get back-end singer data.
+      // fetch data (歌手数据)
       this._getSingerList()
     },
     methods: {
