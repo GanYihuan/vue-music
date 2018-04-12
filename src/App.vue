@@ -2,8 +2,8 @@
   <div id="app">
     <m-header></m-header>
     <tab></tab>
-    <!-- keep-alive: Declaration Cycle cache to memory -->
-    <!-- dom Cached in memory, Prevent back to the recommend interface, Interface flashing -->
+    <!-- keep-alive: 声明循环缓存到内存。 -->
+    <!-- dom缓存在内存中，防止返回到推荐界面，界面闪烁。 -->
     <keep-alive>
       <!-- router render here -->
       <router-view></router-view>
