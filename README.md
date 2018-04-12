@@ -155,32 +155,33 @@ cnpm install better-scroll@0.1.15 --save
 ##### Window changes.
 
 
-## 4-7: 获取qq音乐 热门歌单推荐 数据, 要绕过接口限制
+## 4-7: 获取qq音乐 热门歌单推荐 数据, 还要绕过接口限制
 *(App.vue)*
 *(recommend.js)*
+*(recommend.vue)*
 ##### 推荐界面: 热门歌单推荐 
 ##### Grab the song single data interface.
 ##### <keep-alive> dom缓存在内存中，防止返回到推荐界面，界面闪烁
 ##### 500 server error, host problem. 要绕过接口限制
 
 
-## 4-8
-##### (build/webpack.dev.conf.js) 
-##### The front end requests our back-end address, the back-end requests the qq server, 
-##### the back-end interface agent bypasses the qq check.
-##### ajax库axios,发起HTTPRequest
+## 4-8: 获取qq音乐 热门歌单推荐 数据, 绕过接口限制
+*(build/webpack.dev.conf.js)*
+*(config/index.js)*
+> 前端请求我们的后端地址，后端请求qq服务器，
+> 后端接口代理绕过了qq检查请求数据。
+##### ajax 库 axios, 发起HTTPRequest, 修改 headers
 ```
 cnpm install axios --save
 ```
 ##### 1.修改config目录下的index.js文件
-##### 修改host
-> (config/index.js)
+##### 修改host *(config/index.js)*
 ```
 host: '0.0.0.0',
 ```
 ##### 2.修改/build/webpack.dev.conf.js
 > 异步定义后端接口
-##### 3. recommend.js -> getDiscList 调用后端接口
+##### 3. api/recommend.js/getDiscList 调用后端接口 *(build/webpack.dev.conf.js)*
 
 
 ## 4-9 

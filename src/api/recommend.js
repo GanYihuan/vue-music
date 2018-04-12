@@ -40,7 +40,7 @@ export function getDiscList () {
   })
 
   return axios.get(url, {
-    // pass to (webpack.dev.conf.js -> app.get('/api/getDiscList', (req, res) =>)
+    // api/recommend.js/getDiscList 调用后端接口 *(build/webpack.dev.conf.js)*    app.get('/api/getDiscList', (req, res) => {
     params: data
   }).then((res) => {
     return Promise.resolve(res.data)
