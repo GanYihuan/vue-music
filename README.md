@@ -195,9 +195,8 @@ host: '0.0.0.0',
 ##### scroll组件
 
 
-## 4-11 
-##### (recommend.vue)
-##### 防止轮播图延迟加载, 造成高度计算错误
+## 4-11: 防止轮播图延迟加载, 造成高度计算错误
+*(recommend.vue)*
 ##### 调用better-scroll要保证dom已经渲染,数据变化或者dom变化,better-scroll要调用refresh
 
 
