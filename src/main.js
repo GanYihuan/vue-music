@@ -8,7 +8,7 @@ import store from './store/vuex'
 import 'common/scss/index.scss'
 
 /**
- * 移动端调试用的工具
+ * Mobile debugging tools.
  */
 /* eslint-disable no-unused-vars */
 // import vConsole from 'vconsole'

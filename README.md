@@ -73,17 +73,17 @@ resolve: {
 ```
 
 
-## 3-1
+## 3-1: npm 依赖
 ##### (App.vue)
-##### es6 escape
+##### es6 编译辅助操作
 ```
 npm install babel-runtime --save
 ```
-##### mobile end Clicks 300MS Delay
+##### 移动端点击300MS延迟。
 ```
 cnpm install fastclick --save
 ```
-##### path，es6 api escape
+##### es6 api 转义
 ```
 cnpm install babel-polyfill --save-dev
 ```
