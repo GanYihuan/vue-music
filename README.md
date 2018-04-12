@@ -128,12 +128,9 @@ cnpm install jsonp --save
 ```
 
 
-## 4-3
-##### (api/config(config params)) (api/recommend.js(fetch data))
-##### recommend.vue call recommend.js get back-end data
-```
-cnpm install axios --save
-```
+## 4-3: jsonp应用, 轮播图数据抓取
+*(api/config)*
+*(api/recommend.js)*
 
 
 ## 4-4

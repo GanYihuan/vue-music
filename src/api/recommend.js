@@ -4,7 +4,7 @@ import { commonParams, options } from './config'
 import axios from 'axios'
 
 /**
- * fetch data (Rotograph data)
+ * fetch data (carousel data)
  */
 export function getRecommend () {
   // static -> jsonp1.png: open in chrome, copy url(? before)

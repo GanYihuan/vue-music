@@ -94,7 +94,7 @@
         // mutation: setDisc
         this.setDisc(item)
       },
-      // Data from the back-end.
+      // carousel data from the back-end.
       _getRecommend () {
         getRecommend()
           .then((res) => {
@@ -106,7 +106,7 @@
             }
           })
       },
-      // 后端歌单数据
+      // 歌单 data from the back-end.
       _getDiscList () {
         getDiscList()
           .then((res) => {
