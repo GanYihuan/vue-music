@@ -210,9 +210,10 @@ cnpm install vue-lazyload --save
 ##### class="needsclick" : fastclick 不拦截单击过程
 
 
-## 4-13 
-##### (loading.vue) (recommend.vue)
-##### 推荐界面: 请求图
+## 4-13: loading组件
+*(loading.vue)*
+*(recommend.vue)*
+##### 推荐界面: loading
 
 
 ## 5-1
