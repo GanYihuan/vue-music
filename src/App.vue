@@ -14,7 +14,6 @@
 
 <script type="text/ecmascript-6">
   import MHeader from 'components/m-header/m-header.vue'
-  // navigation-bar
   import Tab from 'components/tab/tab.vue'
   import Player from 'components/player/player.vue'
 

@@ -41,6 +41,7 @@ npm run dev
 
 
 ## 2-3: 项目目录介绍
+*(build/webpack.base.config)*
 ##### api: (后端请求, jsonp 请求, AJAX 请求)
 ##### common: (共用的静态资源: img, common js, style file)
 ##### components: (组件)
@@ -53,7 +54,7 @@ npm run dev
 "sass-loader": "^6.0.7",
 "node-sass": "^4.7.2",
 ```
-##### webpack.base.conf.js 别名配置, 使用后直接在 main.js 中引入相应的文件。
+##### (webpack.base.conf.js) 别名配置, 使用后直接在 main.js 中引入相应的文件。
 import 'common/scss/index.scss'
 ```
 context: path.resolve(__dirname, '..', dir),
@@ -74,7 +75,8 @@ resolve: {
 
 
 ## 3-1: npm 依赖
-##### (App.vue)
+*(App.vue)*
+*(build/webpack.base.config)*
 ##### es6 编译辅助操作
 ```
 npm install babel-runtime --save
@@ -88,11 +90,13 @@ cnpm install fastclick --save
 cnpm install babel-polyfill --save-dev
 ```
 ##### (build/webpack.base.config)
-> Alias configuration, abbreviated application file path.
+> 别名配置，缩写的应用程序文件路径。
 
 
-## 3-2
-##### (tab.vue) (App.vue) (route.vue)
+## 3-2: 路由切换基础界面
+*(tab.vue)*
+*(App.vue)*
+*(route.vue)*
 ##### Navigation switch
 
 
