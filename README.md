@@ -230,9 +230,11 @@ cnpm install vue-lazyload --save
 *(common/js/singer.js)*
 
 
-## 5-4
-##### (listview.vue) (singer.vue)
-##### 歌手界面: Write the artist's interface according to the singer's data.
+## 5-4: 用歌手数据渲染歌手界面, listview列表
+*(listview.vue)* 
+*(singer.vue)*
+##### 歌手界面: listview列表组件
+
 
 
 ## 5-5
