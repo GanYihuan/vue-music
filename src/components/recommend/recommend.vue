@@ -1,13 +1,10 @@
 <template>
   <!-- 01/推荐界面 -->
   <div class="recommend" ref="recommend">
-    <!--
-     :data -> The content pushes the height of the scroll to prevent it from striking
-     because the data is too slow and the scroll determines that there is no data.
-    -->
+    <!-- :data="discList", 防止异步加载太慢，导致滚动条决定没有数据, 数据内容没撑开滚动的高度, scroll失效。-->
     <scroll ref="scroll" class="recommend-content" :data="discList">
       <div>
-        <!-- v-if="recommends.length": Prevent asynchronous loading too slowly and the dom is too late to load. -->
+        <!-- v-if="recommends.length": 防止异步加载太慢，导致dom来不及加载而高度计算。 -->
         <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
           <slider>
             <!-- Everything inside is inserted into the slot of the slider. -->
@@ -16,6 +13,7 @@
               <!-- https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg -->
               <a :href="item.linkUrl">
                 <!-- class="needsclick": fastclick Don't intercept the click process. -->
+                <!-- loadImage: 防止由于网络延迟加载, 轮播图导致组件高度计算错误。-->
                 <img class="needsclick" :src="item.picUrl" @load="loadImage"/>
               </a>
             </div>
@@ -81,7 +79,7 @@
         this.$refs.recommend.style.bottom = bottom
         this.$refs.scroll.refresh()
       },
-      // Prevent the wheel - broadcast diagram due to network delay loading, resulting in a high calculation error.
+      // 防止由于网络延迟加载, 轮播图导致组件高度计算错误。
       loadImage () {
         // This logic is executed only once.
         if (!this.checkloaded) {

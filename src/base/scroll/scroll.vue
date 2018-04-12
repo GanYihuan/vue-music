@@ -9,11 +9,19 @@
 
   export default {
     props: {
-      // 指定组件监听滚动事件,缓慢拖动能监听,快速拖动能监听
+      // [官方文档](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
+      // 有时候我们需要知道滚动的位置。
+      // 当 probeType 为 1 的时候，会非实时（屏幕滑动超过一定时间后）派发scroll 事件；
+      // 当 probeType 为 2 的时候，会在屏幕滑动的过程中实时的派发 scroll 事件；
+      // 当 probeType 为 3 的时候，不仅在屏幕滑动的过程中，而且在 momentum 滚动动画运行过程中实时派发 scroll 事件。
+      // 如果没有设置该值，其默认值为 0，即不派发 scroll 事件。
       probeType: {
         type: Number,
         default: 1
       },
+      // better-scroll 默认会阻止浏览器的原生 click 事件。
+      // 当设置为 true，better-scroll 会派发一个 click 事件，
+      // 我们会给派发的 event 参数加一个私有属性 _constructed，值为 true
       click: {
         type: Boolean,
         default: true
@@ -43,6 +51,7 @@
         default: 20
       }
     },
+    // mounted: dom ready
     mounted () {
       // 确保dom渲染了
       setTimeout(() => {
@@ -84,6 +93,7 @@
         }
       },
       disable () {
+        // 如果this.scroll 存在
         this.scroll && this.scroll.disable()
       },
       enable () {

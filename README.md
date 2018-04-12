@@ -187,11 +187,11 @@ host: '0.0.0.0',
 ## 4-9: 使用热门歌单推荐数据, 渲染界面
 *(recommend.vue)*
 ##### 推荐界面: 热门歌单推荐 
-##### chrome 访问 /api/getDiscList 来查看从qq音乐抓取的数据
+##### chrome 访问 /api/getDiscList 来查看从qq音乐抓取的数据 ?
 
 
-## 4-10 
-##### (scroll.vue)
+## 4-10: scroll组件
+*(scroll.vue)* [官方文档](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
 ##### scroll组件
 
 
