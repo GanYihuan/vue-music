@@ -24,8 +24,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ## Vue-开发移动端音乐WebApp
 
 
-## 2-2
-##### 安装项目
+## 2-2: 项目安装
 ```
 vue init webpack imooc-music
 ```
@@ -41,8 +40,7 @@ npm run dev
 ```
 
 
-## 2-3
-##### 项目目录
+## 2-3: 项目目录介绍
 ##### api: (后端请求, jsonp 请求, AJAX 请求)
 ##### common: (共用的静态资源: img, common js, style file)
 ##### components: (组件)
@@ -50,13 +48,12 @@ npm run dev
 ##### router: (路由)
 ##### store: (Vuex相关)
 ##### main.js (入口)
-##### npm install (scss)
+##### npm install (scss依赖)
 ```
 "sass-loader": "^6.0.7",
 "node-sass": "^4.7.2",
 ```
-##### webpack.base.conf.js 别名配置
-##### 使用后直接在Main.js中引入相应的文件。
+##### webpack.base.conf.js 别名配置, 使用后直接在 main.js 中引入相应的文件。
 import 'common/scss/index.scss'
 ```
 context: path.resolve(__dirname, '..', dir),
@@ -65,10 +62,12 @@ resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       'src': resolve('src'),
-      'common': resolve('src/common'),
-      'components': resolve('src/components'),
       'api': resolve('src/api'),
       'base': resolve('src/base'),
+      'common': resolve('src/common'),
+      'components': resolve('src/components'),
+      'router': resolve('src/router'),
+      'store': resolve('src/store')
     }
   },
 ```

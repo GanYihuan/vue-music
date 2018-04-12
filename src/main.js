@@ -5,7 +5,7 @@ import router from './router/route'
 import VueLazyload from 'vue-lazyload'
 import fastclick from 'fastclick'
 import store from './store/vuex'
-import './common/scss/index.scss'
+import 'common/scss/index.scss'
 
 /**
  * 移动端调试用的工具
