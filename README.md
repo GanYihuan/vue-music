@@ -268,9 +268,11 @@ cnpm install vue-lazyload --save
 ## 6-1: 歌手详情页: introduce
 
 
-## 6-2
-##### (singer-detail)
-##### 子路由跳转到singer-detail
+## 6-2: 点击歌手界面里的歌手, 跳转到歌手详情界面
+*(route.js)*
+*(listview.vue)*
+*(singer.vue)*
+*(singer-detail.vue)*
 
 
 ## 6-3
