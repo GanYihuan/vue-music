@@ -265,8 +265,7 @@ cnpm install vue-lazyload --save
 *(loading.vue)* 
 
 
-## 6-1
-##### 音乐播放界面: introduce
+## 6-1: 歌手详情页: introduce
 
 
 ## 6-2
