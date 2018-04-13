@@ -186,7 +186,7 @@
       },
       diff (newVal) {
         let fixedTop = (newVal > 0 && newVal < FIXED_TITLE_HEIGHT) ? newVal - FIXED_TITLE_HEIGHT : 0
-        // When diff is in a non-animation state, there is no need to change.
+        // 当diff处于非动画状态时，不需要更改。减少dom操作, 提高性能优化
         if (this.fixedTop === fixedTop) {
           return
         }

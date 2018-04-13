@@ -230,24 +230,20 @@ cnpm install vue-lazyload --save
 *(common/js/singer.js)*
 
 
-## 5-4: 用歌手数据渲染歌手界面, listview列表
+## 5-4: 用歌手数据渲染歌手界面, 歌手界面listview列表
 *(listview.vue)歌手列表* 
 *(singer.vue)数据处理*
-##### 歌手界面: listview列表组件
-
 
 
 ## 5-5: 歌手界面右侧索引滚动组件
 *(listview.vue)* 
 *(scroll.vue)*
 *(common/dom.js)*
-##### 歌手界面: Right scroll component, scroll
 
 
 ## 5-6: 歌手界面右侧索引滚动, 对应歌手列表也要滚动
 *(listview.vue)* 
 *(scroll.vue)*
-##### 歌手界面: Right scroll component, highlight
 
 
 ## 5-7: 歌手界面右侧索引修改bug
@@ -258,17 +254,15 @@ cnpm install vue-lazyload --save
 ## 5-8: 歌手界面右侧索引点击最上边和最下边空白部分
 *(listview.vue)* 
 *(scroll.vue)*
-##### 歌手界面: Right scroll component, fix bug
 
 
-## 5-9: 歌手界面fixtitle
+## 5-9: 歌手界面 fixtitle
 *(listview.vue)* 
-##### 歌手界面: fixtitle
 
 
-## 5-10
-##### (listivew.vue) (loading.vue)
-##### 歌手界面: fixtitle animate
+## 5-10: 歌手界面 fixtitle animate, loading
+*(listview.vue)* 
+*(loading.vue)* 
 
 
 ## 6-1
