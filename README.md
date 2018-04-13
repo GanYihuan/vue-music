@@ -345,9 +345,18 @@ cnpm install vuex --save
 *(store/state.js)*
 
 
-## 7-3
-##### (player.vue)
-##### 音乐播放界面: vuex的具体使用
+## 7-3: 音乐播放界面: vuex的具体使用
+*(player.vue)*
+*(song-list.vue)*
+*(music-list.vue)*
+*(store/actions.js)*
+```
+// 传入 vuex 的 actions.js
+      ...mapActions([
+        'selectPlay',
+        'randomPlay'
+      ])
+```
 
 
 ## 7-4
