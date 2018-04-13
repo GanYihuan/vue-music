@@ -156,7 +156,7 @@
         }
         // upper limit position
         this.scrollY = -this.heightList[index]
-        // scroll to the corresponding singer destination.
+        // 滚动到相应的歌手目的地。
         // Second parameter: animation duration.
         this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
       },

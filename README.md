@@ -231,14 +231,16 @@ cnpm install vue-lazyload --save
 
 
 ## 5-4: 用歌手数据渲染歌手界面, listview列表
-*(listview.vue)* 
-*(singer.vue)*
+*(listview.vue)歌手列表* 
+*(singer.vue)数据处理*
 ##### 歌手界面: listview列表组件
 
 
 
-## 5-5
-##### (listivew.vue) (scroll.vue)
+## 5-5: 歌手界面右侧索引滚动组件
+*(listview.vue)* 
+*(scroll.vue)*
+*(common/dom.js)*
 ##### 歌手界面: Right scroll component, scroll
 
 
