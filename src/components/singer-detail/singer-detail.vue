@@ -1,5 +1,6 @@
 <template>
-  <!-- 03/音乐播放界面 -->
+  <!-- static/03.png/歌手详情页 -->
+  <!-- singer-detail处理歌手详情页数据, music-list渲染歌手详情页-->
   <transition name="slide">
     <music-list :songs="songs" :title="title" :bg-image="bgImage"></music-list>
   </transition>

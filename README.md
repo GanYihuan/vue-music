@@ -314,9 +314,10 @@ cnpm install vuex --save
 ##### song类封装
 
 
-## 6-8
-##### (music-list.vue)
-##### 音乐播放界面: 歌手界面处理
+## 6-8: 歌手详情页: 使用数据渲染界面
+*(music-list.vue)*
+##### singer-detail处理歌手详情页数据, music-list渲染歌手详情页
+##### 歌手详情页: 歌手界面处理
 
 
 ## 6-9
