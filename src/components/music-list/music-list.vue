@@ -147,6 +147,7 @@
         this.$refs.layer.style[transform] = `translate3d(0,${translateY}px,0)`
         // 高斯模糊: apple手机能查看
         this.$refs.filter.style[backdrop] = `blur(${blur}px)`
+        // 滚动到顶部
         if (newVal < this.minTransalteY) {
           zIndex = 10
           this.$refs.bgImage.style.paddingTop = 0
