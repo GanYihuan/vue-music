@@ -329,9 +329,9 @@ cnpm install vuex --save
 *(music-list.vue)*
 
 
-## 6-13
-##### (common/js/dom.js)
-##### 音乐播放界面: 不同浏览器css的配置
+## 6-13: 音乐播放界面: 不同浏览器css的配置
+*(common/js/dom.js)*
+*(music-list.vue)*
 
 
 ## 6-14
