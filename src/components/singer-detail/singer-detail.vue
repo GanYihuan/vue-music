@@ -26,7 +26,7 @@
       bgImage () {
         return this.singer.avatar
       },
-      // 对应getters
+      // 对应getters, 获取state数据
       ...mapGetters([
         'singer'
       ])

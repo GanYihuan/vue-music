@@ -46,7 +46,7 @@
         this.$router.push({
           path: `/singer/${singer.id}`
         })
-        // this.setSinger: call mutation SET_SINGER
+        // this.setSinger: ...mapMutations
         this.setSinger(singer)
       },
       // api/singer.js/getSingerList Get qq singer data.
@@ -106,7 +106,7 @@
         })
         return hot.concat(ret)
       },
-      // Call mutation, using the mutation-types constant.
+      // 调用 mutation，使用 mutation 类型常量。设置 state
       ...mapMutations({
         setSinger: 'SET_SINGER'
       })
