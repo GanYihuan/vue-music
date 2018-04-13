@@ -341,9 +341,8 @@ cnpm install vuex --save
 ## 7-1: 音乐播放界面 introduce
 
 
-## 7-2
-##### (store/state.js)
-##### 音乐播放界面: 播放器vuex数据定义
+## 7-2: 音乐播放界面: 播放器 vuex 数据定义
+*(store/state.js)*
 
 
 ## 7-3
