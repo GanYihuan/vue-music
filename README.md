@@ -363,9 +363,12 @@ cnpm install vuex --save
 *(player.vue)*
 
 
-## 7-5, 7-6, 7-7
-##### (player.vue)
-##### 音乐播放界面: 动画效果
+## 7-5: 音乐播放界面: 全屏按钮动画效果, css 实现
+*(player.vue)*
+
+
+## 7-5, 7-6, 7-7: 音乐播放界面: 动画效果
+*(player.vue)*
 ##### transition 的事件监听处理
 ##### 不同浏览器css的配置
 ```
