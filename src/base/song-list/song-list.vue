@@ -1,5 +1,5 @@
 <template>
-  <!-- 03/歌曲列表 -->
+  <!-- static/03.png/歌曲列表 -->
   <div class="song-list">
     <ul>
       <li

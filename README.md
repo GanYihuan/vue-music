@@ -317,12 +317,11 @@ cnpm install vuex --save
 ## 6-8: 歌手详情页: 使用数据渲染界面
 *(music-list.vue)*
 ##### singer-detail处理歌手详情页数据, music-list渲染歌手详情页
-##### 歌手详情页: 歌手界面处理
 
 
-## 6-9
-##### (song-list.vue)
-##### 音乐播放界面: 歌曲列表
+## 6-9: 音乐播放界面: 使用数据渲染歌曲列表
+*(music-list.vue)*
+*(song-list.vue)*
 
 
 ## 6-10, 6-11, 6-12
