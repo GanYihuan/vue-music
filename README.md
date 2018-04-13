@@ -319,27 +319,26 @@ cnpm install vuex --save
 ##### singer-detail处理歌手详情页数据, music-list渲染歌手详情页
 
 
-## 6-9: 音乐播放界面: 使用数据渲染歌曲列表
+## 6-9: 歌手详情页: 使用数据渲染歌曲列表
 *(music-list.vue)*
 *(song-list.vue)*
 
 
-## 6-10, 6-11, 6-12: 音乐播放界面, 歌曲列表滚动动画效果
+## 6-10, 6-11, 6-12: 歌手详情页, 歌曲列表滚动动画效果
 *(song-list.vue)*
 *(music-list.vue)*
 
 
-## 6-13: 音乐播放界面: 不同浏览器css的配置
+## 6-13: 歌手详情页: 不同浏览器css的配置
 *(common/js/dom.js)*
 *(music-list.vue)*
 
 
-## 6-14: 音乐播放界面: 返回按钮, loading加载效果
+## 6-14: 歌手详情页: 返回按钮, loading加载效果
 *(music-list.vue)*
 
 
-## 7-1
-##### introduce 音乐播放界面:
+## 7-1: 音乐播放界面 introduce
 
 
 ## 7-2
