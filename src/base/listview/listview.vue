@@ -148,13 +148,13 @@
         if (!index && index !== 0) {
           return
         }
-        // '热门' Upper black side and bottom black side.
+        // 点击最上边和最下边空白部分
         if (index < 0) {
           index = 0
         } else if (index > this.heightList.length - 2) {
           index = this.heightList.length - 2
         }
-        // upper limit position
+        // 上限位置
         this.scrollY = -this.heightList[index]
         // 滚动到相应的歌手目的地。
         // Second parameter: animation duration.

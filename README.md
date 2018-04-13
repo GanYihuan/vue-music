@@ -255,7 +255,7 @@ cnpm install vue-lazyload --save
 *(scroll.vue)*
 
 
-## 5-8: 
+## 5-8: 歌手界面右侧索引点击最上边和最下边空白部分
 *(listview.vue)* 
 *(scroll.vue)*
 ##### 歌手界面: Right scroll component, fix bug
