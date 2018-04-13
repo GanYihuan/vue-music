@@ -253,9 +253,11 @@
       },
       // 歌曲后退
       next () {
+        // audio 控件 ready->songReady
         if (!this.songReady) {
           return
         }
+        // 只有一首歌曲存在时
         if (this.playlist.length === 1) {
           this.loop()
           // 优化: 3 防止播放控件无法触发, return不用调用songReady = false
