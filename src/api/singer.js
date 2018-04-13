@@ -2,7 +2,7 @@ import jsonp from 'common/js/jsonp'
 import { commonParams, options } from 'api/config'
 
 /**
- * 获取qq歌手数据
+ * 获取qq音乐, 歌手数据
  */
 export function getSingerList () {
   // static/jsonp4.png
@@ -22,7 +22,7 @@ export function getSingerList () {
 }
 
 /**
- * 03/音乐播放界面.png
+ * 03.png/歌曲列表
  * 获取歌曲数据
  * @param singerId
  */
