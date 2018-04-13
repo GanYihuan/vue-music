@@ -244,8 +244,9 @@ cnpm install vue-lazyload --save
 ##### 歌手界面: Right scroll component, scroll
 
 
-## 5-6, 5-7
-##### (listivew.vue) (scroll.vue)
+## 5-6: 歌手界面右侧索引滚动, 对应歌手列表也要滚动
+*(listview.vue)* 
+*(scroll.vue)*
 ##### 歌手界面: Right scroll component, highlight
 
 

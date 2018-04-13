@@ -80,7 +80,7 @@
     // data, props The values inside are monitored
     data () {
       return {
-        // Scroll to position
+        // 实时滚动的位置
         scrollY: -1,
         // Which one should be displayed
         currentIndex: 0,
@@ -140,7 +140,7 @@
         this.$refs.listview.refresh()
       },
       scroll (pos) {
-        // Gain slip distance
+        // 实时滚动的位置
         this.scrollY = pos.y
       },
       _scrollTo (index) {
@@ -179,7 +179,7 @@
     },
     watch: {
       data () {
-        // The change in data to the dom has a delay, dom rendering.
+        // 数据到dom的更改有延迟，dom呈现。
         setTimeout(() => {
           this._calculateHeight()
         }, 20)
@@ -205,14 +205,14 @@
         // Scroll in the middle.
         // length - 1, Not thinking about the last one.
         for (let i = 0; i < heightList.length; i++) {
-          // upper limit
+          // 上限
           let height1 = heightList[i]
-          // lower limit
+          // 下限
           let height2 = heightList[i + 1]
-          // -newY Scroll down newY to negative, take '-' to make it positive.
+          // -newY向下滚动newY为负数，取“-”使其为正。
           if (-newY >= height1 && -newY < height2) {
             this.currentIndex = i
-            // diff: The interval between the current block cap and the upper limit.
+            // diff: 当前块上限与下限之间的间隔。
             this.diff = newY + height2
             return
           }
