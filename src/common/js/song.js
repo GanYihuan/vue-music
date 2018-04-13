@@ -4,6 +4,7 @@ import { ERR_OK } from 'api/config'
 // String decoding
 import { Base64 } from 'js-base64'
 
+// https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&needNewCode=0&platform=yqq&order=listen&begin=0&num=80&songstatus=1&singermid=0025NhlN2yWrP4&jsonpCallback=__jp1
 export default class Song {
   constructor ({id, mid, singer, name, album, duration, image, url}) {
     this.id = id
