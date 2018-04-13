@@ -204,7 +204,7 @@
         }
         // Scroll in the middle.
         // length - 1, Not thinking about the last one.
-        for (let i = 0; i < heightList.length; i++) {
+        for (let i = 0; i < heightList.length - 1; i++) {
           // 上限
           let height1 = heightList[i]
           // 下限
