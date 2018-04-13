@@ -367,7 +367,7 @@ cnpm install vuex --save
 *(player.vue)*
 
 
-## 7-5, 7-6, 7-7: 音乐播放界面: 动画效果
+## 7-6: 音乐播放界面: 大唱片和小唱片缩放的 css3 动画效果
 *(player.vue)*
 ##### transition 的事件监听处理
 ##### 不同浏览器css的配置

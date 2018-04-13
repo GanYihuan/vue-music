@@ -448,6 +448,7 @@
         }
         return num
       },
+      // 返回大唱片与小唱片的缩放比例, 大唱片中心点即缩放点位置
       _getPosAndScale () {
         // 缩小后的唱片圆图大小
         const targetWidth = 40
