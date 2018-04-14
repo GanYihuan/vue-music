@@ -9,9 +9,11 @@
     >
       <!-- 内层圆 -->
       <circle class="progress-background" r="50" cx="50" cy="50" fill="transparent"/>
-      <!-- 外层圆 -->
+      <!-- 外层圆可以转 -->
+      <!-- stroke-dasharray: 描边的距离 -->
       <!-- stroke-dashoffset: 描边的偏移 -->
-      <circle class="progress-bar" r="50" cx="50" cy="50" fill="transparent" :stroke-dasharray="dashArray"
+      <circle class="progress-bar" r="50" cx="50" cy="50" fill="transparent"
+              :stroke-dasharray="dashArray"
               :stroke-dashoffset="dashOffset"/>
     </svg>
     <!-- i标签插入slot -->
