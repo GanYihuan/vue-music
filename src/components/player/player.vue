@@ -320,6 +320,7 @@
       },
       // 进度条进度改变
       onProgressBarChange (percent) {
+        // currentTime: 当前播放歌曲位于的播放时间
         const currentTime = this.currentSong.duration * percent
         this.$refs.audio.currentTime = currentTime
         if (!this.playing) {

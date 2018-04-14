@@ -1,5 +1,5 @@
 <template>
-  <!-- 歌曲控件.png -->
+  <!-- static/04.png/歌曲控件 -->
   <div
     class="progress-bar"
     ref="progressBar"
@@ -41,9 +41,9 @@
     methods: {
       progressTouchStart (e) {
         this.touch.init = true
-        // 第一次点击位置
+        // this.touch.startX: 第一次点击位置
         this.touch.startX = e.touches[0].pageX
-        // this.$refs.progress: 进度条发生偏移，生成的进度宽度
+        // this.$refs.progress: 进度条生成的进度宽度
         this.touch.left = this.$refs.progress.clientWidth
       },
       progressTouchMove (e) {
@@ -52,8 +52,9 @@
         }
         // progressBarWidth: 进度条能移动的距离: 进度条长度 - 小球长度
         const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-        // 移动距离
+        // detailX: 进度条移动距离 = 当前点击位置 - 上一次点击位置
         const detailX = e.touches[0].pageX - this.touch.startX
+        // Math.max(0, X): (X>0)返回的值不小于0
         const offsetWidth = Math.min(progressBarWidth, Math.max(0, this.touch.left + detailX))
         this._offset(offsetWidth)
       },
@@ -72,9 +73,9 @@
         this._triggerPercent()
       },
       _triggerPercent () {
-        // progressBarWidth: 进度条能移动的距离: 进度条长度 - 小球长度
+        // progressBarWidth: 进度条能移动的距离 = 进度条长度 - 小球长度
         const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-        // this.$refs.progress: 进度条进度比例
+        // this.$refs.progress: 进度条播放进度与总播放进度条长度比例
         const percent = this.$refs.progress.clientWidth / progressBarWidth
         // call父类的percentChange方法
         this.$emit('percentChange', percent)
