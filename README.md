@@ -22,6 +22,9 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 
 ## Vue-开发移动端音乐WebApp
+[](https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg)
+[](https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&needNewCode=0&platform=yqq&order=listen&begin=0&num=80&songstatus=1&singermid=0025NhlN2yWrP4&jsonpCallback=__jp1)
+[](https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0)
 
 
 ## 2-2: 项目安装
@@ -407,14 +410,13 @@ cnpm install create-keyframe-animation --save
 *(player.vue)*
 
 
-## 7-15: 音乐播放界面: mini播放器环形进度条 
+## 7-15: 音乐播放界面: mini播放器环形进度条 SVG
 *(progress-circle.vue)*
-##### SVG(?)
 
 
-## 7-16
-##### (player.vue) (common/js/mixin.js)
-##### 音乐播放界面: 歌曲控件播放模式样式改变
+## 7-16: 音乐播放界面: 歌曲控件播放模式样式改变
+*(player.vue)*
+*(common/js/mixin.js)*
 
 
 ## 7-17
