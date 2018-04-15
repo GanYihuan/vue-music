@@ -469,14 +469,17 @@ cnpm install lyric-parser
 *(common/js/mixin.js)公共代码*
 
 
-## 8-1
-##### (route.js) (recommend.vue) (recommend.js) (mutations.js) (getter.js) (disc.vue)
-##### 热门歌单: Vuex数据通讯
+## 8-1: 热门歌单: Vuex数据通讯
+*(route.js)*
+*(recommend.vue)* 
+*(recommend.js)* 
+*(mutations.js)* 
+*(getter.js)* 
+*(disc.vue)*
 
 
-## 8-2
+## 8-2: 热门歌单: 数据抓取
 ##### (api/recommend.js) 抓取失败
-##### 热门歌单: 数据抓取
 
 
 ## 8-3
