@@ -553,7 +553,7 @@ cnpm install good-storage --save
 *(search-list.vue)* 
 
 
-## 10-14, 10-15: 搜索界面: 搜索历史记录操作, 储存入缓存, 删除缓存
+## 10-15: 搜索界面: 搜索历史记录操作, 储存入缓存, 删除缓存
 *(common/js/cache.js)*
 
 
