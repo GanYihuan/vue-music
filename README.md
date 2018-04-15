@@ -504,9 +504,9 @@ cnpm install lyric-parser
 *(api/rank.js)*
 
 
-## 9-5
-##### (top-list.vue)
-##### 排行榜详情界面: 组件扩展, 前三排行奖杯
+## 9-5: 排行榜详情界面: 组件扩展, 前三排行奖杯
+*(top-list.vue)*
+*(song-list.vue)*
 
 
 ## 10-1
