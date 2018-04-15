@@ -491,9 +491,8 @@ cnpm install lyric-parser
 *(rank.vue)*
 
 
-## 9-2
-##### (rank.vue)
-##### 排行榜界面: 数据应用
+## 9-2: 排行榜界面: 数据应用
+*(rank.vue)*
 
 
 ## 9-3
