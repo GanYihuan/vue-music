@@ -542,10 +542,8 @@ cnpm install lyric-parser
 *(no-result.vue)*
 
 
-## 10-11, 10-12, 10-13
-##### (common/js/cache.js)
-##### 搜索界面: 搜索历史数据缓存到localStorage
-##### 作者开发
+## 10-11, 10-12, 10-13: 搜索界面: 搜索历史数据缓存到localStorage
+*(common/js/cache.js)*
 ```
 cnpm install good-storage --save
 ```
