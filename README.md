@@ -495,9 +495,8 @@ cnpm install lyric-parser
 *(rank.vue)*
 
 
-## 9-3
-##### (top-list.vue)
-##### 排行榜详情界面: Vuex数据通讯
+## 9-3: 排行榜详情界面: Vuex数据通讯
+*(top-list.vue)*
 
 
 ## 9-4
