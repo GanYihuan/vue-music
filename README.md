@@ -419,10 +419,10 @@ cnpm install create-keyframe-animation --save
 *(common/js/mixin.js)*
 
 
-## 7-17
-##### (common/js/mixin.js) (common/js/util.js)
-##### 音乐播放界面: 各种播放模式情况处理
-##### 洗牌函数 
+## 7-17: 音乐播放界面: 各种播放模式情况处理
+*(player.vue)*
+*(common/js/util.js)*
+*(common/js/mixin.js)*
 
 
 ## 7-18
