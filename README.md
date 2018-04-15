@@ -439,9 +439,9 @@ cnpm install create-keyframe-animation --save
 ##### 点击fcg就可以在chrome里显示url
 
 
-## 7-20
-##### (player.vue)
-##### 播放器歌词数据解析
+## 7-20: 播放器歌词数据解析
+*(player.vue)*
+*(common/js/song.js)*
 ##### base64解码和编码
 ```
 cnpm install js-base64 --save
