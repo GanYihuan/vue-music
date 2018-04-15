@@ -555,11 +555,11 @@ cnpm install good-storage --save
 
 ## 10-15: 搜索界面: 搜索历史记录操作, 储存入缓存, 删除缓存
 *(common/js/cache.js)*
+*(search.vue)* 
 
 
-## 10-16
-##### (confirm.js)
-##### 搜索界面: 确定提示框
+## 10-16: 搜索界面: 确定提示框
+*(confirm.js)*
 
 
 ## 10-17
