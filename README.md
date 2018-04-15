@@ -522,9 +522,9 @@ cnpm install lyric-parser
 *(search-box.vue)*
 
 
-## 10-4
-##### (suggest.vue) (api/search.js)
-##### 搜索界面: 搜索功能
+## 10-4: 搜索界面: 搜索功能
+*(suggest.vue)* 
+*(api/search.js)*
 
 
 ## 10-5
