@@ -592,9 +592,8 @@ cnpm install good-storage --save
 *(playlist.vue)*
 
 
-## 11-7
-##### (playlist.vue)
-##### mini歌曲列表：删除一首歌曲的动画
+## 11-7: mini歌曲列表：删除一首歌曲的动画
+*(playlist.vue)*
 
 
 ## 11-8, 11-9
