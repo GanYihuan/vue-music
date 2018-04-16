@@ -579,9 +579,8 @@ cnpm install good-storage --save
 *(player.vue)*
 
 
-## 11-3
-##### (playlist.vue)
-##### mini歌曲列表：vuex数据
+## 11-3: mini歌曲列表：vuex数据
+*(playlist.vue)*
 
 
 ## 11-4
