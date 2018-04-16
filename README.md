@@ -574,9 +574,9 @@ cnpm install good-storage --save
 *(playlist.vue)*
 
 
-## 11-2
-##### (playlist.vue)
-##### mini歌曲列表：显示和隐藏的控制
+## 11-2: mini歌曲列表：显示和隐藏的控制
+*(playlist.vue)*
+*(player.vue)*
 
 
 ## 11-3
