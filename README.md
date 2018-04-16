@@ -587,9 +587,9 @@ cnpm install good-storage --save
 *(playlist.vue)*
 
 
-## 11-5, 11-6
-##### (playlist.vue)
-##### mini歌曲列表：删除一首歌曲
+## 11-5, 11-6: mini歌曲列表：删除一首歌曲
+*(store/actions.js)*
+*(playlist.vue)*
 
 
 ## 11-7
