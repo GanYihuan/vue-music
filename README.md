@@ -596,8 +596,8 @@ cnpm install good-storage --save
 *(playlist.vue)*
 
 
-## 11-8, 11-9
-##### mixin公共js
+## 11-8, 11-9: mini歌曲列表 mixin公共js
+*(common/js/mixin.js)*
 
 
 ## 11-10
