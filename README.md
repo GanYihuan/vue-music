@@ -570,9 +570,8 @@ cnpm install good-storage --save
 *(search.vue)*
 
 
-## 11-1
-##### mini播放器最右侧的按钮点击后弹出的窗口
-##### mini歌曲列表：布局和功能介绍
+## 11-1: mini歌曲列表: 布局和功能介绍
+*(playlist.vue)*
 
 
 ## 11-2
