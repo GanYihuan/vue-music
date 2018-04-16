@@ -600,9 +600,8 @@ cnpm install good-storage --save
 *(common/js/mixin.js)*
 
 
-## 11-10
-##### (add-song.vue)
-##### mini歌曲列表：'添加歌曲到列表'的显示和隐藏的控制
+## 11-10: mini歌曲列表：'添加歌曲到列表'的显示和隐藏的控制
+*(add-song.vue)*
 
 
 ## 11-11
