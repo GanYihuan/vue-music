@@ -98,7 +98,7 @@
             }
           })
       },
-      // 下拉刷新处理函数
+      // 下拉刷新
       searchMore () {
         if (!this.hasMore) {
           return
@@ -111,14 +111,15 @@
          * zhida: 要歌手这个数据吗？
          * perpage: 每页返回的个数
          */
-        search(this.query, this.page, this.showSinger, perpage).then(res => {
-          if (res.code === ERR_OK) {
-            // concat: 数组拼接, result变化,数据变化, 传入scroll值变化, scroll 刷新
-            this.result = this.result.concat(this._genResult(res.data))
-            // 查看是否还有数据?
-            this._checkMore(res.data)
-          }
-        })
+        search(this.query, this.page, this.showSinger, perpage)
+          .then(res => {
+            if (res.code === ERR_OK) {
+              // concat: 数组拼接, result变化,数据变化, 传入scroll值变化, scroll 刷新
+              this.result = this.result.concat(this._genResult(res.data))
+              // 查看是否还有数据?
+              this._checkMore(res.data)
+            }
+          })
       },
       listScroll () {
         this.$emit('listScroll')

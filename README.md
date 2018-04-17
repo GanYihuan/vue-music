@@ -538,6 +538,8 @@ cnpm install lyric-parser
 ## 10-5: 搜索界面: 下拉加载
 *(suggest.vue)*
 *(scroll.vue)*
+*(loading.vue)*
+- ✨✨✨
 
  
 ## 10-6, 10-7, 10-8, 10-9: 搜索界面: 点击搜索界面的歌曲, 插入到播放列表里面

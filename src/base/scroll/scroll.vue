@@ -79,7 +79,7 @@
         if (this.pullup) {
           // 监听scrollEnd
           this.scroll.on('scrollEnd', () => {
-            // 屏幕快滚动到底部距离50px时,触发父级scrollToEnd
+            // 屏幕滚动到底部距离50px时,触发父级scrollToEnd
             if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
               // scrollToEnd: 滚动到底部
               this.$emit('scrollToEnd')
