@@ -34,9 +34,7 @@
 <script type="text/ecmascript-6">
   import Scroll from 'base/scroll/scroll'
   import Loading from 'base/loading/loading'
-  // 404
   import NoResult from 'base/no-result/no-result'
-  // 前端请求jsonp
   import { search } from 'api/search'
   import { ERR_OK } from 'api/config'
   import { createSong } from 'common/js/song'
@@ -85,9 +83,10 @@
         // 滚动到顶部
         this.$refs.suggest.scrollTo(0, 0)
         /**
-         * @param query 检索值
-         * @param page 检索第几页
-         * @param showSinger 要歌手这个数据吗？
+         * api/search.js
+         * @param query: 检索值
+         * @param page: 检索第几页
+         * @param showSinger: 要歌手这个数据吗？
          * @param perpage: 每页返回的个数
          */
         search(this.query, this.page, this.showSinger, perpage)
@@ -195,9 +194,9 @@
       ])
     },
     watch: {
-      // query: 检索值  props
+      // query: 检索值
       query (newQuery) {
-        // 请求服务端api/search.js
+        // 请求服务端(api/search.js)
         this.search(newQuery)
       }
     },
