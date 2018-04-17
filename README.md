@@ -509,25 +509,25 @@ cnpm install lyric-parser
 *(song-list.vue)*
 
 
-## 10-1: 搜索界面: 介绍搜索界面
+## 10-1: 搜索界面---介绍搜索界面
 - ✨
 
 
-## 10-2: 搜索界面: 搜索框组件
+## 10-2: 搜索界面---搜索框组件
 *(search.vue)* 
 *(search-box.vue)*
 - ✨✨
 1. 派发query值给外面
 
 
-## 10-3: 搜索界面: 抓取数据, 热门搜索
+## 10-3: 搜索界面---抓取数据, 热门搜索
 *(api/search.js)*
 *(search-box.vue)*
 - ✨✨✨
 1. jsonp请求
 
 
-## 10-4: 搜索界面: 搜索功能
+## 10-4: 搜索界面--搜索功能
 *(suggest.vue)* 
 *(api/search.js)*
 - ✨✨✨
@@ -535,14 +535,14 @@ cnpm install lyric-parser
 2. jsonp请求
 
 
-## 10-5: 搜索界面: 下拉加载
+## 10-5: 搜索界面---下拉加载
 *(suggest.vue)*
 *(scroll.vue)*
 *(loading.vue)*
 - ✨✨✨
 
  
-## 10-6, 10-7, 10-8, 10-9: 搜索界面: 点击搜索界面的歌曲, 插入到播放列表里面
+## 10-6, 10-7, 10-8, 10-9: 搜索界面---点击搜索界面的歌曲, 插入到播放列表里面
 *(store/action.js)*
 *(suggest.vue)*
 - ✨✨✨✨✨
@@ -579,12 +579,12 @@ npm install good-storage --save
 ```
 
 
-## 10-13: 搜索界面: 读取搜索历史数据localStorage
+## 10-13: 搜索界面---读取搜索历史数据localStorage
 *(common/js/cache.js)*
 - ✨✨
 
 
-## 10-14: 搜索界面: 搜索历史列表vuex数据渲染
+## 10-14: 搜索界面---搜索历史列表vuex数据渲染
 *(search-list.vue)* 
 *(search.vue)* 
 - ✨✨
@@ -596,92 +596,93 @@ npm install good-storage --save
 - ✨✨✨✨
 
 
-## 10-16: 搜索界面: 确定提示框
+## 10-16: 搜索界面---确定提示框
 *(confirm.js)*
+- ✨✨
 
 
-## 10-17: 搜索界面: 搜索歌曲滚动设置
+## 10-17: 搜索界面---搜索歌曲滚动设置
 *(search.vue)*
 
 
-## 10-18: 搜索界面: 设置mini播放器的位置显示
+## 10-18: 搜索界面---设置mini播放器的位置显示
 *(search.vue)*
 
 
-## 11-1: mini歌曲列表: 布局和功能介绍
+## 11-1: mini歌曲列表---布局和功能介绍
 - ✨
 *(playlist.vue)*
 
 
-## 11-2: mini歌曲列表：显示和隐藏的控制
+## 11-2:  mini歌曲列表---显示和隐藏的控制
 *(playlist.vue)*
 *(player.vue)*
 - ✨✨
 1. 防止冒泡
 
 
-## 11-3: mini歌曲列表：vuex数据渲染
+## 11-3:  mini歌曲列表---vuex数据渲染
 *(playlist.vue)*
 - ✨✨✨
 
 
-## 11-4: mini歌曲列表：滚动到当前播放歌曲位置
+## 11-4:  mini歌曲列表---滚动到当前播放歌曲位置
 *(playlist.vue)*
 - ✨✨✨
 
 
-## 11-5, 11-6: mini歌曲列表：删除一首歌曲
+## 11-5, 11-6:  mini歌曲列表---删除一首歌曲
 *(store/actions.js)*
 *(playlist.vue)*
 - ✨✨✨✨
 
 
-## 11-7: mini歌曲列表：删除一首歌曲的动画
+## 11-7:  mini歌曲列表---删除一首歌曲的动画
 *(playlist.vue)*
 *(confirm.vue)*
 - ✨✨✨
 1. transition-group
 
 
-## 11-8, 11-9: mini歌曲列表 mixin公共js
+## 11-8, 11-9: mini歌曲列表---mixin公共js
 *(common/js/mixin.js)*
 - ✨✨
 
 
-## 11-10: mini歌曲列表：'添加歌曲到列表'的显示和隐藏
+## 11-10:  mini歌曲列表---'添加歌曲到列表'的显示和隐藏
 *(add-song.vue)*
 - ✨✨
 
 
-## 11-11: 添加歌曲到列表：点击搜索结果歌曲, 保存歌曲到localStorage
+## 11-11: 添加歌曲到列表---点击搜索结果歌曲, 保存歌曲到localStorage
 *(add-song.vue)*
 *(common/js/mixin.js)*
 - ✨✨✨
 
 
-## 11-12: 添加歌曲到列表: 切换歌曲列表组件的两个按钮
+## 11-12: 添加歌曲到列表---切换歌曲列表组件的两个按钮
 *(switches.vue)*
 - ✨✨
 
 
-## 11-13, 11-14: 添加歌曲到列表: 最近播放列表
+## 11-13, 11-14: 添加歌曲到列表---最近播放列表
 *(add-song.vue)*
 *(common/js/cache.js)*
 - ✨✨✨✨✨
 
 
-## 11-15: 添加歌曲到列表: 搜索历史
+## 11-15: 添加歌曲到列表---搜索历史
 *(add-song.vue)*
 *(common/js/mixin.js)*
 - ✨✨✨
 
 
-## 11-16: 添加歌曲到列表: 顶部提示
+## 11-16: 添加歌曲到列表---顶部提示
 *(top-tip.vue)*
 - ✨✨
 
 
-## 11-17: 添加歌曲到列表: fix-bug
+## 11-17: 添加歌曲到列表---fix-bug
 *(add-song.vue)*
 - ✨✨
 
