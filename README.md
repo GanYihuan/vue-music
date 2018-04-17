@@ -619,11 +619,12 @@ cnpm install good-storage --save
 ## 11-11: 添加歌曲到列表：点击搜索结果歌曲, 保存歌曲到localStorage
 *(add-song.vue)*
 *(common/js/mixin.js)*
+- ✨✨✨
 
 
-## 11-12
-##### (switches.vue)
-##### 添加歌曲到列表： 切换歌曲列表组件的两个按钮
+## 11-12: 添加歌曲到列表: 切换歌曲列表组件的两个按钮
+*(switches.vue)*
+- ✨✨
 
 
 ## 11-13, 11-14
