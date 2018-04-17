@@ -728,9 +728,9 @@ npm install good-storage --save
 2. 404界面
 
 
-## 13-1
-##### (player.vue)
-##### 优化: 1, 2, 3
+## 13-1: 优化: 1, 2, 3
+*(player.vue)*
+- ✨✨✨✨
 
 
 ## 13-2
