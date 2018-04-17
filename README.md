@@ -616,8 +616,9 @@ cnpm install good-storage --save
 - ✨✨
 
 
-## 11-11: 添加歌曲到列表：保存搜索结果到localStorage
+## 11-11: 添加歌曲到列表：点击搜索结果歌曲, 保存歌曲到localStorage
 *(add-song.vue)*
+*(common/js/mixin.js)*
 
 
 ## 11-12
