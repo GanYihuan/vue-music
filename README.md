@@ -608,10 +608,12 @@ cnpm install good-storage --save
 
 ## 11-8, 11-9: mini歌曲列表 mixin公共js
 *(common/js/mixin.js)*
+- ✨✨
 
 
-## 11-10: mini歌曲列表：'添加歌曲到列表'的显示和隐藏的控制
+## 11-10: mini歌曲列表：'添加歌曲到列表'的显示和隐藏
 *(add-song.vue)*
+- ✨✨
 
 
 ## 11-11: 添加歌曲到列表：保存搜索结果到localStorage
