@@ -644,9 +644,9 @@ cnpm install good-storage --save
 - ✨✨
 
 
-## 11-17
-##### (add-song.vue)
-##### 添加歌曲到列表: fix-bug
+## 11-17: 添加歌曲到列表: fix-bug
+*(add-song.vue)*
+- ✨✨
 
 
 ## 12-1
