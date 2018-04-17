@@ -482,6 +482,7 @@ cnpm install lyric-parser
 ## 8-2: 热门歌单---数据抓取
 *(disc.vue)*
 *(api/recommend.js)抓取失败*
+- ✨✨
 
 
 ## 8-3: 热门歌单---数据应用
