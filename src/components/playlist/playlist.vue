@@ -90,7 +90,7 @@
         // 展示后刷新，防止dom没有被正确计算,导致scroll失效
         setTimeout(() => {
           this.$refs.listContent.refresh()
-          // currentSong: ...mapGetters(mixin.js)
+          // currentSong: ...mapGetters (mixin.js)
           this.scrollToCurrent(this.currentSong)
         }, 20)
       },
@@ -113,7 +113,7 @@
       },
       selectItem (item, index) {
         if (this.mode === playMode.random) {
-          // item 在 playlist 下的索引
+          // item 在 playlist 下的索引index
           index = this.playlist.findIndex((song) => {
             return song.id === item.id
           })
@@ -124,6 +124,7 @@
         this.setPlayingState(true)
       },
       scrollToCurrent (current) {
+        // current 在 sequenceList 下的索引index
         const index = this.sequenceList.findIndex((song) => {
           return current.id === song.id
         })

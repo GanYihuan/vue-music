@@ -590,11 +590,13 @@ cnpm install good-storage --save
 
 ## 11-4: mini歌曲列表：滚动到当前播放歌曲位置
 *(playlist.vue)*
+- ✨✨✨
 
 
 ## 11-5, 11-6: mini歌曲列表：删除一首歌曲
 *(store/actions.js)*
 *(playlist.vue)*
+- ✨✨✨✨
 
 
 ## 11-7: mini歌曲列表：删除一首歌曲的动画
