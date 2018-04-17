@@ -570,6 +570,7 @@ cnpm install lyric-parser
 1. localStorage封装: 
 storage.set(key, val)
 storage.get(key, def)
+storage.remove(key)
 2. sessionStorage封装: 
 storage.session.set(key, val)
 storage.session.get(key, def)
@@ -589,9 +590,10 @@ npm install good-storage --save
 - ✨✨
 
 
-## 10-15: 搜索界面: 搜索历史记录操作, 储存入缓存, 删除缓存
+## 10-15: 搜索界面---搜索历史记录储存缓存, 删除缓存
 *(common/js/cache.js)*
 *(search.vue)* 
+- ✨✨✨✨
 
 
 ## 10-16: 搜索界面: 确定提示框
@@ -616,7 +618,6 @@ npm install good-storage --save
 *(player.vue)*
 - ✨✨
 1. 防止冒泡
-
 
 
 ## 11-3: mini歌曲列表：vuex数据渲染

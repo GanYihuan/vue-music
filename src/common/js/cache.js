@@ -40,11 +40,12 @@ function insertArray (arr, val, compare, maxLen) {
 }
 
 /**
- * 删除数组中的值
+ * 删除arr数组中的compare
  * @param arr: 指定数组
  * @param compare: 返回函数
  */
 function deleteFromArray (arr, compare) {
+  // findIndex: 查找arr数组是否有compare元素, 返回该元素下标
   const index = arr.findIndex(compare)
   // 如果存在
   if (index > -1) {
@@ -80,7 +81,7 @@ export function deleteSearch (query) {
   deleteFromArray(searches, (item) => {
     return item === query
   })
-  // 设置缓存数据, 历史数据
+  // 保存缓存数据, 历史数据
   storage.set(SEARCH_KEY, searches)
   return searches
 }
