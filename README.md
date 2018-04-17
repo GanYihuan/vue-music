@@ -728,21 +728,23 @@ npm install good-storage --save
 2. 404界面
 
 
-## 13-1: 优化: 1, 2, 3
+## 13-1: fix-bug
 *(player.vue)*
 - ✨✨✨✨
 
 
-## 13-2
-##### 编译打包, 后端调用
+## 13-2: 编译打包
+- ✨✨✨✨
+1. 编译打包, 后端调用
 ```
 npm run build
 ```
-##### (config/index.js)
+2. *(config/index.js)*
 ```
 build(){port: 9000}
 ```
-##### (prod.server.js)
+3. *(prod.server.js)*
+##### 从 dev.conf.js copy
 ```
 node prod.server.js
 ```
