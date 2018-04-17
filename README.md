@@ -751,11 +751,11 @@ node prod.server.js
 ##### chrome -> localhost:9000
 
 
-## 13-3
-##### (router/index.js)
-##### 路由懒加载
-##### npm run build
-##### node prod.server.js
+## 13-3: 优化
+*(router/index.js)*
+- ✨✨✨
+1. 路由懒加载
+*(router/route.js)*
 
 
 ## 13-4
