@@ -708,9 +708,10 @@ npm install good-storage --save
 - ✨✨✨
 
 
-## 12-4
-##### (user-center.vue)
-##### 用户中心页---添加歌曲到列表
+## 12-4: 用户中心页---添加歌曲到列表
+*(user-center.vue)*
+*(playlist.vue)*
+- ✨✨✨
 
 
 ## 12-5, 12-6
