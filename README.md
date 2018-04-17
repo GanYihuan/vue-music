@@ -608,6 +608,7 @@ npm install good-storage --save
 
 ## 10-18: 搜索界面---设置mini播放器的位置显示
 *(search.vue)*
+- ✨✨
 
 
 ## 11-1: mini歌曲列表---布局和功能介绍
