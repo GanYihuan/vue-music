@@ -548,7 +548,7 @@ cnpm install lyric-parser
 - ✨✨✨✨✨
 
 
-## 10-10: 搜索界面: 优化
+## 10-10: 搜索界面---优化
 *(suggest.vue)* 
 *(no-result.vue)*
 *(common/js/util)*
@@ -558,8 +558,14 @@ cnpm install lyric-parser
 3. 滚动时失去焦点, 移动端输入键盘不会挡住界面
 
 
+## 10-11: 搜索界面---搜索历史数据缓存到localStorage, vuex数据储存
+*(search.vue)* 
+- ✨✨
+
+
 ## 10-11, 10-12, 10-13: 搜索界面: 搜索历史数据缓存到localStorage
 *(common/js/cache.js)*
+- ✨✨✨✨✨
 ```
 cnpm install good-storage --save
 ```
