@@ -758,9 +758,9 @@ node prod.server.js
 *(router/route.js)*
 
 
-## 13-4
-##### (package.json)
-##### vue升级, 修改package.json版本号
+## 13-4: vue升级
+*(package.json)*
+1. vue升级, 修改package.json版本号
 > "vue"版本号和"vue-template-compiler"要相等
 
 
