@@ -696,9 +696,10 @@ npm install good-storage --save
 1. 点击❤️按钮跳转到用户中心
 
 
-## 12-2
-##### (actions.js) (cache.js)
-##### 用户中心页---vuex数据通讯
+## 12-2: 用户中心页---vuex数据通讯
+*(store/actions.js)* 
+*(common/js/cache.js)*
+- ✨✨✨✨
 
 
 ## 12-3

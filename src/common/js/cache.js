@@ -127,11 +127,11 @@ export function loadPlay () {
 export function saveFavorite (song) {
   // 获取收藏列表localStorage
   let songs = storage.get(FAVORITE_KEY, [])
-  // 插入歌曲集合
+  // song插入到songs, 传入比较函数, song在里面的话把他挪到前面去
   insertArray(songs, song, (item) => {
     return song.id === item.id
   }, FAVORITE_MAX_LEN)
-  // 缓存到收藏列表localStorage
+  // 新数组缓存到本地
   storage.set(FAVORITE_KEY, songs)
   return songs
 }
@@ -143,9 +143,11 @@ export function saveFavorite (song) {
  */
 export function deleteFavorite (song) {
   let songs = storage.get(FAVORITE_KEY, [])
+  // 删除arr数组中的compare
   deleteFromArray(songs, (item) => {
     return item.id === song.id
   })
+  // 新数组缓存到本地
   storage.set(FAVORITE_KEY, songs)
   return songs
 }
