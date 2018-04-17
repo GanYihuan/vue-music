@@ -113,13 +113,14 @@
       },
       selectItem (item, index) {
         if (this.mode === playMode.random) {
+          // item 在 playlist 下的索引
           index = this.playlist.findIndex((song) => {
             return song.id === item.id
           })
         }
-        // mutation
+        // store/actions
         this.setCurrentIndex(index)
-        // mutation
+        // store/actions
         this.setPlayingState(true)
       },
       scrollToCurrent (current) {

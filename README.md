@@ -571,16 +571,21 @@ cnpm install good-storage --save
 
 
 ## 11-1: mini歌曲列表: 布局和功能介绍
+- ✨
 *(playlist.vue)*
 
 
 ## 11-2: mini歌曲列表：显示和隐藏的控制
 *(playlist.vue)*
 *(player.vue)*
+- ✨✨
+1. 防止冒泡
 
 
-## 11-3: mini歌曲列表：vuex数据
+
+## 11-3: mini歌曲列表：vuex数据渲染
 *(playlist.vue)*
+- ✨✨✨
 
 
 ## 11-4: mini歌曲列表：滚动到当前播放歌曲位置
