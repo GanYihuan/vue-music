@@ -14,7 +14,7 @@ const FAVORITE_KEY = '__favorite__'
 const FAVORITE_MAX_LEN = 200
 
 /**
- * 数据插入数组
+ * val数据插入arr数组, 且放置在第一位
  * @param arr: 储存数组
  * @param val: 储存值
  * @param compare: 比较函数
@@ -23,17 +23,18 @@ const FAVORITE_MAX_LEN = 200
 function insertArray (arr, val, compare, maxLen) {
   // findIndex: 查找arr数组是否有compare元素, 返回该元素下标
   const index = arr.findIndex(compare)
-  // 第一条数据
+  // 第一位置有compare这条数据
   if (index === 0) {
     return
   }
+  // compare这条数据不在第一位置
   if (index > 0) {
     arr.splice(index, 1)
   }
-  // 插入到第一个位置
+  // 往arr数组头部插入val这条数据
   arr.unshift(val)
   if (maxLen && arr.length > maxLen) {
-    // 末尾的数据删掉
+    // arr数组尾部的数据删掉
     arr.pop()
   }
 }
@@ -52,17 +53,18 @@ function deleteFromArray (arr, compare) {
 }
 
 /**
- * localStorage, search历史记录
+ * localStorage, 查询历史记录
  * @param query: 查询值
  * @returns {*}
  */
 export function saveSearch (query) {
-  // 获取缓存数据, 历史数据
+  // 获取缓存数据, 历史数据, 没有数据则返回空数组
   let searches = storage.get(SEARCH_KEY, [])
+  // val数据插入arr数组, 且放置在第一位
   insertArray(searches, query, (item) => {
     return item === query
   }, SEARCH_MAX_LEN)
-  // 设置缓存数据, 历史数据
+  // 储存缓存数据, 历史数据
   storage.set(SEARCH_KEY, searches)
   return searches
 }

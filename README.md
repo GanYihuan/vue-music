@@ -563,6 +563,21 @@ cnpm install lyric-parser
 - ✨✨
 
 
+## 10-12: 搜索界面---搜索历史数据缓存到localStorage
+*(common/js/cache.js)*
+*(store/actions.js)*
+- ✨✨✨✨✨
+1. localStorage封装: 
+storage.set(key, val)
+storage.get(key, def)
+2. sessionStorage封装: 
+storage.session.set(key, val)
+storage.session.get(key, def)
+```
+npm install good-storage --save
+```
+
+
 ## 10-11, 10-12, 10-13: 搜索界面: 搜索历史数据缓存到localStorage
 *(common/js/cache.js)*
 - ✨✨✨✨✨
