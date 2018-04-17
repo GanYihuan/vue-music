@@ -88,6 +88,7 @@ export const playerMixin = {
     },
     isFavorite (song) {
       // favoriteList: mutation
+      // 查找song是否在favoriteList里面, 如果在返回其所在索引index
       const index = this.favoriteList.findIndex((item) => {
         return item.id === song.id
       })

@@ -702,9 +702,10 @@ npm install good-storage --save
 - ✨✨✨✨
 
 
-## 12-3
-##### (user-center.vue)
-##### 用户中心页---收藏功能处理
+## 12-3: 用户中心页---收藏功能处理
+*(user-center.vue)*
+*(common/js/mixin.js)*
+- ✨✨✨
 
 
 ## 12-4
