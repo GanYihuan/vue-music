@@ -583,8 +583,10 @@ npm install good-storage --save
 - ✨✨
 
 
-## 10-14: 搜索界面: 搜索历史列表
+## 10-14: 搜索界面: 搜索历史列表vuex数据渲染
 *(search-list.vue)* 
+*(search.vue)* 
+- ✨✨
 
 
 ## 10-15: 搜索界面: 搜索历史记录操作, 储存入缓存, 删除缓存
