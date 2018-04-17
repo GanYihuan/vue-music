@@ -510,11 +510,14 @@ cnpm install lyric-parser
 
 
 ## 10-1: 搜索界面: 介绍搜索界面
+- ✨
 
 
 ## 10-2: 搜索界面: 搜索框组件
 *(search.vue)* 
 *(search-box.vue)*
+- ✨✨
+1. 派发query值给外面
 
 
 ## 10-3: 搜索界面: 抓取数据, 热门搜索
