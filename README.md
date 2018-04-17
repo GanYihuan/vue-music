@@ -601,6 +601,9 @@ cnpm install good-storage --save
 
 ## 11-7: mini歌曲列表：删除一首歌曲的动画
 *(playlist.vue)*
+*(confirm.vue)*
+- ✨✨✨
+1. transition-group
 
 
 ## 11-8, 11-9: mini歌曲列表 mixin公共js
