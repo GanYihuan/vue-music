@@ -627,9 +627,10 @@ cnpm install good-storage --save
 - ✨✨
 
 
-## 11-13, 11-14
-##### (add-song.vue)
-##### 添加歌曲到列表: 最近播放列表
+## 11-13, 11-14: 添加歌曲到列表: 最近播放列表
+*(add-song.vue)*
+*(common/js/cache.js)*
+- ✨✨✨✨✨
 
 
 ## 11-15

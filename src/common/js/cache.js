@@ -100,13 +100,13 @@ export function loadSearch () {
  * @returns {*}
  */
 export function savePlay (song) {
-  // 获取播放历史记录localStorage
+  // 获取播放历史记录localStorage, 没有的话返回空数组
   let songs = storage.get(PLAY_KEY, [])
-  // 当前歌曲插入到歌曲数组
+  // song插入到songs, 传入比较函数, song在里面的话把他挪到前面去
   insertArray(songs, song, (item) => {
     return song.id === item.id
   }, PLAY_MAX_LEN)
-  // 缓存到播放历史记录localStorage
+  // 新数组缓存到本地
   storage.set(PLAY_KEY, songs)
   return songs
 }
