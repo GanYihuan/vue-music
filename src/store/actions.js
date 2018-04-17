@@ -67,15 +67,15 @@ export const insertSong = function ({commit, state}, song) {
   let currentIndex = state.currentIndex
   // 记录当前歌曲
   let currentSong = playlist[currentIndex]
-  // 查找当前列表中是否有待插入的歌曲并返回其索引
+  // 查找playlist中是否有待插入的song, song并返回其索引
   let fpIndex = findIndex(playlist, song)
-  // 因为是插入歌曲，所以索引+1
+  // 插入了歌曲，所以索引+1
   currentIndex++
-  // 插入这首歌到当前索引位置
+  // 插入song到currentIndex位置
   playlist.splice(currentIndex, 0, song)
   // 如果已经包含了这首歌
   if (fpIndex > -1) {
-    // 如果当前插入的歌曲序号大于列表中的目标歌曲序号
+    // 如果当前插入的歌曲currentIndex大于列表中的目标歌曲fpIndex
     if (currentIndex > fpIndex) {
       playlist.splice(fpIndex, 1)
       currentIndex--
@@ -86,7 +86,7 @@ export const insertSong = function ({commit, state}, song) {
   // sequenceList: 当前歌曲列表, 不同模式下, 歌曲位置不同
   // currentSIndex: sequenceList 插入位置
   let currentSIndex = findIndex(sequenceList, currentSong) + 1
-  // 当前歌曲列表中是否有待插入的歌曲并返回其索引
+  // 当前歌曲列表sequenceList中是否有待插入的歌曲song, 并返回其索引
   let fsIndex = findIndex(sequenceList, song)
   sequenceList.splice(currentSIndex, 0, song)
   if (fsIndex > -1) {
