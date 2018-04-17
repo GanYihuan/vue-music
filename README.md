@@ -603,6 +603,7 @@ npm install good-storage --save
 
 ## 10-17: 搜索界面---搜索歌曲滚动设置
 *(search.vue)*
+- ✨✨✨
 
 
 ## 10-18: 搜索界面---设置mini播放器的位置显示
