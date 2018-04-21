@@ -196,10 +196,10 @@ host: '0.0.0.0',
 ##### 3. api/recommend.js/getDiscList Call the backend interface. *(build/webpack.dev.conf.js)*
 
 
-## 4-9: 使用热门歌单推荐数据, 渲染界面
+## 4-9: 推荐界面---热门歌单推荐, rendering interface
+- ✨✨
 *(recommend.vue)*
-##### 推荐界面: 热门歌单推荐 
-##### chrome 访问 /api/getDiscList 来查看从qq音乐抓取的数据 ?
+##### chrome interview /api/getDiscList To view the data captured from qq music.
 
 
 ## 4-10: scroll组件
