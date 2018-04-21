@@ -144,7 +144,7 @@ cnpm install jsonp --save
 - ✨✨✨
 
 
-## 4-4: Carousel component, better-scroll
+## 4-4: 推荐界面---Carousel component, better-scroll
 *(recommend.vue)*
 *(slider.vue)*
 *(common/js/dom.js)*
@@ -155,15 +155,12 @@ cnpm install better-scroll@0.1.15 --save
 ```
 
 
-## 4-5: 小点控制轮播图播放
+## 4-5: 推荐界面---carousel component indicating
 *(slider.vue)*
-##### 推荐界面: carousel component indicating
 
 
-## 4-6: 当窗口大小改变时, 当手动拖动轮播图时
+## 4-6: 推荐界面---carousel component fix bug Window view changes.
 *(slider.vue)*
-##### 推荐界面: carousel component fix bug
-##### Window changes.
 
 
 ## 4-7: 获取qq音乐 热门歌单推荐 数据, 还要绕过接口限制

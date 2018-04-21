@@ -4,7 +4,7 @@
       <!--
         Vue provide slot
         When the slider is referenced outside, the dom of the slider is inserted into the slot.
-        When the subcomponent template has only one slot without attributes,
+        When the sub component template has only one slot without attributes,
         The entire content fragment of the parent component is inserted into the DOM location
         of the slot and replaces the slot tag itself.
       -->
@@ -93,7 +93,7 @@
         this.$refs.sliderGroup.style.width = width + 'px'
       },
       _initDots () {
-        // 5
+        // length: 5
         this.dots = new Array(this.children.length)
       },
       _initSlider () {
@@ -120,10 +120,10 @@
         })
         // better-scroll Distributed event
         this.slider.on('scrollEnd', () => {
-          // pageIndex: which child element
+          // pageIndex: 第几个子元素
           let pageIndex = this.slider.getCurrentPage().pageX
           if (this.loop) {
-            // better-scroll copy two sample into the carousel head and tail, use to loop
+            // better-scroll copy two sample into the carousel head and tail, use to loop, reduce head sample (-1)
             pageIndex -= 1
           }
           this.currentPageIndex = pageIndex
@@ -138,12 +138,12 @@
         // currentPageIndex: Starting from 0
         let pageIndex = this.currentPageIndex + 1
         if (this.loop) {
-          // better-scroll copy two sample into the carousel head and tail, use to loop
+          // better-scroll copy two sample into the carousel head and tail, use to loop, add tail sample (+1)
           pageIndex += 1
         }
         this.timer = setTimeout(() => {
           /**
-           * better-scroll
+           * (better-scroll)
            * pageIndex: x
            * 0: y
            * 400: time interval
