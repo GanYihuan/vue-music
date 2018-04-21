@@ -10,7 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
-// 接口代理 绕过host和referer
+// Interface agents bypass host and referer.
 const express = require('express')
 // ajax
 const axios = require('axios')
@@ -30,27 +30,32 @@ const devWebpackConfig = merge(baseWebpackConfig, {
 
   // these devServer options should be customized in /config/index.js
   devServer: {
-    // 代理接口实现
-    // referer浏览器向web服务器发送请求的时候，一般会带上Referer，告诉服务器我是从哪个页面链接过来的，服务器基此可以获得一些信息用于处理。
+    // Proxy implementation
+    // referer: When the browser sends a request to the web server,
+    // it usually brings the Referer to the server, telling the server which page I'm linking from,
+    // and the server can get some information for processing.
     before (app) {
       app.get('/api/getDiscList', (req, res) => {
         var url = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'
-        // 发送http请求
-        axios.get(url, {
-          // 欺骗qq的请求
-          headers: {
-            referer: 'https://c.y.qq.com/',
-            host: 'c.y.qq.com'
-          },
-          // 参数, (recommend.js -> getDiscList -> data) 传递给url地址
-          params: req.query
-        }).then((response) => {
-          // res: 我们浏览器前端
-          // response.data: qq的响应数据
-          res.json(response.data)
-        }).catch((e) => {
-          console.log(e)
-        })
+        // Send an HTTP request
+        axios
+          .get(url, {
+            // The request to cheat qq
+            headers: {
+              referer: 'https://c.y.qq.com/',
+              host: 'c.y.qq.com'
+            },
+            // parameter, (recommend.js -> getDiscList -> data) pass to url address
+            params: req.query
+          })
+          .then((response) => {
+            // res: to font-end
+            // response.data: qq response data
+            res.json(response.data)
+          })
+          .catch((e) => {
+            console.log(e)
+          })
       })
       app.get('/api/lyric', (req, res) => {
         // qq音乐播放歌曲界面 -> chrome network -> js fcg preview

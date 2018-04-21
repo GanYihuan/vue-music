@@ -170,7 +170,7 @@ cnpm install better-scroll@0.1.15 --save
 *(App.vue)*
 *(recommend.js)*
 *(recommend.vue)*
-- ✨✨✨
+- ✨✨
 ##### Grab the song single data interface.
 ##### <keep-alive>: Dom is cached in memory, preventing the return to the recommended interface, and the interface flickers.
 ##### 500 server error, host problem. Bypass interface constraint
@@ -179,20 +179,21 @@ cnpm install better-scroll@0.1.15 --save
 ## 4-8: Bypass interface constraint
 *(build/webpack.dev.conf.js)*
 *(config/index.js)*
-> 前端请求我们的后端地址，后端请求qq服务器，
-> 后端接口代理绕过了qq检查请求数据。
-##### ajax 库 axios, 发起HTTPRequest, 修改 headers
+- ✨✨✨✨
+> The front-end requests our back-end address, and the back-end requests the qq server,
+> The back-end interface proxy bypasses the qq check request data.。
+##### axios, Start HTTPRequest, modify headers.
 ```
 cnpm install axios --save
 ```
-##### 1.修改config目录下的index.js文件
-##### 修改host *(config/index.js)*
+##### 1. Modify the index.js file in the config directory.
+##### Modify host *(config/index.js)*
 ```
 host: '0.0.0.0',
 ```
-##### 2.修改/build/webpack.dev.conf.js
-> 异步定义后端接口
-##### 3. api/recommend.js/getDiscList 调用后端接口 *(build/webpack.dev.conf.js)*
+##### 2.Modify /build/webpack.dev.conf.js
+> The back-end interface is defined asynchronously.
+##### 3. api/recommend.js/getDiscList Call the backend interface. *(build/webpack.dev.conf.js)*
 
 
 ## 4-9: 使用热门歌单推荐数据, 渲染界面

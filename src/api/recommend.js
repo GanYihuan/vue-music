@@ -39,12 +39,15 @@ export function getDiscList () {
     format: 'json'
   })
 
-  return axios.get(url, {
-    // api/recommend.js/getDiscList 调用后端接口 *(build/webpack.dev.conf.js)*    app.get('/api/getDiscList', (req, res) => {
-    params: data
-  }).then((res) => {
-    return Promise.resolve(res.data)
-  })
+  return axios
+    .get(url, {
+      // api/recommend.js/getDiscList call the back-end interface
+      // *(build/webpack.dev.conf.js)*  app.get('/api/getDiscList', (req, res) => {
+      params: data
+    })
+    .then((res) => {
+      return Promise.resolve(res.data)
+    })
 }
 
 export function getSongList (disstid) {
