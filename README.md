@@ -105,7 +105,7 @@ cnpm install babel-polyfill --save-dev
 *(tab.vue)*
 *(App.vue)*
 *(route.vue)*
-##### Navigation switch
+- ✨✨
 
 
 ## 4-1: 如何使用chrome操作查看qq音乐后台数据
