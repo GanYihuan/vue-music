@@ -46,14 +46,16 @@ npm run dev
 
 ## 2-3: 项目目录介绍
 *(build/webpack.base.config)*
-##### api: (后端请求, jsonp 请求, AJAX 请求)
+- ✨✨
+##### api: (后端请求, jsonp请求, AJAX请求)
 ##### common: (共用的静态资源: img, common js, style file)
-##### components: (组件)
+##### components: (通用组件)
 ##### base: (共用组件)
 ##### router: (路由)
 ##### store: (Vuex相关)
 ##### main.js (入口)
-##### npm install (scss依赖)
+##### npm install
+##### scss依赖
 ```
 "sass-loader": "^6.0.7",
 "node-sass": "^4.7.2",
