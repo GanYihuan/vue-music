@@ -144,7 +144,7 @@ cnpm install jsonp --save
 - ✨✨✨
 
 
-## 4-4: 轮播图组件, better-scroll
+## 4-4: Carousel component, better-scroll
 *(recommend.vue)*
 *(slider.vue)*
 *(common/js/dom.js)*

@@ -101,7 +101,6 @@
         // BScroll copy two sample into the carousel head and tail, use to loop
         /**
          * https://ustbhuangyi.github.io/better-scroll/doc/en/options-advanced.html#snap
-         *
          * momentum: If setted to true, you can turn on the momentum animation performed when the user quickly flicks on screen.
          * snap: this option is used to configure Slide component. You can enable slide by configure it as an Object
          * snapLoop: set to true to support slide loop
@@ -119,9 +118,9 @@
           snapThreshold: 0.2,
           snapSpeed: 400
         })
-        // better-scroll 派发事件
+        // better-scroll Distributed event
         this.slider.on('scrollEnd', () => {
-          // pageIndex: 第几个子元素
+          // pageIndex: which child element
           let pageIndex = this.slider.getCurrentPage().pageX
           if (this.loop) {
             // better-scroll copy two sample into the carousel head and tail, use to loop

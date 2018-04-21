@@ -1,8 +1,19 @@
+/**
+ * container define className?
+ * @param el
+ * @param className
+ * @returns {boolean}
+ */
 export function hasClass (el, className) {
   let reg = new RegExp('(^|\\s)' + className + '(\\s|$)')
   return reg.test(el.className)
 }
 
+/**
+ * add className
+ * @param el
+ * @param className
+ */
 export function addClass (el, className) {
   if (hasClass(el, className)) {
     return

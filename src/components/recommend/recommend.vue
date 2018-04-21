@@ -1,10 +1,10 @@
 <template>
   <!-- 01/推荐界面 -->
   <div class="recommend" ref="recommend">
-    <!-- :data="discList", 防止异步加载太慢，导致滚动条决定没有数据, 数据内容没撑开滚动的高度, scroll失效。-->
+    <!-- :data="discList": Prevents the asynchronous loading slow, resulting in the scroll bar without data to open the height of the scroll, scroll failure.。-->
     <scroll ref="scroll" class="recommend-content" :data="discList">
       <div>
-        <!-- v-if="recommends.length": 防止异步加载太慢，导致dom来不及加载而高度计算。 -->
+        <!-- v-if="recommends.length": Prevent asynchronous loading too slow, causing dom to not load, and high calculation error. -->
         <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
           <slider>
             <!-- Everything inside is inserted into the slot of the slider. -->
