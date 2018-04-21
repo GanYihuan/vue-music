@@ -80,10 +80,12 @@ resolve: {
 ```
 
 
-## 3-1: npm 依赖
+## 3-1: 入口, header组件
 *(App.vue)*
+*(main.js)*
 *(build/webpack.base.config)*
-##### es6 编译辅助操作
+- ✨✨
+##### es6转义
 ```
 npm install babel-runtime --save
 ```
@@ -91,7 +93,7 @@ npm install babel-runtime --save
 ```
 cnpm install fastclick --save
 ```
-##### es6 api 转义
+##### es6 api 转义, 能够使用其 api
 ```
 cnpm install babel-polyfill --save-dev
 ```
