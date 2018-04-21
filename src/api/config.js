@@ -1,6 +1,6 @@
 /**
  * config param
- * static -> jsonp2
+ * static/jsonp2.png
  * @type {{g_tk: number, inCharset: string, outCharset: string, notice: number, format: string}}
  */
 export const commonParams = {

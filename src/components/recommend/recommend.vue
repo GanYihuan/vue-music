@@ -79,7 +79,7 @@
         this.$refs.recommend.style.bottom = bottom
         this.$refs.scroll.refresh()
       },
-      // 防止由于网络延迟加载, 轮播图导致组件高度计算错误。
+      // Prevent the network delay loading, the carousel causes the component height calculation error.
       loadImage () {
         // This logic is executed only once.
         if (!this.checkloaded) {

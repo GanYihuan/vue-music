@@ -27,40 +27,40 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 [](https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0)
 
 
-## 2-2: 项目安装
+## 2-2: Project installation
 - ✨
 ```
 vue init webpack imooc-music
 ```
-##### 'RunTime-only' 更加轻量
-##### vue-router 'Y' vue路由
-##### ESLint 'Y' ES6风格代码检查器
+##### 'RunTime-only':  More light
+##### vue-router 'Y': vue router
+##### ESLint 'Y': ES6 style code checker.
 ##### Standard
-##### karma, e2e test 'N' 测试相关
-##### npm install 安装依赖
-##### 运行项目
+##### karma, e2e test 'N': relate test
+##### npm install
+##### run project
 ```
 npm run dev
 ```
 
 
-## 2-3: 项目目录介绍
+## 2-3: introduce project dialog
 *(build/webpack.base.config)*
 - ✨✨
-##### api: (后端请求, jsonp请求, AJAX请求)
-##### common: (共用的静态资源: img, common js, style file)
-##### components: (通用组件)
-##### base: (共用组件)
-##### router: (路由)
-##### store: (Vuex相关)
-##### main.js (入口)
+##### api: (Backend request, jsonp request, AJAX request.)
+##### common: (Shared static resources.: img, common js, style file)
+##### components: (Common component)
+##### base: (Share component)
+##### router: (route)
+##### store: (Vuex data)
+##### main.js (entrance)
 ##### npm install
-##### scss依赖
+##### scss relate
 ```
 "sass-loader": "^6.0.7",
 "node-sass": "^4.7.2",
 ```
-##### (webpack.base.conf.js) 别名配置, 使用后直接在 main.js 中引入相应的文件。
+##### (webpack.base.conf.js) alias config
 import 'common/scss/index.scss'
 ```
 context: path.resolve(__dirname, '..', dir),
@@ -80,37 +80,37 @@ resolve: {
 ```
 
 
-## 3-1: 入口, header组件
+## 3-1: entrance, header component
 *(App.vue)*
 *(main.js)*
 *(build/webpack.base.config)*
 - ✨✨
-##### es6转义
+##### es6 escape
 ```
 npm install babel-runtime --save
 ```
-##### 移动端点击300MS延迟。
+##### Click 300MS delay on the mobile end.
 ```
 cnpm install fastclick --save
 ```
-##### es6 api 转义, 能够使用其 api
+##### es6 api escape, can use that api
 ```
 cnpm install babel-polyfill --save-dev
 ```
 ##### (build/webpack.base.config)
-> 别名配置，缩写的应用程序文件路径。
+> Alias configuration, abbreviated application file path.
 
 
-## 3-2: 路由切换基础界面
+## 3-2: Route switching base interface.
 *(tab.vue)*
 *(App.vue)*
 *(route.vue)*
 - ✨✨
 
 
-## 4-1: 使用chrome操作查看qq音乐后台数据
+## 4-1: Use the chrome operation to view the qq music background data.
 - ✨✨
-##### chrome 查看jsonp (static/jsonp1.png)
+##### chrome check jsonp (static/jsonp1.png)
 ##### data
 ```
 https://m.y.qq.com/
@@ -118,28 +118,30 @@ https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
 ```
 
 
-## 4-2: jsonp讲解
+## 4-2: jsonp package
 *(common/js/jsonp.js)*
+- ✨✨✨
 ##### Promise:
-> 是一个用于传递异步消息的对象。
-> 表示将来会知道结果的事件(通常是异步操作)。
-> 和这个事件为进一步处理提供了统一的API。
+> pass async message object
+> an event which indicate that result will be know in the future
 ##### jsonp: 
-> 解决跨域问题
-> 动态地创建一个脚本标记，没有同源限制，它可以是跨域的，
-> 和脚本SRC地址指向第三方API url。
-> 提供一个回调函数来接收数据，而第三方生成响应作为json数据的包装器。
-> 浏览器调用回调函数，并将解析过的json对象作为参数传递。
-> 这个站点脚本可以处理回调函数中的传入数据。
+> Solve cross-domain issues.
+> Dynamically creating a script tag with no same-origin restriction, it can be cross-domain,
+> And the script SRC address points to the third-party API url.
+> A callback function is provided to receive data, while a third party generates a wrapper for the json data.
+> The browser calls the callback function and passes the parsed json object as a parameter.
+> This site script can handle incoming data from the callback function.
 ##### install jsonp
 ```
 cnpm install jsonp --save
 ```
 
 
-## 4-3: jsonp应用, 轮播图数据抓取
+## 4-3: jsonp use, Carousel data capture.
 *(api/config)*
 *(api/recommend.js)*
+*(recommend.vue)*
+- ✨✨✨
 
 
 ## 4-4: 轮播图组件, better-scroll
