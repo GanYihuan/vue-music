@@ -148,6 +148,7 @@ cnpm install jsonp --save
 *(recommend.vue)*
 *(slider.vue)*
 *(common/js/dom.js)*
+- ✨✨✨
 ##### 推荐界面: carousel component
 ##### better-scroll
 ```
@@ -157,23 +158,25 @@ cnpm install better-scroll@0.1.15 --save
 
 ## 4-5: 推荐界面---carousel component indicating
 *(slider.vue)*
+- ✨✨✨
 
 
 ## 4-6: 推荐界面---carousel component fix bug Window view changes.
 *(slider.vue)*
+- ✨✨
 
 
-## 4-7: 获取qq音乐 热门歌单推荐 数据, 还要绕过接口限制
+## 4-7: 推荐界面---Access to the qq music hot song list recommendation data
 *(App.vue)*
 *(recommend.js)*
 *(recommend.vue)*
-##### 推荐界面: 热门歌单推荐 
+- ✨✨✨
 ##### Grab the song single data interface.
-##### <keep-alive> dom缓存在内存中，防止返回到推荐界面，界面闪烁
-##### 500 server error, host problem. 要绕过接口限制
+##### <keep-alive>: Dom is cached in memory, preventing the return to the recommended interface, and the interface flickers.
+##### 500 server error, host problem. Bypass interface constraint
 
 
-## 4-8: 获取qq音乐 热门歌单推荐 数据, 绕过接口限制
+## 4-8: Bypass interface constraint
 *(build/webpack.dev.conf.js)*
 *(config/index.js)*
 > 前端请求我们的后端地址，后端请求qq服务器，
