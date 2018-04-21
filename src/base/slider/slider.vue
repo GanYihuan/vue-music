@@ -120,7 +120,7 @@
         })
         // better-scroll Distributed event
         this.slider.on('scrollEnd', () => {
-          // pageIndex: 第几个子元素
+          // pageIndex: locate which child element, return it index
           let pageIndex = this.slider.getCurrentPage().pageX
           if (this.loop) {
             // better-scroll copy two sample into the carousel head and tail, use to loop, reduce head sample (-1)
@@ -128,7 +128,6 @@
           }
           this.currentPageIndex = pageIndex
           if (this.autoPlay) {
-            // 手动拖动轮播图时会生成计时器, 要即使清理
             clearTimeout(this.timer)
             this._autoPlay()
           }
