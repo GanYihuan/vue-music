@@ -9,24 +9,24 @@
 
   export default {
     props: {
-      // [官方文档](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
-      // 有时候我们需要知道滚动的位置。
-      // 当 probeType 为 1 的时候，会非实时（屏幕滑动超过一定时间后）派发scroll 事件；
-      // 当 probeType 为 2 的时候，会在屏幕滑动的过程中实时的派发 scroll 事件；
-      // 当 probeType 为 3 的时候，不仅在屏幕滑动的过程中，而且在 momentum 滚动动画运行过程中实时派发 scroll 事件。
-      // 如果没有设置该值，其默认值为 0，即不派发 scroll 事件。
+      // [official document](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
+      // scroll potions
+      // probeType: 1，The scroll event is distributed over a certain period of time.
+      // probeType: 2，The process of screen slippage, distribute scroll event
+      // probeType: 3，The process of screen slippage，and In the momentum rolling animation process. distribute scroll event
+      // default ，probeType: 0，don't distribute scroll event
       probeType: {
         type: Number,
         default: 1
       },
-      // better-scroll 默认会阻止浏览器的原生 click 事件。
-      // 当设置为 true，better-scroll 会派发一个 click 事件，
-      // 我们会给派发的 event 参数加一个私有属性 _constructed，值为 true
+      // better-scroll: By default, the native click event of the browser is blocked.
+      // when set-to true，better-scroll will distributed click event
+      // add a attribute _constructed to distribute event params, which value it's true
       click: {
         type: Boolean,
         default: true
       },
-      // scroll监听滚动事件?
+      // scroll listen scroll event ?
       listenScroll: {
         type: Boolean,
         default: false
@@ -35,17 +35,17 @@
         type: Array,
         default: null
       },
-      // 是否下拉刷新
+      // drop-pull refresh ?
       pullup: {
         type: Boolean,
         default: false
       },
-      // 目的: 取消手机端键盘
+      // hide mobile keyboard
       beforeScroll: {
         type: Boolean,
         default: false
       },
-      // 刷新延迟
+      // delay refresh
       refreshDelay: {
         type: Number,
         default: 20
@@ -53,14 +53,14 @@
     },
     // mounted: dom ready
     mounted () {
-      // 确保dom渲染了
+      // maySure dom has rendering
       setTimeout(() => {
         this._initScroll()
       }, 20)
     },
     methods: {
       _initScroll () {
-        // undefined 的时候
+        // undefined
         if (!this.$refs.wrapper) {
           return
         }
@@ -68,20 +68,20 @@
           probeType: this.probeType,
           click: this.click
         })
-        // scroll 监听滚动
+        // scroll listen scroll
         if (this.listenScroll) {
           let me = this
           this.scroll.on('scroll', (pos) => {
             me.$emit('scroll', pos)
           })
         }
-        // pullup: 下拉刷新
+        // pullup: drop-down refresh
         if (this.pullup) {
-          // 监听scrollEnd
+          // listen scrollEnd
           this.scroll.on('scrollEnd', () => {
-            // 屏幕滚动到底部距离50px时,触发父级scrollToEnd
+            // The parent scrollToEnd is triggered when the screen is scrolling down to 50px.
             if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
-              // scrollToEnd: 滚动到底部
+              // scrollToEnd: scroll to bottom
               this.$emit('scrollToEnd')
             }
           })
@@ -93,7 +93,7 @@
         }
       },
       disable () {
-        // 如果this.scroll 存在
+        // if this.scroll exist
         this.scroll && this.scroll.disable()
       },
       enable () {
@@ -103,7 +103,7 @@
         this.scroll && this.scroll.refresh()
       },
       scrollTo () {
-        // apply: scrollTo会接受参数, apply传入scroll.scrollTo里面
+        // apply: scrollTo access parameter, apply pass into scroll.scrollTo
         this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
       },
       scrollToElement () {
@@ -119,7 +119,3 @@
     }
   }
 </script>
-
-<style scoped lang="scss" rel="stylesheet/scss">
-
-</style>

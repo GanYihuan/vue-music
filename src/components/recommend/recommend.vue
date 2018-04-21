@@ -9,11 +9,11 @@
           <slider>
             <!-- Everything inside is inserted into the slot of the slider. -->
             <div v-for="(item,index) in recommends" :key="index">
-              <!-- item.linkUrl 查看来源 -->
+              <!-- item.linkUrl check resource -->
               <!-- https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg -->
               <a :href="item.linkUrl">
                 <!-- class="needsclick": fastclick Don't intercept the click process. -->
-                <!-- loadImage: 防止由于网络延迟加载, 轮播图导致组件高度计算错误。-->
+                <!-- loadImage: Prevent the network delay loading, carousel causes the component height calculation error.-->
                 <img class="needsclick" :src="item.picUrl" @load="loadImage"/>
               </a>
             </div>

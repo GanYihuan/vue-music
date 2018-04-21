@@ -202,9 +202,9 @@ host: '0.0.0.0',
 ##### chrome interview /api/getDiscList To view the data captured from qq music.
 
 
-## 4-10: scroll组件
-*(scroll.vue)* [官方文档](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
-##### scroll组件
+## 4-10: scroll component
+- ✨✨
+*(scroll.vue)* [official document](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
 
 
 ## 4-11: 防止轮播图延迟加载, 造成高度计算错误
