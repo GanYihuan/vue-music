@@ -57,7 +57,7 @@ const UserCenter = resolve => {
 // Routing nested, parent-child routing relationships.
 export default new Router({
   routes: [
-    // 默认的路由路径
+    // default route path
     {
       path: '/',
       redirect: '/recommend'

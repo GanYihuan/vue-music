@@ -131,9 +131,10 @@ cnpm install babel-polyfill --save-dev
 - ✨✨
 
 
-## 4-1: Use the chrome operation to view the qq music background data.
+## 4-1: Use the chrome operation to view the qq music Back-end data.
 - ✨✨
-##### chrome check jsonp (static/jsonp1.png)
+##### chrome check jsonp 
+*(static/jsonp1.png)*
 ##### data
 ```
 https://m.y.qq.com/

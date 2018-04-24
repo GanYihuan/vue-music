@@ -2,8 +2,12 @@
   <div id="app">
     <m-header></m-header>
     <tab></tab>
-    <!-- keep-alive: 声明循环缓存到内存。 -->
-    <!-- dom缓存在内存中，防止返回到推荐界面，界面闪烁。 -->
+    <!--
+      keep-alive: The content is cached after the route is loaded,
+      and the cache is read when loaded to prevent continuous loading.
+    -->
+    <!--  <keep-alive exclude="Detail"> -->
+    <!-- name = Detail component Do not do cache processing. -->
     <keep-alive>
       <!-- router render here -->
       <router-view></router-view>
