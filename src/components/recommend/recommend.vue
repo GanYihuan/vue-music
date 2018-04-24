@@ -68,7 +68,7 @@
     },
     // get back-end data
     created () {
-      // fetch data (Rotograph data)
+      // fetch data (carousel data)
       this._getRecommend()
       // fetch data (歌单数据)
       this._getDiscList()

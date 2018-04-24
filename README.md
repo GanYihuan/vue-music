@@ -161,7 +161,7 @@ cnpm install jsonp --save
 ```
 
 
-## 4-3: jsonp use, Carousel data capture.
+## 4-3: jsonp use, Carousel data capture
 *(api/config)*
 *(api/recommend.js)*
 *(recommend.vue)*

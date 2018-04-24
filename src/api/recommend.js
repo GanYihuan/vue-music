@@ -4,10 +4,10 @@ import { commonParams, options } from './config'
 import axios from 'axios'
 
 /**
- * fetch data (carousel data)
+ * use jsonp fetch data (carousel data)
  */
 export function getRecommend () {
-  // static -> jsonp1.png: open in chrome, copy url(? before)
+  // static -> jsonp1.png: open in chrome, copy url(copy '?' before)
   const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
   // Object.assign: Is used to copy the values of all enumerable properties from one or more source objects to the target object.
   // It will return the target object.
