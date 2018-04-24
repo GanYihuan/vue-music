@@ -44,21 +44,43 @@ npm run dev
 ```
 
 
-## 2-3: introduce project dialog
+## 2-3: project dialog
 *(build/webpack.base.config)*
 - ✨✨
-##### api: (Backend request, jsonp request, AJAX request.)
-##### common: (Shared static resources.: img, common js, style file)
-##### components: (Common component)
-##### base: (Share component)
-##### router: (route)
-##### store: (Vuex data)
-##### main.js (entrance)
+##### dialog introduce
+1. api: (Back-end request, jsonp request, AJAX request.)
+2. common: (Shared static resources: img, common js, style)
+3. components: (Common component)
+4. base: (Share component)
+5. router: (route)
+6. store: (Vuex data)
+7. main.js (entrance)
 ##### npm install
-##### scss relate
+1. scss relate
 ```
 "sass-loader": "^6.0.7",
 "node-sass": "^4.7.2",
+```
+2. styl relate
+```
+"stylus": "^0.54.5",
+"stylus-loader": "^2.1.1",
+```
+##### eslintrc.js
+```
+rules: {
+    // allow paren-less arrow functions
+    'arrow-parens': 0,
+    // allow async-await
+    'generator-star-spacing': 'off',
+    // allow debugger during development
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'semi': ['error', 'never'],
+    'eol-last': 0,
+    'no-tabs': 0,
+    'indent': 0,
+    'space-before-function-paren': 0
+  }
 ```
 ##### (webpack.base.conf.js) alias config
 import 'common/scss/index.scss'
