@@ -106,6 +106,7 @@ resolve: {
 *(App.vue)*
 *(main.js)*
 *(build/webpack.base.config)*
+*(components/m-header.vue)*
 - ✨✨
 ##### es6 escape
 ```
@@ -115,11 +116,11 @@ npm install babel-runtime --save
 ```
 cnpm install fastclick --save
 ```
-##### es6 api escape, can use that api
+##### es6 api escape, mobile can use that api
 ```
 cnpm install babel-polyfill --save-dev
 ```
-##### (build/webpack.base.config)
+*(build/webpack.base.config)*
 > Alias configuration, abbreviated application file path.
 
 
