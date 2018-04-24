@@ -78,6 +78,11 @@
         // dom: 7
         let width = 0
         // The width of the parent container.
+        /*
+        * scrollWidth  是对象的实际内容的宽，不包边线宽度，会随对象中内容的多少改变
+        * clientWidth  是对象可见的宽度，不包滚动条等边线，会随窗口的显示大小改变
+        * offsetWidth  是对象的可见宽度，包滚动条等边线，会随窗口的显示大小改变
+        * */
         let sliderWidth = this.$refs.slider.clientWidth
         for (let i = 0; i < this.children.length; i++) {
           let child = this.children[i]
@@ -86,7 +91,7 @@
           child.style.width = sliderWidth + 'px'
           width += sliderWidth
         }
-        // Duplicate the two dom for loop (the multicast component)
+        // Duplicate the two dom for loop (the carousel component)
         if (this.loop && !isResize) {
           width += 2 * sliderWidth
         }

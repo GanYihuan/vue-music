@@ -4,7 +4,10 @@
     <!-- :data="discList": Prevents the asynchronous loading slow, resulting in the scroll bar without data to open the height of the scroll, scroll failure.。-->
     <scroll ref="scroll" class="recommend-content" :data="discList">
       <div>
-        <!-- v-if="recommends.length": Prevent asynchronous loading too slow, causing dom to not load, and high calculation error. -->
+        <!--
+          v-if="recommends.length": Prevent asynchronous loading too slow,
+          causing dom to not load, and high calculation error.
+        -->
         <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
           <slider>
             <!-- Everything inside is inserted into the slot of the slider. -->
