@@ -253,6 +253,7 @@ cnpm install vue-lazyload --save
 
 
 ## 5-1: 歌手界面 introduce
+- ✨
 
 
 ## 5-2: 抓取qq音乐, 歌手数据
