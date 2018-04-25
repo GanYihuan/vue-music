@@ -323,8 +323,9 @@ cnpm install vue-lazyload --save
 - ✨✨
 
 
-## 6-3: Vuex: 状态管理方式, 管理组件状态
+## 6-3: Vuex: State management mode, managing component state.
 *(static/vuex.png)*
+- ✨✨
 ```
 cnpm install vuex --save 
 ```
