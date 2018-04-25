@@ -560,7 +560,7 @@ cnpm install lyric-parser
 *(api/recommend.js)*
 
 
-## 8-3: 热门歌单---vuex数据应用
+## 8-3: 热门歌单---Vuex use data
 - ✨✨
 *(disc.vue)*
 
