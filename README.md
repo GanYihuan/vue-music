@@ -390,7 +390,8 @@ cnpm install vuex --save
 *(music-list.vue)*
 
 
-## 6-14: 歌手详情页: 返回按钮, loading加载效果
+## 6-14: 歌手详情页---back button, loading
+- ✨✨
 *(music-list.vue)*
 
 
