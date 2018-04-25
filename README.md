@@ -442,7 +442,8 @@ cnpm install create-keyframe-animation --save
 *(player.vue)*
 
 
-## 7-9: 音乐播放界面: 歌曲控件 前进后退, 防止极限点击
+## 7-9: 音乐播放界面---The song control moves forward and backwards, prevent limit clicks.
+- ✨✨✨
 *(player.vue)*
 
 
