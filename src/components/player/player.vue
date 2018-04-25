@@ -310,8 +310,9 @@
         // There's currentTime in audio.
         this.currentTime = e.target.currentTime
       },
+      // format time
       format (interval) {
-        // | 0: The integer is rounded down (math.floor)
+        // | 0: (math.floor)
         interval = interval | 0
         const minute = (interval / 60) | 0
         // _pad: Use 0 to fill 2 bits.
