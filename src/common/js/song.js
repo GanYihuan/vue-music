@@ -37,11 +37,12 @@ export default class Song {
   }
 }
 
-// 抽象出工厂方法
+// Abstract the factory method.
 export function createSong (musicData) {
   return new Song({
     id: musicData.songid,
     mid: musicData.songmid,
+    // some item have two singer
     singer: filterSinger(musicData.singer),
     name: musicData.songname,
     album: musicData.albumname,
@@ -51,6 +52,7 @@ export function createSong (musicData) {
   })
 }
 
+// some item have two singer
 function filterSinger (singer) {
   let ret = []
   if (!singer) {

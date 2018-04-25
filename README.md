@@ -358,11 +358,11 @@ cnpm install vuex --save
 *(api/singer.js)*
 
 
-## 6-6, 6-7: ? 歌手详情页: 歌曲列表数据处理
+## 6-6, 6-7: 歌手详情页---handle data
+- ✨✨✨✨
 *(singer-detail.vue)*
-*(common/js/song.js)难度高*
-##### 歌手详情页: 歌曲列表数据处理
-##### song类封装
+*(common/js/song.js)*
+##### song Class encapsulation
 
 
 ## 6-8: 歌手详情页: 使用数据渲染界面
