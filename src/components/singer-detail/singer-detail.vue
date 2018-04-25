@@ -1,13 +1,13 @@
 <template>
   <!-- static/03.png/歌手详情页 -->
-  <!-- singer-detail处理歌手详情页数据, music-list渲染歌手详情页-->
+  <!-- singer-detail handle data, music-list render 歌手详情页-->
   <transition name="slide">
     <music-list :songs="songs" :title="title" :bg-image="bgImage"></music-list>
   </transition>
 </template>
 
 <script type="text/ecmascript-6">
-  // 导入store/getters 的语法糖
+  // import store/getters Syntactic sugar
   import { mapGetters } from 'vuex'
   import { getSingerDetail } from 'api/singer'
   import { ERR_OK } from 'api/config'
@@ -27,7 +27,7 @@
       bgImage () {
         return this.singer.avatar
       },
-      // 对应getters, 获取state数据
+      // getters, get state data
       ...mapGetters([
         'singer'
       ])
@@ -48,12 +48,12 @@
             }
           })
       },
-      // 处理数据
+      // handle data
       _normalizeSongs (list) {
-        // 拿到数据后做标准化处理
+        // Do standardized processing when you get the data.
         let ret = []
         list.forEach((item) => {
-          // ES6 结构赋值
+          // ES6 Structure assignment
           let {musicData} = item
           if (musicData.songid && musicData.albummid) {
             // common/song.js/createSong

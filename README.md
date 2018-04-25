@@ -311,14 +311,16 @@ cnpm install vue-lazyload --save
 - ✨✨✨✨
 
 
-## 6-1: 歌手详情页: introduce
+## 6-1: 歌手详情页---introduce
+- ✨
 
 
-## 6-2: 点击歌手界面里的歌手, 跳转到歌手详情界面
+## 6-2: Click on the singer in the singer interface to jump to the singer details interface.
 *(route.js)*
 *(listview.vue)*
 *(singer.vue)*
 *(singer-detail.vue)*
+- ✨✨
 
 
 ## 6-3: Vuex: 状态管理方式, 管理组件状态

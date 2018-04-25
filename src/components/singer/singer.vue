@@ -7,7 +7,7 @@
       @select="selectSinger"
     >
     </list-view>
-    <!-- singer-detail will render it here. -->
+    <!-- singer-detail will render here. -->
     <router-view></router-view>
   </div>
 </template>
