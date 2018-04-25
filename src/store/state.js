@@ -9,11 +9,12 @@ const state = {
   singer: {},
   // Player: play
   playing: false,
-  // Player: full screen.
+  // Player: full screen
   fullScreen: false,
-  // Player: playlist.
+  // Player: playlist
   playlist: [],
-  // 播放器: 顺序列表(播放模式控制)
+  // Player: sequence list (control play mode)
+  // when play mode === random, playlist !== sequenceList
   sequenceList: [],
   // Player: sequence list (different play mode)
   mode: playMode.sequence,
@@ -21,7 +22,7 @@ const state = {
   currentIndex: -1,
   // Song single object
   disc: {},
-  // 排行榜界面跳转的界面: 榜单详情界面
+  // List interface jump interface: the list details interface.
   topList: {},
   // loadSearch: Read from the local cache. search-list
   searchHistory: loadSearch(),
