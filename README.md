@@ -538,7 +538,8 @@ cnpm install lyric-parser
 *(player.vue)*
 
 
-## 7-25: 音乐播放界面: 设置mini播放器的正确位置显示
+## 7-25: 音乐播放界面---Set the correct location of the mini player.
+- ✨✨✨✨✨
 *(player.vue)*
 *(common/js/mixin.js)公共代码*
 
