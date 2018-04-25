@@ -523,7 +523,8 @@ cnpm install lyric-parser
 ```
 
 
-## 7-21: 音乐播放界面: 歌词滚动
+## 7-21: 音乐播放界面---The lyrics scroll
+- ✨✨✨
 *(player.vue)*
 
 
