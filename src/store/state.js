@@ -1,5 +1,5 @@
 /**
- * 定义基础数据
+ * Defining basic data
  */
 
 import { playMode } from 'common/js/config'
@@ -7,27 +7,27 @@ import { loadSearch, loadPlay, loadFavorite } from 'common/js/cache'
 
 const state = {
   singer: {},
-  // 播放器: 播放
+  // Player: play
   playing: false,
-  // 播放器: 全屏
+  // Player: full screen.
   fullScreen: false,
-  // 播放器: 播放列表
+  // Player: playlist.
   playlist: [],
   // 播放器: 顺序列表(播放模式控制)
   sequenceList: [],
-  // 播放器: 不同播放模式
+  // Player: sequence list (different play mode)
   mode: playMode.sequence,
-  // 播放器: 当前播放歌曲索引
+  // Player: currently plays the song index.
   currentIndex: -1,
-  // 歌单对象
+  // Song single object
   disc: {},
   // 排行榜界面跳转的界面: 榜单详情界面
   topList: {},
-  // loadSearch: 从本地缓存去读search-list
+  // loadSearch: Read from the local cache. search-list
   searchHistory: loadSearch(),
-  // loadPlay: 从本地缓存去读搜索历史记录
+  // loadPlay: Read the search history from the local cache.
   playHistory: loadPlay(),
-  // 收藏列表
+  // Collect the list
   favoriteList: loadFavorite()
 }
 

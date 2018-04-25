@@ -1,5 +1,5 @@
 /**
- * mutations用action封装,修改多个mutations
+ * Mutation use action to encapsulate and modify multiple mutations.
  */
 import * as types from './mutation-types'
 import { playMode } from 'common/js/config'

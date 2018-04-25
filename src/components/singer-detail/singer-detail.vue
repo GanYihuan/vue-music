@@ -27,7 +27,7 @@
       bgImage () {
         return this.singer.avatar
       },
-      // getters, get state data
+      // getters, get (vuex/state.js) data
       ...mapGetters([
         'singer'
       ])

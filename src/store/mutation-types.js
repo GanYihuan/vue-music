@@ -1,5 +1,5 @@
 /**
- * 操作修改数据的动作名称
+ * The action name of the operation to modify the data.
  * @type {string}
  */
 

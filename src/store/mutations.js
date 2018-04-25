@@ -1,5 +1,5 @@
 /**
- * 修改数据操作
+ * Modify data operation
  */
 
 import * as types from './mutation-types'

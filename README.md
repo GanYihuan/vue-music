@@ -331,20 +331,21 @@ cnpm install vuex --save
 ```
 
 
-## 6-4: Vuex配置
-##### (store/vuex.js) 项目里使用vuex
-##### (store/state.js) 定义基础数据
-##### (store/getters.js) 映射state数据, 取数据到组件中
-##### (store/mutation-types.js) 操作修改数据的动作名称
-##### (store/mutations.js) 修改数据操作
-##### (store/action.js) 异步修改, mutation封装
+## 6-4: Vuex config
+- ✨✨✨
+1. *(store/vuex.js)*: use vuex
+2. *(store/state.js)*: defined data
+3. *(store/getters.js)*: Mapping state data, get state
+4. *(store/mutation-types.js)*: The action name of the operation to modify the data.
+5. *(store/mutations.js)*: Modify data operation
+6. *(store/action.js)*: Mutation use action to encapsulate and modify multiple mutations.
 ```
-  // 调用 mutation，使用 mutation 类型常量。设置 state
+  // call mutation，use mutation type constant。set state
         ...mapMutations({
           setSinger: 'SET_SINGER'
         })
   
-  // 对应 getters, 获取 state 数据
+  // getters, get (vuex/state.js) data
         ...mapGetters([
           'singer'
         ])
