@@ -288,15 +288,16 @@ cnpm install vue-lazyload --save
 - ✨✨✨✨
 
 
-## 5-7: 歌手界面----On the right side of the index scroll fix bug
+## 5-7: 歌手界面---On the right side of the index scroll fix bug
 *(listview.vue)* 
 *(scroll.vue)*
-- ✨✨✨
+- ✨✨✨✨
 
 
-## 5-8: 歌手界面右侧索引点击最上边和最下边空白部分
+## 5-8: 歌手界面---On the right side of the index scroll, Click on the top and bottom empty margins.
 *(listview.vue)* 
 *(scroll.vue)*
+- ✨✨✨✨
 
 
 ## 5-9: 歌手界面 fixtitle

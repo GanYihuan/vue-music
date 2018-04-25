@@ -155,10 +155,10 @@
         } else if (index > this.heightList.length - 2) {
           index = this.heightList.length - 2
         }
-        // up Limit position
+        // celling position
         this.scrollY = -this.heightList[index]
         // Scroll to the corresponding element
-        // Second parameter: animation duration.
+        // Second parameter: animation duration
         this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
       },
       _calculateHeight () {
