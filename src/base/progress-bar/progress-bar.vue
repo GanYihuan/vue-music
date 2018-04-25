@@ -21,7 +21,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  // css,各大浏览兼容
+  // css, Browsers are compatible.
   import { prefixStyle } from 'common/js/dom'
 
   const progressBtnWidth = 16
@@ -35,26 +35,26 @@
       }
     },
     created () {
-      // 共享数据
+      // Shared data
       this.touch = {}
     },
     methods: {
       progressTouchStart (e) {
         this.touch.init = true
-        // this.touch.startX: 第一次点击位置
+        // this.touch.startX: Click on location for the first time.
         this.touch.startX = e.touches[0].pageX
-        // this.$refs.progress: 进度条生成的进度宽度
+        // this.$refs.progress: Progress bar generated progress width.
         this.touch.left = this.$refs.progress.clientWidth
       },
       progressTouchMove (e) {
         if (!this.touch.init) {
           return
         }
-        // progressBarWidth: 进度条能移动的距离: 进度条长度 - 小球长度
+        // progressBarWidth: The distance that the progress bar can move: the length of the progress bar - the length of the ball.
         const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-        // detailX: 进度条移动距离 = 当前点击位置 - 上一次点击位置
+        // detailX: Progress bar moving distance = current click position - last click position.
         const detailX = e.touches[0].pageX - this.touch.startX
-        // Math.max(0, X): (X>0)返回的值不小于0
+        // Math.max(0, X): (X>0) The value returned is not less than 0.
         const offsetWidth = Math.min(progressBarWidth, Math.max(0, this.touch.left + detailX))
         this._offset(offsetWidth)
       },
@@ -64,19 +64,19 @@
       },
       progressClick (e) {
         // getBoundingClientRect: static -> getBoundingClientRect.png
-        // getBoundingClientRect: 获得页面中某个元素的左，上，右和下分别相对浏览器视窗的位置
+        // getBoundingClientRect: Get the left, top, right, and bottom of an element on the page relative to the browser window.
         const rect = this.$refs.progressBar.getBoundingClientRect()
-        // e.pageX:  点击点距离browser page最左侧的距离
+        // e.pageX: Click the distance to the left of browser page.
         const offsetWidth = e.pageX - rect.left
         this._offset(offsetWidth)
         this._triggerPercent()
       },
       _triggerPercent () {
-        // progressBarWidth: 进度条能移动的距离 = 进度条长度 - 小球长度
+        // progressBarWidth: Progress bar can move distance = progress bar length - ball length.
         const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-        // this.$refs.progress: 进度条播放进度与总播放进度条长度比例
+        // this.$refs.progress: Progress bar play progress and total play progress bar length ratio.
         const percent = this.$refs.progress.clientWidth / progressBarWidth
-        // call父类的percentChange方法
+        // The percentChange method of the call parent class.
         this.$emit('percentChange', percent)
       },
       _offset (offsetWidth) {
@@ -86,13 +86,13 @@
     },
     watch: {
       percent (newPercent) {
-        // !this.touch.init: 进度条拖动过程不能够去修改
+        // !this.touch.init: The progress bar dragging process cannot be modified.
         if (newPercent >= 0 && !this.touch.init) {
-          // progressBtnWidth: 播放控件小球
-          // this.$refs.progressBar.clientWidth: 歌曲进度条长度
-          // progressBarWidth: 歌曲实际能播放进度条长度
+          // progressBtnWidth: Play control ball
+          // this.$refs.progressBar.clientWidth: Song progress bar length.
+          // progressBarWidth: The song can actually play the length of the progress bar.
           const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-          // offsetWidth: 已经播放了的进度条长度
+          // offsetWidth: The length of the progress bar has been shown.
           const offsetWidth = progressBarWidth * newPercent
           this._offset(offsetWidth)
         }

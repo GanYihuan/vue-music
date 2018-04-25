@@ -457,7 +457,8 @@ cnpm install create-keyframe-animation --save
 *(player.vue)*
 
 
-## 7-12: 音乐播放界面: 歌曲控件歌曲进度条随歌曲播放而增长
+## 7-12: 音乐播放界面---The song control song progress bar grows with the song.
+- ✨✨✨
 *(progress-bar.vue)*
 *(player.vue)*
 
