@@ -199,7 +199,7 @@ cnpm install better-scroll@0.1.15 --save
 ##### 500 server error, host problem. Bypass interface constraint
 
 
-## 4-8: Bypass interface constraint
+## 4-8: bypass interface constraint
 *(build/webpack.dev.conf.js)*
 *(config/index.js)*
 - ✨✨✨✨
