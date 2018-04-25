@@ -554,7 +554,7 @@ cnpm install lyric-parser
 *(disc.vue)*
 
 
-## 8-2: 热门歌单---get data, fetch fail
+## 8-2: 热门歌单---fetch data, fetch fail
 - ✨✨
 *(disc.vue)*
 *(api/recommend.js)*
@@ -565,7 +565,7 @@ cnpm install lyric-parser
 *(disc.vue)*
 
 
-## 9-1: 排行榜界面---get data
+## 9-1: 排行榜界面---fetch data
 - ✨✨
 *(rank.vue)*
 
@@ -582,7 +582,7 @@ cnpm install lyric-parser
 *(top-list.vue)*
 
 
-## 9-4: 排行榜详情界面---抓取数据, 数据应用
+## 9-4: 排行榜详情界面---fetch data, use data
 - ✨✨✨
 *(top-list.vue)*
 *(api/rank.js)*
