@@ -570,11 +570,11 @@ cnpm install lyric-parser
 *(rank.vue)*
 
 
-## 9-2: 排行榜界面---vuex数据应用
+## 9-2: 排行榜界面---Vuex use data
 - ✨✨
 *(rank.vue)*
 *(loading.vue)*
-1. 设置合适高度, 刷新scroll
+1. set height, refresh scroll
 
 
 ## 9-3: 排行榜详情界面---Vuex数据通讯
