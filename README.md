@@ -480,7 +480,8 @@ cnpm install create-keyframe-animation --save
 *(progress-circle.vue)*
 
 
-## 7-16: 音乐播放界面: 歌曲控件播放模式样式改变
+## 7-16: 音乐播放界面---Song control playback mode style change.
+- ✨✨
 *(player.vue)*
 *(common/js/mixin.js)*
 
