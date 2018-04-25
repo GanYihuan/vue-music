@@ -1,7 +1,10 @@
 <template>
   <!-- 01/推荐界面 -->
   <div class="recommend" ref="recommend">
-    <!-- :data="discList": Prevents the asynchronous loading slow, resulting in the scroll bar without data to open the height of the scroll, scroll failure.。-->
+    <!--
+      :data="discList": Prevents the asynchronous loading slow,
+      resulting in the scroll bar without data to open the height of the scroll, scroll failure.
+    -->
     <scroll ref="scroll" class="recommend-content" :data="discList">
       <div>
         <!--
