@@ -605,11 +605,11 @@ cnpm install lyric-parser
 1. Distribute the query value to the outside.
 
 
-## 10-3: 搜索界面---抓取数据, 热门搜索
+## 10-3: 搜索界面---fetch data, 热门搜索
 - ✨✨✨
 *(api/search.js)*
 *(search-box.vue)*
-1. jsonp请求
+1. jsonp request
 
 
 ## 10-4: 搜索界面--搜索功能
