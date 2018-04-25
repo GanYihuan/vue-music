@@ -528,7 +528,8 @@ cnpm install lyric-parser
 *(player.vue)*
 
 
-## 7-22, 7-23: 音乐播放界面: 歌词界面和唱片界面之间切换
+## 7-22, 7-23: 音乐播放界面---Switch between the lyrics interface and the record interface.
+- ✨✨✨
 *(player.vue)*
 
 
