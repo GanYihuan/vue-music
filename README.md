@@ -620,7 +620,7 @@ cnpm install lyric-parser
 2. jsonp request
 
 
-## 10-5: 搜索界面---下拉加载
+## 10-5: 搜索界面---drop-down refresh
 - ✨✨✨
 *(suggest.vue)*
 *(scroll.vue)*
