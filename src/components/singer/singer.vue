@@ -59,9 +59,9 @@
             }
           })
       },
-      // Normalization gets the data.
+      // handle data.
       _normalizeSinger (list) {
-        // The data structure, myself define
+        // The data structure, custom
         let map = {
           hot: {
             title: HOT_NAME,
@@ -69,14 +69,14 @@
           }
         }
         list.forEach((item, index) => {
-          // 前十条数据, 含有'热门'
+          // Top 10 data, include '热门'
           if (index < HOT_SINGER_LEN) {
             map.hot.items.push(new Singer({
               name: item.Fsinger_name,
               id: item.Fsinger_mid
             }))
           }
-          // after ten data
+          // Top 10 data after
           const key = item.Findex
           if (!map[key]) {
             map[key] = {
@@ -89,7 +89,7 @@
             id: item.Fsinger_mid
           }))
         })
-        // Object traversal is unordered and processed as an ordered list.
+        // Object traversal is unordered and processed as an ordered list
         let ret = []
         let hot = []
         for (let key in map) {
@@ -100,7 +100,7 @@
             hot.push(val)
           }
         }
-        // Ascending order
+        // ascending order
         ret.sort((a, b) => {
           return a.title.charCodeAt(0) - b.title.charCodeAt(0)
         })
