@@ -372,7 +372,8 @@ cnpm install vuex --save
 ##### singer-detail handle 歌手详情页 data, music-list render 歌手详情页
 
 
-## 6-9: 歌手详情页: 使用数据渲染歌曲列表
+## 6-9: 歌手详情页---calculate size
+- ✨✨
 *(music-list.vue)*
 *(song-list.vue)*
 

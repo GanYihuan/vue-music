@@ -27,7 +27,7 @@
         type: Array,
         default: []
       },
-      // 为07.png服务,排行奖杯
+      // for 07.png, trophy
       rank: {
         type: Boolean,
         default: false
@@ -35,14 +35,13 @@
     },
     methods: {
       selectItem (item, index) {
-        // 派发给父组件
         this.$emit('select', item, index)
       },
       getDesc (song) {
         return `${song.singer}·${song.album}`
       },
       getRankCls (index) {
-        // 前三名要显示奖杯
+        // The top three will display the trophy.
         if (index <= 2) {
           return `icon icon${index}`
         } else {
