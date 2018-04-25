@@ -1,6 +1,6 @@
 <template>
   <!-- static/03.png/歌手详情页 -->
-  <!-- singer-detail处理歌手详情页数据, music-list渲染歌手详情页-->
+  <!-- singer-detail handle data, music-list render 歌手详情页-->
   <div class="music-list">
     <div class="back" @click="back">
       <i class="icon-back"></i>
@@ -43,11 +43,11 @@
   import Scroll from 'base/scroll/scroll'
   import Loading from 'base/loading/loading'
   import SongList from 'base/song-list/song-list'
-  // 不同浏览器css的配置
+  // Configuration of different browser CSS.
   import { prefixStyle } from 'common/js/dom'
-  // 公共代码
+  // Common code
   import { playlistMixin } from 'common/js/mixin'
-  // 传入 vuex 的 (store/actions.js)
+  // pass to (vuex/store/actions.js)
   import { mapActions } from 'vuex'
 
   const RESERVED_HEIGHT = 40
@@ -55,7 +55,7 @@
   const backdrop = prefixStyle('backdrop-filter')
 
   export default {
-    // 插入mixin, 组件同名方法覆盖mixin里面的方法
+    // insert mixin, The component method of the same name overrides the method in a mixin.
     mixins: [playlistMixin],
     props: {
       bgImage: {
@@ -70,7 +70,7 @@
         type: String,
         default: ''
       },
-      // 07.png 奖杯
+      // 07.png trophy
       rank: {
         type: Boolean,
         default: false
@@ -78,12 +78,12 @@
     },
     data () {
       return {
-        // 传入 vuex 的 action
+        // pass to vuex action
         scrollY: 0
       }
     },
     computed: {
-      // 歌手图
+      // singer
       bgStyle () {
         return `background-image:url(${this.bgImage})`
       }
@@ -98,14 +98,14 @@
       this.$refs.list.$el.style.top = `${this.imageHeight}px`
     },
     methods: {
-      // 如果出现mini播放器，则歌手列表bottom要增加相应高度来显示它
+      // If there is a mini player, the singer list bottom will add height to display it.
       handlePlaylist (playlist) {
         const bottom = playlist.length > 0 ? '60px' : ''
         this.$refs.list.$el.style.bottom = bottom
         this.$refs.list.refresh()
       },
       scroll (pos) {
-        // 传入 vuex 的 action
+        // pass to vuex action
         this.scrollY = pos.y
       },
       back () {
@@ -124,7 +124,7 @@
           list: this.songs
         })
       },
-      // 传入 vuex 的 actions.js
+      // pass to vuex actions.js
       ...mapActions([
         'selectPlay',
         'randomPlay'
@@ -137,7 +137,7 @@
         let zIndex = 0
         let blur = 0
         const percent = Math.abs(newVal / this.imageHeight)
-        // 往下拉
+        // pull down
         if (newVal > 0) {
           scale = 1 + percent
           zIndex = 10
@@ -145,9 +145,9 @@
           blur = Math.min(percent * 20, 20)
         }
         this.$refs.layer.style[transform] = `translate3d(0,${translateY}px,0)`
-        // 高斯模糊: apple手机能查看
+        // Gaussian blur: the apple phone can view.
         this.$refs.filter.style[backdrop] = `blur(${blur}px)`
-        // 滚动到顶部
+        // scroll to top
         if (newVal < this.minTransalteY) {
           zIndex = 10
           this.$refs.bgImage.style.paddingTop = 0

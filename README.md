@@ -365,9 +365,11 @@ cnpm install vuex --save
 ##### song Class encapsulation
 
 
-## 6-8: 歌手详情页: 使用数据渲染界面
+## 6-8: 歌手详情页---user data render interface
+- ✨✨
 *(music-list.vue)*
-##### singer-detail处理歌手详情页数据, music-list渲染歌手详情页
+*(singer-detail.vue)*
+##### singer-detail handle 歌手详情页 data, music-list render 歌手详情页
 
 
 ## 6-9: 歌手详情页: 使用数据渲染歌曲列表
