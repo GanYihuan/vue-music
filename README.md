@@ -185,7 +185,7 @@ cnpm install better-scroll@0.1.15 --save
 - ✨✨✨✨
 
 
-## 4-6: 推荐界面---carousel component fix bug Window view changes.
+## 4-6: 推荐界面---carousel component fix bug Window view changes
 *(slider.vue)*
 - ✨✨
 

@@ -65,24 +65,25 @@
           return
         }
         this._setSliderWidth(true)
+        // better-scroll: refresh
         this.slider.refresh()
       })
     },
     methods: {
       _setSliderWidth (isResize) {
-        // How many elements are there in the entire list?
+        // How many elements are there in the entire list ?
         this.children = this.$refs.sliderGroup.children
         // console.log(this.children.length)
-        // 5
+        // dom: 5
         // BScroll copy two sample into the carousel head and tail, use to loop
         // dom: 7
         let width = 0
-        // The width of the parent container.
         /*
         * scrollWidth  是对象的实际内容的宽，不包边线宽度，会随对象中内容的多少改变
         * clientWidth  是对象可见的宽度，不包滚动条等边线，会随窗口的显示大小改变
         * offsetWidth  是对象的可见宽度，包滚动条等边线，会随窗口的显示大小改变
         * */
+        // The width of the parent container.
         let sliderWidth = this.$refs.slider.clientWidth
         for (let i = 0; i < this.children.length; i++) {
           let child = this.children[i]

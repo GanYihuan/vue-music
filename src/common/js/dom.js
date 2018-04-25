@@ -18,8 +18,12 @@ export function addClass (el, className) {
   if (hasClass(el, className)) {
     return
   }
+  // The split() method is used to split a string into an array of strings
   let newClass = el.className.split(' ')
+  // The push() method adds one or more elements to the end of the array and returns a new length.
   newClass.push(className)
+  // The join() method is used to put all the elements in an array into a string.
+  // The element is separated by the specified delimiter.
   el.className = newClass.join(' ')
 }
 
