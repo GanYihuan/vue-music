@@ -577,7 +577,7 @@ cnpm install lyric-parser
 1. set height, refresh scroll
 
 
-## 9-3: 排行榜详情界面---Vuex数据通讯
+## 9-3: 排行榜详情界面---Vuex Data communications
 - ✨✨
 *(top-list.vue)*
 
