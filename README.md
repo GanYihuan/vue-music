@@ -437,7 +437,8 @@ cnpm install create-keyframe-animation --save
 ```
 
 
-## 7-8: 音乐播放界面: 歌曲控件 播放按钮
+## 7-8: 音乐播放界面---Song control play button.
+- ✨✨✨
 *(player.vue)*
 
 
