@@ -469,7 +469,8 @@ cnpm install create-keyframe-animation --save
 *(player.vue)*
 
 
-## 7-14: 音乐播放界面: 歌曲控件歌曲进度条能点击某个位置播放
+## 7-14: 音乐播放界面---The song control song progress bar can be played at a certain location.
+- ✨✨
 *(progress-bar.vue)*
 *(player.vue)*
 
