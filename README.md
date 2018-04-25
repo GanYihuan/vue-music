@@ -45,8 +45,8 @@ npm run dev
 
 
 ## 2-3: project dialog
-*(build/webpack.base.config)*
 - ✨✨
+*(build/webpack.base.config)*
 ##### dialog introduce
 1. api: (Back-end request, jsonp request, AJAX request.)
 2. common: (Shared static resources: img, common js, style)
@@ -103,11 +103,11 @@ resolve: {
 
 
 ## 3-1: entrance, header component
+- ✨✨
 *(App.vue)*
 *(main.js)*
 *(build/webpack.base.config)*
 *(components/m-header.vue)*
-- ✨✨
 ##### es6 escape
 ```
 npm install babel-runtime --save
@@ -125,10 +125,10 @@ cnpm install babel-polyfill --save-dev
 
 
 ## 3-2: Route switching base interface.
+- ✨✨
 *(tab.vue)*
 *(App.vue)*
 *(route.vue)*
-- ✨✨
 
 
 ## 4-1: Use the chrome operation to view the qq music Back-end data.
@@ -143,8 +143,8 @@ https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
 
 
 ## 4-2: jsonp package
-*(common/js/jsonp.js)*
 - ✨✨✨
+*(common/js/jsonp.js)*
 ##### Promise:
 > pass async message object
 > an event which indicate that result will be know in the future
@@ -162,17 +162,17 @@ cnpm install jsonp --save
 
 
 ## 4-3: jsonp use, Carousel data capture
+- ✨✨✨
 *(api/config)*
 *(api/recommend.js)*
 *(recommend.vue)*
-- ✨✨✨
 
 
 ## 4-4: 推荐界面---Carousel component, better-scroll
+- ✨✨✨
 *(recommend.vue)*
 *(slider.vue)*
 *(common/js/dom.js)*
-- ✨✨✨
 ##### 推荐界面: carousel component
 ##### better-scroll
 ```
@@ -181,28 +181,28 @@ cnpm install better-scroll@0.1.15 --save
 
 
 ## 4-5: 推荐界面---carousel component indicating
-*(slider.vue)*
 - ✨✨✨✨
+*(slider.vue)*
 
 
 ## 4-6: 推荐界面---carousel component fix bug Window view changes
-*(slider.vue)*
 - ✨✨
+*(slider.vue)*
 
 
 ## 4-7: 推荐界面---Access to the qq music hot song list recommendation data
+- ✨✨
 *(App.vue)*
 *(recommend.js)*
 *(recommend.vue)*
-- ✨✨
 ##### Grab the song single data interface
 ##### 500 server error, host problem. Bypass interface constraint
 
 
 ## 4-8: bypass interface constraint
+- ✨✨✨✨
 *(build/webpack.dev.conf.js)*
 *(config/index.js)*
-- ✨✨✨✨
 > The front-end requests our back-end address, and the back-end requests the qq server,
 > The back-end interface proxy bypasses the qq check request data.。
 ##### axios, Start HTTPRequest, modify headers.
@@ -220,25 +220,25 @@ host: '0.0.0.0',
 
 
 ## 4-9: 推荐界面---热门歌单推荐, rendering interface
-*(recommend.vue)*
 - ✨✨
+*(recommend.vue)*
 ##### chrome interview /api/getDiscList To view the data captured from qq music.
 
 
 ## 4-10: scroll component
-*(scroll.vue)* [official document](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
 - ✨✨
+*(scroll.vue)* [official document](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
 
 
 ## 4-11: fix bug: Prevent the network delay loading, the carousel causes the component height calculation error
-*(recommend.vue)*
 - ✨✨✨
+*(recommend.vue)*
 
 
 ## 4-12: image laz-load, fastclick optimize
+- ✨✨
 *(recommend.vue)*
 *(main.js)*
-- ✨✨
 ##### image laz-load: reload depend on scroll
 ```
 cnpm install vue-lazyload --save
@@ -247,9 +247,9 @@ cnpm install vue-lazyload --save
 
 
 ## 4-13: loading component
+- ✨✨
 *(loading.vue)*
 *(recommend.vue)*
-- ✨✨
 
 
 ## 5-1: 歌手界面 introduce
@@ -257,58 +257,58 @@ cnpm install vue-lazyload --save
 
 
 ## 5-2: fetch qq mustic, singer data
+- ✨✨
 *(api/singer.js)* 
 *(singer.vue)*
-- ✨✨
 [singer data](https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0)
 
 
 ## 5-3: handle singer data
+- ✨✨✨✨
 *(singer.vue)* 
 *(common/js/singer.js)*
-- ✨✨✨✨
 
 
 ## 5-4: rendering singer interface
-*(listview.vue) singer list* 
-*(singer.vue) handle data*
 - ✨✨
+*(listView.vue) singer list* 
+*(singer.vue) handle data*
 
 
 ## 5-5: 歌手界面---The right index scroll component
-*(listview.vue)* 
+- ✨✨✨✨
+*(listView.vue)* 
 *(scroll.vue)*
 *(common/dom.js)*
-- ✨✨✨✨
 
 
 ## 5-6: 歌手界面---On the right side of the index scroll, the corresponding singer list will also scroll.
-*(listview.vue)* 
-*(scroll.vue)*
 - ✨✨✨✨
+*(listView.vue)* 
+*(scroll.vue)*
 
 
 ## 5-7: 歌手界面---On the right side of the index scroll fix bug
-*(listview.vue)* 
-*(scroll.vue)*
 - ✨✨✨✨
+*(listView.vue)* 
+*(scroll.vue)*
 
 
 ## 5-8: 歌手界面---On the right side of the index scroll, Click on the top and bottom empty margins.
-*(listview.vue)* 
-*(scroll.vue)*
 - ✨✨✨✨
+*(listView.vue)* 
+*(scroll.vue)*
 
 
 ## 5-9: 歌手界面---fixtitle
-*(listview.vue)* 
 - ✨✨✨
+*(listView.vue)* 
 
 
 ## 5-10: 歌手界面---fixtitle animate, loading
-*(listview.vue)* 
-*(loading.vue)* 
 - ✨✨✨✨
+*(listView.vue)* 
+*(loading.vue)* 
 
 
 ## 6-1: 歌手详情页---introduce
@@ -316,16 +316,16 @@ cnpm install vue-lazyload --save
 
 
 ## 6-2: Click on the singer in the singer interface to jump to the singer details interface.
+- ✨✨
 *(route.js)*
-*(listview.vue)*
+*(listView.vue)*
 *(singer.vue)*
 *(singer-detail.vue)*
-- ✨✨
 
 
 ## 6-3: Vuex: State management mode, managing component state.
-*(static/vuex.png)*
 - ✨✨
+*(static/vuex.png)*
 ```
 cnpm install vuex --save 
 ```
@@ -352,7 +352,8 @@ cnpm install vuex --save
 ```
 
 
-## 6-5: 歌手详情页, 抓取歌手详情页数据
+## 6-5: 歌手详情页---get data
+- ✨✨
 *(singer-detail.vue)*
 *(api/singer.js)*
 
@@ -517,53 +518,53 @@ cnpm install lyric-parser
 
 
 ## 8-1: 热门歌单---Vuex数据通讯
+- ✨✨
 *(route.js)*
 *(recommend.vue)* 
 *(recommend.js)* 
 *(mutations.js)* 
 *(getter.js)* 
 *(disc.vue)*
-- ✨✨
 
 
 ## 8-2: 热门歌单---数据抓取
+- ✨✨
 *(disc.vue)*
 *(api/recommend.js)抓取失败*
-- ✨✨
 
 
 ## 8-3: 热门歌单---vuex数据应用
-*(disc.vue)*
 - ✨✨
+*(disc.vue)*
 
 
 ## 9-1: 排行榜界面---抓取数据
-*(rank.vue)*
 - ✨✨
+*(rank.vue)*
 
 
 ## 9-2: 排行榜界面---vuex数据应用
+- ✨✨
 *(rank.vue)*
 *(loading.vue)*
-- ✨✨
 1. 设置合适高度, 刷新scroll
 
 
 ## 9-3: 排行榜详情界面---Vuex数据通讯
-*(top-list.vue)*
 - ✨✨
+*(top-list.vue)*
 
 
 ## 9-4: 排行榜详情界面---抓取数据, 数据应用
+- ✨✨✨
 *(top-list.vue)*
 *(api/rank.js)*
-- ✨✨✨
 
 
 ## 9-5: 排行榜详情界面---组件扩展, 前三排行奖杯
+- ✨✨✨
 *(top-list.vue)*
 *(song-list.vue)*
-- ✨✨✨
 
 
 ## 10-1: 搜索界面---介绍搜索界面
@@ -571,59 +572,59 @@ cnpm install lyric-parser
 
 
 ## 10-2: 搜索界面---搜索框组件
+- ✨✨
 *(search.vue)* 
 *(search-box.vue)*
-- ✨✨
 1. 派发query值给外面
 
 
 ## 10-3: 搜索界面---抓取数据, 热门搜索
+- ✨✨✨
 *(api/search.js)*
 *(search-box.vue)*
-- ✨✨✨
 1. jsonp请求
 
 
 ## 10-4: 搜索界面--搜索功能
+- ✨✨✨
 *(suggest.vue)* 
 *(api/search.js)*
-- ✨✨✨
 1. ES6
 2. jsonp请求
 
 
 ## 10-5: 搜索界面---下拉加载
+- ✨✨✨
 *(suggest.vue)*
 *(scroll.vue)*
 *(loading.vue)*
-- ✨✨✨
 
  
 ## 10-6, 10-7, 10-8, 10-9: 搜索界面---点击搜索界面的歌曲, 插入到播放列表里面
+- ✨✨✨✨✨
 *(store/action.js)*
 *(suggest.vue)*
-- ✨✨✨✨✨
 
 
 ## 10-10: 搜索界面---优化
+- ✨✨✨
 *(suggest.vue)* 
 *(no-result.vue)*
 *(common/js/util)*
-- ✨✨✨
 1. 当没有搜索结果时返回404
 2. 优化请求: 节流函数, 处理搜索框输入字符时, 搜索结果不是输入一个字符出来结果, 输入一定时间后再去请求
 3. 滚动时失去焦点, 移动端输入键盘不会挡住界面
 
 
 ## 10-11: 搜索界面---搜索历史数据缓存到localStorage, vuex数据储存
-*(search.vue)* 
 - ✨✨
+*(search.vue)* 
 
 
 ## 10-12: 搜索界面---搜索历史数据缓存到localStorage
+- ✨✨✨✨✨
 *(common/js/cache.js)*
 *(store/actions.js)*
-- ✨✨✨✨✨
 1. localStorage封装: 
 storage.set(key, val)
 storage.get(key, def)
@@ -637,157 +638,157 @@ npm install good-storage --save
 
 
 ## 10-13: 搜索界面---读取搜索历史数据localStorage
-*(common/js/cache.js)*
 - ✨✨
+*(common/js/cache.js)*
 
 
 ## 10-14: 搜索界面---搜索历史列表vuex数据渲染
+- ✨✨
 *(search-list.vue)* 
 *(search.vue)* 
-- ✨✨
 
 
 ## 10-15: 搜索界面---搜索历史记录储存缓存, 删除缓存
+- ✨✨✨✨
 *(common/js/cache.js)*
 *(search.vue)* 
-- ✨✨✨✨
 
 
 ## 10-16: 搜索界面---确定提示框
-*(confirm.js)*
 - ✨✨
+*(confirm.js)*
 
 
 ## 10-17: 搜索界面---搜索歌曲滚动设置
-*(search.vue)*
 - ✨✨✨
+*(search.vue)*
 
 
 ## 10-18: 搜索界面---设置mini播放器的位置显示
-*(search.vue)*
 - ✨✨
+*(search.vue)*
 
 
 ## 11-1: mini歌曲列表---布局和功能介绍
-*(playlist.vue)*
 - ✨
+*(playlist.vue)*
 
 
 ## 11-2:  mini歌曲列表---显示和隐藏的控制
+- ✨✨
 *(playlist.vue)*
 *(player.vue)*
-- ✨✨
 1. 防止冒泡
 
 
 ## 11-3:  mini歌曲列表---vuex数据渲染
-*(playlist.vue)*
 - ✨✨✨
+*(playlist.vue)*
 
 
 ## 11-4:  mini歌曲列表---滚动到当前播放歌曲位置
-*(playlist.vue)*
 - ✨✨✨
+*(playlist.vue)*
 
 
 ## 11-5, 11-6:  mini歌曲列表---删除一首歌曲
+- ✨✨✨✨
 *(store/actions.js)*
 *(playlist.vue)*
-- ✨✨✨✨
 
 
 ## 11-7:  mini歌曲列表---删除一首歌曲的动画
+- ✨✨✨
 *(playlist.vue)*
 *(confirm.vue)*
-- ✨✨✨
 1. transition-group
 
 
 ## 11-8, 11-9: mini歌曲列表---mixin公共js
-*(common/js/mixin.js)*
 - ✨✨
+*(common/js/mixin.js)*
 
 
 ## 11-10:  mini歌曲列表---'添加歌曲到列表'的显示和隐藏
-*(add-song.vue)*
 - ✨✨
+*(add-song.vue)*
 
 
 ## 11-11: 添加歌曲到列表---点击搜索结果歌曲, 保存歌曲到localStorage
+- ✨✨✨
 *(add-song.vue)*
 *(common/js/mixin.js)*
-- ✨✨✨
 
 
 ## 11-12: 添加歌曲到列表---切换歌曲列表组件的两个按钮
-*(switches.vue)*
 - ✨✨
+*(switches.vue)*
 
 
 ## 11-13, 11-14: 添加歌曲到列表---最近播放列表
+- ✨✨✨✨✨
 *(add-song.vue)*
 *(common/js/cache.js)*
-- ✨✨✨✨✨
 
 
 ## 11-15: 添加歌曲到列表---搜索历史
+- ✨✨✨
 *(add-song.vue)*
 *(common/js/mixin.js)*
-- ✨✨✨
 
 
 ## 11-16: 添加歌曲到列表---顶部提示
-*(top-tip.vue)*
 - ✨✨
+*(top-tip.vue)*
 
 
 ## 11-17: 添加歌曲到列表---fix-bug
-*(add-song.vue)*
 - ✨✨
+*(add-song.vue)*
 
 
 ## 12-1: 用户中心页---切换 '我喜欢的' '最近听的'
+- ✨✨
 *(user-center.vue)*
 *(m-header.vue)*
-- ✨✨
 1. 点击❤️按钮跳转到用户中心
 
 
 ## 12-2: 用户中心页---vuex数据通讯
+- ✨✨✨✨
 *(store/actions.js)* 
 *(common/js/cache.js)*
-- ✨✨✨✨
 
 
 ## 12-3: 用户中心页---收藏功能处理
+- ✨✨✨
 *(user-center.vue)*
 *(common/js/mixin.js)*
-- ✨✨✨
 
 
 ## 12-4: 用户中心页---添加歌曲到列表
+- ✨✨✨
 *(user-center.vue)*
 *(playlist.vue)*
-- ✨✨✨
 
 
 ## 12-5: 用户中心页---随机播放
-*(user-center.vue)*
 - ✨✨✨
+*(user-center.vue)*
 1. 回退按钮功能
 2. 随机播放按钮功能
 
 
 ## 12-6: 用户中心页---设置高度, 404界面
-*(user-center.vue)*
 - ✨✨✨
+*(user-center.vue)*
 1. 设置高度
 2. 404界面
 
 
 ## 13-1: fix-bug
-*(player.vue)*
 - ✨✨✨✨
+*(player.vue)*
 
 
 ## 13-2: 编译打包
@@ -809,22 +810,22 @@ node prod.server.js
 
 
 ## 13-3: 优化
-*(router/index.js)*
 - ✨✨✨
+*(router/index.js)*
 1. 路由懒加载
 *(router/route.js)*
 
 
 ## 13-4: vue升级
-*(package.json)*
 - ✨✨
+*(package.json)*
 1. vue升级, 修改package.json版本号
 > "vue"版本号和"vue-template-compiler"要相等
 
 
 ## 14-1: 课程干货
-*(main.js)*
 - ✨✨✨
+*(main.js)*
 1. 移动端调试, 界面多了一个绿色的按钮vConsole
 <https://github.com/Tencent/vConsole>
 ```
