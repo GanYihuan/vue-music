@@ -447,7 +447,8 @@ cnpm install create-keyframe-animation --save
 *(player.vue)*
 
 
-## 7-10: 音乐播放界面: 歌曲控件防止极限点击, 组件变灰
+## 7-10: 音乐播放界面---The song control prevents the limit click and the component grays.
+- ✨✨✨
 *(player.vue)*
 
 
