@@ -300,8 +300,9 @@ cnpm install vue-lazyload --save
 - ✨✨✨✨
 
 
-## 5-9: 歌手界面 fixtitle
+## 5-9: 歌手界面---fixtitle
 *(listview.vue)* 
+- ✨✨✨
 
 
 ## 5-10: 歌手界面 fixtitle animate, loading

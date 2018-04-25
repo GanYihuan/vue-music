@@ -106,6 +106,7 @@
         if (this.scrollY > 0) {
           return ''
         }
+        // !== undefined
         return this.data[this.currentIndex] ? this.data[this.currentIndex].title : ''
       }
     },
