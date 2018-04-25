@@ -246,13 +246,13 @@ cnpm install vue-lazyload --save
 ##### class="needsclick" : fastclick Do not intercept the click process.
 
 
-## 4-13: loading组件
+## 4-13: loading component
 *(loading.vue)*
 *(recommend.vue)*
-##### 推荐界面: loading
+- ✨✨
 
 
-## 5-1: 歌手界面介绍
+## 5-1: 歌手界面 introduce
 
 
 ## 5-2: 抓取qq音乐, 歌手数据
