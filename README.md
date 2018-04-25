@@ -565,7 +565,7 @@ cnpm install lyric-parser
 *(disc.vue)*
 
 
-## 9-1: 排行榜界面---抓取数据
+## 9-1: 排行榜界面---get data
 - ✨✨
 *(rank.vue)*
 
