@@ -457,7 +457,7 @@
       // Returns the scale of the large record and the small record,
       // the center of the big record is the zoom point position.
       _getPosAndScale () {
-        // Reduced record circle size.
+        // The smaller disc is width.
         const targetWidth = 40
         // The smaller disc is paddingLeft.
         const paddingLeft = 40
@@ -467,7 +467,7 @@
         const paddingTop = 80
         // Large disc size.
         const width = window.innerWidth * 0.8
-        // The proportion of large records shrunk to small records.
+        // The proportion of Large disc shrunk to smaller disc
         const scale = targetWidth / width
         // The target point (x,y) is in the middle of the large circle graph.
         // The fourth quadrant, the small circle graph x position to the big circle x position take the negative direction.
