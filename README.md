@@ -475,7 +475,8 @@ cnpm install create-keyframe-animation --save
 *(player.vue)*
 
 
-## 7-15: 音乐播放界面: mini播放器环形进度条 SVG
+## 7-15: 音乐播放界面---Mini player ring progress bar (SVG)
+- ✨✨
 *(progress-circle.vue)*
 
 

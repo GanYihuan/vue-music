@@ -7,16 +7,16 @@
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <!-- 内层圆 -->
+      <!-- inner circle -->
       <circle class="progress-background" r="50" cx="50" cy="50" fill="transparent"/>
-      <!-- 外层圆可以转 -->
-      <!-- stroke-dasharray: 描边的距离 -->
-      <!-- stroke-dashoffset: 描边的偏移 -->
+      <!-- outer circle can be rotated. -->
+      <!-- stroke-dasharray: Stroke distance -->
+      <!-- stroke-dashoffset: Stroke offset -->
       <circle class="progress-bar" r="50" cx="50" cy="50" fill="transparent"
               :stroke-dasharray="dashArray"
               :stroke-dashoffset="dashOffset"/>
     </svg>
-    <!-- i标签插入slot -->
+    <!-- i Tag insertion slot -->
     <slot></slot>
   </div>
 </template>
