@@ -541,10 +541,10 @@ cnpm install lyric-parser
 ## 7-25: 音乐播放界面---Set the correct location of the mini player.
 - ✨✨✨✨✨
 *(player.vue)*
-*(common/js/mixin.js)公共代码*
+*(common/js/mixin.js)*
 
 
-## 8-1: 热门歌单---Vuex数据通讯
+## 8-1: 热门歌单---Vuex data
 - ✨✨
 *(route.js)*
 *(recommend.vue)* 
@@ -554,7 +554,7 @@ cnpm install lyric-parser
 *(disc.vue)*
 
 
-## 8-2: 热门歌单---数据抓取
+## 8-2: 热门歌单---get data
 - ✨✨
 *(disc.vue)*
 *(api/recommend.js)抓取失败*
