@@ -463,7 +463,8 @@ cnpm install create-keyframe-animation --save
 *(player.vue)*
 
 
-## 7-13: 音乐播放界面: 歌曲控件歌曲进度条能手动拖动
+## 7-13: 音乐播放界面---Song control song progress bar can be manually dragged.
+- ✨✨✨
 *(progress-bar.vue)*
 *(player.vue)*
 
