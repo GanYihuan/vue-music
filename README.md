@@ -493,7 +493,8 @@ cnpm install create-keyframe-animation --save
 *(common/js/mixin.js)*
 
 
-## 7-18: 音乐播放界面: 歌曲控件播放模式改变 fix bug
+## 7-18: 音乐播放界面---fix bug
+- ✨✨✨✨
 *(player.vue)*
 *(store/actions)*
 
