@@ -42,17 +42,17 @@
   import Singer from 'common/js/singer'
 
   const TYPE_SINGER = 'singer'
-  // perpage: 每页返回的个数
+  // perpage: The number of returns per page.
   const perpage = 20
 
   export default {
     props: {
-      // 显示歌手吗？
+      // Show the singer ？
       showSinger: {
         type: Boolean,
         default: true
       },
-      // search检索词
+      // search keywords
       query: {
         type: String,
         default: ''
@@ -60,12 +60,12 @@
     },
     data () {
       return {
-        // 第几页
+        // What page
         page: 1,
-        // 下拉刷新
+        // The drop-down refresh
         pullup: true,
         beforeScroll: true,
-        // 数据加载完？
+        // Data loading finish ？
         hasMore: true,
         result: []
       }
@@ -74,49 +74,49 @@
       refresh () {
         this.$refs.suggest.refresh()
       },
-      // 请求服务端,抓取search检索数据
+      // Request the service end, grab search retrieve data.
       search () {
-        // 刚搜索时
+        // Just search
         this.page = 1
-        // 有更多数据
+        // have more data
         this.hasMore = true
-        // 滚动到顶部
+        // scroll to top
         this.$refs.suggest.scrollTo(0, 0)
         /**
          * api/search.js
-         * @param query: 检索值
-         * @param page: 检索第几页
-         * @param showSinger: 要歌手这个数据吗？
-         * @param perpage: 每页返回的个数
+         * @param query: Retrieve the value
+         * @param page: page index
+         * @param showSinger: Do you want a singer ?
+         * @param perpage: The number of returns per page.
          */
         search(this.query, this.page, this.showSinger, perpage)
           .then(res => {
             if (res.code === ERR_OK) {
               this.result = this._genResult(res.data)
-              // 是否有更多数据?
+              // have more data ?
               this._checkMore(res.data)
             }
           })
       },
-      // 下拉刷新
+      // drop-down refresh
       searchMore () {
         if (!this.hasMore) {
           return
         }
-        // 加载下一页
+        // load next page
         this.page++
         /**
-         * query: 检索值
-         * page: 检索第几页
-         * zhida: 要歌手这个数据吗？
-         * perpage: 每页返回的个数
+         * query: Retrieve the value
+         * page: page index
+         * zhida: Do you want a singer ?
+         * perpage: The number of returns per page.
          */
         search(this.query, this.page, this.showSinger, perpage)
           .then(res => {
             if (res.code === ERR_OK) {
-              // concat: 数组拼接, result变化,数据变化, 传入scroll值变化, scroll 刷新
+              // concat: Array splicing, result change, data change, incoming scroll value change, scroll refresh.
               this.result = this.result.concat(this._genResult(res.data))
-              // 查看是否还有数据?
+              // have more data ?
               this._checkMore(res.data)
             }
           })
@@ -125,7 +125,7 @@
         this.$emit('listScroll')
       },
       selectItem (item) {
-        // 如果搜索结果点击项是歌手数据
+        // If the search results click on the singer data.
         if (item.type === TYPE_SINGER) {
           const singer = new Singer({
             id: item.singermid,
@@ -137,7 +137,7 @@
           // vuex (store/mutation.js)
           this.setSinger(singer)
         } else {
-          // 如果搜索结果点击项是歌曲数据
+          // If the search results click on the song data.
           // vuex (store/action.js)
           this.insertSong(item)
         }
@@ -159,10 +159,10 @@
       },
       _genResult (data) {
         let ret = []
-        // zhida: 要歌手这个数据吗？
-        // zhida.singerid: 歌手
+        // zhida: Do you want a singer ?
+        // zhida.singerid: singer
         if (data.zhida && data.zhida.singerid) {
-          // type: 区分搜索结果数据是歌手还是歌曲
+          // type: distinguish between a singer and a song.
           ret.push({...data.zhida, ...{type: TYPE_SINGER}})
         }
         if (data.song) {
@@ -174,13 +174,13 @@
         let ret = []
         list.forEach(musicData => {
           if (musicData.songid && musicData.albummid) {
-            // 转换为song实例
+            // Convert to song instance.
             ret.push(createSong(musicData))
           }
         })
         return ret
       },
-      // 是否有更多数据?
+      // have more data ?
       _checkMore (data) {
         const song = data.song
         if (!song.list.length || song.curnum + song.curpage * perpage > song.totalnum) {
@@ -195,9 +195,9 @@
       ])
     },
     watch: {
-      // query: 检索值
+      // query: Retrieve the value
       query (newQuery) {
-        // 请求服务端(api/search.js)
+        // Request server (api/search.js)
         this.search(newQuery)
       }
     },

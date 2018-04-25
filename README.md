@@ -612,12 +612,12 @@ cnpm install lyric-parser
 1. jsonp request
 
 
-## 10-4: 搜索界面--搜索功能
+## 10-4: 搜索界面--The search function
 - ✨✨✨
 *(suggest.vue)* 
 *(api/search.js)*
 1. ES6
-2. jsonp请求
+2. jsonp request
 
 
 ## 10-5: 搜索界面---下拉加载
