@@ -598,11 +598,11 @@ cnpm install lyric-parser
 - ✨
 
 
-## 10-2: 搜索界面---搜索框组件
+## 10-2: 搜索界面---Search box component
 - ✨✨
 *(search.vue)* 
 *(search-box.vue)*
-1. 派发query值给外面
+1. Distribute the query value to the outside.
 
 
 ## 10-3: 搜索界面---抓取数据, 热门搜索

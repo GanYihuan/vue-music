@@ -8,7 +8,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  // 优化请求节流函数
+  // Optimize the request throttling function.
   import { debounce } from 'common/js/util'
 
   export default {
@@ -20,7 +20,7 @@
     },
     data () {
       return {
-        // 搜索关键词
+        // Search keywords
         query: ''
       }
     },
@@ -31,17 +31,17 @@
       setQuery (query) {
         this.query = query
       },
-      // 当滚动时, search框失去焦点, 目的是移动端取消键盘
+      // When scrolling, the search box loses focus and the purpose is to remove the keyboard from the mobile terminal.
       blur () {
         this.$refs.query.blur()
       }
     },
-    // 不直接在watch里面写
+    // Not directly in the watch.
     created () {
       // debounce(): common/js/util.js
-      // 节流函数, 优化请求
+      // Throttling function, optimizing request.
       this.$watch('query', debounce(newQuery => {
-          // 派发query事件给父级
+          // The query event is distributed to the parent.
           this.$emit('query', newQuery)
         }, 200)
       )

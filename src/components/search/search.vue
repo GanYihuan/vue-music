@@ -10,13 +10,13 @@
       v-show="!query"
       :refreshDelay="refreshDelay"
     >
-      <!-- 传入data, scroll根据data变化重新计算高度 -->
+      <!-- Pass in data, scroll to calculate the height according to data changes. -->
       <scroll
         ref="shortcut"
         class="shortcut"
         :data="shortcut"
       >
-        <!-- scroll里面, 包一个div，计算两部分的滚动 -->
+        <!-- Scroll inside, wrap a div, calculate the scroll of two parts. -->
         <div>
           <div class="hot-key">
             <h1 class="title">热门搜索</h1>
@@ -65,7 +65,7 @@
       confirmBtnText="清空"
     >
     </confirm>
-    <!-- 二级路由 -->
+    <!-- The secondary routing -->
     <router-view></router-view>
   </div>
 </template>
@@ -90,7 +90,7 @@
       }
     },
     computed: {
-      // 当hotKey, searchHistory发生变化时，scroll从新设置高度
+      // When hotKey, searchHistory changes, scroll resets the height.
       shortcut () {
         return this.hotKey.concat(this.searchHistory)
       }
@@ -109,7 +109,7 @@
       showConfirm () {
         this.$refs.confirm.show()
       },
-      // 搜索框填入搜索词query
+      // The search box fills in the search word query.
       addQuery (query) {
         this.$refs.searchBox.setQuery(query)
       },
@@ -117,7 +117,7 @@
         getHotKey()
           .then(res => {
             if (res.code === ERR_OK) {
-              // 截取前十个数据
+              // Take the top ten data.
               this.hotKey = res.data.hotkey.slice(0, 10)
             }
           })
@@ -127,7 +127,7 @@
       ])
     },
     watch: {
-      // 防止scroll不在当前界面导致失效
+      // Prevents scroll from being disabled by the current interface.
       query (newQuery) {
         if (!newQuery) {
           setTimeout(() => {
