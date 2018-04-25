@@ -33,7 +33,7 @@
     },
     // get back-end data
     created () {
-      // fetch data (歌手数据)
+      // fetch data (singer data)
       this._getSingerList()
     },
     methods: {
@@ -76,7 +76,7 @@
               id: item.Fsinger_mid
             }))
           }
-          // 十条数据之后
+          // after ten data
           const key = item.Findex
           if (!map[key]) {
             map[key] = {
@@ -89,7 +89,7 @@
             id: item.Fsinger_mid
           }))
         })
-        // 对象遍历是无序的，并作为有序列表处理。
+        // Object traversal is unordered and processed as an ordered list.
         let ret = []
         let hot = []
         for (let key in map) {
@@ -100,13 +100,13 @@
             hot.push(val)
           }
         }
-        // 升序排序
+        // Ascending order
         ret.sort((a, b) => {
           return a.title.charCodeAt(0) - b.title.charCodeAt(0)
         })
         return hot.concat(ret)
       },
-      // 调用 mutation，使用 mutation 类型常量。设置 state
+      // call mutation，use mutation tyoe constants。set state
       ...mapMutations({
         setSinger: 'SET_SINGER'
       })
