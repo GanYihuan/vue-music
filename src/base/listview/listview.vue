@@ -220,8 +220,8 @@
           }
           this.currentIndex = 0
         }
-        // When scroll to the bottom of the last element, and -newy is greater than the upper limit of the last element.
-        // heightList more one then listGroup, so -2
+        // When scroll to the bottom of the last element, and -newy is greater than the floor of last element.
+        // because create celling and floor, heightList more one then listGroup, so '-2'
         this.currentIndex = heightList.length - 2
       },
       diff (newVal) {
