@@ -378,7 +378,8 @@ cnpm install vuex --save
 *(song-list.vue)*
 
 
-## 6-10, 6-11, 6-12: 歌手详情页, 歌曲列表滚动动画效果
+## 6-10, 6-11, 6-12: 歌手详情页---animate
+- ✨✨✨✨
 *(song-list.vue)*
 *(music-list.vue)*
 
