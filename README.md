@@ -499,13 +499,14 @@ cnpm install create-keyframe-animation --save
 *(store/actions)*
 
 
-## 7-19: 抓取歌词数据
-*(api/song.js)前端调用,前台定义代理地址给后台*
-*(webpack.dev.conf.js)后端绕过qq音乐限制,输出请求内容出去,正则表达式*
-*(common/js/song.js)前端调用后端的输出内容*
-*(player.vue)组件里面使用输出内容*
+## 7-19: Grab the lyrics data
+- ✨✨✨✨✨
+1. *(api/song.js)* : Front end call, foreground define proxy address for backstage.
+2. *(webpack.dev.conf.js)* : The back end bypasses the qq music restriction, and the output request content goes out, regular expression.
+3. *(common/js/song.js)* : The output after the front-end call.
+4. *(player.vue)* : The output content is used in the component.
 ##### qq音乐播放歌曲界面 -> chrome network -> js fcg preview
-##### 点击fcg就可以在chrome里显示url
+##### Click on the FCG to display the url in chrome.
 
 
 ## 7-20: 播放器歌词数据解析
