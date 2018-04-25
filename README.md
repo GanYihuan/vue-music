@@ -554,10 +554,10 @@ cnpm install lyric-parser
 *(disc.vue)*
 
 
-## 8-2: 热门歌单---get data
+## 8-2: 热门歌单---get data, fetch fail
 - ✨✨
 *(disc.vue)*
-*(api/recommend.js)抓取失败*
+*(api/recommend.js)*
 
 
 ## 8-3: 热门歌单---vuex数据应用
