@@ -220,19 +220,19 @@ host: '0.0.0.0',
 
 
 ## 4-9: 推荐界面---热门歌单推荐, rendering interface
-- ✨✨
 *(recommend.vue)*
+- ✨✨
 ##### chrome interview /api/getDiscList To view the data captured from qq music.
 
 
 ## 4-10: scroll component
-- ✨✨
 *(scroll.vue)* [official document](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
+- ✨✨
 
 
-## 4-11: 防止轮播图延迟加载, 造成高度计算错误
+## 4-11: fix bug: Prevent the network delay loading, the carousel causes the component height calculation error
 *(recommend.vue)*
-##### 调用better-scroll要保证dom已经渲染,数据变化或者dom变化,better-scroll要调用refresh
+- ✨✨✨
 
 
 ## 4-12: 图片懒加载, fastclick优化

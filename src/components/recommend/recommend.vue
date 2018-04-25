@@ -85,7 +85,7 @@
         this.$refs.recommend.style.bottom = bottom
         this.$refs.scroll.refresh()
       },
-      // Prevent the network delay loading, the carousel causes the component height calculation error.
+      // Prevent the network delay loading, the carousel causes the component height calculation error
       loadImage () {
         // This logic is executed only once.
         if (!this.checkloaded) {
