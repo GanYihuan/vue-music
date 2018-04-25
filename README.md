@@ -282,9 +282,10 @@ cnpm install vue-lazyload --save
 - ✨✨✨✨
 
 
-## 5-6: 歌手界面右侧索引滚动, 对应歌手列表也要滚动
+## 5-6: 歌手界面---On the right side of the index scroll, the corresponding singer list will also scroll.
 *(listview.vue)* 
 *(scroll.vue)*
+- ✨✨✨✨
 
 
 ## 5-7: 歌手界面右侧索引修改bug

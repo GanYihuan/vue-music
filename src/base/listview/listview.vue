@@ -140,6 +140,7 @@
         this.$refs.listview.refresh()
       },
       scroll (pos) {
+        // pos it's scroll.vue: me.$emit('scroll', pos)
         // The location of the real-time scrolling.
         this.scrollY = pos.y
       },
@@ -156,7 +157,7 @@
         }
         // up Limit position
         this.scrollY = -this.heightList[index]
-        // 滚动到相应的歌手目的地。
+        // Scroll to the corresponding element
         // Second parameter: animation duration.
         this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
       },
@@ -179,14 +180,15 @@
     },
     watch: {
       data () {
-        // 数据到dom的更改有延迟，dom呈现。
+        // data changes to the dom are delayed
         setTimeout(() => {
           this._calculateHeight()
         }, 20)
       },
       diff (newVal) {
         let fixedTop = (newVal > 0 && newVal < FIXED_TITLE_HEIGHT) ? newVal - FIXED_TITLE_HEIGHT : 0
-        // 当diff处于非动画状态时，不需要更改。减少dom操作, 提高性能优化
+        // When diff is in a non-animation state, no changes are required.
+        // Reduce dom manipulation and improve performance optimization.
         if (this.fixedTop === fixedTop) {
           return
         }
@@ -203,16 +205,16 @@
           return
         }
         // Scroll in the middle.
-        // length - 1, Not thinking about the last one.
+        // length - 1, Don't consider the last one.
         for (let i = 0; i < heightList.length - 1; i++) {
-          // 上限
+          // celling
           let height1 = heightList[i]
-          // 下限
+          // floor
           let height2 = heightList[i + 1]
-          // -newY向下滚动newY为负数，取“-”使其为正。
+          // -newY scroll to bottom, newY it's negative，add “-” may it positive
           if (-newY >= height1 && -newY < height2) {
             this.currentIndex = i
-            // diff: 当前块上限与下限之间的间隔。
+            // diff: current element celling and floor gaps
             this.diff = newY + height2
             return
           }

@@ -26,7 +26,7 @@
         type: Boolean,
         default: true
       },
-      // scroll listen scroll event ?
+      // listen scroll event
       listenScroll: {
         type: Boolean,
         default: false
@@ -68,7 +68,7 @@
           probeType: this.probeType,
           click: this.click
         })
-        // scroll listen scroll
+        // listen scroll
         if (this.listenScroll) {
           let me = this
           this.scroll.on('scroll', (pos) => {
