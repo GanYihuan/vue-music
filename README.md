@@ -509,14 +509,15 @@ cnpm install create-keyframe-animation --save
 ##### Click on the FCG to display the url in chrome.
 
 
-## 7-20: 播放器歌词数据解析
+## 7-20: Player lyrics data parsing.
+- ✨✨✨✨
 *(player.vue)*
 *(common/js/song.js)*
-##### base64解码和编码
+##### Base64 decoding and encoding.
 ```
 cnpm install js-base64 --save
 ```
-##### 视频作者编写, 歌词解析, 每执行到时间点时都执行回调函数
+##### The lyric parsing, performs the callback function every time it is executed.
 ```
 cnpm install lyric-parser
 ```
