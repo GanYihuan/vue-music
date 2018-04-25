@@ -123,7 +123,7 @@
   import ProgressBar from 'base/progress-bar/progress-bar'
   import ProgressCircle from 'base/progress-circle/progress-circle'
   import { playMode } from 'common/js/config'
-  // 视频作者编写, 歌词解析, 每执行到时间点时都执行回调函数
+  // The lyric parsing, performs the callback function every time it is executed.
   import Lyric from 'lyric-parser'
   import Scroll from 'base/scroll/scroll'
   import { playerMixin } from 'common/js/mixin'
@@ -138,14 +138,14 @@
       return {
         songReady: false,
         currentTime: 0,
-        // 环形进度条大小
+        // Ring progress bar size.
         radius: 32,
         currentLyric: null,
-        // 当前歌词所在行,用来高亮
+        // The current line of lyrics is used to highlight.
         currentLineNum: 0,
-        // 唱片碟界面与歌词界面
+        // Disc interface and lyrics interface.
         currentShow: 'cd',
-        // playingLyric: 唱碟下面显示的一行歌词
+        // playingLyric: A line of lyrics displayed below the CD.
         playingLyric: ''
       }
     },
@@ -162,7 +162,7 @@
       disableCls () {
         return this.songReady ? '' : 'disable'
       },
-      // 进度条播放的比例
+      // The ratio of progress bar playback.
       percent () {
         return this.currentTime / this.currentSong.duration
       },
@@ -173,12 +173,12 @@
       this.touch = {}
     },
     methods: {
-      // 唱片界面缩小到底部
+      // The record interface shrinks to the bottom.
       back () {
         // vuex (store/mutations.js)
         this.setFullScreen(false)
       },
-      // 底部界面放大到唱片界面
+      // The bottom interface is enlarged to the record interface.
       open () {
         // vuex (store/mutations.js)
         this.setFullScreen(true)
@@ -212,7 +212,7 @@
         animations.unregisterAnimation('move')
         this.$refs.cdWrapper.style.animation = ''
       },
-      // 监听事件
+      // Listen for an event
       leave (el, done) {
         this.$refs.cdWrapper.style.transition = 'all 0.4s'
         const {x, y, scale} = this._getPosAndScale()
@@ -229,7 +229,7 @@
         }
         // vuex (store/mutation.js)
         this.setPlayingState(!this.playing)
-        // 当歌词滚动时才能播放,防止停止播放时歌词还在滚动
+        // The lyrics can be played when the lyrics scroll, preventing the lyrics from scrolling while they stop playing.
         if (this.currentLyric) {
           this.currentLyric.togglePlay()
         }
@@ -245,22 +245,22 @@
         this.$refs.audio.currentTime = 0
         this.$refs.audio.play()
         this.setPlayingState(true)
-        // 进入循环播放时，歌曲一开始就要求歌词位于最开始
+        // When the song goes into the loop, the song starts with the song lyrics at the beginning.
         if (this.currentLyric) {
-          // 歌曲跳到最开始
+          // The song jumps to the beginning.
           this.currentLyric.seek(0)
         }
       },
-      // 歌曲后退
+      // Song back
       next () {
-        // audio 控件 ready->songReady
+        // audio ready->songReady
         if (!this.songReady) {
           return
         }
-        // 只有一首歌曲存在时
+        // Only one song exists.
         if (this.playlist.length === 1) {
           this.loop()
-          // 优化: 3 防止播放控件无法触发, return不用调用songReady = false
+          // Optimization: 3 prevents the playback control from being triggered. Return does not call songReady = false.
           return
         } else {
           let index = this.currentIndex + 1
@@ -275,14 +275,14 @@
         }
         this.songReady = false
       },
-      // 歌曲前进
+      // Song to go forward
       prev () {
         if (!this.songReady) {
           return
         }
         if (this.playlist.length === 1) {
           this.loop()
-          // 优化: 3 防止播放控件无法触发, return不用调用songReady = false
+          // Optimization: 3 prevents the playback control from being triggered. Return does not call songReady = false.
           return
         } else {
           let index = this.currentIndex - 1
@@ -297,37 +297,37 @@
         this.songReady = false
       },
       ready () {
-        // audio, 防止极限点击操作报错
+        // audio, Prevent limit click operation error.
         this.songReady = true
         // vuex (store/mutation)
-        // 保存播放历史记录
+        // Save the playback history.
         this.savePlayHistory(this.currentSong)
       },
       error () {
         this.songReady = true
       },
       updateTime (e) {
-        // audio 里面有currentTime
+        // There's currentTime in audio.
         this.currentTime = e.target.currentTime
       },
       format (interval) {
-        // | 0: 由整数向下取整(Math.floor)
+        // | 0: The integer is rounded down (math.floor)
         interval = interval | 0
         const minute = (interval / 60) | 0
-        // _pad: 用 0 补位(补 2 位)
+        // _pad: Use 0 to fill 2 bits.
         const second = this._pad(interval % 60)
         return `${minute}:${second}`
       },
-      // 进度条进度改变
+      // Progress bar progress change.
       onProgressBarChange (percent) {
-        // currentTime: 当前播放歌曲位于的播放时间
+        // currentTime: The current playback time of the song.
         const currentTime = this.currentSong.duration * percent
         this.$refs.audio.currentTime = currentTime
         if (!this.playing) {
           this.togglePlaying()
         }
         if (this.currentLyric) {
-          // 歌词追随进度条滚动而一一对应
+          // The lyrics follow the progress bar and correspond.
           this.currentLyric.seek(currentTime * 1000)
         }
       },
@@ -335,7 +335,7 @@
         this.currentSong
           .getLyric()
           .then((lyric) => {
-            // 优化: 2 防止快速切换导致歌词无法匹配
+            // Optimization: 2 prevent fast switching, resulting in unmatched lyrics.
             if (this.currentSong.lyric !== lyric) {
               return
             }
@@ -346,41 +346,41 @@
           })
           .catch(() => {
             this.currentLyric = null
-            // 不正常时,歌词不显示
-            // playingLyric: 唱碟下面的歌词
+            // When abnormal, the lyrics do not show.
+            // playingLyric: The lyrics below the CD.
             this.playingLyric = ''
             this.currentLineNum = 0
           })
       },
-      // handleLyric: 歌词改变的时候调用
-      // lineNum: 当前歌词所在行,高亮
-      // txt: 歌词文案
+      // handleLyric: Call when the lyrics change.
+      // lineNum: The current line of lyrics is highlighted.
+      // txt: The lyrics writing
       handleLyric ({lineNum, txt}) {
         this.currentLineNum = lineNum
         if (lineNum > 5) {
-          // 保证高亮歌词在中间, 当前歌词，往上偏移5行
+          // Make sure to highlight the lyrics in the middle, the current lyrics, move up to 5 lines.
           let lineEl = this.$refs.lyricLine[lineNum - 5]
           this.$refs.lyricList.scrollToElement(lineEl, 1000)
         } else {
-          // 前五行歌词不发生滚动, 位于顶部
+          // The first five lines do not scroll, at the top.
           this.$refs.lyricList.scrollTo(0, 0, 1000)
         }
-        // playingLyric: 唱碟下面显示的一行歌词
+        // playingLyric: A line of lyrics displayed below the CD.
         this.playingLyric = txt
       },
       showPlaylist () {
         this.$refs.playlist.show()
       },
-      // 点击唱片部分
+      // Click on the record
       middleTouchStart (e) {
         this.touch.initiated = true
-        // 用来判断是否是一次移动
+        // Used to determine whether or not it is a move.
         this.touch.moved = false
-        // 手指点击
+        // Click on the finger
         const touch = e.touches[0]
-        // 手指点击位置x
+        // Click on position x
         this.touch.startX = touch.pageX
-        // 手指点击位置y
+        // Click on position y
         this.touch.startY = touch.pageY
       },
       middleTouchMove (e) {
@@ -388,23 +388,24 @@
           return
         }
         const touch = e.touches[0]
-        // 移动的位置
+        // Moving position
         const deltaX = touch.pageX - this.touch.startX
         const deltaY = touch.pageY - this.touch.startY
-        // 是否发生横向滚动切换唱片界面和歌词界面，取决于横向滚动比纵向滚动多
+        // Whether or not a horizontal scrolling switch between the recording interface and
+        // the lyrics interface depends on the horizontal scrolling more than the vertical scrolling.
         if (Math.abs(deltaY) > Math.abs(deltaX)) {
           return
         }
         if (!this.touch.moved) {
           this.touch.moved = true
         }
-        // 歌词界面与唱片界面，二选一
+        // Lyrics interface and record interface, choice one.
         const left = this.currentShow === 'cd' ? 0 : -window.innerWidth
-        // 歌词露出的宽带, 左滑动取负值
-        // 最小值-window.innerWidth, 最大值0
+        // The lyrics show a wide band, and the left slide is negative.
+        // Minimum - window.innerwidth, maximum 0.
         const offsetWidth = Math.min(0, Math.max(-window.innerWidth, left + deltaX))
         this.touch.percent = Math.abs(offsetWidth / window.innerWidth)
-        // lyricList: vue组件, $el来访问dom
+        // lyricList: Vue component, $el to access the dom.
         this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
         this.$refs.lyricList.$el.style[transitionDuration] = 0
         this.$refs.middleL.style.opacity = 1 - this.touch.percent
@@ -417,7 +418,7 @@
         let offsetWidth
         let opacity
         if (this.currentShow === 'cd') {
-          // 从右向左滑动
+          // Slide from right to left.
           if (this.touch.percent > 0.1) {
             offsetWidth = -window.innerWidth
             opacity = 0
@@ -427,7 +428,7 @@
             opacity = 1
           }
         } else {
-          // 从左向右滑动
+          // Slide from left to right.
           if (this.touch.percent < 0.9) {
             offsetWidth = 0
             this.currentShow = 'cd'
@@ -444,7 +445,7 @@
         this.$refs.middleL.style[transitionDuration] = `${time}ms`
         this.touch.initiated = false
       },
-      // _pad: 用 0 补位(补 2 位)
+      // _pad: Use 0 to fill 2 bits.
       _pad (num, n = 2) {
         let len = num.toString().length
         while (len < n) {
@@ -453,68 +454,69 @@
         }
         return num
       },
-      // 返回大唱片与小唱片的缩放比例, 大唱片中心点即缩放点位置
+      // Returns the scale of the large record and the small record,
+      // the center of the big record is the zoom point position.
       _getPosAndScale () {
-        // 缩小后的唱片圆图大小
+        // Reduced record circle size.
         const targetWidth = 40
-        // 缩小后的唱片圆图paddingLeft
+        // The smaller disc is paddingLeft.
         const paddingLeft = 40
-        // 缩小后的唱片圆图paddingBottom
+        // The smaller disc is paddingBottom.
         const paddingBottom = 30
-        // 大唱片距离容器顶部paddingTop
+        // The large disc is paddingTop from the top of the container.
         const paddingTop = 80
-        // 大唱片圆图大小
+        // Large disc size.
         const width = window.innerWidth * 0.8
-        // 大唱片缩小到小唱片的比例
+        // The proportion of large records shrunk to small records.
         const scale = targetWidth / width
-        // 目标点(x,y)位于大圆图的中间
-        // 第四象限,小圆图x位置到大圆x位置取负方向
+        // The target point (x,y) is in the middle of the large circle graph.
+        // The fourth quadrant, the small circle graph x position to the big circle x position take the negative direction.
         const x = -(window.innerWidth / 2 - paddingLeft)
         const y = window.innerHeight - paddingTop - width / 2 - paddingBottom
         return {x, y, scale}
       },
-      // 数据通过mutations设置到state上
+      // Data is set to state through mutations.
       ...mapMutations({
         setFullScreen: 'SET_FULL_SCREEN'
       }),
       ...mapActions(['savePlayHistory'])
     },
     watch: {
-      // 监听,当currentSong变化时调用
+      // Listen when the currentSong changes.
       currentSong (newSong, oldSong) {
-        // 只有一首歌曲的时候
+        // There's only one song.
         if (!newSong.id) {
           return
         }
-        // id不变,则什么都不做
+        // The id is the same, so you don't do anything
         if (newSong.id === oldSong.id) {
           return
         }
-        // currentLyric里面有计时器，当切下一首歌时，该计时器会代入下一首歌
+        // currentLyric There is a timer in it, and when the next song is cut, the timer goes into the next song.
         if (this.currentLyric) {
-          // 先停止上首歌的计时器
+          // Stop the timer for the first song.
           this.currentLyric.stop()
           this.currentTime = 0
           this.playingLyric = ''
           this.currentLineNum = 0
         }
-        // setTimeout: 解决DOM异常
-        // $nextTick: 在下次DOM更新循环结束之后执行的延迟回调。在修改数据之后立即使用这个方法，获取更新后的DOM。
-        // setTimeout: 保证手机从后台切到前台js执行能正常播放
-        // 优化: 1
+        // setTimeout: Resolving DOM exceptions
+        // setTimeout: Ensure that the mobile phone is cut from the background to the front desk js execution can be played normally.
+        // optimization: 1
         clearTimeout(this.timer)
         this.timer = setTimeout(() => {
-          // 同步方法
+          // Synchronized methods
           this.$refs.audio.play()
-          // 异步方法
-          // 防止调用时机出错, 在getLyric()里面写 优化: 2
+          // Asynchronous methods
+          // Prevent the call timing error and write the optimization in getLyric() : 2
           this.getLyric()
         }, 1000)
       },
-      // 监听playing(state数据), 真正控制播放的是audio播放器
+      // listen playing(state data), The real control is the audio player.
       playing (newPlaying) {
         const audio = this.$refs.audio
-        // $nextTick: 在下次DOM更新循环结束之后执行的延迟回调。在修改数据之后立即使用这个方法，获取更新后的DOM。
+        // $nextTick: The deferred callback that is executed after the next DOM update cycle ends.
+        // Use this method immediately after modifying the data to get the updated DOM.
         this.$nextTick(() => {
           newPlaying ? audio.play() : audio.pause()
         })
