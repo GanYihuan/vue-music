@@ -269,9 +269,10 @@ cnpm install vue-lazyload --save
 - ✨✨✨✨
 
 
-## 5-4: 用歌手数据渲染歌手界面, 歌手界面listview列表
-*(listview.vue)歌手列表* 
-*(singer.vue)数据处理*
+## 5-4: rendering singer interface
+*(listview.vue) singer list* 
+*(singer.vue) handle data*
+- ✨✨
 
 
 ## 5-5: 歌手界面右侧索引滚动组件

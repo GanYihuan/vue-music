@@ -80,7 +80,7 @@
     // data, props The values inside are monitored
     data () {
       return {
-        // 实时滚动的位置
+        // The location of the real-time scrolling.
         scrollY: -1,
         // Which one should be displayed
         currentIndex: 0,
