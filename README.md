@@ -235,14 +235,15 @@ host: '0.0.0.0',
 - ✨✨✨
 
 
-## 4-12: 图片懒加载, fastclick优化
+## 4-12: image laz-load, fastclick optimize
 *(recommend.vue)*
 *(main.js)*
-##### 图片懒加载: 仅在滚动时加载
+- ✨✨
+##### image laz-load: reload depend on scroll
 ```
 cnpm install vue-lazyload --save
 ```
-##### class="needsclick" : fastclick 不拦截单击过程
+##### class="needsclick" : fastclick Do not intercept the click process.
 
 
 ## 4-13: loading组件
