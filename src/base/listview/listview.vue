@@ -120,7 +120,7 @@
         let firstTouch = e.touches[0]
         // y-axis position
         this.touch.y1 = firstTouch.pageY
-        // The first point is the anchor point.
+        // The first point anchor index
         this.touch.anchorIndex = anchorIndex
         this._scrollTo(anchorIndex)
       },
@@ -130,9 +130,9 @@
         // y-axis position
         this.touch.y2 = firstTouch.pageY
         // | 0: Math.floor
-        // delta: Offset several anchors ?
+        // delta: move several anchors number
         let delta = (this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT | 0
-        // Move to which anchor point.
+        // move, locate which anchor point index
         let anchorIndex = parseInt(this.touch.anchorIndex) + delta
         this._scrollTo(anchorIndex)
       },
@@ -140,7 +140,7 @@
         this.$refs.listview.refresh()
       },
       scroll (pos) {
-        // 实时滚动的位置
+        // The location of the real-time scrolling.
         this.scrollY = pos.y
       },
       _scrollTo (index) {
@@ -148,13 +148,13 @@
         if (!index && index !== 0) {
           return
         }
-        // 点击最上边和最下边空白部分
+        // Click on the top and bottom empty position
         if (index < 0) {
           index = 0
         } else if (index > this.heightList.length - 2) {
           index = this.heightList.length - 2
         }
-        // 上限位置
+        // up Limit position
         this.scrollY = -this.heightList[index]
         // 滚动到相应的歌手目的地。
         // Second parameter: animation duration.
