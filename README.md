@@ -195,8 +195,7 @@ cnpm install better-scroll@0.1.15 --save
 *(recommend.js)*
 *(recommend.vue)*
 - ✨✨
-##### Grab the song single data interface.
-##### <keep-alive>: Dom is cached in memory, preventing the return to the recommended interface, and the interface flickers.
+##### Grab the song single data interface
 ##### 500 server error, host problem. Bypass interface constraint
 
 
