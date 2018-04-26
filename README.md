@@ -670,7 +670,7 @@ npm install good-storage --save
 *(common/js/cache.js)*
 
 
-## 10-14: 搜索界面---搜索历史列表vuex数据渲染
+## 10-14: 搜索界面---Search historical vuex render data
 - ✨✨
 *(search-list.vue)* 
 *(search.vue)* 
