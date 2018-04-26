@@ -665,7 +665,7 @@ npm install good-storage --save
 ```
 
 
-## 10-13: 搜索界面---读取搜索历史数据localStorage
+## 10-13: 搜索界面---read Search historical data from cache localStorage
 - ✨✨
 *(common/js/cache.js)*
 
