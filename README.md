@@ -676,7 +676,7 @@ npm install good-storage --save
 *(search.vue)* 
 
 
-## 10-15: 搜索界面---搜索历史记录储存缓存, 删除缓存
+## 10-15: 搜索界面---Search historical saveSearchHistory, deleteSearchHistory
 - ✨✨✨✨
 *(common/js/cache.js)*
 *(search.vue)* 
