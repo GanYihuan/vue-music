@@ -649,11 +649,11 @@ cnpm install lyric-parser
 *(search.vue)*
 
 
-## 10-12: 搜索界面---搜索历史数据缓存到localStorage
-- ✨✨✨✨✨
+## 10-12: 搜索界面---Search historical data cache to localStorage
+- ✨✨✨✨
 *(common/js/cache.js)*
 *(store/actions.js)*
-1. localStorage封装: 
+1. localStorage package: 
 storage.set(key, val)
 storage.get(key, def)
 storage.remove(key)
