@@ -714,7 +714,7 @@ npm install good-storage --save
 *(playlist.vue)*
 
 
-## 11-4: mini歌曲列表---滚动到当前播放歌曲位置
+## 11-4: mini歌曲列表---Scroll to the current location of the song.
 - ✨✨✨
 *(playlist.vue)*
 
