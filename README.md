@@ -702,11 +702,11 @@ npm install good-storage --save
 *(playlist.vue)*
 
 
-## 11-2:  mini歌曲列表---显示和隐藏的控制
+## 11-2: mini歌曲列表---show and hide
 - ✨✨
 *(playlist.vue)*
 *(player.vue)*
-1. 防止冒泡
+1. prevent bubble
 
 
 ## 11-3:  mini歌曲列表---vuex数据渲染
