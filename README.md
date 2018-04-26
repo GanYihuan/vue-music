@@ -627,7 +627,7 @@ cnpm install lyric-parser
 *(loading.vue)*
 
  
-## 10-6, 10-7, 10-8, 10-9: 搜索界面---点击搜索界面的歌曲, 插入到播放列表里面
+## 10-6, 10-7, 10-8, 10-9: 搜索界面---Click the song on the search interface and insert it into the playlist.
 - ✨✨✨✨✨
 *(store/action.js)*
 *(suggest.vue)*
