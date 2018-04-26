@@ -692,7 +692,7 @@ npm install good-storage --save
 *(search.vue)*
 
 
-## 10-18: 搜索界面---设置mini播放器的位置显示
+## 10-18: 搜索界面---set mini Play position
 - ✨✨
 *(search.vue)*
 
