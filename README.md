@@ -633,14 +633,15 @@ cnpm install lyric-parser
 *(suggest.vue)*
 
 
-## 10-10: 搜索界面---优化
+## 10-10: 搜索界面---optimize
 - ✨✨✨
 *(suggest.vue)* 
 *(no-result.vue)*
 *(common/js/util)*
-1. 当没有搜索结果时返回404
-2. 优化请求: 节流函数, 处理搜索框输入字符时, 搜索结果不是输入一个字符出来结果, 输入一定时间后再去请求
-3. 滚动时失去焦点, 移动端输入键盘不会挡住界面
+1. Returns 404 when no search results are available.
+2. Optimization request: throttling function, when processing search box input character, 
+  search result is not input a character to come out result, enter a certain time to request again.
+3. When you scroll, you lose focus, and the mobile input keyboard does not block the interface.
 
 
 ## 10-11: 搜索界面---搜索历史数据缓存到localStorage, vuex数据储存
