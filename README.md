@@ -644,9 +644,9 @@ cnpm install lyric-parser
 3. When you scroll, you lose focus, and the mobile input keyboard does not block the interface.
 
 
-## 10-11: 搜索界面---搜索历史数据缓存到localStorage, vuex数据储存
+## 10-11: 搜索界面---Search historical data cache to localStorage, vuex data storage.
 - ✨✨
-*(search.vue)* 
+*(search.vue)*
 
 
 ## 10-12: 搜索界面---搜索历史数据缓存到localStorage
