@@ -697,7 +697,7 @@ npm install good-storage --save
 *(search.vue)*
 
 
-## 11-1: mini歌曲列表---布局和功能介绍
+## 11-1: mini歌曲列表---introduce
 - ✨
 *(playlist.vue)*
 
