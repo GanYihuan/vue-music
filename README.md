@@ -682,7 +682,7 @@ npm install good-storage --save
 *(search.vue)* 
 
 
-## 10-16: 搜索界面---确定提示框
+## 10-16: 搜索界面---confirm component
 - ✨✨
 *(confirm.js)*
 
