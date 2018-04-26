@@ -687,7 +687,7 @@ npm install good-storage --save
 *(confirm.js)*
 
 
-## 10-17: 搜索界面---搜索歌曲滚动设置
+## 10-17: 搜索界面---scroll setting
 - ✨✨✨
 *(search.vue)*
 
