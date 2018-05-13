@@ -27,9 +27,11 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 [](https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0)
 
 
-## 2-2: Project installation
+## 2-2: Project install
 - ✨
+##### install
 ```
+npm install -g vue-cli
 vue init webpack imooc-music
 ```
 ##### 'RunTime-only':  More light
@@ -56,47 +58,21 @@ npm run dev
 6. store: (Vuex data)
 7. main.js (entrance)
 ##### npm install
-1. scss relate
 ```
 "sass-loader": "^6.0.7",
 "node-sass": "^4.7.2",
-```
-2. styl relate
-```
 "stylus": "^0.54.5",
 "stylus-loader": "^2.1.1",
 ```
 ##### eslintrc.js
-```
-rules: {
-    // allow paren-less arrow functions
-    'arrow-parens': 0,
-    // allow async-await
-    'generator-star-spacing': 'off',
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'semi': ['error', 'never'],
-    'eol-last': 0,
-    'no-tabs': 0,
-    'indent': 0,
-    'space-before-function-paren': 0
-  }
-```
 ##### (webpack.base.conf.js) alias config
-import 'common/scss/index.scss'
+> import 'common/scss/index.scss'
 ```
 context: path.resolve(__dirname, '..', dir),
 resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      'src': resolve('src'),
-      'api': resolve('src/api'),
-      'base': resolve('src/base'),
-      'common': resolve('src/common'),
-      'components': resolve('src/components'),
-      'router': resolve('src/router'),
-      'store': resolve('src/store')
+      'vue$': 'vue/dist/vue.esm.js'
     }
   },
 ```
