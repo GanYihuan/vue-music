@@ -115,7 +115,7 @@ https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
 
 
 ## 4-2: jsonp package
-- ✨✨✨
+- ✨✨✨✨
 *(common/js/jsonp.js)*
 ##### Promise:
 > pass async message object
@@ -129,7 +129,7 @@ https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
 > This site script can handle incoming data from the callback function.
 ##### install jsonp
 ```
-cnpm install jsonp --save
+npm install jsonp --save
 ```
 
 
