@@ -103,7 +103,7 @@ cnpm install babel-polyfill --save-dev
 *(route.vue)*
 
 
-## 4-1: Use the chrome operation to view the qq music Back-end data.
+## 4-1: Use the chrome operation to check the qq music Back-end data
 - ✨✨
 ##### chrome check jsonp 
 *(static/jsonp1.png)*
