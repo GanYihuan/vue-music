@@ -3,16 +3,6 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-// Routing lazy loading replaces the conventional approach.
-// import Recommend from 'components/recommend/recommend'
-// import Singer from 'components/recommend/Singer'
-// import Rank from 'components/recommend/Rank'
-// import Search from 'components/recommend/Search'
-// import SingerDetail from 'components/recommend/SingerDetail'
-// import Disc from 'components/recommend/Disc'
-// import TopList from 'components/recommend/TopList'
-// import UserCenter from 'components/recommend/UserCenter'
-
 const Recommend = resolve => {
   import('components/recommend/recommend').then(module => {
     resolve(module)

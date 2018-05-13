@@ -84,23 +84,19 @@ resolve: {
 *(main.js)*
 *(build/webpack.base.config)*
 *(components/m-header.vue)*
-##### es6 escape
+##### 1. babel-runtime: es6 escape
+##### 2. fastclick: Click 300MS delay on the mobile end.
+##### 3. babel-polyfill: es6 api escape, mobile can use that api
 ```
 npm install babel-runtime --save
-```
-##### Click 300MS delay on the mobile end.
-```
 cnpm install fastclick --save
-```
-##### es6 api escape, mobile can use that api
-```
 cnpm install babel-polyfill --save-dev
 ```
 *(build/webpack.base.config)*
 > Alias configuration, abbreviated application file path.
 
 
-## 3-2: Route switching base interface.
+## 3-2: route, switch base interface
 - ✨✨
 *(tab.vue)*
 *(App.vue)*
