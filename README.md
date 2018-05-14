@@ -141,7 +141,7 @@ npm install jsonp --save
 
 
 ## 4-4: 推荐界面---Carousel component, better-scroll
-- ✨✨✨
+- ✨✨✨✨
 *(recommend.vue)*
 *(slider.vue)*
 *(common/js/dom.js)*

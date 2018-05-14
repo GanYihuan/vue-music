@@ -30,7 +30,6 @@
     data () {
       return {
         dots: [],
-        // currentPageIndex: 当前的子元素
         currentPageIndex: 0
       }
     },
@@ -83,7 +82,7 @@
         * clientWidth  是对象可见的宽度，不包滚动条等边线，会随窗口的显示大小改变
         * offsetWidth  是对象的可见宽度，包滚动条等边线，会随窗口的显示大小改变
         * */
-        // The width of the parent container.
+        // The width of the parent container
         let sliderWidth = this.$refs.slider.clientWidth
         for (let i = 0; i < this.children.length; i++) {
           let child = this.children[i]
@@ -107,7 +106,7 @@
         // BScroll copy two sample into the carousel head and tail, use to loop
         /**
          * https://ustbhuangyi.github.io/better-scroll/doc/en/options-advanced.html#snap
-         * momentum: If setted to true, you can turn on the momentum animation performed when the user quickly flicks on screen.
+         * momentum: If set to true, you can turn on the momentum animation performed when the user quickly flicks on screen.
          * snap: this option is used to configure Slide component. You can enable slide by configure it as an Object
          * snapLoop: set to true to support slide loop
          * snapThreshold: is the threshold of going to the next snap
@@ -148,7 +147,7 @@
         }
         this.timer = setTimeout(() => {
           /**
-           * (better-scroll)
+           * goToPage(): better-scroll func
            * pageIndex: x
            * 0: y
            * 400: time interval

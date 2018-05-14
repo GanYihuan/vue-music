@@ -9,7 +9,7 @@
       <div>
         <!--
           v-if="recommends.length": Prevent asynchronous loading too slow,
-          causing dom to not load, and high calculation error.
+          causing dom to not load, and high calculation error
         -->
         <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
           <slider>
@@ -100,7 +100,8 @@
         // mutation: setDisc
         this.setDisc(item)
       },
-      // carousel data from the back-end.
+      // carousel data from the back-end
+      // async
       _getRecommend () {
         getRecommend()
           .then((res) => {
