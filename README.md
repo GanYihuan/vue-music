@@ -186,9 +186,9 @@ cnpm install axios --save
 ```
 host: '0.0.0.0',
 ```
-##### 2.Modify /build/webpack.dev.conf.js
+##### 2. Modify /build/webpack.dev.conf.js
 > The back-end interface is defined asynchronously.
-##### 3. api/recommend.js/getDiscList Call the backend interface. *(build/webpack.dev.conf.js)*
+##### 3. 'api/getDiscList' Call the backend interface. *(recommend.vue)*
 
 
 ## 4-9: 推荐界面---热门歌单推荐, rendering interface
