@@ -11,11 +11,10 @@
       <slot></slot>
     </div>
     <div class="dots">
-      <span
-        class="dot"
-        v-for="(item, index) in dots"
-        :key="index"
-        :class="{active: currentPageIndex === index }"
+      <span class="dot"
+            v-for="(item, index) in dots"
+            :key="index"
+            :class="{active: currentPageIndex === index }"
       >
       </span>
     </div>
@@ -71,13 +70,13 @@
     },
     methods: {
       _setSliderWidth (isResize) {
+        let width = 0
         // How many elements are there in the entire list ?
         this.children = this.$refs.sliderGroup.children
         // console.log(this.children.length)
         // dom: 5
         // BScroll copy two sample into the carousel head and tail, use to loop
         // dom: 7
-        let width = 0
         /*
         * scrollWidth  是对象的实际内容的宽，不包边线宽度，会随对象中内容的多少改变
         * clientWidth  是对象可见的宽度，不包滚动条等边线，会随窗口的显示大小改变
