@@ -11,9 +11,9 @@
     props: {
       // [official document](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
       // scroll potions
-      // probeType: 1，The scroll event is distributed over a certain period of time.
-      // probeType: 2，The process of screen slippage, distribute scroll event
-      // probeType: 3，The process of screen slippage，and In the momentum rolling animation process. distribute scroll event
+      // probeType: 1，会非实时（屏幕滑动超过一定时间后）派发scroll 事件
+      // probeType: 2，会在屏幕滑动的过程中实时的派发 scroll 事件
+      // probeType: 3，不仅在屏幕滑动的过程中，而且在 momentum 滚动动画运行过程中实时派发 scroll 事件
       // default ，probeType: 0，don't distribute scroll event
       probeType: {
         type: Number,
@@ -60,7 +60,6 @@
     },
     methods: {
       _initScroll () {
-        // undefined
         if (!this.$refs.wrapper) {
           return
         }
@@ -68,7 +67,6 @@
           probeType: this.probeType,
           click: this.click
         })
-        // listen scroll
         if (this.listenScroll) {
           let me = this
           this.scroll.on('scroll', (pos) => {
@@ -93,7 +91,6 @@
         }
       },
       disable () {
-        // if this.scroll exist
         this.scroll && this.scroll.disable()
       },
       enable () {

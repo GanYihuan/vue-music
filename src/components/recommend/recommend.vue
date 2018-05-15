@@ -1,21 +1,13 @@
 <template>
   <!-- 01/推荐界面 -->
   <div class="recommend" ref="recommend">
-    <!--
-      :data="discList": Prevents the asynchronous loading slow,
-      resulting in the scroll bar without data to open the height of the scroll, scroll failure.
-    -->
+    <!-- :data="discList": Prevents the async loading slow, without data to fill the page -->
     <scroll ref="scroll" class="recommend-content" :data="discList">
       <div>
-        <!--
-          v-if="recommends.length": Prevent asynchronous loading too slow,
-          causing dom to not load, and high calculation error
-        -->
+        <!-- v-if="recommends.length": Prevent async loading slow, without data to fill the page, high calculation error -->
         <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
           <slider>
-            <!-- Everything inside is inserted into the slot of the slider. -->
             <div v-for="(item,index) in recommends" :key="index">
-              <!-- item.linkUrl check resource -->
               <!-- https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg -->
               <a :href="item.linkUrl">
                 <!-- class="needsclick": fastclick Don't intercept the click process. -->
@@ -50,7 +42,7 @@
         <loading></loading>
       </div>
     </scroll>
-    <!-- Secondary routing container -->
+    <!-- Secondary-routing container -->
     <router-view></router-view>
   </div>
 </template>
