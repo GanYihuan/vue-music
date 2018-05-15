@@ -50,6 +50,7 @@
     // dom ready
     mounted () {
       // setTimeout: dom Fully loaded
+      // browser refresh 17s, 20s it's normal
       setTimeout(() => {
         this._setSliderWidth()
         this._initDots()
