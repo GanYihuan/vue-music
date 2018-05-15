@@ -1,5 +1,5 @@
 <template>
-  <!-- static/03.png/歌曲列表 -->
+  <!-- static/03-歌手详情页.png/歌曲列表 -->
   <div class="song-list">
     <ul>
       <li
@@ -27,7 +27,7 @@
         type: Array,
         default: []
       },
-      // for 07.png, trophy
+      // for 07-排行榜详情界面.png, trophy
       rank: {
         type: Boolean,
         default: false

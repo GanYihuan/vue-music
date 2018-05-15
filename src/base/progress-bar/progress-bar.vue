@@ -1,5 +1,5 @@
 <template>
-  <!-- static/04.png/歌曲控件 -->
+  <!-- static/04-音乐播放界面.png/歌曲控件 -->
   <div
     class="progress-bar"
     ref="progressBar"

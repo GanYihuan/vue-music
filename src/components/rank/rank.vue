@@ -1,5 +1,5 @@
 <template>
-  <!-- 06.png -->
+  <!-- 06-排行榜界面.png -->
   <div class="rank" ref="rank">
     <scroll :data="topList" class="toplist" ref="toplist">
       <ul>

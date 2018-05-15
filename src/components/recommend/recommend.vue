@@ -108,7 +108,6 @@
             // static/jsonp1.png
             // res.data.slider: <https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg>
             if (res.code === ERR_OK) {
-              // console.log(res.data.slider)
               this.recommends = res.data.slider
             }
           })
@@ -118,7 +117,6 @@
         getDiscList()
           .then((res) => {
             if (res.code === ERR_OK) {
-              // console.log(res.data.list)
               this.discList = res.data.list
             }
           })

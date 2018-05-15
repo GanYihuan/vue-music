@@ -1,5 +1,5 @@
 <template>
-  <!-- static/03.png/歌手详情页 -->
+  <!-- static/03-歌手详情页.png/歌手详情页 -->
   <!-- singer-detail handle data, music-list render 歌手详情页-->
   <div class="music-list">
     <div class="back" @click="back">
@@ -70,7 +70,7 @@
         type: String,
         default: ''
       },
-      // 07.png trophy
+      // 07-排行榜详情界面.png trophy
       rank: {
         type: Boolean,
         default: false

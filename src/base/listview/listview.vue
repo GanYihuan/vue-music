@@ -1,5 +1,5 @@
 <template>
-  <!-- static/02.png -->
+  <!-- static/02-歌手界面.png -->
   <!-- data: When data changes, refresh scroll -->
   <scroll
     class="listview"

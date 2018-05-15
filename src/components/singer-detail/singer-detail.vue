@@ -1,5 +1,5 @@
 <template>
-  <!-- static/03.png/歌手详情页 -->
+  <!-- static/03-歌手详情页.png/歌手详情页 -->
   <!-- singer-detail handle data, music-list render 歌手详情页-->
   <transition name="slide">
     <music-list :songs="songs" :title="title" :bg-image="bgImage"></music-list>

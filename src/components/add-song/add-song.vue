@@ -1,5 +1,5 @@
 <template>
-  <!-- 11.png -->
+  <!-- 11-歌曲列表.png -->
   <transition name="slide">
     <div class="add-song" v-show="showFlag" @click.stop>
       <div class="header">
