@@ -41,7 +41,10 @@
         </li>
       </ul>
     </div>
-    <div class="list-fixed" v-show="fixedTitle" ref="fixed">
+    <div class="list-fixed"
+         ref="fixed"
+         v-show="fixedTitle"
+    >
       <h2 class="fixed-title">{{fixedTitle}}</h2>
     </div>
     <div class="loading-container" v-show="!data.length">
@@ -73,7 +76,7 @@
         scrollY: -1,
         // Which one should be displayed
         currentIndex: 0,
-        // The interval between the current block cap and the upper limit
+        // diff: current element celling to pre element floor gaps
         diff: -1
       }
     },
@@ -133,7 +136,7 @@
         this.scrollY = pos.y
       },
       _scrollTo (index) {
-        // index == null -> !index, index == 0 Rule out
+        // index === null -> !index, index == 0 Rule out
         if (!index && index !== 0) {
           return
         }
@@ -145,8 +148,7 @@
         }
         // celling position
         this.scrollY = -this.listHeight[index]
-        // first parameter: Scroll to the corresponding element
-        // second parameter: animation duration
+        // first parameter: Scroll to the corresponding element, second parameter: animation duration
         this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
       },
       _calculateHeight () {
@@ -174,15 +176,12 @@
       },
       diff (newVal) {
         let fixedTop = (newVal > 0 && newVal < FIXED_TITLE_HEIGHT) ? newVal - FIXED_TITLE_HEIGHT : 0
-        // When diff is in a non-animation state, no changes are required.
-        // Reduce dom manipulation and improve performance optimization.
         if (this.fixedTop === fixedTop) {
           return
         }
         this.fixedTop = fixedTop
         // open GPU accelerate
         this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`
-        // this.$refs.fixed.style.top = `${fixedTop}px`
       },
       scrollY (newY) {
         let listHeight = this.listHeight
@@ -201,7 +200,6 @@
           // -newY scroll to bottom, newY it's negative，add “-” may it positive
           if (-newY >= height1 && -newY < height2) {
             this.currentIndex = i
-            // diff: current element celling and floor gaps
             this.diff = newY + height2
             return
           }
