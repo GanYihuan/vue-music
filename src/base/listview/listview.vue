@@ -1,32 +1,24 @@
 <template>
   <!-- static/02-歌手界面.png -->
-  <!-- data: When data changes, refresh scroll -->
-  <scroll
-    class="listview"
-    ref="listview"
-    :data="data"
-    :listenScroll="listenScroll"
-    :probeType='probeType'
-    @scroll="scroll"
+  <scroll class="listview"
+          ref="listview"
+          :data="data"
+          :listenScroll="listenScroll"
+          :probeType='probeType'
+          @scroll="scroll"
   >
     <ul>
-      <!--
-        singer.vue/_normalizeSinger
-        data structure
-      -->
-      <li
-        class="list-group"
-        ref="listGroup"
-        v-for="(group,index) in data"
-        :key="index"
+      <li class="list-group"
+          ref="listGroup"
+          v-for="(group, index) in data"
+          :key="index"
       >
         <h2 class="list-group-title">{{group.title}}</h2>
         <ul>
-          <li
-            class="list-group-item"
-            v-for="(item,index) in group.items"
-            :key="index"
-            @click="selectItem(item)"
+          <li class="list-group-item"
+              v-for="(item, index) in group.items"
+              :key="index"
+              @click="selectItem(item)"
           >
             <img class="avatar" v-lazy="item.avatar"/>
             <span class="name">{{item.name}}</span>
@@ -34,19 +26,16 @@
         </ul>
       </li>
     </ul>
-    <!-- On the right side A-Z -->
-    <div
-      class="list-shortcut"
-      @touchstart="onShortCutTouchStart"
-      @touchmove.stop.prevent="onShortCutTouchMove"
+    <div class="list-shortcut"
+         @touchstart="onShortCutTouchStart"
+         @touchmove.stop.prevent="onShortCutTouchMove"
     >
       <ul>
-        <li
-          class="item"
-          v-for="(item, index) in shortcutList"
-          :key="index"
-          :class="{'current': currentIndex === index}"
-          :data-index="index"
+        <li class="item"
+            v-for="(item, index) in shortcutList"
+            :key="index"
+            :class="{'current': currentIndex === index}"
+            :data-index="index"
         >
           {{item}}
         </li>
@@ -71,7 +60,7 @@
   const FIXED_TITLE_HEIGHT = 30
 
   export default {
-    // created: The values inside are not monitored
+    // created: The values not need monitored
     created () {
       this.touch = {}
       this.listenScroll = true
@@ -91,11 +80,10 @@
     props: {
       data: {
         type: Array,
-        default: []
+        default: null
       }
     },
     computed: {
-      // right side list A-Z, title Set array
       shortcutList () {
         return this.data.map((group) => {
           // '热门' only one singer string '热'
@@ -131,9 +119,9 @@
         // y-axis position
         this.touch.y2 = firstTouch.pageY
         // | 0: Math.floor
-        // delta: move several anchors number
+        // delta: after move, pass several anchors number
         let delta = (this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT | 0
-        // move, locate which anchor point index
+        // after move, locate which anchor point number
         let anchorIndex = parseInt(this.touch.anchorIndex) + delta
         this._scrollTo(anchorIndex)
       },
@@ -141,8 +129,7 @@
         this.$refs.listview.refresh()
       },
       scroll (pos) {
-        // pos it's scroll.vue: me.$emit('scroll', pos)
-        // The location of the real-time scrolling.
+        // scroll.vue: The location of the real-time scrolling.
         this.scrollY = pos.y
       },
       _scrollTo (index) {
@@ -153,25 +140,25 @@
         // Click on the top and bottom empty position
         if (index < 0) {
           index = 0
-        } else if (index > this.heightList.length - 2) {
-          index = this.heightList.length - 2
+        } else if (index > this.listHeight.length - 2) {
+          index = this.listHeight.length - 2
         }
         // celling position
-        this.scrollY = -this.heightList[index]
-        // Scroll to the corresponding element
-        // Second parameter: animation duration
+        this.scrollY = -this.listHeight[index]
+        // first parameter: Scroll to the corresponding element
+        // second parameter: animation duration
         this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
       },
       _calculateHeight () {
         let height = 0
         let listGroup = this.$refs.listGroup
-        // heightList is more one element then listGroup
-        this.heightList = []
-        this.heightList.push(height)
+        // listHeight is more one element then listGroup
+        this.listHeight = []
+        this.listHeight.push(height)
         for (let i = 0; i < listGroup.length; i++) {
           let item = listGroup[i]
           height += item.clientHeight
-          this.heightList.push(height)
+          this.listHeight.push(height)
         }
       }
     },
@@ -181,7 +168,6 @@
     },
     watch: {
       data () {
-        // data changes to the dom are delayed
         setTimeout(() => {
           this._calculateHeight()
         }, 20)
@@ -199,19 +185,19 @@
         // this.$refs.fixed.style.top = `${fixedTop}px`
       },
       scrollY (newY) {
-        let heightList = this.heightList
-        // When scrolling to the top. newY > 0
+        let listHeight = this.listHeight
+        // When scrolling to the top, newY > 0
         if (newY > 0) {
           this.currentIndex = 0
           return
         }
-        // Scroll in the middle.
-        // length - 1, Don't consider the last one.
-        for (let i = 0; i < heightList.length - 1; i++) {
+        // Scroll in the middle
+        // length - 1, Don't consider the last one
+        for (let i = 0; i < listHeight.length - 1; i++) {
           // celling
-          let height1 = heightList[i]
+          let height1 = listHeight[i]
           // floor
-          let height2 = heightList[i + 1]
+          let height2 = listHeight[i + 1]
           // -newY scroll to bottom, newY it's negative，add “-” may it positive
           if (-newY >= height1 && -newY < height2) {
             this.currentIndex = i
@@ -221,21 +207,8 @@
           }
           this.currentIndex = 0
         }
-        // When scroll to the bottom of the last element, and -newy is greater than the floor of last element.
-        // because create celling and floor, heightList more one then listGroup, so '-2'
-        this.currentIndex = heightList.length - 2
-      },
-      diff (newVal) {
-        // fixed-title more to top
-        let fixedTop = (newVal > 0 && newVal < FIXED_TITLE_HEIGHT) ? newVal - FIXED_TITLE_HEIGHT : 0
-        // fixed-title not more to top
-        if (this.fixedTop === fixedTop) {
-          return
-        }
-        this.fixedTop = fixedTop
-        // begin GPU accelerate
-        this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`
-        // this.$refs.fixed.style.top = `${fixedTop}px`
+        // currentIndex: array index start at 0, listHeight more one element then listGroup, -2
+        this.currentIndex = listHeight.length - 2
       }
     }
   }

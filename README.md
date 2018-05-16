@@ -247,6 +247,15 @@ npm install vue-lazyload --save
 *(listView.vue)* 
 *(scroll.vue)*
 *(common/dom.js)*
+##### get element index *(common/dom.js)*
+```
+<li class="item"
+    v-for="(item, index) in shortcutList"
+    :key="index"
+    :class="{'current': currentIndex === index}"
+    :data-index="index"
+>
+```
 
 
 ## 5-6: 歌手界面---On the right side of the index scroll, the corresponding singer list will also scroll.
