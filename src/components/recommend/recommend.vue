@@ -1,17 +1,22 @@
 <template>
   <!-- static/01-推荐界面 -->
   <div class="recommend" ref="recommend">
-    <!-- :data="discList": Prevents the async loading slow, without data to fill the page -->
-    <scroll ref="scroll" class="recommend-content" :data="discList">
+    <!-- :data="discList": Prevents the async loading slow -->
+    <scroll class="recommend-content"
+            ref="scroll"
+            :data="discList"
+    >
       <div>
-        <!-- v-if="recommends.length": Prevent async loading slow, without data to fill the page, high calculation error -->
-        <div v-if="recommends.length" class="slider-wrapper" ref="sliderWrapper">
+        <!-- v-if="recommends.length": Prevent async loading slow -->
+        <div class="slider-wrapper"
+             ref="sliderWrapper"
+             v-if="recommends.length"
+        >
           <slider>
             <div v-for="(item,index) in recommends" :key="index">
               <!-- https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg -->
               <a :href="item.linkUrl">
-                <!-- class="needsclick": fastclick Don't intercept the click process. -->
-                <!-- loadImage: Prevent the network delay loading, carousel causes the component height calculation error.-->
+                <!-- class="needsclick", @load="loadImage" fastclick Don't intercept the click process. -->
                 <img class="needsclick" :src="item.picUrl" @load="loadImage"/>
               </a>
             </div>
@@ -20,11 +25,10 @@
         <div class="recommend-list">
           <h1 class="list-title">热门歌单推荐</h1>
           <ul>
-            <li
-              class="item"
-              v-for="(item,index) in discList"
-              :key="index"
-              @click="selectItem(item)"
+            <li class="item"
+                v-for="(item,index) in discList"
+                :key="index"
+                @click="selectItem(item)"
             >
               <div class="icon">
                 <!-- v-lazy: Load only when scrolling -->

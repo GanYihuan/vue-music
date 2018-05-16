@@ -1,20 +1,13 @@
 <template>
   <div class="slider" ref="slider">
     <div class="slider-group" ref="sliderGroup">
-      <!--
-        Vue provide slot
-        When the slider is referenced outside, the dom of the slider is inserted into the slot.
-        When the sub component template has only one slot without attributes,
-        The entire content fragment of the parent component is inserted into the DOM location
-        of the slot and replaces the slot tag itself.
-      -->
       <slot></slot>
     </div>
     <div class="dots">
       <span class="dot"
+            :class="{active: currentPageIndex === index }"
             v-for="(item, index) in dots"
             :key="index"
-            :class="{active: currentPageIndex === index }"
       >
       </span>
     </div>
@@ -22,7 +15,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import { addClass } from 'common/js/dom'
+  import { addClass } from 'common/js/d om'
   import BScroll from 'better-scroll'
 
   export default {
@@ -48,8 +41,7 @@
     },
     // dom ready
     mounted () {
-      // setTimeout: dom Fully loaded
-      // browser refresh 17s, 20s it's normal
+      // setTimeout: dom Fully loaded, browser refresh 17s, 20s it's normal
       setTimeout(() => {
         this._setSliderWidth()
         this._initDots()
@@ -58,7 +50,6 @@
           this._autoPlay()
         }
       }, 20)
-      // Listen to the window and change the event.
       window.addEventListener('resize', () => {
         if (!this.slider) {
           return
@@ -71,18 +62,18 @@
     methods: {
       _setSliderWidth (isResize) {
         let width = 0
-        // How many elements are there in the entire list ?
+        // sliderGroup children element
         this.children = this.$refs.sliderGroup.children
         // console.log(this.children.length)
         // dom: 5
-        // BScroll copy two sample into the carousel head and tail, use to loop
-        // dom: 7
+        // BScroll copy two sample into the carousel head and tail, for loop
+        // dom: 5+2=7
         /*
-        * scrollWidth  是对象的实际内容的宽，不包边线宽度，会随对象中内容的多少改变
-        * clientWidth  是对象可见的宽度，不包滚动条等边线，会随窗口的显示大小改变
-        * offsetWidth  是对象的可见宽度，包滚动条等边线，会随窗口的显示大小改变
+        * scrollWidth: 是对象的实际内容的宽，不包边线宽度，会随对象中内容的多少改变
+        * clientWidth: 是对象可见的宽度，不包滚动条等边线，会随窗口的显示大小改变
+        * offsetWidth: 是对象的可见宽度，包滚动条等边线，会随窗口的显示大小改变
         * */
-        // The width of the parent container
+        // parent clientWidth
         let sliderWidth = this.$refs.slider.clientWidth
         for (let i = 0; i < this.children.length; i++) {
           let child = this.children[i]
@@ -102,7 +93,6 @@
         this.dots = new Array(this.children.length)
       },
       _initSlider () {
-        // better-scroll
         // BScroll copy two sample into the carousel head and tail, use to loop
         /**
          * https://ustbhuangyi.github.io/better-scroll/doc/en/options-advanced.html#snap
@@ -111,14 +101,12 @@
          * snapLoop: set to true to support slide loop
          * snapThreshold: is the threshold of going to the next snap
          * snapSpeed: is the slide loop scroll animate time
-         * @type {_bscroll.BScroll}
          */
         this.slider = new BScroll(this.$refs.slider, {
           scrollX: true,
           scrollY: false,
           momentum: false,
           snap: true,
-          // cycle
           snapLoop: this.loop,
           snapThreshold: 0.2,
           snapSpeed: 400
