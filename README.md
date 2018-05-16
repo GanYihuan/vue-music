@@ -196,7 +196,7 @@ host: '0.0.0.0',
 [official document](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
 
 
-## 4-11: fix bug: Prevent the network delay loading, the carousel causes the component height calculation error
+## 4-11: fix bug: Prevent the network delay loading
 - ✨✨✨
 *(recommend.vue)*
 

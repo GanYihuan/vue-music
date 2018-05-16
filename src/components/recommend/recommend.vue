@@ -16,7 +16,8 @@
             <div v-for="(item,index) in recommends" :key="index">
               <!-- https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg -->
               <a :href="item.linkUrl">
-                <!-- class="needsclick", @load="loadImage" fastclick Don't intercept the click process. -->
+                <!-- class="needsclick" fastclick Don't intercept the click process. -->
+                <!--  @load="loadImage" Prevent async loading slow -->
                 <img class="needsclick" :src="item.picUrl" @load="loadImage"/>
               </a>
             </div>
@@ -81,7 +82,6 @@
         this.$refs.recommend.style.bottom = bottom
         this.$refs.scroll.refresh()
       },
-      // Prevent the network delay loading, the carousel causes the component height calculation error
       loadImage () {
         // This logic is executed only once.
         if (!this.checkloaded) {
