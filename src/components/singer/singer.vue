@@ -49,19 +49,16 @@
         // this.setSinger: ...mapMutations
         this.setSinger(singer)
       },
-      // api/singer.js/getSingerList Get qq singer data.
       _getSingerList () {
         getSingerList()
           .then((res) => {
             if (res.code === ERR_OK) {
-              // console.log(res.data.list)
               this.singers = this._normalizeSinger(res.data.list)
             }
           })
       },
-      // handle data.
       _normalizeSinger (list) {
-        // The data structure, custom
+        // data structure, custom
         let map = {
           hot: {
             title: HOT_NAME,
@@ -78,6 +75,7 @@
           }
           // Top 10 data after
           const key = item.Findex
+          // data structure, custom
           if (!map[key]) {
             map[key] = {
               title: key,
