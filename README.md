@@ -173,22 +173,16 @@ cnpm install better-scroll@0.1.15 --save
 
 ## 4-8: bypass interface constraint
 - ✨✨✨✨
-*(build/webpack.dev.conf.js)*
-*(config/index.js)*
-> The front-end requests our back-end address, and the back-end requests the qq server,
-> The back-end interface proxy bypasses the qq check request data.。
 ##### axios, Start HTTPRequest, modify headers.
 ```
 cnpm install axios --save
 ```
-##### 1. Modify the index.js file in the config directory.
-##### Modify host *(config/index.js)*
+##### 1. Modify host *(config/index.js)*
 ```
 host: '0.0.0.0',
 ```
-##### 2. Modify /build/webpack.dev.conf.js
-> The back-end interface is defined asynchronously.
-##### 3. 'api/getDiscList' Call the backend interface. *(recommend.vue)*
+##### 2. _/build/webpack.dev.conf.js_ back-end interface is defined asynchronously.
+##### 3. *(recommend.vue)* 'api/getDiscList' Call the backend interface. 
 
 
 ## 4-9: 推荐界面---热门歌单推荐, rendering interface
