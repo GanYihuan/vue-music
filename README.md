@@ -207,7 +207,7 @@ host: '0.0.0.0',
 *(main.js)*
 ##### image laz-load: reload depend on scroll
 ```
-cnpm install vue-lazyload --save
+npm install vue-lazyload --save
 ```
 ##### class="needsclick" : fastclick Do not intercept the click process.
 
