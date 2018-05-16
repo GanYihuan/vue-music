@@ -1,5 +1,5 @@
 <template>
-  <!-- 01/推荐界面 -->
+  <!-- static/01-推荐界面 -->
   <div class="recommend" ref="recommend">
     <!-- :data="discList": Prevents the async loading slow, without data to fill the page -->
     <scroll ref="scroll" class="recommend-content" :data="discList">
@@ -66,9 +66,9 @@
     },
     // get back-end data
     created () {
-      // fetch data (carousel data)
+      // fetch data from the back-end (carousel data) async
       this._getRecommend()
-      // fetch data (歌单数据)
+      // fetch data from the back-end (歌单数据) async
       this._getDiscList()
     },
     methods: {
@@ -92,8 +92,6 @@
         // mutation: setDisc
         this.setDisc(item)
       },
-      // carousel data from the back-end
-      // async
       _getRecommend () {
         getRecommend()
           .then((res) => {
@@ -104,7 +102,6 @@
             }
           })
       },
-      // 热门歌单推荐 data from the back-end.
       _getDiscList () {
         getDiscList()
           .then((res) => {

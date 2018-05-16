@@ -133,7 +133,7 @@ npm install jsonp --save
 ```
 
 
-## 4-3: jsonp use, Carousel data capture
+## 4-3: jsonp use, capture Carousel data
 - ✨✨✨
 *(api/config)*
 *(api/recommend.js)*
