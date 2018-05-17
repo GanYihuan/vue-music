@@ -357,10 +357,10 @@ npm install vuex --save
 ## 6-10, 6-11, 6-12: 歌手详情页---pull down & scroll to top animate
 - ✨✨✨✨
 *(song-list.vue)*
-*(music-list.vue)*
+*(music-list.vue)* 
 
 
-## 6-13: 歌手详情页---Configuration of different browser CSS
+## 6-13: 歌手详情页---Configuration of different browser CSS, (just copy!)
 - ✨✨✨✨
 *(common/js/dom.js)*
 *(music-list.vue)*
