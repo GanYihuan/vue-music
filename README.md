@@ -376,7 +376,7 @@ npm install vuex --save
 
 
 ## 7-2: 音乐播放界面---Play vuex data define
-- ✨✨✨
+- ✨✨✨✨
 *(store/state.js)*
 
 
@@ -388,10 +388,10 @@ npm install vuex --save
 *(store/actions.js)*
 ```
 // pass vuex actions.js
-      ...mapActions([
-        'selectPlay',
-        'randomPlay'
-      ])
+...mapActions([
+  'selectPlay',
+  'randomPlay'
+])
 ```
 
 

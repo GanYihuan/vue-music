@@ -13,12 +13,12 @@ const state = {
   fullScreen: false,
   // Player: playlist
   playlist: [],
-  // Player: sequence list (control play mode)
+  // Player: sequenceList (control play mode)
   // when play mode === random, playlist !== sequenceList
   sequenceList: [],
-  // Player: sequence list (different play mode)
+  // Player: sequenceList (different play mode)
   mode: playMode.sequence,
-  // Player: currently plays the song index.
+  // Player: currently song index.
   currentIndex: -1,
   // Song single object
   disc: {},

@@ -1,5 +1,5 @@
 /**
- * 播放器: 播放模式配置
+ * Player: playMode config
  * @type {{sequence: number, loop: number, random: number}}
  */
 
