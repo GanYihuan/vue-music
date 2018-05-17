@@ -6,6 +6,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  // get vuex store, vuex 语法糖
   import { mapGetters } from 'vuex'
   import { getSingerDetail } from 'api/singer'
   import { ERR_OK } from 'api/config'
@@ -52,7 +53,6 @@
           // ES6 Structure assignment
           let {musicData} = item
           if (musicData.songid && musicData.albummid) {
-            // common/song.js/createSong
             ret.push(createSong(musicData))
           }
         })

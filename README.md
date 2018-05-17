@@ -303,12 +303,12 @@ npm install vue-lazyload --save
 - ✨✨
 *(static/vuex.png)*
 ```
-cnpm install vuex --save 
+npm install vuex --save 
 ```
 
 
 ## 6-4: Vuex config
-- ✨✨✨
+- ✨✨✨✨
 1. *(store/vuex.js)*: use vuex
 2. *(store/state.js)*: defined data
 3. *(store/getters.js)*: Mapping state data, get state
@@ -317,14 +317,14 @@ cnpm install vuex --save
 6. *(store/action.js)*: Mutation use action to encapsulate and modify multiple mutations.
 ```
   // call mutation，use mutation type constant。set state
-        ...mapMutations({
-          setSinger: 'SET_SINGER'
-        })
+  ...mapMutations({
+    setSinger: 'SET_SINGER'
+  })
   
   // getters, get (vuex/state.js) data
-        ...mapGetters([
-          'singer'
-        ])
+  ...mapGetters([
+    'singer'
+  ])
 ```
 
 

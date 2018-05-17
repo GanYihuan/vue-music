@@ -12,6 +12,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+  // vuex 语法糖
   import { mapMutations } from 'vuex'
   import { getSingerList } from 'api/singer'
   import { ERR_OK } from 'api/config'
@@ -103,7 +104,7 @@
         })
         return hot.concat(ret)
       },
-      // call mutation，use mutation tyoe constants。set state
+      // call mutation，use mutation-type constants, set state
       ...mapMutations({
         setSinger: 'SET_SINGER'
       })
