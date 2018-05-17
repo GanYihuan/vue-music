@@ -105,7 +105,8 @@
         this.$router.back()
       },
       selectItem (item, index) {
-        // vuex (store/actions.js)
+        // Modify action multiple times, package an actions
+        // ...mapActions
         this.selectPlay({
           list: this.songs,
           index
@@ -117,7 +118,7 @@
           list: this.songs
         })
       },
-      // pass to vuex actions.js
+      // vuex (store/actions.js)
       ...mapActions([
         'selectPlay',
         'randomPlay'

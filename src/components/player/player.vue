@@ -1,12 +1,11 @@
 <template>
-  <!-- 04/音乐播放界面 -->
+  <!-- static/04-音乐播放界面.png -->
   <div class="player" v-show="playlist.length>0">
-    <transition
-      name="normal"
-      @enter="enter"
-      @after-enter="afterEnter"
-      @leave="leave"
-      @after-leave="afterLeave"
+    <transition name="normal"
+                @enter="enter"
+                @after-enter="afterEnter"
+                @leave="leave"
+                @after-leave="afterLeave"
     >
       <div class="normal-player" v-show="fullScreen">
         <div class="background">
@@ -19,11 +18,10 @@
           <h1 class="title" v-html="currentSong.name"></h1>
           <h2 class="subtitle" v-html="currentSong.singer"></h2>
         </div>
-        <div
-          class="middle"
-          @touchstart.prevent="middleTouchStart"
-          @touchmove.prevent="middleTouchMove"
-          @touchend="middleTouchEnd"
+        <div class="middle"
+             @touchstart.prevent="middleTouchStart"
+             @touchmove.prevent="middleTouchMove"
+             @touchend="middleTouchEnd"
         >
           <div class="middle-l" ref="middleL">
             <div class="cd-wrapper" ref="cdWrapper">
@@ -39,12 +37,11 @@
           <scroll class="middle-r" ref="lyricList" :data="currentLyric && currentLyric.lines">
             <div class="lyric-wrapper">
               <div v-if="currentLyric">
-                <p
-                  ref="lyricLine"
-                  class="text"
-                  :class="{'current': currentLineNum ===index}"
-                  v-for="(line,index) in currentLyric.lines"
-                  :key="index"
+                <p class="text"
+                   ref="lyricLine"
+                   :class="{'current': currentLineNum ===index}"
+                   v-for="(line,index) in currentLyric.lines"
+                   :key="index"
                 >
                   {{line.txt}}
                 </p>
@@ -104,13 +101,12 @@
       </div>
     </transition>
     <playlist ref="playlist"></playlist>
-    <audio
-      ref="audio"
-      :src="currentSong.url"
-      @play="ready"
-      @error="error"
-      @timeupdate="updateTime"
-      @ended="end"
+    <audio ref="audio"
+           :src="currentSong.url"
+           @play="ready"
+           @error="error"
+           @timeupdate="updateTime"
+           @ended="end"
     >
     </audio>
   </div>

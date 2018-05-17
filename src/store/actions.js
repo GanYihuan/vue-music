@@ -14,6 +14,7 @@ function findIndex (list, song) {
   })
 }
 
+// music-list.vue/selectItem(item, index))
 // Click on the song name to make changes.
 // Define the action, action Execution, mutation changes, mapping state data.
 // {commit, state} : Submit and retrieve data.
