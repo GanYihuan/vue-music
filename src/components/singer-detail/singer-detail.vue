@@ -1,13 +1,11 @@
 <template>
   <!-- static/03-歌手详情页.png/歌手详情页 -->
-  <!-- singer-detail handle data, music-list render 歌手详情页-->
   <transition name="slide">
     <music-list :songs="songs" :title="title" :bg-image="bgImage"></music-list>
   </transition>
 </template>
 
 <script type="text/ecmascript-6">
-  // import store/getters Syntactic sugar
   import { mapGetters } from 'vuex'
   import { getSingerDetail } from 'api/singer'
   import { ERR_OK } from 'api/config'
@@ -43,12 +41,10 @@
         getSingerDetail(this.singer.id)
           .then((res) => {
             if (res.code === ERR_OK) {
-              // console.log(res.data.list)
               this.songs = this._normalizeSongs(res.data.list)
             }
           })
       },
-      // handle data
       _normalizeSongs (list) {
         // Do standardized processing when you get the data.
         let ret = []

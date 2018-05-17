@@ -6,7 +6,7 @@
                @select="selectSinger"
     >
     </list-view>
-    <!-- singer-detail will render here -->
+    <!-- singer-detail.vue render here -->
     <router-view></router-view>
   </div>
 </template>
