@@ -345,7 +345,7 @@ npm install vuex --save
 - ✨✨
 *(music-list.vue)*
 *(singer-detail.vue)*
-##### singer-detail handle 歌手详情页 data, music-list render 歌手详情页
+##### singer-detail.vue handle data, music-list.vue show component
 
 
 ## 6-9: 歌手详情页---calculate size

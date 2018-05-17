@@ -1,6 +1,6 @@
 <template>
   <!-- static/03-歌手详情页.png/歌手详情页 -->
-  <!-- singer-detail handle data, music-list render 歌手详情页-->
+  <!-- singer-detail.vue handle data, music-list.vue show component -->
   <div class="music-list">
     <div class="back" @click="back">
       <i class="icon-back"></i>
@@ -16,13 +16,12 @@
       <div class="filter" ref="filter"></div>
     </div>
     <div class="bg-layer" ref="layer"></div>
-    <scroll
-      class="list"
-      ref="list"
-      :data="songs"
-      :listen-scroll="listenScroll"
-      :probe-type="probeType"
-      @scroll="scroll"
+    <scroll class="list"
+            ref="list"
+            :data="songs"
+            :listen-scroll="listenScroll"
+            :probe-type="probeType"
+            @scroll="scroll"
     >
       <div class="song-list-wrapper">
         <song-list
@@ -64,7 +63,7 @@
       },
       songs: {
         type: Array,
-        default: []
+        default: null
       },
       title: {
         type: String,
@@ -83,7 +82,6 @@
       }
     },
     computed: {
-      // singer
       bgStyle () {
         return `background-image:url(${this.bgImage})`
       }
