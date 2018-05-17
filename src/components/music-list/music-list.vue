@@ -8,7 +8,7 @@
     <h1 class="title" v-html="title"></h1>
     <div class="bg-image" :style="bgStyle" ref="bgImage">
       <div class="play-wrapper">
-        <div ref="playBtn" v-show="songs.length>0" class="play" @click="random">
+        <div class="play" ref="playBtn" v-show="songs.length>0" @click="random">
           <i class="icon-play"></i>
           <span class="text">随机播放全部</span>
         </div>
@@ -24,11 +24,7 @@
             @scroll="scroll"
     >
       <div class="song-list-wrapper">
-        <song-list
-          :songs="songs"
-          :rank="rank"
-          @select="selectItem"
-        >
+        <song-list :songs="songs" :rank="rank" @select="selectItem">
         </song-list>
       </div>
       <div v-show="!songs.length" class="loading-container">
@@ -77,7 +73,6 @@
     },
     data () {
       return {
-        // pass to vuex action
         scrollY: 0
       }
     },
@@ -92,6 +87,7 @@
     },
     mounted () {
       this.imageHeight = this.$refs.bgImage.clientHeight
+      // use for layer
       this.minTransalteY = -this.imageHeight + RESERVED_HEIGHT
       this.$refs.list.$el.style.top = `${this.imageHeight}px`
     },
@@ -103,7 +99,6 @@
         this.$refs.list.refresh()
       },
       scroll (pos) {
-        // pass to vuex action
         this.scrollY = pos.y
       },
       back () {
@@ -143,11 +138,12 @@
           blur = Math.min(percent * 20, 20)
         }
         this.$refs.layer.style[transform] = `translate3d(0,${translateY}px,0)`
-        // Gaussian blur: the apple phone can view.
+        // Gaussian-blur: iphone can view
         this.$refs.filter.style[backdrop] = `blur(${blur}px)`
         // scroll to top
         if (newVal < this.minTransalteY) {
           zIndex = 10
+          // css file: .bg-image { padding-top: 70%; width: 100% }, w : h = 10 : 7
           this.$refs.bgImage.style.paddingTop = 0
           this.$refs.bgImage.style.height = `${RESERVED_HEIGHT}px`
           this.$refs.playBtn.style.display = 'none'

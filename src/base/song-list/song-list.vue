@@ -2,11 +2,10 @@
   <!-- static/03-歌手详情页.png/歌曲列表 -->
   <div class="song-list">
     <ul>
-      <li
-        class="item"
-        v-for="(song, index) in songs"
-        :key="index"
-        @click="selectItem(song, index)"
+      <li class="item"
+          v-for="(song, index) in songs"
+          :key="index"
+          @click="selectItem(song, index)"
       >
         <div class="rank" v-show="rank">
           <span :class="getRankCls(index)">{{getRankText(index)}}</span>
@@ -25,7 +24,7 @@
     props: {
       songs: {
         type: Array,
-        default: []
+        default: null
       },
       // for 07-排行榜详情界面.png, trophy
       rank: {
