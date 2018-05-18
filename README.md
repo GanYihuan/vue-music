@@ -484,11 +484,11 @@ npm install create-keyframe-animation --save
 *(common/js/song.js)*
 ##### Base64 decoding and encoding.
 ```
-cnpm install js-base64 --save
+npm install js-base64 --save
 ```
 ##### The lyric parsing, performs the callback function every time it is executed.
 ```
-cnpm install lyric-parser
+npm install lyric-parser
 ```
 
 
