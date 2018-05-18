@@ -1,10 +1,10 @@
 import { commonParams } from './config'
-// ajax库axios,发起HTTPRequest
+// ajax axios,request HTTPRequest
 import axios from 'axios'
 
-// 获取歌词
+// get the lyrics
 export function getLyric (mid) {
-  // 浏览器访问地址, 后端代理地址
+  // The browser accesses the address, the back-end proxy address.
   const url = '/api/lyric'
   const data = Object.assign({}, commonParams, {
     songmid: mid,
