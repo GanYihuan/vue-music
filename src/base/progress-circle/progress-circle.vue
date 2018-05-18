@@ -14,7 +14,8 @@
       <!-- stroke-dashoffset: Stroke offset -->
       <circle class="progress-bar" r="50" cx="50" cy="50" fill="transparent"
               :stroke-dasharray="dashArray"
-              :stroke-dashoffset="dashOffset"/>
+              :stroke-dashoffset="dashOffset"
+      />
     </svg>
     <!-- i Tag insertion slot -->
     <slot></slot>

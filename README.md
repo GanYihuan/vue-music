@@ -445,7 +445,7 @@ npm install create-keyframe-animation --save
 
 
 ## 7-15: 音乐播放界面---Mini player ring progress bar (SVG)
-- ✨✨
+- ✨✨✨✨
 *(progress-circle.vue)*
 
 
