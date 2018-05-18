@@ -179,13 +179,10 @@
         // ...mapMutations
         this.setFullScreen(false)
       },
-      // The bottom interface is enlarged to the record interface.
       open () {
-        // vuex (store/mutations.js)
+        // ...mapMutations
         this.setFullScreen(true)
       },
-      // transition animate
-      // create-keyframe-animation
       enter (el, done) {
         const {x, y, scale} = this._getPosAndScale()
         let animation = {
@@ -207,13 +204,13 @@
             easing: 'linear'
           }
         })
+        // done: func
         animations.runAnimation(this.$refs.cdWrapper, 'move', done)
       },
       afterEnter () {
         animations.unregisterAnimation('move')
         this.$refs.cdWrapper.style.animation = ''
       },
-      // Listen for an event
       leave (el, done) {
         this.$refs.cdWrapper.style.transition = 'all 0.4s'
         const {x, y, scale} = this._getPosAndScale()
@@ -459,20 +456,20 @@
       // Returns the scale of the large record and the small record,
       // the center of the big record is the zoom point position.
       _getPosAndScale () {
-        // The smaller disc is width.
+        // smaller disc's width
         const targetWidth = 40
-        // The smaller disc is paddingLeft.
+        // smaller disc's paddingLeft
         const paddingLeft = 40
-        // The smaller disc is paddingBottom.
+        // smaller disc's paddingBottom
         const paddingBottom = 30
-        // The large disc is paddingTop from the top of the container.
+        // large disc's paddingTop, to the top of the container
         const paddingTop = 80
-        // Large disc size.
+        // large disc's width
         const width = window.innerWidth * 0.8
-        // The proportion of Large disc shrunk to smaller disc
+        // smaller disc's width / large disc's width
         const scale = targetWidth / width
-        // The target point (x,y) is in the middle of the large circle graph.
-        // The fourth quadrant, the small circle graph x position to the big circle x position take the negative direction.
+        // target point (x,y) location large circle disc's center
+        // The fourth quadrant, small disc's x position to the big disc's x position, take the negative direction
         const x = -(window.innerWidth / 2 - paddingLeft)
         const y = window.innerHeight - paddingTop - width / 2 - paddingBottom
         return {x, y, scale}

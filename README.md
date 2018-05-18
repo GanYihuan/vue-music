@@ -399,10 +399,10 @@ npm install vuex --save
 
 
 ## 7-6, 7-7: 音乐播放界面---animate js
-- ✨✨✨
+- ✨✨✨✨
 *(player.vue)*
 ```
-cnpm install create-keyframe-animation --save
+npm install create-keyframe-animation --save
 ```
 
 
