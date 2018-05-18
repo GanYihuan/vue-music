@@ -48,13 +48,21 @@ export const playerMixin = {
     ])
   },
   methods: {
+    ...mapMutations({
+      setPlayMode: 'SET_PLAY_MODE',
+      setPlaylist: 'SET_PLAYLIST',
+      setCurrentIndex: 'SET_CURRENT_INDEX'
+    }),
+    ...mapActions([
+      'saveFavoriteList',
+      'deleteFavoriteList'
+    ]),
     changeMode () {
       const mode = (this.mode + 1) % 3
-      // vuex (store/mutation.js)
+      // ...mapMutations
       this.setPlayMode(mode)
       let list = null
       if (mode === playMode.random) {
-        // 洗牌
         list = shuffle(this.sequenceList)
       } else {
         // 保持原始列表
@@ -93,16 +101,7 @@ export const playerMixin = {
         return item.id === song.id
       })
       return index > -1
-    },
-    ...mapMutations({
-      setPlayMode: 'SET_PLAY_MODE',
-      setPlaylist: 'SET_PLAYLIST',
-      setCurrentIndex: 'SET_CURRENT_INDEX'
-    }),
-    ...mapActions([
-      'saveFavoriteList',
-      'deleteFavoriteList'
-    ])
+    }
   }
 }
 

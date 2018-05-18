@@ -450,7 +450,7 @@ npm install create-keyframe-animation --save
 
 
 ## 7-16: 音乐播放界面---Song control playback mode style change.
-- ✨✨
+- ✨✨✨
 *(player.vue)*
 *(common/js/mixin.js)*
 
