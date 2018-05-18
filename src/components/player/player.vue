@@ -66,16 +66,16 @@
               <i :class="iconMode"></i>
             </div>
             <div class="icon i-left" :class="disableCls">
-              <i @click="prev" class="icon-prev"></i>
+              <i class="icon-prev" @click="prev"></i>
             </div>
             <div class="icon i-center" :class="disableCls">
-              <i @click="togglePlaying" :class="playIcon"></i>
+              <i :class="playIcon" @click="togglePlaying"></i>
             </div>
             <div class="icon i-right" :class="disableCls">
-              <i @click="next" class="icon-next"></i>
+              <i class="icon-next" @click="next"></i>
             </div>
             <div class="icon i-right">
-              <i @click="toggleFavorite(currentSong)" class="icon" :class="getFavoriteIcon(currentSong)"></i>
+              <i class="icon" :class="getFavoriteIcon(currentSong)" @click="toggleFavorite(currentSong)"></i>
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@
     <transition name="mini">
       <div class="mini-player" v-show="!fullScreen" @click="open">
         <div class="icon">
-          <img :class="cdCls" width="40" height="40" :src="currentSong.image">
+          <img width="40" height="40" :class="cdCls" :src="currentSong.image">
         </div>
         <div class="text">
           <h2 class="name" v-html="currentSong.name"></h2>
@@ -92,7 +92,7 @@
         </div>
         <div class="control">
           <progress-circle :radius="radius" :percent="percent">
-            <i @click.stop="togglePlaying" class="icon-mini" :class="miniIcon"></i>
+            <i class="icon-mini" :class="miniIcon" @click.stop="togglePlaying"></i>
           </progress-circle>
         </div>
         <div class="control" @click.stop="showPlaylist">
@@ -134,7 +134,6 @@
       return {
         songReady: false,
         currentTime: 0,
-        // Ring progress bar size.
         radius: 32,
         currentLyric: null,
         // The current line of lyrics is used to highlight.
@@ -158,19 +157,23 @@
       disableCls () {
         return this.songReady ? '' : 'disable'
       },
-      // The ratio of progress bar playback.
       percent () {
         return this.currentTime / this.currentSong.duration
       },
       // vuex (store/getter.js)
-      ...mapGetters(['currentIndex', 'fullScreen', 'playing'])
+      ...mapGetters([
+        'currentIndex',
+        'fullScreen',
+        'playing'
+      ])
     },
     created () {
       this.touch = {}
     },
     methods: {
       ...mapMutations({
-        setFullScreen: 'SET_FULL_SCREEN'
+        setFullScreen: 'SET_FULL_SCREEN',
+        setPlayingState: 'SET_PLAYING_STATE'
       }),
       ...mapActions([
         'savePlayHistory'
@@ -225,7 +228,7 @@
         if (!this.songReady) {
           return
         }
-        // vuex (store/mutation.js)
+        // ...mapMutations
         this.setPlayingState(!this.playing)
         // The lyrics can be played when the lyrics scroll, preventing the lyrics from scrolling while they stop playing.
         if (this.currentLyric) {
@@ -476,9 +479,8 @@
       }
     },
     watch: {
-      // Listen when the currentSong changes.
       currentSong (newSong, oldSong) {
-        // There's only one song.
+        // when only one song.
         if (!newSong.id) {
           return
         }
@@ -494,8 +496,8 @@
           this.playingLyric = ''
           this.currentLineNum = 0
         }
-        // setTimeout: Resolving DOM exceptions
-        // setTimeout: Ensure that the mobile phone is cut from the background to the front desk js execution can be played normally.
+        // setTimeout: resolving DOM exceptions
+        // setTimeout: ensure that the mobile phone is cut from the background to the front desk js execution can be played normally.
         // optimization: 1
         clearTimeout(this.timer)
         this.timer = setTimeout(() => {
@@ -506,7 +508,6 @@
           this.getLyric()
         }, 1000)
       },
-      // listen playing(state data), The real control is the audio player.
       playing (newPlaying) {
         const audio = this.$refs.audio
         // $nextTick: The deferred callback that is executed after the next DOM update cycle ends.

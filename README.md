@@ -406,7 +406,7 @@ npm install create-keyframe-animation --save
 ```
 
 
-## 7-8: 音乐播放界面---Song control play button.
+## 7-8: 音乐播放界面---Song control play button
 - ✨✨✨
 *(player.vue)*
 
