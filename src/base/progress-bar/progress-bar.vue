@@ -1,18 +1,16 @@
 <template>
   <!-- static/04-音乐播放界面.png/歌曲控件 -->
-  <div
-    class="progress-bar"
-    ref="progressBar"
-    @click="progressClick"
+  <div class="progress-bar"
+       ref="progressBar"
+       @click="progressClick"
   >
     <div class="bar-inner">
       <div class="progress" ref="progress"></div>
-      <div
-        class="progress-btn-wrapper"
-        ref="progressBtn"
-        @touchstart="progressTouchStart"
-        @touchmove="progressTouchMove"
-        @touchend="progressTouchEnd"
+      <div class="progress-btn-wrapper"
+           ref="progressBtn"
+           @touchstart="progressTouchStart"
+           @touchmove="progressTouchMove"
+           @touchend="progressTouchEnd"
       >
         <div class="progress-btn"></div>
       </div>
@@ -21,7 +19,6 @@
 </template>
 
 <script type="text/ecmascript-6">
-  // css, Browsers are compatible.
   import { prefixStyle } from 'common/js/dom'
 
   const progressBtnWidth = 16
@@ -35,7 +32,6 @@
       }
     },
     created () {
-      // Shared data
       this.touch = {}
     },
     methods: {
@@ -86,13 +82,10 @@
     },
     watch: {
       percent (newPercent) {
-        // !this.touch.init: The progress bar dragging process cannot be modified.
+        // !this.touch.init: progress bar dragging process cannot be modified
         if (newPercent >= 0 && !this.touch.init) {
-          // progressBtnWidth: Play control ball
-          // this.$refs.progressBar.clientWidth: Song progress bar length.
-          // progressBarWidth: The song can actually play the length of the progress bar.
           const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-          // offsetWidth: The length of the progress bar has been shown.
+          // offsetWidth: real progress width, yellow color
           const offsetWidth = progressBarWidth * newPercent
           this._offset(offsetWidth)
         }
