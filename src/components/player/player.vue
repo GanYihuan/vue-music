@@ -169,9 +169,14 @@
       this.touch = {}
     },
     methods: {
-      // The record interface shrinks to the bottom.
+      ...mapMutations({
+        setFullScreen: 'SET_FULL_SCREEN'
+      }),
+      ...mapActions([
+        'savePlayHistory'
+      ]),
       back () {
-        // vuex (store/mutations.js)
+        // ...mapMutations
         this.setFullScreen(false)
       },
       // The bottom interface is enlarged to the record interface.
@@ -471,12 +476,7 @@
         const x = -(window.innerWidth / 2 - paddingLeft)
         const y = window.innerHeight - paddingTop - width / 2 - paddingBottom
         return {x, y, scale}
-      },
-      // Data is set to state through mutations.
-      ...mapMutations({
-        setFullScreen: 'SET_FULL_SCREEN'
-      }),
-      ...mapActions(['savePlayHistory'])
+      }
     },
     watch: {
       // Listen when the currentSong changes.
