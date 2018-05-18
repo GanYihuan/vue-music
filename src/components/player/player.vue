@@ -252,7 +252,6 @@
           this.currentLyric.seek(0)
         }
       },
-      // Song back
       next () {
         // audio ready->songReady
         if (!this.songReady) {
@@ -268,7 +267,7 @@
           if (index === this.playlist.length) {
             index = 0
           }
-          // vuex (store/mutation)
+          // ...mapMutations (common/js/mixin.js)
           this.setCurrentIndex(index)
           if (!this.playing) {
             this.togglePlaying()
@@ -276,7 +275,6 @@
         }
         this.songReady = false
       },
-      // Song to go forward
       prev () {
         if (!this.songReady) {
           return
@@ -298,10 +296,9 @@
         this.songReady = false
       },
       ready () {
-        // audio, Prevent limit click operation error.
+        // <audio>, Prevent limit click operation error.
         this.songReady = true
-        // vuex (store/mutation)
-        // Save the playback history.
+        // ...mapActions
         this.savePlayHistory(this.currentSong)
       },
       error () {

@@ -411,7 +411,7 @@ npm install create-keyframe-animation --save
 *(player.vue)*
 
 
-## 7-9: 音乐播放界面---The song control moves forward and backwards, prevent limit clicks.
+## 7-9: 音乐播放界面---The song control moves forward and backwards, prevent limit clicks
 - ✨✨✨
 *(player.vue)*
 
