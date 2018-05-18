@@ -478,7 +478,7 @@
         if (!newSong.id) {
           return
         }
-        // The id is the same, so you don't do anything
+        // mixin.js/changeMode(), currentSong no change
         if (newSong.id === oldSong.id) {
           return
         }

@@ -1,12 +1,8 @@
-// Returns the random number between min ~ Max, including min, Max.
+// Returns the random number between min ~ Max, including Max.
 function getRandomInt (min, max) {
-  // Math.random()函数返回0和1之间的伪随机数，可能为0，但总是小于1，[0,1)
-  // Math.random()生成[0,1)的数，所以
-  // Math.random()*5生成{0,5)的数。
-  // 通常期望得到整数，所以要对得到的结果处理一下。
-  // parseInt()，Math.floor()，Math.ceil()和Math.round()都可得到整数。
-  // parseInt()和Math.floor()结果都是向下取整。
-  // Math.random()*5生成的都是[0,4] 的随机整数
+  // Math.random() create [0,1) number
+  // create a [x,y) number
+  // Math.round(Math.random()*(y-x))+x;
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
@@ -16,7 +12,6 @@ export function shuffle (arr) {
   for (let i = 0; i < _arr.length; i++) {
     let j = getRandomInt(0, i)
     let t = _arr[i]
-    // swap
     _arr[i] = _arr[j]
     _arr[j] = t
   }

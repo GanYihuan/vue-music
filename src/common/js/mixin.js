@@ -63,22 +63,21 @@ export const playerMixin = {
       this.setPlayMode(mode)
       let list = null
       if (mode === playMode.random) {
+        // sequenceList: origin-List
         list = shuffle(this.sequenceList)
       } else {
-        // 保持原始列表
         list = this.sequenceList
       }
       this.resetCurrentIndex(list)
-      //  vuex (store/mutation.js)
+      // ...mapMutations
       this.setPlaylist(list)
     },
-    // 播放模式发生变化时, 希望当前歌曲currentSong不改变
+    // click mode change btn, keep currentSong no change
     resetCurrentIndex (list) {
-      // 在list里面找到当前歌曲的索引index
       let index = list.findIndex((item) => {
         return item.id === this.currentSong.id
       })
-      // vuex (store/mutation.js)
+      // ...mapMutations
       this.setCurrentIndex(index)
     },
     toggleFavorite (song) {
