@@ -416,8 +416,8 @@ npm install create-keyframe-animation --save
 *(player.vue)*
 
 
-## 7-10: 音乐播放界面---The song control prevents the limit click and the component grays.
-- ✨✨✨
+## 7-10: 音乐播放界面---The song control prevents the limit click and the component grays
+- ✨✨
 *(player.vue)*
 
 
