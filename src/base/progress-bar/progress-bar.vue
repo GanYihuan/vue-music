@@ -60,9 +60,8 @@
       },
       progressClick (e) {
         // getBoundingClientRect: static/getBoundingClientRect.png
-        // getBoundingClientRect: Get the left, top, right, and bottom of an element on the page relative to the browser window.
         const rect = this.$refs.progressBar.getBoundingClientRect()
-        // e.pageX: Click the distance to the left of browser page.
+        // offsetWidth: real progress = stop position - rect
         const offsetWidth = e.pageX - rect.left
         this._offset(offsetWidth)
         this._triggerPercent()

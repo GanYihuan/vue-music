@@ -113,7 +113,7 @@
         })
       },
       random () {
-        // vuex (store/action.js)
+        // ...mapActions
         this.randomPlay({
           list: this.songs
         })

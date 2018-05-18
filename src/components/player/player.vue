@@ -245,6 +245,7 @@
       loop () {
         this.$refs.audio.currentTime = 0
         this.$refs.audio.play()
+        // ...mapMutations
         this.setPlayingState(true)
         // When the song goes into the loop, the song starts with the song lyrics at the beginning.
         if (this.currentLyric) {
