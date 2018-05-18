@@ -37,20 +37,20 @@
     methods: {
       progressTouchStart (e) {
         this.touch.init = true
-        // this.touch.startX: Click on location for the first time.
+        // this.touch.startX: Click on location for the first time
         this.touch.startX = e.touches[0].pageX
-        // this.$refs.progress: Progress bar generated progress width.
+        // this.$refs.progress: Progress bar generated progress width
         this.touch.left = this.$refs.progress.clientWidth
       },
       progressTouchMove (e) {
         if (!this.touch.init) {
           return
         }
-        // progressBarWidth: The distance that the progress bar can move: the length of the progress bar - the length of the ball.
+        // progressBarWidth: real progress width, yellow color
         const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-        // detailX: Progress bar moving distance = current click position - last click position.
+        // detailX: Progress bar moving distance = current click position - pre click position
         const detailX = e.touches[0].pageX - this.touch.startX
-        // Math.max(0, X): (X>0) The value returned is not less than 0.
+        // Math.max(0, X): (X>0) The value returned is not less than 0
         const offsetWidth = Math.min(progressBarWidth, Math.max(0, this.touch.left + detailX))
         this._offset(offsetWidth)
       },
@@ -59,7 +59,7 @@
         this._triggerPercent()
       },
       progressClick (e) {
-        // getBoundingClientRect: static -> getBoundingClientRect.png
+        // getBoundingClientRect: static/getBoundingClientRect.png
         // getBoundingClientRect: Get the left, top, right, and bottom of an element on the page relative to the browser window.
         const rect = this.$refs.progressBar.getBoundingClientRect()
         // e.pageX: Click the distance to the left of browser page.
@@ -68,11 +68,9 @@
         this._triggerPercent()
       },
       _triggerPercent () {
-        // progressBarWidth: Progress bar can move distance = progress bar length - ball length.
+        // progressBarWidth: Progress bar can move distance = progress bar length - ball length
         const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-        // this.$refs.progress: Progress bar play progress and total play progress bar length ratio.
         const percent = this.$refs.progress.clientWidth / progressBarWidth
-        // The percentChange method of the call parent class.
         this.$emit('percentChange', percent)
       },
       _offset (offsetWidth) {
@@ -84,6 +82,7 @@
       percent (newPercent) {
         // !this.touch.init: progress bar dragging process cannot be modified
         if (newPercent >= 0 && !this.touch.init) {
+          // progressBarWidth: Progress bar can move distance = progress bar length - ball length
           const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
           // offsetWidth: real progress width, yellow color
           const offsetWidth = progressBarWidth * newPercent

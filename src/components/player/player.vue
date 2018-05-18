@@ -316,9 +316,7 @@
         const second = this._pad(interval % 60)
         return `${minute}:${second}`
       },
-      // Progress bar progress change.
       onProgressBarChange (percent) {
-        // currentTime: The current playback time of the song.
         const currentTime = this.currentSong.duration * percent
         this.$refs.audio.currentTime = currentTime
         if (!this.playing) {
