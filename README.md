@@ -421,7 +421,7 @@ npm install create-keyframe-animation --save
 *(player.vue)*
 
 
-## 7-11: 音乐播放界面---Get the playtime.
+## 7-11: 音乐播放界面---Get the playtime
 - ✨✨✨
 *(player.vue)*
 

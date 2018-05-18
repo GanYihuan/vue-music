@@ -305,10 +305,9 @@
         this.songReady = true
       },
       updateTime (e) {
-        // There's currentTime in audio.
+        // <audio>'s currentTime
         this.currentTime = e.target.currentTime
       },
-      // format time
       format (interval) {
         // | 0: (math.floor)
         interval = interval | 0
