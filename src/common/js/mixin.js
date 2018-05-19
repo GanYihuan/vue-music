@@ -21,7 +21,7 @@ export const playlistMixin = {
     }
   },
   methods: {
-    // 组件如果没有定义handlePlaylist,就会调用mixin里面的handlePlaylist
+    // If the component does not define the handlePlaylist, it calls the handlePlaylist in the mixin.
     handlePlaylist () {
       throw new Error('component must implement handlePlaylist method')
     }
@@ -95,7 +95,7 @@ export const playerMixin = {
     },
     isFavorite (song) {
       // favoriteList: mutation
-      // 查找song是否在favoriteList里面, 如果在返回其所在索引index
+      // Find out whether song is in the favoriteList and if it returns its index index.
       const index = this.favoriteList.findIndex((item) => {
         return item.id === song.id
       })
@@ -110,7 +110,7 @@ export const searchMixin = {
   data () {
     return {
       query: '',
-      // 延迟scroll refresh保证dom已经加载完毕
+      // Late scroll refresh guarantees that the dom has been loaded.
       refreshDelay: 120
     }
   },
@@ -120,23 +120,23 @@ export const searchMixin = {
     ])
   },
   methods: {
+    ...mapActions([
+      'saveSearchHistory',
+      'deleteSearchHistory'
+    ]),
     onQueryChange (query) {
       this.query = query
     },
-    // 当滚动时, search框失去焦点, 目的是取消移动端键盘
+    // When scrolling, the search box loses focus and the purpose is to cancel the mobile keyboard.
     blurInput () {
       this.$refs.searchBox.blur()
     },
     addQuery (query) {
       this.$refs.searchBox.setQuery(query)
     },
-    // 保存搜索结果到localStorage
+    // Save the search results to localStorage.
     saveSearch () {
       this.saveSearchHistory(this.query)
-    },
-    ...mapActions([
-      'saveSearchHistory',
-      'deleteSearchHistory'
-    ])
+    }
   }
 }

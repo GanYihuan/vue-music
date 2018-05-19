@@ -1,20 +1,18 @@
 <template>
-  <!-- 08/搜索结果 -->
-  <scroll
-    ref="suggest"
-    class="suggest"
-    :data="result"
-    :pullup="pullup"
-    :beforeScroll="beforeScroll"
-    @scrollToEnd="searchMore"
-    @beforeScroll="listScroll"
+  <!-- static/08-搜索结果 -->
+  <scroll class="suggest"
+          ref="suggest"
+          :data="result"
+          :pullup="pullup"
+          :beforeScroll="beforeScroll"
+          @scrollToEnd="searchMore"
+          @beforeScroll="listScroll"
   >
     <ul class="suggest-list">
-      <li
-        class="suggest-item"
-        v-for="(item,index) in result"
-        :key="index"
-        @click="selectItem(item)"
+      <li class="suggest-item"
+          v-for="(item,index) in result"
+          :key="index"
+          @click="selectItem(item)"
       >
         <div class="icon">
           <i :class="getIconCls(item)"></i>
@@ -34,12 +32,12 @@
 <script type="text/ecmascript-6">
   import Scroll from 'base/scroll/scroll'
   import Loading from 'base/loading/loading'
+  import Singer from 'common/js/singer'
   import NoResult from 'base/no-result/no-result'
   import { search } from 'api/search'
   import { ERR_OK } from 'api/config'
   import { createSong } from 'common/js/song'
   import { mapMutations, mapActions } from 'vuex'
-  import Singer from 'common/js/singer'
 
   const TYPE_SINGER = 'singer'
   // perpage: The number of returns per page.
@@ -47,12 +45,10 @@
 
   export default {
     props: {
-      // Show the singer ？
       showSinger: {
         type: Boolean,
         default: true
       },
-      // search keywords
       query: {
         type: String,
         default: ''
@@ -71,6 +67,12 @@
       }
     },
     methods: {
+      ...mapMutations({
+        setSinger: 'SET_SINGER'
+      }),
+      ...mapActions([
+        'insertSong'
+      ]),
       refresh () {
         this.$refs.suggest.refresh()
       },
@@ -78,7 +80,6 @@
       search () {
         // Just search
         this.page = 1
-        // have more data
         this.hasMore = true
         // scroll to top
         this.$refs.suggest.scrollTo(0, 0)
@@ -106,9 +107,9 @@
         // load next page
         this.page++
         /**
-         * query: Retrieve the value
+         * query: retrieve value
          * page: page index
-         * zhida: Do you want a singer ?
+         * this.showSinger: Do you want a singer ?
          * perpage: The number of returns per page.
          */
         search(this.query, this.page, this.showSinger, perpage)
@@ -116,10 +117,15 @@
             if (res.code === ERR_OK) {
               // concat: Array splicing, result change, data change, incoming scroll value change, scroll refresh.
               this.result = this.result.concat(this._genResult(res.data))
-              // have more data ?
               this._checkMore(res.data)
             }
           })
+      },
+      _checkMore (data) {
+        const song = data.song
+        if (!song.list.length || song.curnum + song.curpage * perpage > song.totalnum) {
+          this.hasMore = false
+        }
       },
       listScroll () {
         this.$emit('listScroll')
@@ -159,10 +165,10 @@
       },
       _genResult (data) {
         let ret = []
-        // zhida: Do you want a singer ?
-        // zhida.singerid: singer
+        // zhida: Do you want a singer?
+        // zhida.singerid: singer id
         if (data.zhida && data.zhida.singerid) {
-          // type: distinguish between a singer and a song.
+          // type: distinguish between singers and songs.
           ret.push({...data.zhida, ...{type: TYPE_SINGER}})
         }
         if (data.song) {
@@ -179,25 +185,11 @@
           }
         })
         return ret
-      },
-      // have more data ?
-      _checkMore (data) {
-        const song = data.song
-        if (!song.list.length || song.curnum + song.curpage * perpage > song.totalnum) {
-          this.hasMore = false
-        }
-      },
-      ...mapMutations({
-        setSinger: 'SET_SINGER'
-      }),
-      ...mapActions([
-        'insertSong'
-      ])
+      }
     },
     watch: {
-      // query: Retrieve the value
       query (newQuery) {
-        // Request server (api/search.js)
+        // request server (api/search.js)
         this.search(newQuery)
       }
     },
