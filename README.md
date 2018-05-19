@@ -604,10 +604,6 @@ npm install lyric-parser
 *(suggest.vue)* 
 *(no-result.vue)*
 *(common/js/util)*
-1. Returns 404 when no search results are available.
-2. Optimization request: throttling function, when processing search box input character, 
-  search result is not input a character to come out result, enter a certain time to request again.
-3. When you scroll, you lose focus, and the mobile input keyboard does not block the interface.
 
 
 ## 10-11: 08-搜索界面---Search historical data cache to localStorage, vuex data storage.
