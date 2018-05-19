@@ -1,43 +1,17 @@
 import storage from 'good-storage'
 
-// '__x__': 内部的值
+// '__x__': The value of the internal
 const SEARCH_KEY = '__search__'
-// 缓存MAX值:15条数据
+// Cache MAX value :15 data.
 const SEARCH_MAX_LEN = 15
-// 播放历史记录
+// Play history
 const PLAY_KEY = '__play__'
-// 播放历史记录MAX值:200条
+// Play history MAX value :200.
 const PLAY_MAX_LEN = 200
-// 收藏
+// collection
 const FAVORITE_KEY = '__favorite__'
-// 收藏数量MAX值:200
+// collection MAX value :200.
 const FAVORITE_MAX_LEN = 200
-
-/**
- * val数据插入arr数组, 且放置在第一位
- * @param arr: 储存数组
- * @param val: 储存值
- * @param compare: 比较函数
- * @param maxLen: 最大值
- */
-function insertArray (arr, val, compare, maxLen) {
-  // findIndex: 查找arr数组是否有compare元素, 返回该元素下标
-  const index = arr.findIndex(compare)
-  // 第一位置有compare这条数据
-  if (index === 0) {
-    return
-  }
-  // compare这条数据不在第一位置
-  if (index > 0) {
-    arr.splice(index, 1)
-  }
-  // 往arr数组头部插入val这条数据
-  arr.unshift(val)
-  if (maxLen && arr.length > maxLen) {
-    // arr数组尾部的数据删掉
-    arr.pop()
-  }
-}
 
 /**
  * 删除arr数组中的compare
@@ -54,18 +28,44 @@ function deleteFromArray (arr, compare) {
 }
 
 /**
- * localStorage, 查询历史记录
- * @param query: 查询值
+ * Val data is inserted into arr array and placed first.
+ * @param arr: Stored array
+ * @param val: Stored value
+ * @param compare: func
+ * @param maxLen: number
+ */
+function insertArray (arr, val, compare, maxLen) {
+  // findIndex: Find the arr array with the compare element and return the subscript.
+  const index = arr.findIndex(compare)
+  // The first position has the compare.
+  if (index === 0) {
+    return
+  }
+  // Compare this data is not in the first place.
+  if (index > 0) {
+    arr.splice(index, 1)
+  }
+  // Insert val's data into the arr array head.
+  arr.unshift(val)
+  if (maxLen && arr.length > maxLen) {
+    // Delete the end of arr array.
+    arr.pop()
+  }
+}
+
+/**
+ * localStorage, Query history
+ * @param query
  * @returns {*}
  */
 export function saveSearch (query) {
-  // 获取缓存数据, 历史数据, 没有数据则返回空数组
+  // Gets cached data, historical data, no data returns an empty array.
   let searches = storage.get(SEARCH_KEY, [])
-  // val数据插入arr数组, 且放置在第一位
+  // Val data is inserted into arr array and placed first.
   insertArray(searches, query, (item) => {
     return item === query
   }, SEARCH_MAX_LEN)
-  // 储存缓存数据, 历史数据
+  // Store cached data, historical data.
   storage.set(SEARCH_KEY, searches)
   return searches
 }

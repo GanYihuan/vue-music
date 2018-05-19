@@ -619,6 +619,9 @@ npm install lyric-parser
 - ✨✨✨✨
 *(common/js/cache.js)*
 *(store/actions.js)*
+```
+npm install good-storage --save
+```
 1. localStorage package: 
 storage.set(key, val)
 storage.get(key, def)
@@ -626,9 +629,6 @@ storage.remove(key)
 2. sessionStorage封装: 
 storage.session.set(key, val)
 storage.session.get(key, def)
-```
-npm install good-storage --save
-```
 
 
 ## 10-13: 08-搜索界面---read Search historical data from cache localStorage
