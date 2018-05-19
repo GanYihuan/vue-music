@@ -1,5 +1,5 @@
 <template>
-  <!-- 05/热门歌单 -->
+  <!-- static/05-热门歌单.png -->
   <transition name="slide">
     <music-list
       :title="title"
@@ -19,16 +19,17 @@
 
   export default {
     computed: {
+      // vuex (store/getter.js)
+      ...mapGetters([
+        'disc'
+      ]),
       title () {
         return this.disc.dissname
       },
       bgImage () {
+        // ...mapGetters
         return this.disc.imgurl
-      },
-      // vuex (store/getter.js)
-      ...mapGetters([
-        'disc'
-      ])
+      }
     },
     data () {
       return {

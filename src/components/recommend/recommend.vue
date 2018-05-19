@@ -77,6 +77,9 @@
       this._getDiscList()
     },
     methods: {
+      ...mapMutations({
+        setDisc: 'SET_DISC'
+      }),
       // If there is a mini player, the singer list bottom will add height to display it.
       handlePlaylist (playlist) {
         const bottom = playlist.length > 0 ? '60px' : ''
@@ -94,7 +97,7 @@
         this.$router.push({
           path: `/recommend/${item.dissid}`
         })
-        // mutation: setDisc
+        // ...mapMutations
         this.setDisc(item)
       },
       _getRecommend () {
@@ -114,11 +117,7 @@
               this.discList = res.data.list
             }
           })
-      },
-      ...mapMutations({
-        // Set the song list object.
-        setDisc: 'SET_DISC'
-      })
+      }
     },
     components: {
       Slider,
