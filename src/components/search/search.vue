@@ -57,9 +57,9 @@
     <!-- @confirm: if true, call func -->
     <confirm
       ref="confirm"
-      @confirm="clearSearchHistory"
       text="是否清空所有搜索历史"
       confirmBtnText="清空"
+      @confirm="clearSearchHistory"
     >
     </confirm>
     <!-- The secondary routing -->
