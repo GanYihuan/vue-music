@@ -136,6 +136,7 @@ export const searchMixin = {
     },
     // Save the search results to localStorage.
     saveSearch () {
+      // ...mapActions
       this.saveSearchHistory(this.query)
     }
   }
