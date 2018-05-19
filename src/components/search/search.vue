@@ -1,31 +1,28 @@
 <template>
-  <!-- 08/搜索 -->
+  <!-- static/08-搜索界面 -->
   <div class="search">
     <div class="search-box-wrapper">
       <search-box ref="searchBox" @query="onQueryChange"></search-box>
     </div>
-    <div
-      ref="shortcutWrapper"
-      class="shortcut-wrapper"
-      v-show="!query"
-      :refreshDelay="refreshDelay"
+    <div class="shortcut-wrapper"
+         ref="shortcutWrapper"
+         v-show="!query"
+         :refreshDelay="refreshDelay"
     >
       <!-- Pass in data, scroll to calculate the height according to data changes. -->
-      <scroll
-        ref="shortcut"
-        class="shortcut"
-        :data="shortcut"
+      <scroll class="shortcut"
+              ref="shortcut"
+              :data="shortcut"
       >
         <!-- Scroll inside, wrap a div, calculate the scroll of two parts. -->
         <div>
           <div class="hot-key">
             <h1 class="title">热门搜索</h1>
             <ul>
-              <li
-                class="item"
-                v-for="(item,index) in hotKey"
-                :key="index"
-                @click="addQuery(item.k)"
+              <li class="item"
+                  v-for="(item,index) in hotKey"
+                  :key="index"
+                  @click="addQuery(item.k)"
               >
                 <span>{{item.k}}</span>
               </li>
@@ -99,6 +96,9 @@
       this._getHotKey()
     },
     methods: {
+      ...mapActions([
+        'clearSearchHistory'
+      ]),
       handlePlaylist (playlist) {
         const bottom = playlist.length > 0 ? '60px' : ''
         this.$refs.searchResult.style.bottom = bottom
@@ -109,7 +109,6 @@
       showConfirm () {
         this.$refs.confirm.show()
       },
-      // The search box fills in the search word query.
       addQuery (query) {
         this.$refs.searchBox.setQuery(query)
       },
@@ -117,14 +116,10 @@
         getHotKey()
           .then(res => {
             if (res.code === ERR_OK) {
-              // Take the top ten data.
               this.hotKey = res.data.hotkey.slice(0, 10)
             }
           })
-      },
-      ...mapActions([
-        'clearSearchHistory'
-      ])
+      }
     },
     watch: {
       // Prevents scroll from being disabled by the current interface.

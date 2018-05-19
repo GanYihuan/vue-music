@@ -562,25 +562,23 @@ npm install lyric-parser
 *(song-list.vue)*
 
 
-## 10-1: 搜索界面---introduce
+## 10-1: 08-搜索界面---introduce
 - ✨
 
 
-## 10-2: 搜索界面---Search box component
+## 10-2: 08-搜索界面---Search box component
 - ✨✨
 *(search.vue)* 
 *(search-box.vue)*
-1. Distribute the query value to the outside.
 
 
-## 10-3: 搜索界面---fetch data, 热门搜索
+## 10-3: 08-搜索界面---fetch data
 - ✨✨✨
 *(api/search.js)*
 *(search-box.vue)*
-1. jsonp request
 
 
-## 10-4: 搜索界面--The search function
+## 10-4: 08-搜索界面--The search function
 - ✨✨✨
 *(suggest.vue)* 
 *(api/search.js)*
@@ -588,20 +586,20 @@ npm install lyric-parser
 2. jsonp request
 
 
-## 10-5: 搜索界面---drop-down refresh
+## 10-5: 08-搜索界面---drop-down refresh
 - ✨✨✨
 *(suggest.vue)*
 *(scroll.vue)*
 *(loading.vue)*
 
  
-## 10-6, 10-7, 10-8, 10-9: 搜索界面---Click the song on the search interface and insert it into the playlist.
+## 10-6, 10-7, 10-8, 10-9: 08-搜索界面---Click the song on the search interface and insert it into the playlist.
 - ✨✨✨✨✨
 *(store/action.js)*
 *(suggest.vue)*
 
 
-## 10-10: 搜索界面---optimize
+## 10-10: 08-搜索界面---optimize
 - ✨✨✨
 *(suggest.vue)* 
 *(no-result.vue)*
@@ -612,12 +610,12 @@ npm install lyric-parser
 3. When you scroll, you lose focus, and the mobile input keyboard does not block the interface.
 
 
-## 10-11: 搜索界面---Search historical data cache to localStorage, vuex data storage.
+## 10-11: 08-搜索界面---Search historical data cache to localStorage, vuex data storage.
 - ✨✨
 *(search.vue)*
 
 
-## 10-12: 搜索界面---Search historical data cache to localStorage
+## 10-12: 08-搜索界面---Search historical data cache to localStorage
 - ✨✨✨✨
 *(common/js/cache.js)*
 *(store/actions.js)*
@@ -633,34 +631,34 @@ npm install good-storage --save
 ```
 
 
-## 10-13: 搜索界面---read Search historical data from cache localStorage
+## 10-13: 08-搜索界面---read Search historical data from cache localStorage
 - ✨✨
 *(common/js/cache.js)*
 
 
-## 10-14: 搜索界面---Search historical vuex render data
+## 10-14: 08-搜索界面---Search historical vuex render data
 - ✨✨
 *(search-list.vue)* 
 *(search.vue)* 
 
 
-## 10-15: 搜索界面---Search historical saveSearchHistory, deleteSearchHistory
+## 10-15: 08-搜索界面---Search historical saveSearchHistory, deleteSearchHistory
 - ✨✨✨✨
 *(common/js/cache.js)*
 *(search.vue)* 
 
 
-## 10-16: 搜索界面---confirm component
+## 10-16: 08-搜索界面---confirm component
 - ✨✨
 *(confirm.js)*
 
 
-## 10-17: 搜索界面---scroll setting
+## 10-17: 08-搜索界面---scroll setting
 - ✨✨✨
 *(search.vue)*
 
 
-## 10-18: 搜索界面---set mini Play position
+## 10-18: 08-搜索界面---set mini Play position
 - ✨✨
 *(search.vue)*
 
