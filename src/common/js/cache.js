@@ -14,14 +14,14 @@ const FAVORITE_KEY = '__favorite__'
 const FAVORITE_MAX_LEN = 200
 
 /**
- * 删除arr数组中的compare
- * @param arr: 指定数组
- * @param compare: 返回函数
+ * Remove compare from arr array.
+ * @param arr:
+ * @param compare: return func
  */
 function deleteFromArray (arr, compare) {
-  // findIndex: 查找arr数组是否有compare元素, 返回该元素下标
+  // findIndex: Find the arr array with the compare element and return the subscript.
   const index = arr.findIndex(compare)
-  // 如果存在
+  // If there is
   if (index > -1) {
     arr.splice(index, 1)
   }
@@ -71,89 +71,89 @@ export function saveSearch (query) {
 }
 
 /**
- * localStorage删除对应搜索历史记录
- * @param query: 查询值
+ * LocalStorage deletes the corresponding search history.
+ * @param query
  * @returns {*}
  */
 export function deleteSearch (query) {
-  // 获取缓存数据, 历史数据
+  // Gets cached data, historical data.
   let searches = storage.get(SEARCH_KEY, [])
   deleteFromArray(searches, (item) => {
     return item === query
   })
-  // 保存缓存数据, 历史数据
+  // Save the cached data, historical data.
   storage.set(SEARCH_KEY, searches)
   return searches
 }
 
-// localStorage删除全部搜索历史记录(actions.js会调用)
+// LocalStorage deletes all search history (actions.js)
 export function clearSearch () {
   storage.remove(SEARCH_KEY)
   return []
 }
 
-// 从本地缓存去读搜索历史记录(state.js会调用)
+// Read the search history from the local cache (state.js calls)
 export function loadSearch () {
   return storage.get(SEARCH_KEY, [])
 }
 
 /**
- * 缓存播放历史记录(actions.js调用)
+ * Cache playback history (actions.js)
  * @param song
  * @returns {*}
  */
 export function savePlay (song) {
-  // 获取播放历史记录localStorage, 没有的话返回空数组
+  // Gets the playback history localStorage and returns an empty array if no.
   let songs = storage.get(PLAY_KEY, [])
-  // song插入到songs, 传入比较函数, song在里面的话把他挪到前面去
+  // Song is inserted into songs, passed in the comparison function, and song moves him to the front.
   insertArray(songs, song, (item) => {
     return song.id === item.id
   }, PLAY_MAX_LEN)
-  // 新数组缓存到本地
+  // The new array is cached locally.
   storage.set(PLAY_KEY, songs)
   return songs
 }
 
-// 读取播放历史记录localStorage(state.js会调用)
+// Read the playback history localStorage(state.js will call)
 export function loadPlay () {
   return storage.get(PLAY_KEY, [])
 }
 
 /**
- * 保存收藏
+ * Save the collection
  * @param song
  * @returns {*}
  */
 export function saveFavorite (song) {
-  // 获取收藏列表localStorage
+  // Get the collection list localStorage.
   let songs = storage.get(FAVORITE_KEY, [])
-  // song插入到songs, 传入比较函数, song在里面的话把他挪到前面去
+  // Song is inserted into songs, passed in the comparison function, and song moves him to the front.
   insertArray(songs, song, (item) => {
     return song.id === item.id
   }, FAVORITE_MAX_LEN)
-  // 新数组缓存到本地
+  // The new array is cached locally.
   storage.set(FAVORITE_KEY, songs)
   return songs
 }
 
 /**
- * storage删除收藏
+ * Storage deletes collection.
  * @param song
  * @returns {*}
  */
 export function deleteFavorite (song) {
   let songs = storage.get(FAVORITE_KEY, [])
-  // 删除arr数组中的compare
+  // Remove compare from arr array.
   deleteFromArray(songs, (item) => {
     return item.id === song.id
   })
-  // 新数组缓存到本地
+  // The new array is cached locally.
   storage.set(FAVORITE_KEY, songs)
   return songs
 }
 
-// 加载收藏列表
-// state初始值获取的时候会用到(state.js会调用)
+// Load favorites list
+// When the state initial value is fetched, it will be used (state.js will call)
 export function loadFavorite () {
   return storage.get(FAVORITE_KEY, [])
 }
