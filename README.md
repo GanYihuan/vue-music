@@ -540,10 +540,9 @@ npm install lyric-parser
 
 
 ## 9-2: 排行榜界面---Vuex use data
-- ✨✨
+- ✨✨✨
 *(rank.vue)*
 *(loading.vue)*
-1. set height, refresh scroll
 
 
 ## 9-3: 排行榜详情界面---Vuex Data communications
