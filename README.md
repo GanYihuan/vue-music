@@ -546,7 +546,7 @@ npm install lyric-parser
 
 
 ## 9-3: 排行榜详情界面---Vuex Data communications
-- ✨✨
+- ✨✨✨
 *(top-list.vue)*
 
 

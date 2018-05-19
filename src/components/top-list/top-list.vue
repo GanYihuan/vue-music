@@ -1,5 +1,5 @@
 <template>
-  <!-- 07/排行榜详情界面 -->
+  <!-- static/07-排行榜详情界面.png -->
   <transition name="slide">
     <music-list
       :rank="rank"
@@ -19,20 +19,8 @@
   import { createSong } from 'common/js/song'
 
   export default {
-    computed: {
-      title () {
-        return this.topList.topTitl
-      },
-      bgImage () {
-        if (this.songs.length) {
-          return this.songs[0].image
-        }
-        return ''
-      },
-      // vuex (store/state.js)
-      ...mapGetters([
-        'topList'
-      ])
+    created () {
+      this._getMusicList()
     },
     data () {
       return {
@@ -40,8 +28,21 @@
         rank: true
       }
     },
-    created () {
-      this._getMusicList()
+    computed: {
+      // vuex (store/state.js)
+      ...mapGetters([
+        'topList'
+      ]),
+      title () {
+        // ...mapGetters
+        return this.topList.topTitl
+      },
+      bgImage () {
+        if (this.songs.length) {
+          return this.songs[0].image
+        }
+        return ''
+      }
     },
     methods: {
       _getMusicList () {
@@ -56,7 +57,6 @@
             }
           })
       },
-      // 处理数据
       _normalizeSongs (list) {
         let ret = []
         list.forEach(item => {
