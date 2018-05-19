@@ -82,6 +82,10 @@
       }
     },
     methods: {
+      ...mapActions([
+        'deleteSong',
+        'deleteSongList'
+      ]),
       show () {
         this.showFlag = true
         // The display is refreshed to prevent the dom from being correctly calculated, resulting in scroll failure.
@@ -110,14 +114,15 @@
       },
       selectItem (item, index) {
         if (this.mode === playMode.random) {
+          // ...mapGetters (mixin.js)
           // The index index of item under playlist.
           index = this.playlist.findIndex((song) => {
             return song.id === item.id
           })
         }
-        // store/actions
+        // ...mapMutations (mixin.js)
         this.setCurrentIndex(index)
-        // store/actions
+        // ...mapMutations (mixin.js)
         this.setPlayingState(true)
       },
       scrollToCurrent (current) {
@@ -129,7 +134,7 @@
         this.$refs.listContent.scrollToElement(this.$refs.list.$el.children[index], 300)
       },
       deleteOne (item) {
-        // mutation
+        // ...mapActions
         this.deleteSong(item)
         if (!this.playlist.length) {
           this.hide()
@@ -137,11 +142,7 @@
       },
       addSong () {
         this.$refs.addSong.show()
-      },
-      ...mapActions([
-        'deleteSong',
-        'deleteSongList'
-      ])
+      }
     },
     watch: {
       currentSong (newSong, oldSong) {
