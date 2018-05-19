@@ -649,7 +649,7 @@ storage.session.get(key, def)
 
 
 ## 10-16: 08-搜索界面---confirm component
-- ✨✨
+- ✨✨✨
 *(confirm.js)*
 
 
@@ -663,47 +663,47 @@ storage.session.get(key, def)
 *(search.vue)*
 
 
-## 11-1: mini歌曲列表---introduce
+## 11-1: 10-mini歌曲列表---introduce
 - ✨
 *(playlist.vue)*
 
 
-## 11-2: mini歌曲列表---show and hide
+## 11-2: 10-mini歌曲列表---show and hide
 - ✨✨
 *(playlist.vue)*
 *(player.vue)*
 1. prevent bubble
 
 
-## 11-3: mini歌曲列表---vuex data render
+## 11-3: 10-mini歌曲列表---vuex data render
 - ✨✨✨
 *(playlist.vue)*
 
 
-## 11-4: mini歌曲列表---Scroll to the current location of the song.
+## 11-4: 10-mini歌曲列表---Scroll to the current location of the song.
 - ✨✨✨
 *(playlist.vue)*
 
 
-## 11-5, 11-6: mini歌曲列表---删除一首歌曲
+## 11-5, 11-6: 10-mini歌曲列表---删除一首歌曲
 - ✨✨✨✨
 *(store/actions.js)*
 *(playlist.vue)*
 
 
-## 11-7: mini歌曲列表---删除一首歌曲的动画
+## 11-7: 10-mini歌曲列表---删除一首歌曲的动画
 - ✨✨✨
 *(playlist.vue)*
 *(confirm.vue)*
 1. transition-group
 
 
-## 11-8, 11-9: mini歌曲列表---mixin公共js
+## 11-8, 11-9: 10-mini歌曲列表---mixin公共js
 - ✨✨
 *(common/js/mixin.js)*
 
 
-## 11-10:  mini歌曲列表---'添加歌曲到列表'的显示和隐藏
+## 11-10:  10-mini歌曲列表---'添加歌曲到列表'的显示和隐藏
 - ✨✨
 *(add-song.vue)*
 
