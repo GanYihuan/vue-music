@@ -68,7 +68,7 @@ export const insertSong = function ({commit, state}, song) {
   let currentIndex = state.currentIndex
   // Record current song
   let currentSong = playlist[currentIndex]
-  // Find the song, song, and return its index in the playlist.
+  // Find the song, and return its index in the playlist.
   let fpIndex = findIndex(playlist, song)
   // Insert the song, so index +1.
   currentIndex++
@@ -87,7 +87,7 @@ export const insertSong = function ({commit, state}, song) {
   // sequenceList: Current song list, different mode, song location is different.
   // currentSIndex: sequenceList Insert the location
   let currentSIndex = findIndex(sequenceList, currentSong) + 1
-  // Whether the song song is still to be inserted in the current list of sequenceList goes back to its index.
+  // Find the song, and return its index in the sequenceList.
   let fsIndex = findIndex(sequenceList, song)
   sequenceList.splice(currentSIndex, 0, song)
   if (fsIndex > -1) {

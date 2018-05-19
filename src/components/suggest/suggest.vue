@@ -23,7 +23,7 @@
       </li>
       <loading v-show="hasMore" title=""></loading>
     </ul>
-    <div v-show="!hasMore && !result.length" class="no-result-wrapper">
+    <div class="no-result-wrapper" v-show="!hasMore && !result.length">
       <no-result title="抱歉，暂无搜索结果"></no-result>
     </div>
   </scroll>
@@ -131,7 +131,6 @@
         this.$emit('listScroll')
       },
       selectItem (item) {
-        // If the search results click on the singer data.
         if (item.type === TYPE_SINGER) {
           const singer = new Singer({
             id: item.singermid,
@@ -140,11 +139,10 @@
           this.$router.push({
             path: `/search/${singer.id}`
           })
-          // vuex (store/mutation.js)
+          // ...mapMutations
           this.setSinger(singer)
         } else {
-          // If the search results click on the song data.
-          // vuex (store/action.js)
+          // ...mapActions
           this.insertSong(item)
         }
         this.$emit('select', item)

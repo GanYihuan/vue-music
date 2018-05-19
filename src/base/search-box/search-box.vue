@@ -38,10 +38,9 @@
     },
     // Not directly in the watch.
     created () {
-      // debounce(): common/js/util.js
+      // debounce(): (common/js/util.js)
       // Throttling function, optimizing request.
       this.$watch('query', debounce(newQuery => {
-          // The query event is distributed to the parent.
           this.$emit('query', newQuery)
         }, 200)
       )
