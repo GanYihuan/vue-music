@@ -87,6 +87,7 @@
       }
     },
     computed: {
+      // ...mapGetters (mixin.js)
       // When hotKey, searchHistory changes, scroll resets the height.
       shortcut () {
         return this.hotKey.concat(this.searchHistory)
