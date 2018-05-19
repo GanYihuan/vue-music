@@ -18,6 +18,14 @@
   import { createSong } from 'common/js/song'
 
   export default {
+    created () {
+      this._getSongList()
+    },
+    data () {
+      return {
+        songs: []
+      }
+    },
     computed: {
       // vuex (store/getter.js)
       ...mapGetters([
@@ -31,14 +39,6 @@
         return this.disc.imgurl
       }
     },
-    data () {
-      return {
-        songs: []
-      }
-    },
-    created () {
-      this._getSongList()
-    },
     methods: {
       _getSongList () {
         if (!this.disc.dissid) {
@@ -48,7 +48,6 @@
         getSongList(this.disc.dissid)
           .then((res) => {
             if (res.code === ERR_OK) {
-              // console.log(res.cdlist[0].songlist)
               this.songs = this._normalizeSongs(res.cdlist[0].songlist)
             }
           })
