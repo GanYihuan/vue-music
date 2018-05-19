@@ -33,15 +33,15 @@
               <div class="playing-lyric">{{playingLyric}}</div>
             </div>
           </div>
-          <!-- :data="currentLyric && currentLyric.lines": currentLyric!=null -->
+          <!-- :data="currentLyric && currentLyric.lines": currentLyric!==null -->
           <scroll class="middle-r" ref="lyricList" :data="currentLyric && currentLyric.lines">
             <div class="lyric-wrapper">
               <div v-if="currentLyric">
                 <p class="text"
                    ref="lyricLine"
-                   :class="{'current': currentLineNum ===index}"
                    v-for="(line,index) in currentLyric.lines"
                    :key="index"
+                   :class="{'current': currentLineNum === index}"
                 >
                   {{line.txt}}
                 </p>
@@ -119,7 +119,6 @@
   import ProgressBar from 'base/progress-bar/progress-bar'
   import ProgressCircle from 'base/progress-circle/progress-circle'
   import { playMode } from 'common/js/config'
-  // The lyric parsing, performs the callback function every time it is executed.
   import Lyric from 'lyric-parser'
   import Scroll from 'base/scroll/scroll'
   import { playerMixin } from 'common/js/mixin'
@@ -350,8 +349,6 @@
           })
       },
       // handleLyric: Call when the lyrics change.
-      // lineNum: The current line of lyrics is highlighted.
-      // txt: The lyrics writing
       handleLyric ({lineNum, txt}) {
         this.currentLineNum = lineNum
         if (lineNum > 5) {
