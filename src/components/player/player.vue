@@ -26,7 +26,7 @@
           <div class="middle-l" ref="middleL">
             <div class="cd-wrapper" ref="cdWrapper">
               <div class="cd" :class="cdCls">
-                <img class="image" :src="currentSong.image">
+                <img class="image" :src="currentSong.image"/>
               </div>
             </div>
             <div class="playing-lyric-wrapper">
@@ -167,6 +167,7 @@
       ])
     },
     created () {
+      // no need get & set, defined in created
       this.touch = {}
     },
     methods: {
@@ -229,7 +230,7 @@
         }
         // ...mapMutations
         this.setPlayingState(!this.playing)
-        // The lyrics can be played when the lyrics scroll, preventing the lyrics from scrolling while they stop playing.
+        // fixBug: The lyrics can be played when the lyrics scroll, preventing the lyrics from scrolling while they stop playing.
         if (this.currentLyric) {
           this.currentLyric.togglePlay()
         }
@@ -246,9 +247,9 @@
         this.$refs.audio.play()
         // ...mapMutations
         this.setPlayingState(true)
-        // When the song goes into the loop, the song starts with the song lyrics at the beginning.
+        // fixBug: When the song goes into the loop, the song starts with the song lyrics at the beginning.
         if (this.currentLyric) {
-          // The song jumps to the beginning.
+          // <audio>, The song jumps to the beginning.
           this.currentLyric.seek(0)
         }
       },
@@ -323,7 +324,7 @@
           this.togglePlaying()
         }
         if (this.currentLyric) {
-          // The lyrics follow the progress bar and correspond.
+          // fixBug: The lyrics follow the progress bar
           this.currentLyric.seek(currentTime * 1000)
         }
       },
@@ -331,7 +332,7 @@
         this.currentSong
           .getLyric()
           .then((lyric) => {
-            // Optimization: 2 prevent fast switching, resulting in unmatched lyrics.
+            // prevent fast switching, resulting in unmatched lyrics.
             if (this.currentSong.lyric !== lyric) {
               return
             }
@@ -342,8 +343,6 @@
           })
           .catch(() => {
             this.currentLyric = null
-            // When abnormal, the lyrics do not show.
-            // playingLyric: The lyrics below the CD.
             this.playingLyric = ''
             this.currentLineNum = 0
           })
@@ -365,16 +364,13 @@
       showPlaylist () {
         this.$refs.playlist.show()
       },
-      // Click on the record
       middleTouchStart (e) {
         this.touch.initiated = true
         // Used to determine whether or not it is a move.
         this.touch.moved = false
-        // Click on the finger
+        // first Click on the finger
         const touch = e.touches[0]
-        // Click on position x
         this.touch.startX = touch.pageX
-        // Click on position y
         this.touch.startY = touch.pageY
       },
       middleTouchMove (e) {
@@ -393,10 +389,10 @@
         if (!this.touch.moved) {
           this.touch.moved = true
         }
-        // Lyrics interface and record interface, choice one.
+        // right: 0; left: -window.innerWidth
         const left = this.currentShow === 'cd' ? 0 : -window.innerWidth
-        // The lyrics show a wide band, and the left slide is negative.
-        // Minimum - window.innerwidth, maximum 0.
+        // page left scroll a distance
+        // Minimum: - window.innerWidth; maximum: 0.
         const offsetWidth = Math.min(0, Math.max(-window.innerWidth, left + deltaX))
         this.touch.percent = Math.abs(offsetWidth / window.innerWidth)
         // lyricList: Vue component, $el to access the dom.
@@ -480,23 +476,21 @@
         if (newSong.id === oldSong.id) {
           return
         }
-        // currentLyric There is a timer in it, and when the next song is cut, the timer goes into the next song.
+        // fixBug: currentLyric There is a timer in it, and when the next song is cut, the timer goes into the next song.
         if (this.currentLyric) {
-          // Stop the timer for the first song.
+          // Stop the timer of the first song.
           this.currentLyric.stop()
           this.currentTime = 0
           this.playingLyric = ''
           this.currentLineNum = 0
         }
-        // setTimeout: resolving DOM exceptions
-        // setTimeout: ensure that the mobile phone is cut from the background to the front desk js execution can be played normally.
-        // optimization: 1
+        // setTimeout: ensure that the mobile phone is cut from the background to the front desk js execution can be played
         clearTimeout(this.timer)
         this.timer = setTimeout(() => {
           // Synchronized methods
           this.$refs.audio.play()
           // Asynchronous methods
-          // Prevent the call timing error and write the optimization in getLyric() : 2
+          // Prevent the call timing error and write the optimization in getLyric()
           this.getLyric()
         }, 1000)
       },
