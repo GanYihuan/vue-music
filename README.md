@@ -826,7 +826,7 @@ node prod.server.js
 cnpm install vconsole
 ```
 2. Caught tools charies(Mac) , Fiddler(Win)
-> 默认有个8888端口
+> There is a default 8888 port.
 3. computer IP
 ```
 ifconfig
