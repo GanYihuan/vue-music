@@ -94,7 +94,7 @@
       handlePlaylist (playlist) {
         const bottom = playlist.length > 0 ? '60px' : ''
         this.$refs.listWrapper.style.bottom = bottom
-        // With the v-if value, it might not exist to make sure it's not undefined.
+        // html use v-if value, it might not exist to make sure it's not undefined.
         this.$refs.favoriteList && this.$refs.favoriteList.refresh()
         this.$refs.playList && this.$refs.playList.refresh()
       },
