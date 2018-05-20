@@ -118,7 +118,7 @@
         list = list.map(song => {
           return new Song(song)
         })
-        // mutation
+        // ...mapActions
         this.randomPlay({
           list
         })
