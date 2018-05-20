@@ -82,8 +82,10 @@ export const playerMixin = {
     },
     toggleFavorite (song) {
       if (this.isFavorite(song)) {
+        // ...mapActions
         this.deleteFavoriteList(song)
       } else {
+        // ...mapActions
         this.saveFavoriteList(song)
       }
     },
@@ -94,7 +96,7 @@ export const playerMixin = {
       return 'icon-not-favorite'
     },
     isFavorite (song) {
-      // favoriteList: mutation
+      // ...mapGetters
       // Find out whether song is in the favoriteList and if it returns its index index.
       const index = this.favoriteList.findIndex((item) => {
         return item.id === song.id
