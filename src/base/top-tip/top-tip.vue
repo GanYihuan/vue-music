@@ -1,5 +1,5 @@
 <template>
-  <!-- 11-顶部提示 -->
+  <!-- 11-歌曲列表/顶部提示 -->
   <transition name="drop">
     <div class="top-tip" v-show="showFlag" @click.stop="hide">
       <slot></slot>
