@@ -1,14 +1,13 @@
 <template>
-  <!-- 11/切换 -->
+  <!-- static/11-切换 -->
   <ul class="switches">
-    <li
-      class="switch-item"
-      v-for="(item,index) in switches"
-      :key="index"
-      :class="{'active':currentIndex === index}"
-      @click="switchItem(index)"
+    <li class="switch-item"
+        v-for="(item,index) in switches"
+        :key="index"
+        :class="{'active':currentIndex === index}"
+        @click="switchItem(index)"
     >
-      <span>{{item.name}} </span>
+      <span>{{item.name}}</span>
     </li>
   </ul>
 </template>
@@ -18,7 +17,7 @@
     props: {
       switches: {
         type: Array,
-        default: []
+        default: null
       },
       currentIndex: {
         type: Number,
@@ -27,7 +26,7 @@
     },
     methods: {
       switchItem (index) {
-        this.$emit("switch", index)
+        this.$emit('switch', index)
       }
     }
   }
