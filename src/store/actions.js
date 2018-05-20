@@ -119,20 +119,15 @@ export const clearSearchHistory = function ({commit}) {
   commit(types.SET_SEARCH_HISTORY, clearSearch())
 }
 
-// Delete a song
 export const deleteSong = function ({commit, state}, song) {
   // The state can not be modified in other places, only in mutation.
   // A copy will not modify the state.
   let playlist = state.playlist.slice()
   let sequenceList = state.sequenceList.slice()
   let currentIndex = state.currentIndex
-  // The current index of the song.
   let pIndex = findIndex(playlist, song)
-  // Delete the song
   playlist.splice(pIndex, 1)
-  // sequenceList index
   let sIndex = findIndex(sequenceList, song)
-  // delete
   sequenceList.splice(sIndex, 1)
   if (currentIndex > pIndex || currentIndex === playlist.length) {
     currentIndex--

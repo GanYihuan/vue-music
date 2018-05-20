@@ -685,7 +685,7 @@ storage.session.get(key, def)
 *(playlist.vue)*
 
 
-## 11-5, 11-6: 10-mini歌曲列表---删除一首歌曲
+## 11-5, 11-6: 10-mini歌曲列表---Delete a song
 - ✨✨✨✨
 *(store/actions.js)*
 *(playlist.vue)*
