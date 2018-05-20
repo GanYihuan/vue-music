@@ -703,7 +703,7 @@ storage.session.get(key, def)
 *(common/js/mixin.js)*
 
 
-## 11-10:  10-mini歌曲列表---'添加歌曲到列表' show & hide
+## 11-10: 10-mini歌曲列表---'添加歌曲到列表' show & hide
 - ✨✨
 *(add-song.vue)*
 
