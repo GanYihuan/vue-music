@@ -66,6 +66,10 @@
       }
     },
     computed: {
+      ...mapGetters([
+        'favoriteList',
+        'playHistory'
+      ]),
       noResult () {
         if (this.currentIndex === 0) {
           return !this.favoriteList.length
@@ -79,13 +83,13 @@
         } else {
           return '你还没有听过歌曲'
         }
-      },
-      ...mapGetters([
-        'favoriteList',
-        'playHistory'
-      ])
+      }
     },
     methods: {
+      ...mapActions([
+        'insertSong',
+        'randomPlay'
+      ]),
       // Set the mini player to the correct position.
       handlePlaylist (playlist) {
         const bottom = playlist.length > 0 ? '60px' : ''
@@ -98,7 +102,7 @@
         this.currentIndex = index
       },
       selectSong (song) {
-        // mutation
+        // ...mapActions
         this.insertSong(new Song(song))
       },
       back () {
@@ -118,11 +122,7 @@
         this.randomPlay({
           list
         })
-      },
-      ...mapActions([
-        'insertSong',
-        'randomPlay'
-      ])
+      }
     },
     components: {
       Switches,
