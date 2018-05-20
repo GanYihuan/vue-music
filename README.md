@@ -741,43 +741,43 @@ storage.session.get(key, def)
 *(add-song.vue)*
 
 
-## 12-1: 用户中心页---切换 '我喜欢的' '最近听的'
+## 12-1: 12-用户中心页---switch '我喜欢的' '最近听的'
 - ✨✨
 *(user-center.vue)*
 *(m-header.vue)*
-1. 点击❤️按钮跳转到用户中心
+1. Click ❤️button to jump to the user center
 
 
-## 12-2: 用户中心页---vuex数据通讯
+## 12-2: 12-用户中心页---vuex Data communications
 - ✨✨✨✨
 *(store/actions.js)* 
 *(common/js/cache.js)*
 
 
-## 12-3: 用户中心页---收藏功能处理
+## 12-3: 12-用户中心页---Collection function processing
 - ✨✨✨
 *(user-center.vue)*
 *(common/js/mixin.js)*
 
 
-## 12-4: 用户中心页---添加歌曲到列表
+## 12-4: 12-用户中心页---Add a song to the list.
 - ✨✨✨
 *(user-center.vue)*
 *(playlist.vue)*
 
 
-## 12-5: 用户中心页---随机播放
+## 12-5: 12-用户中心页---Random broadcast
 - ✨✨✨
 *(user-center.vue)*
 1. 回退按钮功能
 2. 随机播放按钮功能
 
 
-## 12-6: 用户中心页---设置高度, 404界面
+## 12-6: 12-用户中心页---Set height, 404 interface.
 - ✨✨✨
 *(user-center.vue)*
-1. 设置高度
-2. 404界面
+1. Set height
+2. 404 interface
 
 
 ## 13-1: fix-bug

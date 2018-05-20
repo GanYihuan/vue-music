@@ -1,5 +1,5 @@
 <template>
-  <!-- 12 -->
+  <!-- 12-用户中心页 -->
   <transition name="slide">
     <div class="user-center">
       <div class="back" @click="back">
@@ -13,26 +13,24 @@
         >
         </switches>
       </div>
-      <div ref="playBtn" class="play-btn" @click="random">
+      <div class="play-btn" ref="playBtn" @click="random">
         <i class="icon-play"></i>
         <span class="text">随机播放全部</span>
       </div>
       <div class="list-wrapper" ref="listWrapper">
-        <scroll
-          ref="favoriteList"
-          class="list-scroll"
-          v-if="currentIndex===0"
-          :data="favoriteList"
+        <scroll class="list-scroll"
+                ref="favoriteList"
+                v-if="currentIndex===0"
+                :data="favoriteList"
         >
           <div class="list-inner">
             <song-list :songs="favoriteList" @select="selectSong"></song-list>
           </div>
         </scroll>
-        <scroll
-          ref="playList"
-          class="list-scroll"
-          v-if="currentIndex===1"
-          :data="playHistory"
+        <scroll class="list-scroll"
+                ref="playList"
+                v-if="currentIndex===1"
+                :data="playHistory"
         >
           <div class="list-inner">
             <song-list :songs="playHistory" @select="selectSong"></song-list>
@@ -47,23 +45,23 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import {mapGetters, mapActions} from "vuex"
-  import {playlistMixin} from "common/js/mixin"
-  import Switches from "base/switches/switches"
-  import Scroll from "base/scroll/scroll"
-  import SongList from "base/song-list/song-list"
-  import NoResult from "base/no-result/no-result"
-  import Song from "common/js/song"
+  import { mapGetters, mapActions } from 'vuex'
+  import { playlistMixin } from 'common/js/mixin'
+  import Switches from 'base/switches/switches'
+  import Scroll from 'base/scroll/scroll'
+  import SongList from 'base/song-list/song-list'
+  import NoResult from 'base/no-result/no-result'
+  import Song from 'common/js/song'
 
   export default {
     mixins: [playlistMixin],
     data () {
       return {
-        // 第一个switches选项
+        // The first switch option.
         currentIndex: 0,
         switches: [
-          {name: "我喜欢的"},
-          {name: "最近听的"}
+          {name: '我喜欢的'},
+          {name: '最近听的'}
         ]
       }
     },
@@ -77,22 +75,22 @@
       },
       noResultDesc () {
         if (this.currentIndex === 0) {
-          return "暂无收藏歌曲"
+          return '暂无收藏歌曲'
         } else {
-          return "你还没有听过歌曲"
+          return '你还没有听过歌曲'
         }
       },
       ...mapGetters([
-        "favoriteList",
-        "playHistory"
+        'favoriteList',
+        'playHistory'
       ])
     },
     methods: {
-      // 设置mini播放器正确位置
+      // Set the mini player to the correct position.
       handlePlaylist (playlist) {
-        const bottom = playlist.length > 0 ? "60px" : ""
+        const bottom = playlist.length > 0 ? '60px' : ''
         this.$refs.listWrapper.style.bottom = bottom
-        // 使用了v-if值, 有可能不存在, 确保它不是undefined
+        // With the v-if value, it might not exist to make sure it's not undefined.
         this.$refs.favoriteList && this.$refs.favoriteList.refresh()
         this.$refs.playList && this.$refs.playList.refresh()
       },
@@ -106,14 +104,13 @@
       back () {
         this.$router.back()
       },
-      // 随机播放
       random () {
         let list = this.currentIndex === 0 ? this.favoriteList : this.playHistory
-        // 没数据时
+        // No data
         if (list.length === 0) {
           return
         }
-        // list获得Song实例, 获得Song特有方法
+        // List gets the Song instance and gets the Song specific method.
         list = list.map(song => {
           return new Song(song)
         })
@@ -123,8 +120,8 @@
         })
       },
       ...mapActions([
-        "insertSong",
-        "randomPlay"
+        'insertSong',
+        'randomPlay'
       ])
     },
     components: {
