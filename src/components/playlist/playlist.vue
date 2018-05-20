@@ -102,7 +102,7 @@
         this.$refs.confirm.show()
       },
       confirmClear () {
-        // mutation
+        // ...mapActions
         this.deleteSongList()
         this.hide()
       },

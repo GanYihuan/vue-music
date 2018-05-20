@@ -691,52 +691,52 @@ storage.session.get(key, def)
 *(playlist.vue)*
 
 
-## 11-7: 10-mini歌曲列表---删除一首歌曲的动画
+## 11-7: 10-mini歌曲列表---Delete the animation of a song.
 - ✨✨✨
 *(playlist.vue)*
 *(confirm.vue)*
 1. transition-group
 
 
-## 11-8, 11-9: 10-mini歌曲列表---mixin公共js
+## 11-8, 11-9: 10-mini歌曲列表---Mixins public js
 - ✨✨
 *(common/js/mixin.js)*
 
 
-## 11-10:  10-mini歌曲列表---'添加歌曲到列表'的显示和隐藏
+## 11-10:  10-mini歌曲列表---'添加歌曲到列表' show & hide
 - ✨✨
 *(add-song.vue)*
 
 
-## 11-11: 添加歌曲到列表---点击搜索结果歌曲, 保存歌曲到localStorage
+## 11-11: 10-mini歌曲列表/添加歌曲到列表---Click the search results song to save the song to localStorage.
 - ✨✨✨
 *(add-song.vue)*
 *(common/js/mixin.js)*
 
 
-## 11-12: 添加歌曲到列表---切换歌曲列表组件的两个按钮
+## 11-12: 10-mini歌曲列表/添加歌曲到列表---Switch the two buttons of the song list component.
 - ✨✨
 *(switches.vue)*
 
 
-## 11-13, 11-14: 添加歌曲到列表---最近播放列表
+## 11-13, 11-14: 10-mini歌曲列表/添加歌曲到列表---playlist
 - ✨✨✨✨✨
 *(add-song.vue)*
 *(common/js/cache.js)*
 
 
-## 11-15: 添加歌曲到列表---搜索历史
+## 11-15: 10-mini歌曲列表/添加歌曲到列表---Search history
 - ✨✨✨
 *(add-song.vue)*
 *(common/js/mixin.js)*
 
 
-## 11-16: 添加歌曲到列表---顶部提示
+## 11-16: 10-mini歌曲列表/添加歌曲到列表---At the top of the tip
 - ✨✨
 *(top-tip.vue)*
 
 
-## 11-17: 添加歌曲到列表---fix-bug
+## 11-17: 10-mini歌曲列表/添加歌曲到列表---fix-bug
 - ✨✨
 *(add-song.vue)*
 

@@ -1,5 +1,5 @@
 <template>
-  <!-- 11-歌曲列表.png -->
+  <!-- 11-歌曲列表 -->
   <transition name="slide">
     <div class="add-song" v-show="showFlag" @click.stop>
       <div class="header">
@@ -24,22 +24,20 @@
         >
         </switches>
         <div class="list-wrapper">
-          <scroll
-            class="list-scroll"
-            ref="songList"
-            v-if="currentIndex === 0"
-            :data="playHistory"
+          <scroll class="list-scroll"
+                  ref="songList"
+                  v-if="currentIndex === 0"
+                  :data="playHistory"
           >
             <div class="list-inner">
               <song-list :songs="playHistory" @select="selectSong"></song-list>
             </div>
           </scroll>
-          <scroll
-            class="list-scroll"
-            ref="searchList"
-            v-if="currentIndex === 1"
-            :data="searchHistory"
-            :refreshDelay="refreshDelay"
+          <scroll class="list-scroll"
+                  ref="searchList"
+                  v-if="currentIndex === 1"
+                  :data="searchHistory"
+                  :refreshDelay="refreshDelay"
           >
             <div class="list-inner">
               <search-list
@@ -72,42 +70,44 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import SearchBox from "base/search-box/search-box"
-  import SongList from "base/song-list/song-list"
-  import SearchList from "base/search-list/search-list"
-  import Scroll from "base/scroll/scroll"
-  import Switches from "base/switches/switches"
-  // 添加歌曲时提示组件
-  import TopTip from "base/top-tip/top-tip"
-  import Suggest from "components/suggest/suggest"
-  import {searchMixin} from "common/js/mixin"
-  import {mapGetters, mapActions} from "vuex"
-  import Song from "common/js/song"
+  import SearchBox from 'base/search-box/search-box'
+  import SongList from 'base/song-list/song-list'
+  import SearchList from 'base/search-list/search-list'
+  import Scroll from 'base/scroll/scroll'
+  import Switches from 'base/switches/switches'
+  // Cue components when adding songs.
+  import TopTip from 'base/top-tip/top-tip'
+  import Suggest from 'components/suggest/suggest'
+  import { searchMixin } from 'common/js/mixin'
+  import { mapGetters, mapActions } from 'vuex'
+  import Song from 'common/js/song'
 
   export default {
     mixins: [searchMixin],
     data () {
       return {
         showFlag: false,
-        // 搜索结果没有歌手
         showSinger: false,
         currentIndex: 0,
         songs: [],
         switches: [
-          {name: "最近播放"},
-          {name: "搜索历史"}
+          {name: '最近播放'},
+          {name: '搜索历史'}
         ]
       }
     },
     computed: {
       ...mapGetters([
-        "playHistory"
+        'playHistory'
       ])
     },
     methods: {
+      ...mapActions([
+        'insertSong'
+      ]),
       show () {
         this.showFlag = true
-        // 防止重新渲染没有dom加载
+        // Prevent Re-rendering without dom loading.
         setTimeout(() => {
           if (this.currentIndex === 0) {
             this.$refs.songList.refresh()
@@ -121,23 +121,19 @@
       },
       selectSong (song, index) {
         if (index !== 0) {
-          // mutation
-          // 插入歌曲到列表
+          // ...mapActions
           this.insertSong(new Song(song))
           this.$refs.topTip.show()
         }
       },
       selectSuggest () {
         this.$refs.topTip.show()
-        // mutation
+        // (mixin.js)
         this.saveSearch()
       },
       switchItem (index) {
         this.currentIndex = index
-      },
-      ...mapActions([
-        "insertSong"
-      ])
+      }
     },
     components: {
       SearchBox,
