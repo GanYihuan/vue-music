@@ -4,7 +4,7 @@
     <transition-group name="list" tag="ul">
       <li
         class="search-item"
-        v-for="(item, index) in searches"
+        v-for="item in searches"
         :key="item"
         @click="selectItem(item)"
       >

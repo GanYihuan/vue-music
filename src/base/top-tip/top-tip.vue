@@ -1,5 +1,5 @@
 <template>
-  <!-- 11/顶部提示 -->
+  <!-- 11-顶部提示 -->
   <transition name="drop">
     <div class="top-tip" v-show="showFlag" @click.stop="hide">
       <slot></slot>
@@ -10,7 +10,6 @@
 <script type="text/ecmascript-6">
   export default {
     props: {
-      // 延迟
       delay: {
         type: Number,
         default: 2000
@@ -25,7 +24,6 @@
       show () {
         this.showFlag = true
         clearTimeout(this.timer)
-        // 调用完要消失
         this.timer = setTimeout(() => {
           this.hide()
         }, this.delay)
