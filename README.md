@@ -785,9 +785,9 @@ storage.session.get(key, def)
 *(player.vue)*
 
 
-## 13-2: 编译打包
+## 13-2: Compile the package
 - ✨✨✨✨
-1. 编译打包, 后端调用
+1. Compile the package, and the back-end call.
 ```
 npm run build
 ```
@@ -796,38 +796,38 @@ npm run build
 build(){port: 9000}
 ```
 3. *(prod.server.js)*
-##### 从 dev.conf.js copy
+##### from dev.conf.js copy
 ```
 node prod.server.js
 ```
 ##### chrome -> localhost:9000
 
 
-## 13-3: 优化
+## 13-3: optimize
 - ✨✨✨
 *(router/index.js)*
-1. 路由懒加载
+1. router Lazy loading
 *(router/route.js)*
 
 
-## 13-4: vue升级
+## 13-4: vue upgrade
 - ✨✨
 *(package.json)*
-1. vue升级, 修改package.json版本号
-> "vue"版本号和"vue-template-compiler"要相等
+1. vue upgrade, change package.json version
+> "vue" version and "vue-template-compiler" version equal
 
 
-## 14-1: 课程干货
+## 14-1: Course extension
 - ✨✨✨
 *(main.js)*
-1. 移动端调试, 界面多了一个绿色的按钮vConsole
+1. Mobile terminal debugging, the interface has a green button vConsole.
 <https://github.com/Tencent/vConsole>
 ```
 cnpm install vconsole
 ```
-2. 抓包工具charies(Mac) , Fiddler(Win)
+2. Caught tools charies(Mac) , Fiddler(Win)
 > 默认有个8888端口
-3. 电脑IP
+3. computer IP
 ```
 ifconfig
 ```
