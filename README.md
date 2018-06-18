@@ -162,33 +162,34 @@ cnpm install better-scroll@0.1.15 --save
 - ✨✨
 - **slider.vue**
 
-## 4-7: 推荐界面---Access to the qq music hot song list recommendation data
+## 4-7 歌单数据接口分析
+
 - ✨✨
-*(App.vue)*
-*(recommend.js)*
-*(recommend.vue)*
-##### Grab the song single data interface
-##### 500 server error, host problem. Bypass interface constraint
+- **App.vue**
+- **recommend.js**
+- **recommend.vue**
 
+- Grab the song single data interface
+- 500 server error, host problem. Bypass interface constraint
 
-## 4-8: bypass interface constraint
+## 4-8 axios 介绍和后端接口代理
+
 - ✨✨✨✨
-##### axios, Start HTTPRequest, modify headers.
-```
+- axios, Start HTTPRequest, modify headers.
+```shell
 cnpm install axios --save
 ```
-##### 1. Modify host *(config/index.js)*
-```
+- 1. Modify host *(config/index.js)*
+```shell
 host: '0.0.0.0',
 ```
-##### 2. _/build/webpack.dev.conf.js_ back-end interface is defined asynchronously.
-##### 3. *(recommend.vue)* 'api/getDiscList' Call the backend interface. 
+- 2. _/build/webpack.dev.conf.js_ back-end interface is defined asynchronously.
+- 3. *(recommend.vue)* 'api/getDiscList' Call the backend interface.
 
+## 4-9 歌单列表组件开发和数据的应用
 
-## 4-9: 推荐界面---热门歌单推荐, rendering interface
 - ✨✨
-*(recommend.vue)*
-
+- **recommend.vue**
 
 ## 4-10: scroll component
 - ✨✨✨
