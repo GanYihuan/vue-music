@@ -17,20 +17,20 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import MHeader from 'components/m-header/m-header'
-  import Tab from 'components/tab/tab'
-  import Player from 'components/player/player'
+import MHeader from 'components/m-header/m-header'
+import Tab from 'components/tab/tab'
+import Player from 'components/player/player'
 
-  export default {
-    components: {
-      MHeader,
-      Tab,
-      Player
-    }
-  }
+export default {
+	components: {
+		MHeader,
+		Tab,
+		Player
+	}
+}
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-  /* scoped: is a Boolean property */
-  /* Styles apply to the parent element of a style element and its child elements */
+/* scoped: is a Boolean property */
+/* Styles apply to the parent element of a style element and its child elements */
 </style>

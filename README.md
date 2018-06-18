@@ -26,30 +26,29 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 [](https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&needNewCode=0&platform=yqq&order=listen&begin=0&num=80&songstatus=1&singermid=0025NhlN2yWrP4&jsonpCallback=__jp1)
 [](https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0)
 
+## 2-2 Vue-cli脚手架安装
 
-## 2-2: Project install
 - ✨
-##### install
-```
+- install
+```shell
 npm install -g vue-cli
 vue init webpack imooc-music
 ```
-##### 'RunTime-only':  More light
-##### vue-router 'Y': vue router
-##### ESLint 'Y': ES6 style code checker.
-##### Standard
-##### karma, e2e test 'N': relate test
-##### npm install
-##### run project
-```
+- 'RunTime-only':  More light
+- vue-router 'Y': vue router
+- ESLint 'Y': ES6 style code checker.
+- Standard
+- karma, e2e test 'N':
+- npm install
+```shell
 npm run dev
 ```
 
+## 2-3 项目目录介绍及图标字体、公共样式等资源准备
 
-## 2-3: project dialog
 - ✨✨
-*(build/webpack.base.config)*
-##### dialog introduce
+- **build/webpack.base.config**
+- dialog introduce
 1. api: (Back-end request, jsonp request, AJAX request.)
 2. common: (Shared static resources: img, common js, style)
 3. components: (Common component)
@@ -57,17 +56,17 @@ npm run dev
 5. router: (route)
 6. store: (Vuex data)
 7. main.js (entrance)
-##### npm install
-```
+- npm install
+```shell
 "sass-loader": "^6.0.7",
 "node-sass": "^4.7.2",
 "stylus": "^0.54.5",
 "stylus-loader": "^2.1.1",
 ```
-##### eslintrc.js
-##### (webpack.base.conf.js) alias config
+- eslintrc.js
+- **webpack.base.conf.js** alias config
 > import 'common/scss/index.scss'
-```
+```shell
 context: path.resolve(__dirname, '..', dir),
 resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -77,42 +76,42 @@ resolve: {
   },
 ```
 
-
 ## 3-1: entrance, header component
+
 - ✨✨
-*(App.vue)*
-*(main.js)*
-*(build/webpack.base.config)*
-*(components/m-header.vue)*
-##### 1. babel-runtime: es6 escape
-##### 2. fastclick: Click 300MS delay on the mobile end.
-##### 3. babel-polyfill: es6 api escape, mobile can use that api
-```
+- **App.vue**
+- **main.js**
+- **build/webpack.base.config**
+- **components/m-header.vue**
+- 1. babel-runtime: es6 escape
+- 2. fastclick: Click 300MS delay on the mobile end.
+- 3. babel-polyfill: es6 api escape, mobile can use that api
+```shell
 npm install babel-runtime --save
 cnpm install fastclick --save
 cnpm install babel-polyfill --save-dev
 ```
-*(build/webpack.base.config)*
+- **build/webpack.base.config**
 > Alias configuration, abbreviated application file path.
 
+## 3-1 页面入口+header 组件的编写
 
-## 3-2: route, switch base interface
 - ✨✨
-*(tab.vue)*
-*(App.vue)*
-*(route.vue)*
+- **tab.vue**
+- **App.vue**
+- **route.vue**
 
+## 3-2 路由配置+ tab 顶导组件开发
 
-## 4-1: Use the chrome operation to check the qq music Back-end data
+## 4-1 页面简介+轮播图数据分析
+
 - ✨✨
-##### chrome check jsonp 
-*(static/jsonp1.png)*
-##### data
-```
-https://m.y.qq.com/
-https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg
-```
-
+- XHR: ajax request
+- chrome check jsonp
+- **static/jsonp1.png**
+- jsonp data
+- [qq](https://m.y.qq.com/)
+- [qq](https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg)
 
 ## 4-2: jsonp package
 - ✨✨✨✨
