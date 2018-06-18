@@ -4,30 +4,21 @@
  * @param className
  * @returns {boolean}
  */
-export function hasClass (el, className) {
+export function hasClass(el, className) {
   let reg = new RegExp('(^|\\s)' + className + '(\\s|$)')
   return reg.test(el.className)
 }
 
-/**
- * add className
- * @param el
- * @param className
- */
-export function addClass (el, className) {
+export function addClass(el, className) {
   if (hasClass(el, className)) {
     return
   }
-  // The split() method is used to split a string into an array of strings
   let newClass = el.className.split(' ')
-  // The push() method adds one or more elements to the end of the array and returns a new length.
   newClass.push(className)
-  // The join() method is used to put all the elements in an array into a string.
-  // The element is separated by the specified delimiter.
   el.className = newClass.join(' ')
 }
 
-export function getData (el, name, val) {
+export function getData(el, name, val) {
   const prefix = 'data-'
   if (val) {
     return el.setAttribute(prefix + name, val)
@@ -53,7 +44,7 @@ let vendor = (() => {
   return false
 })()
 
-export function prefixStyle (style) {
+export function prefixStyle(style) {
   if (vendor === false) {
     return false
   }

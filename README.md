@@ -139,7 +139,7 @@ npm install jsonp --save
 - **api/recommend.js**
 - **recommend.vue**
 
-## 4-4 轮播图组件实现（上) 
+## 4-4 轮播图组件实现（上)
 
 - ✨✨✨✨
 - **recommend.vue**
@@ -150,6 +150,7 @@ npm install jsonp --save
 ```shell
 cnpm install better-scroll@0.1.15 --save
 ```
+- v-if="recommends.length": Prevent async loading slow
 
 ## 4-5: 推荐界面---carousel component indicating
 - ✨✨✨✨
