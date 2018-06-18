@@ -108,7 +108,7 @@ export default {
         // 轮播图切换的动画时间
 				snapSpeed: 400
 			})
-			// better-scroll Distributed event
+			// better-scroll Distribute event
 			this.slider.on('scrollEnd', () => {
 				// pageIndex: locate which child element, return it index
 				let pageIndex = this.slider.getCurrentPage().pageX

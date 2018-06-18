@@ -152,15 +152,15 @@ cnpm install better-scroll@0.1.15 --save
 ```
 - v-if="recommends.length": Prevent async loading slow
 
-## 4-5: 推荐界面---carousel component indicating
+## 4-5 轮播图组件实现（中)
+
 - ✨✨✨✨
-*(slider.vue)*
+- **slider.vue**
 
+## 4-6 轮播图组件实现（下)
 
-## 4-6: 推荐界面---carousel component fix bug Window view changes
 - ✨✨
-*(slider.vue)*
-
+- **slider.vue**
 
 ## 4-7: 推荐界面---Access to the qq music hot song list recommendation data
 - ✨✨
