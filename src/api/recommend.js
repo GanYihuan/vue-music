@@ -1,12 +1,15 @@
 // Capture data using jsonp.
 import jsonp from 'common/js/jsonp'
-import { commonParams, options } from './config'
+import {
+  commonParams,
+  options
+} from './config'
 import axios from 'axios'
 
 /**
  * use jsonp fetch data (carousel data)
  */
-export function getRecommend () {
+export function getRecommend() {
   // static/jsonp1.png: open in chrome, copy url(copy '?' before)
   const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
   // Object.assign: Is used to copy the values of all enumerable properties from one or more source objects to the target object.
@@ -24,7 +27,7 @@ export function getRecommend () {
  * fetch data (热门歌单推荐数据)
  * @returns {Promise.<TResult>|*}
  */
-export function getDiscList () {
+export function getDiscList() {
   // Request the back-end address, the back-end address sends an HTTP request to qq music to obtain the data.
   const url = '/api/getDiscList'
   const data = Object.assign({}, commonParams, {
@@ -50,7 +53,7 @@ export function getDiscList () {
     })
 }
 
-export function getSongList (disstid) {
+export function getSongList(disstid) {
   const url = 'https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg'
   // const url = 'https://c.y.qq.com/qzone/fcgi-bin/fcg_ucc_getcdinfo_byids_cp.fcg'
   const data = Object.assign({}, commonParams, {

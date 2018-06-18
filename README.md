@@ -113,43 +113,43 @@ cnpm install babel-polyfill --save-dev
 - [qq](https://m.y.qq.com/)
 - [qq](https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg)
 
-## 4-2: jsonp package
+## 4-2 jsonp原理介绍+Promise封装
+
 - ✨✨✨✨
-*(common/js/jsonp.js)*
-##### Promise:
+- **common/js/jsonp.js**
+- Promise:
 > pass async message object
 > an event which indicate that result will be know in the future
-##### jsonp: 
+- jsonp:
 > Solve cross-domain issues.
 > Dynamically creating a script tag with no same-origin restriction, it can be cross-domain,
 > And the script SRC address points to the third-party API url.
 > A callback function is provided to receive data, while a third party generates a wrapper for the json data.
 > The browser calls the callback function and passes the parsed json object as a parameter.
 > This site script can handle incoming data from the callback function.
-##### install jsonp
-```
+- install jsonp
+```shell
 npm install jsonp --save
 ```
 
+## 4-3 jsonp的应用+轮播图数据抓取
 
-## 4-3: jsonp use, capture Carousel data
 - ✨✨✨
-*(api/config)*
-*(api/recommend.js)*
-*(recommend.vue)*
+- **api/config**
+- **api/recommend.js**
+- **recommend.vue**
 
+## 4-4 轮播图组件实现（上) 
 
-## 4-4: 推荐界面---Carousel component, better-scroll
 - ✨✨✨✨
-*(recommend.vue)*
-*(slider.vue)*
-*(common/js/dom.js)*
-##### 推荐界面: carousel component
-##### better-scroll
-```
+- **recommend.vue**
+- **slider.vue**
+- **common/js/dom.js**
+- 推荐界面: carousel component
+- better-scroll
+```shell
 cnpm install better-scroll@0.1.15 --save
 ```
-
 
 ## 4-5: 推荐界面---carousel component indicating
 - ✨✨✨✨
