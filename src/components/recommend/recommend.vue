@@ -1,7 +1,7 @@
 <template>
   <!-- static/01-推荐界面 -->
   <div class="recommend" ref="recommend">
-    <!-- :data="discList": Prevents the async loading slow -->
+    <!-- :data="discList": Prevents async loading slow -->
     <scroll 
       class="recommend-content"
       ref="scroll"
@@ -28,7 +28,7 @@
         <div class="recommend-list">
           <h1 class="list-title">热门歌单推荐</h1>
           <ul>
-            <li 
+            <li
               class="item"
               v-for="(item,index) in discList"
               :key="index"

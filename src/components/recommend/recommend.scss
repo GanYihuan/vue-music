@@ -1,17 +1,17 @@
 .recommend {
   position: fixed;
-  width: 100%;
   top: 88px;
   bottom: 0;
+  width: 100%;
 
   .recommend-content {
-    height: 100%;
     overflow: hidden;
+    height: 100%;
 
     .slider-wrapper {
       position: relative;
-      width: 100%;
       overflow: hidden;
+      width: 100%;
     }
 
     .recommend-list {
@@ -19,37 +19,37 @@
         height: 65px;
         line-height: 65px;
         text-align: center;
-        font-size: $font-size-medium;;;
-        color: $color-theme;;;
+        font-size: $font-size-medium;
+        color: $color-theme;
       }
 
       .item {
-        display: flex;;
-        box-sizing: border-box;;
-        align-items: center;;
-        padding: 0 20px 20px 20px;;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 0 20px 20px 20px;
 
         .icon {
-          flex: 0 0 60px;;
-          width: 60px;;
-          padding-right: 20px;;
+          flex: 0 0 60px;
+          padding-right: 20px;
+          width: 60px;
         }
 
         .text {
           display: flex;
+          flex: 1;
           flex-direction: column;
           justify-content: center;
-          flex: 1;
-          line-height: 20px;
           overflow: hidden;
-          font-size: $font-size-medium;;
+          line-height: 20px;
+          font-size: $font-size-medium;
 
           .name {
             margin-bottom: 10px;
             color: $color-text;
           }
 
-          .desc {;
+          .desc {
             color: $color-text-d;
           }
         }
@@ -58,8 +58,8 @@
 
     .loading-container {
       position: absolute;
-      width: 100%;
       top: 50%;
+      width: 100%;
       transform: translateY(-50%);
     }
   }

@@ -191,37 +191,37 @@ host: '0.0.0.0',
 - ✨✨
 - **recommend.vue**
 
-## 4-10: scroll component
+## 4-10 scroll 组件的抽象和应用（上）
+
 - ✨✨✨
-*(scroll.vue)* 
-[official document](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
+- **scroll.vue**
+- [official document](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
 
+## 4-11 scroll 组件的抽象和应用（下）
 
-## 4-11: fix bug: Prevent the network delay loading
 - ✨✨✨
-*(recommend.vue)*
+- **recommend.vue**
 
+## 4-12 vue-lazyload 懒加载插件介绍和应用
 
-## 4-12: image laz-load, fastclick optimize
 - ✨✨
-*(recommend.vue)*
-*(main.js)*
-##### image laz-load: reload depend on scroll
-```
+- **recommend.vue**
+- **main.js**
+- image laz-load: reload depend on scroll
+```shell
 npm install vue-lazyload --save
 ```
-##### class="needsclick" : fastclick Do not intercept the click process.
+- class="needsclick" : fastclick Do not intercept the click process.
 
+## 4-13 loading 基础组件的开发和应用
 
-## 4-13: loading component
 - ✨✨
-*(loading.vue)*
-*(recommend.vue)*
-
+- **loading.vue**
+- **recommend.vue**
 
 ## 5-1: 歌手界面 introduce
-- ✨
 
+- ✨
 
 ## 5-2: fetch qq mustic, singer data
 - ✨✨
