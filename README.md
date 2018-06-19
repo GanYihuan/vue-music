@@ -310,15 +310,17 @@ npm install vue-lazyload --save
 npm install vuex --save
 ```
 
-## 6-4: Vuex config
+## 6-4 Vuex 初始化及歌手数据的配置
+
 - ✨✨✨✨
-1. *(store/vuex.js)*: use vuex
-2. *(store/state.js)*: defined data
-3. *(store/getters.js)*: Mapping state data, get state
-4. *(store/mutation-types.js)*: The action name of the operation to modify the data.
-5. *(store/mutations.js)*: Modify data operation
-6. *(store/action.js)*: Mutation use action to encapsulate and modify multiple mutations.
-```
+- **store/vuex.js** use vuex
+- **store/state.js** defined data
+- **store/getters.js** Mapping state data, get state
+- **store/mutation-types**)*: The action name of the operation to modify the data.
+- **store/mutations.js** Modify data operation
+- **store/action.js** Mutation use action to encapsulate and modify multiple mutations.
+
+```shell
   // call mutation，use mutation type constant。set state
   ...mapMutations({
     setSinger: 'SET_SINGER'
@@ -329,7 +331,6 @@ npm install vuex --save
     'singer'
   ])
 ```
-
 
 ## 6-5: 歌手详情页---get data
 - ✨✨

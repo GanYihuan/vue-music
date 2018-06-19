@@ -48,7 +48,8 @@ export default {
 			this.$router.push({
 				path: `/singer/${singer.id}`
 			})
-			// this.setSinger: ...mapMutations
+      // this.setSinger: ...mapMutations
+      // 存数据到vuex
 			this.setSinger(singer)
 		},
 		_getSingerList() {
