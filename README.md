@@ -266,11 +266,11 @@ npm install vue-lazyload --save
 - **listView.vue**
 - **scroll.vue**
 
-## 5-7: 歌手界面---On the right side of the index scroll fix bug
-- ✨✨✨✨
-*(listView.vue)* 
-*(scroll.vue)*
+## 5-7 listview 基础组件的开发和应用-右侧快速入口实现（3）
 
+- ✨✨✨✨
+- **listView.vue**
+- **scroll.vue**
 
 ## 5-8: 歌手界面---On the right side of the index scroll, Click on the top and bottom empty margins.
 - ✨✨✨✨

@@ -202,7 +202,8 @@ export default {
 				return
 			}
 			// Scroll in the middle
-			// length - 1, Don't consider the last one
+      // length - 1: listHeight has Upper and lower, lower is the first element upper
+      // listHeight more one then element
 			for (let i = 0; i < listHeight.length - 1; i++) {
 				// celling
 				let height1 = listHeight[i]
