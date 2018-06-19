@@ -243,28 +243,28 @@ npm install vue-lazyload --save
 - **listView.vue** singer list
 - **singer.vue** handle data
 
+## 5-5 listview 基础组件的开发和应用-右侧快速入口实现（1）
 
-## 5-5: 歌手界面---The right index scroll component
 - ✨✨✨✨
-*(listView.vue)* 
-*(scroll.vue)*
-*(common/dom.js)*
-##### get element index *(common/dom.js)*
-```
-<li class="item"
-    v-for="(item, index) in shortcutList"
-    :key="index"
-    :class="{'current': currentIndex === index}"
-    :data-index="index"
+- **listView.vue**
+- **scroll.vue**
+- **common/dom.js**
+- get element index *(common/dom.js)*
+```shell
+<li
+  class="item"
+  v-for="(item, index) in shortcutList"
+  :key="index"
+  :class="{'current': currentIndex === index}"
+  :data-index="index"
 >
 ```
 
+## 5-6 listview 基础组件的开发和应用-右侧快速入口实现（2）
 
-## 5-6: 歌手界面---On the right side of the index scroll, the corresponding singer list will also scroll.
 - ✨✨✨✨
-*(listView.vue)* 
-*(scroll.vue)*
-
+- **listView.vue**
+- **scroll.vue**
 
 ## 5-7: 歌手界面---On the right side of the index scroll fix bug
 - ✨✨✨✨

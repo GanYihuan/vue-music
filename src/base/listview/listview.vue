@@ -35,7 +35,7 @@
       @touchmove.stop.prevent="onShortCutTouchMove"
     >
       <ul>
-        <li 
+        <li
           class="item"
           v-for="(item, index) in shortcutList"
           :key="index"
@@ -69,13 +69,13 @@ const ANCHOR_HEIGHT = 18
 const FIXED_TITLE_HEIGHT = 30
 
 export default {
-	// created: The values not need monitored
+	// created: The values not need monitor
 	created() {
 		this.touch = {}
 		this.listenScroll = true
 		this.probeType = 3
 	},
-	// data, props The values inside are monitored
+	// data, props The values need monitor
 	data() {
 		return {
 			// The location of the real-time scrolling.
