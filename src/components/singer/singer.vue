@@ -1,9 +1,10 @@
 <template>
   <!-- static/02-歌手界面.png -->
   <div class="singer" ref="singer">
-    <list-view ref="list"
-               :data="singers"
-               @select="selectSinger"
+    <list-view 
+      ref="list"
+      :data="singers"
+      @select="selectSinger"
     >
     </list-view>
     <!-- singer-detail.vue render here -->
