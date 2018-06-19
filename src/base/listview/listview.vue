@@ -144,7 +144,7 @@ export default {
 			this.scrollY = pos.y
 		},
 		_scrollTo(index) {
-			// index === null -> !index, index == 0 Rule out
+			// !index: index === null, index == 0 Rule out
 			if (!index && index !== 0) {
 				return
 			}
@@ -205,13 +205,16 @@ export default {
       // length - 1: listHeight has Upper and lower, lower is the first element upper
       // listHeight more one then element
 			for (let i = 0; i < listHeight.length - 1; i++) {
-				// celling
-				let height1 = listHeight[i]
 				// floor
+				let height1 = listHeight[i]
+				// celling
 				let height2 = listHeight[i + 1]
 				// -newY scroll to bottom, newY it's negative，add “-” may it positive
 				if (-newY >= height1 && -newY < height2) {
-					this.currentIndex = i
+          this.currentIndex = i
+          // newY it negative
+          // diff: use for whether trigger title animate
+          // next el floor(height2) + scroll top distance(newY) = diff
 					this.diff = newY + height2
 					return
 				}

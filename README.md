@@ -272,26 +272,26 @@ npm install vue-lazyload --save
 - **listView.vue**
 - **scroll.vue**
 
-## 5-8: 歌手界面---On the right side of the index scroll, Click on the top and bottom empty margins.
+## 5-8 listview 基础组件的开发和应用-右侧快速入口实现（4）
+
 - ✨✨✨✨
-*(listView.vue)* 
-*(scroll.vue)*
+- **listView.vue**
+- **scroll.vue**
 
+## 5-9 listview 基础组件的开发和应用-滚动固定标题实现（上）
 
-## 5-9: 歌手界面---fixtitle
 - ✨✨✨
-*(listView.vue)* 
+- **listView.vue**
 
+## 5-10 listview 基础组件的开发和应用-滚动固定标题实现（下）
 
-## 5-10: 歌手界面---fixtitle animate, loading
 - ✨✨✨✨
-*(listView.vue)* 
-*(loading.vue)* 
-
+- **listView.vue**
+- **loading.vue**
 
 ## 6-1: 歌手详情页---introduce
-- ✨
 
+- ✨
 
 ## 6-2: Click on the singer in the singer interface to jump to the singer details interface.
 - ✨✨
