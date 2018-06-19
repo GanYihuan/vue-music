@@ -1,10 +1,11 @@
 import jsonp from 'common/js/jsonp'
-import { commonParams, options } from 'api/config'
+import {
+  commonParams,
+  options
+} from 'api/config'
 
-/**
- * get singer data
- */
-export function getSingerList () {
+// get singer data
+export function getSingerList() {
   // static/jsonp4.png
   const url = 'https://c.y.qq.com/v8/fcg-bin/v8.fcg'
   const data = Object.assign({}, commonParams, {
@@ -26,7 +27,7 @@ export function getSingerList () {
  * get data
  * @param singerId
  */
-export function getSingerDetail (singerId) {
+export function getSingerDetail(singerId) {
   // static -> getSingerDetail.png
   const url = 'https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg'
   const data = Object.assign({}, commonParams, {

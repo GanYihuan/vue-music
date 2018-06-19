@@ -219,23 +219,23 @@ npm install vue-lazyload --save
 - **loading.vue**
 - **recommend.vue**
 
-## 5-1: 歌手界面 introduce
+## 5-1 歌手页面布局和设计讲解
 
 - ✨
 
-## 5-2: fetch qq mustic, singer data
+## 5-2 歌手数据接口抓取
+
 - ✨✨
-*(api/singer.js)* 
-*(singer.vue)*
-[singer data](https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0)
+- **api/singer.js**
+- **singer.vue**
+- [singer data](https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0)
 
+## 5-3 歌手数据处理和 Singer 类的封装
 
-## 5-3: handle singer data
 - ✨✨✨✨
-*(singer.vue)* 
-*(common/js/singer.js)*
-[singer data](https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0)
-
+- **singer.vue**
+- **common/js/singer.js**
+- [singer data](https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0)
 
 ## 5-4: rendering singer interface
 - ✨✨
