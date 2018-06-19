@@ -332,11 +332,11 @@ npm install vuex --save
   ])
 ```
 
-## 6-5: 歌手详情页---get data
-- ✨✨
-*(singer-detail.vue)*
-*(api/singer.js)*
+## 6-5 歌手详情数据抓取
 
+- ✨✨
+- **singer-detail.vue**
+- **api/singer.js**
 
 ## 6-6, 6-7: 歌手详情页---handle data
 - ✨✨✨✨
