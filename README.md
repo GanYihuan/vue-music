@@ -289,25 +289,26 @@ npm install vue-lazyload --save
 - **listView.vue**
 - **loading.vue**
 
-## 6-1: 歌手详情页---introduce
+## 6-1 歌手详情页布局和设计详解
 
 - ✨
 
-## 6-2: Click on the singer in the singer interface to jump to the singer details interface.
+## 6-2 子路由配置以及转场动画实现
+
 - ✨✨
-*(route.js)*
-*(listView.vue)*
-*(singer.vue)*
-*(singer-detail.vue)*
+- **route.js**
+- **listView.vue**
+- **singer.vue**
+- **singer-detail.vue**
 
+## 6-3 初识 Vuex
 
-## 6-3: Vuex: State management mode, managing component state.
 - ✨✨
-*(static/vuex.png)*
-```
-npm install vuex --save 
-```
+- **static/vuex.png**
 
+```shell
+npm install vuex --save
+```
 
 ## 6-4: Vuex config
 - ✨✨✨✨
