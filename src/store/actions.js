@@ -6,8 +6,8 @@ import { playMode } from 'common/js/config'
 import { shuffle } from 'common/js/util'
 import { saveSearch, clearSearch, deleteSearch, savePlay, saveFavorite, deleteFavorite } from 'common/js/cache'
 
-// The sequence list index song corresponds to a random list of the song index and returns the random list song index index.
-// Find out if there is song in the list, if there is a return index.
+// The sequence list index song corresponds to a random list of the song index and returns the random list song index.
+// Find out if there a song in the list, if there is return its index.
 function findIndex (list, song) {
   return list.findIndex((item) => {
     return item.id === song.id
@@ -28,7 +28,7 @@ export const selectPlay = function ({commit, state}, {list, index}) {
     let randomList = shuffle(list)
     // Change the playlist song.
     commit(types.SET_PLAYLIST, randomList)
-    // The sequence list index song corresponds to a random list of the song index and returns the random list song index index.
+    // 这首歌list[index]在randomList里面的索引
     index = findIndex(randomList, list[index])
   } else {
     // Change playlist

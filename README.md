@@ -483,11 +483,11 @@ npm install create-keyframe-animation --save
 - **common/js/mixin.js**
 - 洗牌函数
 
-## 7-18: 音乐播放界面---fix bug
-- ✨✨✨✨
-*(player.vue)*
-*(store/actions)*
+## 7-18 播放器模式切换功能实现（下）
 
+- ✨✨✨✨
+- **player.vue**
+- **store/actions**
 
 ## 7-19: Grab the lyrics data
 - ✨✨✨✨✨
