@@ -359,11 +359,11 @@ npm install vuex --save
 - **singer-detail.vue**
 - singer-detail.vue handle data, music-list.vue show component
 
-## 6-9: 歌手详情页---calculate size
-- ✨✨
-*(music-list.vue)*
-*(song-list.vue)*
+## 6-9 music-list 组件开发（2）
 
+- ✨✨
+- **music-list.vue**
+- **song-list.vue**
 
 ## 6-10, 6-11, 6-12: 歌手详情页---pull down & scroll to top animate
 - ✨✨✨✨

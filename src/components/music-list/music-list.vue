@@ -16,7 +16,7 @@
       <div class="filter" ref="filter"></div>
     </div>
     <div class="bg-layer" ref="layer"></div>
-    <scroll 
+    <scroll
       class="list"
       ref="list"
       :data="songs"
@@ -25,7 +25,11 @@
       @scroll="scroll"
     >
       <div class="song-list-wrapper">
-        <song-list :songs="songs" :rank="rank" @select="selectItem">
+        <song-list 
+          :songs="songs" 
+          :rank="rank" 
+          @select="selectItem"
+        >
         </song-list>
       </div>
       <div v-show="!songs.length" class="loading-container">
