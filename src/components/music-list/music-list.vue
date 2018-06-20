@@ -20,6 +20,7 @@
       </div>
       <div class="filter" ref="filter"></div>
     </div>
+    <!-- 遮罩层 -->
     <div class="bg-layer" ref="layer"></div>
     <scroll
       class="list"
@@ -85,16 +86,19 @@ export default {
 		return {
 			scrollY: 0
 		}
+  },
+  // 数据, 不需要被监控, data, props里面的数据会被监控
+  // get back-end data
+	created() {
+		this.probeType = 3
+		this.listenScroll = true
 	},
 	computed: {
 		bgStyle() {
 			return `background-image:url(${this.bgImage})`
 		}
-	},
-	created() {
-		this.probeType = 3
-		this.listenScroll = true
-	},
+  },
+  // mounted: dom ready
 	mounted() {
 		this.imageHeight = this.$refs.bgImage.clientHeight
 		// use for layer
@@ -109,6 +113,7 @@ export default {
 			this.$refs.list.refresh()
 		},
 		scroll(pos) {
+      // 实时滚动的位置
 			this.scrollY = pos.y
 		},
 		back() {

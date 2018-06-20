@@ -397,7 +397,7 @@ npm install vuex --save
 
 - ✨✨
 - **music-list.vue**
-- back
+- back btn
 - loading
 
 ## 7-1: 音乐播放界面---introduce

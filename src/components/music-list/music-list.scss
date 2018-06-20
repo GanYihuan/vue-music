@@ -33,10 +33,12 @@
     color: $color-text;
   }
   .bg-image {
+    // w:h = 10:7
     position: relative;
     padding-top: 70%;
     width: 100%;
     height: 0;
+    // w:h = 10:7
     transform-origin: top;
     background-size: cover;
 
@@ -93,7 +95,7 @@
     top: 0;
     bottom: 0;
     width: 100%;
-    // overflow hidden
+    // overflow: hidden
     background: $color-background;
 
     .song-list-wrapper {

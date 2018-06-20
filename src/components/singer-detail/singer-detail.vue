@@ -33,7 +33,9 @@ export default {
 		},
 		// getters, get (vuex/getters.js) data
 		...mapGetters(['singer'])
-	},
+  },
+  // 数据, 不需要被监控, data, props里面的数据会被监控
+  // get back-end data
 	created() {
 		this._getDetail()
 	},
