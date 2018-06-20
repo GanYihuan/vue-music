@@ -522,10 +522,10 @@ npm install lyric-parser
 - ✨✨✨
 - **player.vue**
 
-## 7-24: 音乐播放界面---fix bug
-- ✨✨✨✨
-*(player.vue)*
+## 7-24 播放器歌词剩余功能实现
 
+- ✨✨✨✨
+- **player.vue**
 
 ## 7-25: 音乐播放界面---Set the correct location of the mini player.
 - ✨✨✨✨

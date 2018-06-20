@@ -325,7 +325,7 @@ export default {
 				this.togglePlaying()
 			}
 			if (this.currentLyric) {
-				// fixBug: The lyrics follow the progress bar
+				// fixBug: The lyrics not follow the progress bar
 				this.currentLyric.seek(currentTime * 1000)
 			}
 		},
