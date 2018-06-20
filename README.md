@@ -436,10 +436,10 @@ npm install vuex --save
 npm install create-keyframe-animation --save
 ```
 
-## 7-8: 音乐播放界面---Song control play button
-- ✨✨✨
-*(player.vue)*
+## 7-8 播放器歌曲播放功能实现
 
+- ✨✨✨
+- **player.vue**
 
 ## 7-9: 音乐播放界面---The song control moves forward and backwards, prevent limit clicks
 - ✨✨✨

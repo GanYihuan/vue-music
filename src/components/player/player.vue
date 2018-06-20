@@ -501,8 +501,7 @@ export default {
 		},
 		playing(newPlaying) {
 			const audio = this.$refs.audio
-			// $nextTick: The deferred callback that is executed after the next DOM update cycle ends.
-			// Use this method immediately after modifying the data to get the updated DOM.
+			// $nextTick: 在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。
 			this.$nextTick(() => {
 				newPlaying ? audio.play() : audio.pause()
 			})
