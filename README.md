@@ -422,18 +422,19 @@ npm install vuex --save
 - ✨✨
 - **player.vue*
 
-## 7-5: 音乐播放界面---animate css transition
+## 7-5 播放器展开收起动画（上）
+
 - ✨✨
-*(player.vue)*
+- **player.vue**
 
+## 7-6, 7-7 播放器展开收起动画（中）
 
-## 7-6, 7-7: 音乐播放界面---animate js
 - ✨✨✨✨
-*(player.vue)*
-```
+- **player.vue**
+
+```shell
 npm install create-keyframe-animation --save
 ```
-
 
 ## 7-8: 音乐播放界面---Song control play button
 - ✨✨✨

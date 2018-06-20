@@ -118,14 +118,14 @@
 
 <script type="text/ecmascript-6">
 import { mapGetters, mapMutations, mapActions } from 'vuex'
-import animations from 'create-keyframe-animation'
 import { prefixStyle } from 'common/js/dom'
+import { playMode } from 'common/js/config'
+import { playerMixin } from 'common/js/mixin'
+import animations from 'create-keyframe-animation'
 import ProgressBar from 'base/progress-bar/progress-bar'
 import ProgressCircle from 'base/progress-circle/progress-circle'
-import { playMode } from 'common/js/config'
 import Lyric from 'lyric-parser'
 import Scroll from 'base/scroll/scroll'
-import { playerMixin } from 'common/js/mixin'
 import Playlist from 'components/playlist/playlist'
 
 const transform = prefixStyle('transform')
@@ -215,9 +215,7 @@ export default {
 		leave(el, done) {
 			this.$refs.cdWrapper.style.transition = 'all 0.4s'
 			const { x, y, scale } = this._getPosAndScale()
-			this.$refs.cdWrapper.style[
-				transform
-			] = `translate3d(${x}px,${y}px,0) scale(${scale})`
+			this.$refs.cdWrapper.style[transform] = `translate3d(${x}px,${y}px,0) scale(${scale})`
 			this.$refs.cdWrapper.addEventListener('transitionend', done)
 		},
 		afterLeave() {
@@ -467,7 +465,7 @@ export default {
 			// smaller disc's width / large disc's width
 			const scale = targetWidth / width
 			// target point (x,y) location large circle disc's center
-			// The fourth quadrant, small disc's x position to the big disc's x position, take the negative direction
+			// The fourth quadrant is positive
 			const x = -(window.innerWidth / 2 - paddingLeft)
 			const y = window.innerHeight - paddingTop - width / 2 - paddingBottom
 			return { x, y, scale }
