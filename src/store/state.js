@@ -1,5 +1,5 @@
 /**
- * Defining basic data
+ * defining data
  */
 
 import { playMode } from 'common/js/config'

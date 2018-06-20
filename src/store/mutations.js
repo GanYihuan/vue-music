@@ -1,5 +1,5 @@
 /**
- * Modify data operation
+ * modify data operation
  */
 
 import * as types from './mutation-types'

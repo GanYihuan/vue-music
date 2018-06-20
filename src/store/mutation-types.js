@@ -1,5 +1,5 @@
 /**
- * The action name of the operation to modify the data.
+ * 操作mutation里面的方法的操作名称
  * @type {string}
  */
 

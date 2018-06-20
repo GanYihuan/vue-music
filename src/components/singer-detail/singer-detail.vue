@@ -31,7 +31,7 @@ export default {
 		bgImage() {
 			return this.singer.avatar
 		},
-		// getters, get (vuex/state.js) data
+		// getters, get (vuex/getters.js) data
 		...mapGetters(['singer'])
 	},
 	created() {

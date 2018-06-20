@@ -176,15 +176,19 @@ cnpm install better-scroll@0.1.15 --save
 
 - ✨✨✨✨
 - axios, Start HTTPRequest, modify headers.
+
 ```shell
 cnpm install axios --save
 ```
-- 1. Modify host *(config/index.js)*
+
+- Modify host *(config/index.js)*
+
 ```shell
 host: '0.0.0.0',
 ```
-- 2. _/build/webpack.dev.conf.js_ back-end interface is defined asynchronously.
-- 3. *(recommend.vue)* 'api/getDiscList' Call the backend interface.
+
+- _/build/webpack.dev.conf.js_ back-end interface is defined asynchronously.
+- **recommend.vue** 'api/getDiscList' Call the backend interface.
 
 ## 4-9 歌单列表组件开发和数据的应用
 
@@ -208,9 +212,11 @@ host: '0.0.0.0',
 - **recommend.vue**
 - **main.js**
 - image laz-load: reload depend on scroll
+
 ```shell
 npm install vue-lazyload --save
 ```
+
 - class="needsclick" : fastclick Do not intercept the click process.
 
 ## 4-13 loading 基础组件的开发和应用
@@ -249,7 +255,8 @@ npm install vue-lazyload --save
 - **listView.vue**
 - **scroll.vue**
 - **common/dom.js**
-- get element index *(common/dom.js)*
+- get element index **common/dom.js**
+
 ```shell
 <li
   class="item"
@@ -300,11 +307,14 @@ npm install vue-lazyload --save
 - **listView.vue**
 - **singer.vue**
 - **singer-detail.vue**
+- route config
+- animate css
 
 ## 6-3 初识 Vuex
 
 - ✨✨
 - **static/vuex.png**
+- api introduce vuex
 
 ```shell
 npm install vuex --save
@@ -313,24 +323,14 @@ npm install vuex --save
 ## 6-4 Vuex 初始化及歌手数据的配置
 
 - ✨✨✨✨
-- **store/vuex.js** use vuex
-- **store/state.js** defined data
-- **store/getters.js** Mapping state data, get state
-- **store/mutation-types**)*: The action name of the operation to modify the data.
-- **store/mutations.js** Modify data operation
-- **store/action.js** Mutation use action to encapsulate and modify multiple mutations.
-
-```shell
-  // call mutation，use mutation type constant。set state
-  ...mapMutations({
-    setSinger: 'SET_SINGER'
-  })
-  
-  // getters, get (vuex/state.js) data
-  ...mapGetters([
-    'singer'
-  ])
-```
+- **store/vuex.js** vuex config
+- **store/state.js** data
+- **store/getters.js** 给外部用来取vuex里面的数据
+- **store/mutation-types**: 操作mutation里面的方法的操作名称
+- **store/mutations.js** modify data operation
+- **store/action.js** 封装mutation, 异步操作相关
+- **singer.vue** use vuex, save data into vuex
+- **singer-detail.vue** use vuex, get data from vuex
 
 ## 6-5 歌手详情数据抓取
 
