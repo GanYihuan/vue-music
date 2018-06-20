@@ -489,15 +489,15 @@ npm install create-keyframe-animation --save
 - **player.vue**
 - **store/actions**
 
-## 7-19: Grab the lyrics data
-- ✨✨✨✨✨
-1. *(api/song.js)* : Front end call, foreground define proxy address for backstage.
-2. *(webpack.dev.conf.js)* : The back end bypasses the qq music restriction, and the output request content goes out, regular expression.
-3. *(common/js/song.js)* : The output after the front-end call.
-4. *(player.vue)* : The output content is used in the component.
-##### qq音乐播放歌曲界面 -> chrome network -> js fcg preview
-##### Click on the FCG to display the url in chrome.
+## 7-19 播放器歌词数据抓取
 
+- ✨✨✨✨✨
+- **api/song.js**: Front end call, foreground define proxy address for backstage.
+- **webpack.dev.conf.js**: The back end bypasses the qq music restriction, and the output request content goes out, regular expression.
+- **common/js/song.js**: The output after the front-end call.
+- **player.vue**: The output content is used in the component.
+- qq音乐播放歌曲界面 -> chrome network -> js fcg preview
+- Click on the FCG to display the url in chrome.
 
 ## 7-20: Player lyrics data parsing.
 - ✨✨✨✨

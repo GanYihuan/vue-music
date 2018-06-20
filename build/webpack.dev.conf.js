@@ -79,6 +79,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
               let matches = ret.match(reg)
               if (matches) {
                 // JSON.parse: 转换为JSON
+                // 第一个元素是整个数组
+                // 第二个是正则匹配后的结果
                 ret = JSON.parse(matches[1])
               }
             }
