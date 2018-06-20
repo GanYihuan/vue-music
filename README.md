@@ -338,19 +338,26 @@ npm install vuex --save
 - **singer-detail.vue**
 - **api/singer.js**
 
-## 6-6, 6-7: 歌手详情页---handle data
+## 6-6 歌手详情数据处理和Song类的封装（上）
+
 - ✨✨✨✨
-*(singer-detail.vue)*
-*(common/js/song.js)*
-##### song Class encapsulation
+- **singer-detail.vue**
+- **common/js/song.js**
+- song Class encapsulation
 
+## 6-7 歌手详情数据处理和Song类的封装（下）
 
-## 6-8: 歌手详情页---user data render interface
+- ✨✨✨✨
+- **singer-detail.vue**
+- **common/js/song.js**
+- song Class encapsulation
+
+## 6-8 music-list 组件开发（1）
+
 - ✨✨
-*(music-list.vue)*
-*(singer-detail.vue)*
-##### singer-detail.vue handle data, music-list.vue show component
-
+- **music-list.vue**
+- **singer-detail.vue**
+- singer-detail.vue handle data, music-list.vue show component
 
 ## 6-9: 歌手详情页---calculate size
 - ✨✨

@@ -30,7 +30,7 @@ export default class Song {
             this.lyric = Base64.decode(res.lyric)
             resolve(this.lyric)
           } else {
-            reject('no lyric')
+            reject(console.log('no lyric'))
           }
         })
     })
