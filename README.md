@@ -527,11 +527,11 @@ npm install lyric-parser
 - ✨✨✨✨
 - **player.vue**
 
-## 7-25: 音乐播放界面---Set the correct location of the mini player.
-- ✨✨✨✨
-*(player.vue)*
-*(common/js/mixin.js)*
+## 7-25 播放器底部播放器适配+mixin的应用
 
+- ✨✨✨✨
+- **player.vue**
+- **common/js/mixin.js**
 
 ## 8-1: 热门歌单---Vuex data
 - ✨✨

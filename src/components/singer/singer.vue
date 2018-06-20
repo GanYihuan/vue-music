@@ -25,6 +25,7 @@ const HOT_SINGER_LEN = 10
 const HOT_NAME = '热门'
 
 export default {
+  // insert minxin.js
 	mixins: [playlistMixin],
 	// Store back-end data.
 	data() {

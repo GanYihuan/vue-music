@@ -61,7 +61,7 @@ const transform = prefixStyle('transform')
 const backdrop = prefixStyle('backdrop-filter')
 
 export default {
-	// insert mixin, The component method of the same name overrides the method in a mixin.
+	// insert mixin.js, The component method of the same name overrides the method in a mixin.
 	mixins: [playlistMixin],
 	props: {
 		bgImage: {

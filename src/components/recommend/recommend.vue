@@ -65,6 +65,7 @@ import { ERR_OK } from 'api/config'
 import { mapMutations } from 'vuex'
 
 export default {
+  // insert mixin.js
 	mixins: [playlistMixin],
 	data() {
 		return {
