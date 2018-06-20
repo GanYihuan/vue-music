@@ -499,19 +499,18 @@ npm install create-keyframe-animation --save
 - qq音乐播放歌曲界面 -> chrome network -> js fcg preview
 - Click on the FCG to display the url in chrome.
 
-## 7-20: Player lyrics data parsing.
+## 7-20 播放器歌词数据解析
+
 - ✨✨✨✨
-*(player.vue)*
-*(common/js/song.js)*
-##### Base64 decoding and encoding.
-```
+- **player.vue**
+- **common/js/song.js**
+- Base64 decoding and encoding
+- The lyric parsing, performs the callback function every time it is executed.
+
+```shell
 npm install js-base64 --save
-```
-##### The lyric parsing, performs the callback function every time it is executed.
-```
 npm install lyric-parser
 ```
-
 
 ## 7-21: 音乐播放界面---The lyrics scroll
 - ✨✨✨
