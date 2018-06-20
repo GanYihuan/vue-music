@@ -365,26 +365,44 @@ npm install vuex --save
 - **music-list.vue**
 - **song-list.vue**
 
-## 6-10, 6-11, 6-12: 歌手详情页---pull down & scroll to top animate
+## 6-10 music-list 组件开发（3）
+
 - ✨✨✨✨
-*(song-list.vue)*
-*(music-list.vue)* 
+- **song-list.vue**
+- **music-list.vue**
+- 创建滑块遮罩
 
+## 6-11 music-list 组件开发（4）
 
-## 6-13: 歌手详情页---Configuration of different browser CSS, (just copy!)
 - ✨✨✨✨
-*(common/js/dom.js)*
-*(music-list.vue)*
+- **song-list.vue**
+- **music-list.vue**
+- 滑块遮罩只运动到某个位置
 
+## 6-12 music-list 组件开发（5）
 
-## 6-14: 歌手详情页---back button, loading
+- ✨✨✨✨
+- **song-list.vue**
+- **music-list.vue**
+- 滑块遮罩运动, 歌手图片变化
+
+## 6-13 music-list 组件开发（6）
+
+- ✨✨✨✨
+- **common/js/dom.js**
+- **music-list.vue**
+- webkit前缀封装
+
+## 6-14 music-list 组件开发（7）
+
 - ✨✨
-*(music-list.vue)*
-
+- **music-list.vue**
+- back
+- loading
 
 ## 7-1: 音乐播放界面---introduce
-- ✨
 
+- ✨
 
 ## 7-2: 音乐播放界面---Play vuex data define
 - ✨✨✨✨

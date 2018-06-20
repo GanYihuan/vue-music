@@ -8,7 +8,12 @@
     <h1 class="title" v-html="title"></h1>
     <div class="bg-image" :style="bgStyle" ref="bgImage">
       <div class="play-wrapper">
-        <div class="play" ref="playBtn" v-show="songs.length>0" @click="random">
+        <div
+          class="play"
+          ref="playBtn"
+          v-show="songs.length>0"
+          @click="random"
+        >
           <i class="icon-play"></i>
           <span class="text">随机播放全部</span>
         </div>
@@ -146,7 +151,7 @@ export default {
 			// scroll to top
 			if (newVal < this.minTransalteY) {
 				zIndex = 10
-				// css file: .bg-image { padding-top: 70%; width: 100% }, w : h = 10 : 7
+				// css file: .bg-image { padding-top: 70%; width: 100%, height: 0 }, w : h = 10 : 7
 				this.$refs.bgImage.style.paddingTop = 0
 				this.$refs.bgImage.style.height = `${RESERVED_HEIGHT}px`
 				this.$refs.playBtn.style.display = 'none'
