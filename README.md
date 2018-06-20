@@ -409,13 +409,13 @@ npm install vuex --save
 - ✨✨✨✨
 - **store/state.js**
 
-## 7-3: 音乐播放界面---vuex use
-- ✨✨✨✨
-*(player.vue)*
-*(song-list.vue)*
-*(music-list.vue)*
-*(store/actions.js)*
+## 7-3 播放器Vuex的相关应用
 
+- ✨✨✨✨
+- **player.vue**
+- **song-list.vue**
+- **music-list.vue**
+- **store/actions.js**
 
 ## 7-4: 音乐播放界面---fullscreen button, vuex use
 - ✨✨

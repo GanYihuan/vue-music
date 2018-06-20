@@ -1,5 +1,5 @@
 /**
- * 封装mutation, 异步操作相关
+ * 封装mutation操作多个mutation, 异步操作相关
  */
 import * as types from './mutation-types'
 import { playMode } from 'common/js/config'
