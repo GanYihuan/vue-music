@@ -308,7 +308,7 @@ export default {
 			this.currentTime = e.target.currentTime
 		},
 		format(interval) {
-			// | 0: (math.floor)
+			// | 0: (+math.floor)
 			interval = interval | 0
 			const minute = (interval / 60) | 0
 			// _pad: Use 0 to fill 2 bits.

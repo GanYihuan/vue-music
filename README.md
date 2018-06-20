@@ -446,10 +446,10 @@ npm install create-keyframe-animation --save
 - ✨✨✨
 - **player.vue**
 
-## 7-11: 音乐播放界面---Get the playtime
-- ✨✨✨
-*(player.vue)*
+## 7-11 播放器播放时间获取和更新
 
+- ✨✨✨
+- **player.vue**
 
 ## 7-12: 音乐播放界面---The song control song progress bar grows with the song.
 - ✨✨✨
