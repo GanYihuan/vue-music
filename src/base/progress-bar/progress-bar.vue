@@ -32,8 +32,11 @@ export default {
 			type: Number,
 			default: 0
 		}
-	},
+  },
+  // 数据, 不需要被监控, data, props里面的数据会被监控
+  // get back-end data
 	created() {
+    // 共享数据
 		this.touch = {}
 	},
 	methods: {
@@ -52,7 +55,7 @@ export default {
 			const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
 			// detailX: Progress bar moving distance = current click position - pre click position
 			const detailX = e.touches[0].pageX - this.touch.startX
-			// Math.max(0, X): (X>0) The value returned is not less than 0
+			// 不小于0: Math.max(0, X): (X>0) The value returned is not less than 0
 			const offsetWidth = Math.min(progressBarWidth, Math.max(0, this.touch.left + detailX))
 			this._offset(offsetWidth)
 		},

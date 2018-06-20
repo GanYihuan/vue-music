@@ -457,22 +457,16 @@ npm install create-keyframe-animation --save
 - **progress-bar.vue**
 - **player.vue**
 
-## 7-13: 音乐播放界面---Song control song progress bar can be manually dragged.
+## 7-13, 7-14 播放器progress-bar进度条组件实现（中）
+
 - ✨✨✨
-*(progress-bar.vue)*
-*(player.vue)*
+- **progress-bar.vue**
+- **player.vue**
 
+## 7-15 播放器progress-circle 圆形进度条组件实现
 
-## 7-14: 音乐播放界面---The song control song progress bar can be played at a certain location.
-- ✨✨
-*(progress-bar.vue)*
-*(player.vue)*
-
-
-## 7-15: 音乐播放界面---Mini player ring progress bar (SVG)
 - ✨✨✨✨
-*(progress-circle.vue)*
-
+- **progress-circle.vue**
 
 ## 7-16: 音乐播放界面---Song control playback mode style change.
 - ✨✨✨
