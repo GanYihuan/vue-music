@@ -517,10 +517,10 @@ npm install lyric-parser
 - ✨✨✨
 - **player.vue**
 
-## 7-22, 7-23: 音乐播放界面---Switch between the lyrics interface and the record interface.
-- ✨✨✨
-*(player.vue)*
+## 7-22, 7-23 播放器歌词左右滑动实现（上）
 
+- ✨✨✨
+- **player.vue**
 
 ## 7-24: 音乐播放界面---fix bug
 - ✨✨✨✨

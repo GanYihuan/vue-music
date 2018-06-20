@@ -166,7 +166,9 @@ export default {
 		},
 		// vuex (store/getter.js)
 		...mapGetters(['currentIndex', 'fullScreen', 'playing'])
-	},
+  },
+  // 数据, 不需要被监控, data, props里面的数据会被监控
+  // get back-end data
 	created() {
 		// no need get & set, defined in created
 		this.touch = {}
