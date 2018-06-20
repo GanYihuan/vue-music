@@ -58,6 +58,7 @@ export const playerMixin = {
       'deleteFavoriteList'
     ]),
     changeMode () {
+      // 3种状态
       const mode = (this.mode + 1) % 3
       // ...mapMutations
       this.setPlayMode(mode)

@@ -469,18 +469,19 @@ npm install create-keyframe-animation --save
 - **progress-circle.vue**
 - SVG
 
-## 7-16: 音乐播放界面---Song control playback mode style change.
+## 7-16 播放器模式切换功能实现（上）
+
 - ✨✨✨
-*(player.vue)*
-*(common/js/mixin.js)*
+- **player.vue**
+- **common/js/mixin.js**
 
+## 7-17 播放器模式切换功能实现（中）
 
-## 7-17: 音乐播放界面---Various playback modes are handled.
 - ✨✨✨✨
-*(player.vue)*
-*(common/js/util.js)*
-*(common/js/mixin.js)*
-
+- **player.vue**
+- **common/js/util.js**
+- **common/js/mixin.js**
+- 洗牌函数
 
 ## 7-18: 音乐播放界面---fix bug
 - ✨✨✨✨

@@ -1,8 +1,9 @@
-// Returns the random number between min ~ Max, including Max.
+// Returns the random number between min ~ Max, including min & max
 function getRandomInt (min, max) {
   // Math.random() create [0,1) number
   // create a [x,y) number
   // Math.round(Math.random()*(y-x))+x;
+  // +1: 保证取到上限这个值
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
