@@ -451,11 +451,11 @@ npm install create-keyframe-animation --save
 - ✨✨✨
 - **player.vue**
 
-## 7-12: 音乐播放界面---The song control song progress bar grows with the song.
-- ✨✨✨
-*(progress-bar.vue)*
-*(player.vue)*
+## 7-12 播放器progress-bar进度条组件实现（上）
 
+- ✨✨✨
+- **progress-bar.vue**
+- **player.vue**
 
 ## 7-13: 音乐播放界面---Song control song progress bar can be manually dragged.
 - ✨✨✨
