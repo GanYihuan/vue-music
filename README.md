@@ -512,10 +512,10 @@ npm install js-base64 --save
 npm install lyric-parser
 ```
 
-## 7-21: 音乐播放界面---The lyrics scroll
-- ✨✨✨
-*(player.vue)*
+## 7-21 播放器歌词滚动列表实现
 
+- ✨✨✨
+- **player.vue**
 
 ## 7-22, 7-23: 音乐播放界面---Switch between the lyrics interface and the record interface.
 - ✨✨✨
