@@ -400,14 +400,14 @@ npm install vuex --save
 - back btn
 - loading
 
-## 7-1: 音乐播放界面---introduce
+## 7-1 播放器页面设计详解
 
 - ✨
 
-## 7-2: 音乐播放界面---Play vuex data define
-- ✨✨✨✨
-*(store/state.js)*
+## 7-2 播放器Vuex数据设计
 
+- ✨✨✨✨
+- **store/state.js**
 
 ## 7-3: 音乐播放界面---vuex use
 - ✨✨✨✨
