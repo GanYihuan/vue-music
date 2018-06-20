@@ -417,10 +417,10 @@ npm install vuex --save
 - **music-list.vue**
 - **store/actions.js**
 
-## 7-4: 音乐播放界面---fullscreen button, vuex use
-- ✨✨
-*(player.vue)*
+## 7-4 播放器基础样式及歌曲数据的应用
 
+- ✨✨
+- **player.vue*
 
 ## 7-5: 音乐播放界面---animate css transition
 - ✨✨
