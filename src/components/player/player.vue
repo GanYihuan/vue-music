@@ -94,6 +94,7 @@
           <p class="desc" v-html="currentSong.singer"></p>
         </div>
         <div class="control">
+          <!-- insert slot -->
           <progress-circle :radius="radius" :percent="percent">
             <i class="icon-mini" :class="miniIcon" @click.stop="togglePlaying"></i>
           </progress-circle>
