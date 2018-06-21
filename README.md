@@ -799,12 +799,14 @@ node prod.server.js
 
 - chrome -> localhost:9000
 
-## 13-3: optimize
-- ✨✨✨
-*(router/index.js)*
-1. router Lazy loading
-*(router/route.js)*
+## 13-3 编译打包-路由组件实现懒加载
 
+- ✨✨✨
+- **router/index.js**
+- router Lazy loading
+- **router/route.js**
+- **config/index.js**
+- 指向本地服务器CDN地址, assetsPublicPath: '/',
 
 ## 13-4: vue upgrade
 - ✨✨
