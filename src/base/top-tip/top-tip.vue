@@ -8,34 +8,34 @@
 </template>
 
 <script type="text/ecmascript-6">
-  export default {
-    props: {
-      delay: {
-        type: Number,
-        default: 2000
-      }
-    },
-    data () {
-      return {
-        showFlag: false
-      }
-    },
-    methods: {
-      show () {
-        this.showFlag = true
-        clearTimeout(this.timer)
-        this.timer = setTimeout(() => {
-          this.hide()
-        }, this.delay)
-      },
-      hide () {
-        this.showFlag = false
-      }
-    }
-  }
+export default {
+	props: {
+		delay: {
+			type: Number,
+			default: 2000
+		}
+	},
+	data() {
+		return {
+			showFlag: false
+		}
+	},
+	methods: {
+		show() {
+			this.showFlag = true
+			clearTimeout(this.timer)
+			this.timer = setTimeout(() => {
+				this.hide()
+			}, this.delay)
+		},
+		hide() {
+			this.showFlag = false
+		}
+	}
+}
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-  @import "~common/scss/variable.scss";
-  @import "./top-tip.scss";
+@import '~common/scss/variable.scss';
+@import './top-tip.scss';
 </style>

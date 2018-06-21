@@ -732,10 +732,10 @@ npm install good-storage --save
 - **add-song.vue**
 - **common/js/mixin.js**
 
-## 11-16: 10-mini歌曲列表/添加歌曲到列表---At the top of the tip
-- ✨✨
-*(top-tip.vue)*
+## 11-16 歌曲列表组件top-list组件实现
 
+- ✨✨
+- **top-tip.vue**
 
 ## 11-17: 10-mini歌曲列表/添加歌曲到列表---fix-bug
 - ✨✨

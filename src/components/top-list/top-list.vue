@@ -19,8 +19,8 @@ import { mapGetters } from 'vuex'
 import { createSong } from 'common/js/song'
 
 export default {
-  // 数据, 不需要被监控, data, props里面的数据会被监控
-  // get back-end data
+	// 数据, 不需要被监控, data, props里面的数据会被监控
+	// get back-end data
 	created() {
 		this._getMusicList()
 	},
