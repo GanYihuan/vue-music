@@ -704,16 +704,16 @@ npm install good-storage --save
 - ✨✨
 - **common/js/mixin.js**
 
-## 11-10: 10-mini歌曲列表---'添加歌曲到列表' show & hide
+## 11-10 歌曲列表组件add-song组件实现（1）
+
 - ✨✨
-*(add-song.vue)*
+- **add-song.vue**
 
+## 11-11 歌曲列表组件add-song组件实现（2）
 
-## 11-11: 10-mini歌曲列表/添加歌曲到列表---Click the search results song to save the song to localStorage.
-- ✨✨✨
-*(add-song.vue)*
-*(common/js/mixin.js)*
-
+- ✨✨
+- **add-song.vue**
+- **common/js/mixin.js**
 
 ## 11-12: 10-mini歌曲列表/添加歌曲到列表---Switch the two buttons of the song list component.
 - ✨✨
