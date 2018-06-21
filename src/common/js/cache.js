@@ -2,7 +2,7 @@ import storage from 'good-storage'
 
 // '__x__': The value of the internal
 const SEARCH_KEY = '__search__'
-// Cache MAX value :15 data.
+// Cache MAX value: 15 data
 const SEARCH_MAX_LEN = 15
 // Play history
 const PLAY_KEY = '__play__'
@@ -18,7 +18,7 @@ const FAVORITE_MAX_LEN = 200
  * @param arr:
  * @param compare: return func
  */
-function deleteFromArray (arr, compare) {
+function deleteFromArray(arr, compare) {
   // findIndex: Find the arr array with the compare element and return the subscript.
   const index = arr.findIndex(compare)
   // If there is
@@ -28,27 +28,26 @@ function deleteFromArray (arr, compare) {
 }
 
 /**
- * Val data is inserted into arr array and placed first.
+ * Val数据被插入到arr数组中并放置在开头
  * @param arr: Stored array
  * @param val: Stored value
  * @param compare: func
  * @param maxLen: number
  */
-function insertArray (arr, val, compare, maxLen) {
+function insertArray(arr, val, compare, maxLen) {
   // findIndex: Find the arr array with the compare element and return the subscript.
   const index = arr.findIndex(compare)
-  // The first position has the compare.
   if (index === 0) {
     return
   }
-  // Compare this data is not in the first place.
+  // not in the first place.
   if (index > 0) {
     arr.splice(index, 1)
   }
-  // Insert val's data into the arr array head.
+  // Insert val's data into the arr first place.
   arr.unshift(val)
   if (maxLen && arr.length > maxLen) {
-    // Delete the end of arr array.
+    // Delete the end of arr
     arr.pop()
   }
 }
@@ -58,14 +57,14 @@ function insertArray (arr, val, compare, maxLen) {
  * @param query
  * @returns {*}
  */
-export function saveSearch (query) {
-  // Gets cached data, historical data, no data returns an empty array.
+export function saveSearch(query) {
+  // gets cached data, historical data, no data returns an empty array.
   let searches = storage.get(SEARCH_KEY, [])
-  // Val data is inserted into arr array and placed first.
+  // val data is inserted into arr array and placed first.
   insertArray(searches, query, (item) => {
     return item === query
   }, SEARCH_MAX_LEN)
-  // Store cached data, historical data.
+  // store cached data, historical data.
   storage.set(SEARCH_KEY, searches)
   return searches
 }
@@ -75,7 +74,7 @@ export function saveSearch (query) {
  * @param query
  * @returns {*}
  */
-export function deleteSearch (query) {
+export function deleteSearch(query) {
   // Gets cached data, historical data.
   let searches = storage.get(SEARCH_KEY, [])
   deleteFromArray(searches, (item) => {
@@ -87,13 +86,13 @@ export function deleteSearch (query) {
 }
 
 // LocalStorage deletes all search history (actions.js)
-export function clearSearch () {
+export function clearSearch() {
   storage.remove(SEARCH_KEY)
   return []
 }
 
 // Read the search history from the local cache (state.js calls)
-export function loadSearch () {
+export function loadSearch() {
   return storage.get(SEARCH_KEY, [])
 }
 
@@ -102,7 +101,7 @@ export function loadSearch () {
  * @param song
  * @returns {*}
  */
-export function savePlay (song) {
+export function savePlay(song) {
   // Gets the playback history localStorage and returns an empty array if no.
   let songs = storage.get(PLAY_KEY, [])
   // Song is inserted into songs, passed in the comparison function, and song moves him to the front.
@@ -115,7 +114,7 @@ export function savePlay (song) {
 }
 
 // Read the playback history localStorage(state.js will call)
-export function loadPlay () {
+export function loadPlay() {
   return storage.get(PLAY_KEY, [])
 }
 
@@ -124,7 +123,7 @@ export function loadPlay () {
  * @param song
  * @returns {*}
  */
-export function saveFavorite (song) {
+export function saveFavorite(song) {
   // Get the collection list localStorage.
   let songs = storage.get(FAVORITE_KEY, [])
   // Song is inserted into songs, passed in the comparison function, and song moves him to the front.
@@ -141,7 +140,7 @@ export function saveFavorite (song) {
  * @param song
  * @returns {*}
  */
-export function deleteFavorite (song) {
+export function deleteFavorite(song) {
   let songs = storage.get(FAVORITE_KEY, [])
   // Remove compare from arr array.
   deleteFromArray(songs, (item) => {
@@ -154,6 +153,6 @@ export function deleteFavorite (song) {
 
 // Load favorites list
 // When the state initial value is fetched, it will be used (state.js will call)
-export function loadFavorite () {
+export function loadFavorite() {
   return storage.get(FAVORITE_KEY, [])
 }

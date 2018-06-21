@@ -629,31 +629,23 @@ npm install lyric-parser
 - Optimization request: 节流功能，在处理搜索框输入字符时，搜索结果不是输入字符出来的结果，再输入一定时间请求。
 - When you scroll, you lose focus, and the mobile input keyboard does not block the interface.
 
-## 10-11: 08-搜索界面---Search historical data cache to localStorage, vuex data storage.
-- ✨✨
-*(search.vue)*
+## 10-11, 10-12, 10-13: 搜索页面搜索结果保存功能实现（1）
 
+- ✨✨✨✨✨
+- **common/js/cache.js**
+- **store/actions.js**
 
-## 10-12: 08-搜索界面---Search historical data cache to localStorage
-- ✨✨✨✨
-*(common/js/cache.js)*
-*(store/actions.js)*
-```
+```shell
 npm install good-storage --save
 ```
-1. localStorage package: 
-storage.set(key, val)
-storage.get(key, def)
-storage.remove(key)
-2. sessionStorage封装: 
-storage.session.set(key, val)
-storage.session.get(key, def)
 
-
-## 10-13: 08-搜索界面---read Search historical data from cache localStorage
-- ✨✨
-*(common/js/cache.js)*
-
+- localStorage package
+- storage.set(key, val)
+- storage.get(key, def)
+- storage.remove(key)
+- sessionStorage封装
+- storage.session.set(key, val)
+- storage.session.get(key, def)
 
 ## 10-14: 08-搜索界面---Search historical vuex render data
 - ✨✨
