@@ -681,15 +681,10 @@ npm install good-storage --save
 - **player.vue**
 - prevent bubble
 
-## 11-3: 10-mini歌曲列表---vuex data render
+## 11-3, 11-4 歌曲列表组件播放列表的实现（1）
+
 - ✨✨✨
-*(playlist.vue)*
-
-
-## 11-4: 10-mini歌曲列表---Scroll to the current location of the song.
-- ✨✨✨
-*(playlist.vue)*
-
+- **playlist.vue**
 
 ## 11-5, 11-6: 10-mini歌曲列表---Delete a song
 - ✨✨✨✨

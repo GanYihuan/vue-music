@@ -130,10 +130,7 @@ export default {
 				return current.id === song.id
 			})
 			// Scroll to the elements of this list.
-			this.$refs.listContent.scrollToElement(
-				this.$refs.list.$el.children[index],
-				300
-			)
+			this.$refs.listContent.scrollToElement(this.$refs.list.$el.children[index], 300)
 		},
 		deleteOne(item) {
 			// ...mapActions
