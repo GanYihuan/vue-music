@@ -582,15 +582,15 @@ npm install lyric-parser
 - **top-list.vue**
 - **song-list.vue**
 
-## 10-1: 08-搜索界面---introduce
+## 10-1 搜索页面页面布局和功能介绍
+
 - ✨
 
+## 10-2 搜索页面search-box组件开发
 
-## 10-2: 08-搜索界面---Search box component
 - ✨✨
-*(search.vue)* 
-*(search-box.vue)*
-
+- **search.vue**
+- **search-box.vue**
 
 ## 10-3: 08-搜索界面---fetch data
 - ✨✨✨

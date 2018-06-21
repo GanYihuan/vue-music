@@ -18,26 +18,26 @@
 </template>
 
 <script type="text/ecmascript-6">
-  export default {
-    props: {
-      searches: {
-        type: Array,
-        default: null
-      }
-    },
-    methods: {
-      selectItem (item) {
-        this.$emit('select', item)
-      },
-      deleteOne (item) {
-        this.$emit('delete', item)
-      }
-    }
-  }
+export default {
+	props: {
+		searches: {
+			type: Array,
+			default: null
+		}
+	},
+	methods: {
+		selectItem(item) {
+			this.$emit('select', item)
+		},
+		deleteOne(item) {
+			this.$emit('delete', item)
+		}
+	}
+}
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-  @import "../../common/scss/variable.scss";
-  @import "../../common/scss/_mixin.scss";
-  @import "./search-list.scss";
+@import '../../common/scss/variable.scss';
+@import '../../common/scss/_mixin.scss';
+@import './search-list.scss';
 </style>

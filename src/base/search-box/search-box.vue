@@ -8,47 +8,51 @@
 </template>
 
 <script type="text/ecmascript-6">
-  // Optimize the request throttling function.
-  import { debounce } from 'common/js/util'
+// Optimize the request throttling function.
+import { debounce } from 'common/js/util'
 
-  export default {
-    props: {
-      placeholder: {
-        type: String,
-        default: '搜索歌曲、歌手'
-      }
-    },
-    data () {
-      return {
-        // Search keywords
-        query: ''
-      }
-    },
-    methods: {
-      clear () {
-        this.query = ''
-      },
-      setQuery (query) {
-        this.query = query
-      },
-      // When scrolling, the search box loses focus and the purpose is to remove the keyboard from the mobile terminal.
-      blur () {
-        this.$refs.query.blur()
-      }
-    },
-    // Not directly in the watch.
-    created () {
-      // debounce(): (common/js/util.js)
-      // Throttling function, optimizing request.
-      this.$watch('query', debounce(newQuery => {
-          this.$emit('query', newQuery)
-        }, 200)
-      )
-    }
-  }
+export default {
+	props: {
+		placeholder: {
+			type: String,
+			default: '搜索歌曲、歌手'
+		}
+	},
+	data() {
+		return {
+			// Search keywords
+			query: ''
+		}
+	},
+	methods: {
+		clear() {
+			this.query = ''
+		},
+		setQuery(query) {
+			this.query = query
+		},
+		// When scrolling, the search box loses focus and the purpose is to remove the keyboard from the mobile terminal.
+		blur() {
+			this.$refs.query.blur()
+		}
+	},
+  // Not directly in the watch.
+  // 数据, 不需要被监控, data, props里面的数据会被监控
+  // get back-end data
+	created() {
+		// debounce(): (common/js/util.js)
+		// Throttling function, optimizing request.
+		this.$watch(
+			'query',
+			debounce(newQuery => {
+				this.$emit('query', newQuery)
+			}, 200)
+		)
+	}
+}
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-  @import '../../common/scss/variable.scss';
-  @import "./search-box.scss";
+@import '../../common/scss/variable.scss';
+@import './search-box.scss';
 </style>
