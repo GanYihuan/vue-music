@@ -737,10 +737,10 @@ npm install good-storage --save
 - ✨✨
 - **top-tip.vue**
 
-## 11-17: 10-mini歌曲列表/添加歌曲到列表---fix-bug
-- ✨✨
-*(add-song.vue)*
+## 11-17 歌曲列表组件scroll组件能力的扩展
 
+- ✨✨
+- **add-song.vue**
 
 ## 12-1: 12-用户中心页---switch '我喜欢的' '最近听的'
 - ✨✨
