@@ -565,22 +565,22 @@ npm install lyric-parser
 - **rank.vue**
 - **loading.vue**
 
-## 9-3: 排行榜详情界面---Vuex Data communications
+## 9-3 榜单详情页布局介绍及Vuex实现路由数据通讯
+
 - ✨✨✨
-*(top-list.vue)*
+- **top-list.vue**
 
+## 9-4 榜单详情页数据抓取和应用
 
-## 9-4: 排行榜详情界面---fetch data, use data
 - ✨✨✨
-*(top-list.vue)*
-*(api/rank.js)*
+- **top-list.vue**
+- **api/rank.js**
 
+## 9-5 带排行的song-list组件扩展和应用
 
-## 9-5: 排行榜详情界面---Component extensions, top three trophy.
 - ✨✨✨
-*(top-list.vue)*
-*(song-list.vue)*
-
+- **top-list.vue**
+- **song-list.vue**
 
 ## 10-1: 08-搜索界面---introduce
 - ✨
