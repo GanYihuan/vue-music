@@ -669,17 +669,17 @@ npm install good-storage --save
 - ✨✨✨
 - **search.vue**
 
-## 11-1: 10-mini歌曲列表---introduce
+## 11-1 歌曲列表组件布局和功能介绍
+
 - ✨
-*(playlist.vue)*
+- **playlist.vue**
 
+## 11-2 歌曲列表组件显示和隐藏的控制
 
-## 11-2: 10-mini歌曲列表---show and hide
 - ✨✨
-*(playlist.vue)*
-*(player.vue)*
-1. prevent bubble
-
+- **playlist.vue**
+- **player.vue**
+- prevent bubble
 
 ## 11-3: 10-mini歌曲列表---vuex data render
 - ✨✨✨
