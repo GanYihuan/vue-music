@@ -36,11 +36,11 @@ export default {
 			this.$refs.query.blur()
 		}
 	},
-  // Not directly in the watch.
   // 数据, 不需要被监控, data, props里面的数据会被监控
   // get back-end data
+  // Not directly in the watch.
 	created() {
-		// debounce(): (common/js/util.js)
+		// debounce(): (common/js/util.js) 节流函数
 		// Throttling function, optimizing request.
 		this.$watch(
 			'query',

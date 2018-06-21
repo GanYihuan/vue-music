@@ -613,22 +613,21 @@ npm install lyric-parser
 - **scroll.vue**
 - **loading.vue**
 
-## 10-6, 10-7, 10-8 搜索页面suggest组件开发（3）
+## 10-6, 10-7, 10-8, 10-9 搜索页面suggest组件开发（3）
 
 - ✨✨✨✨✨
 - **store/action.js**
 - **suggest.vue**
 
-## 10-10: 08-搜索界面---optimize
-- ✨✨✨✨
-*(suggest.vue)* 
-*(no-result.vue)*
-*(common/js/util)*
-1. Returns 404 when no search results are available.
-2. Optimization request: throttling function, when processing search box input character, 
-  search result is not input a character to come out result, enter a certain time to request again.
-3. When you scroll, you lose focus, and the mobile input keyboard does not block the interface.
+## 10-10 搜索页面suggest组件开发（7）
 
+- ✨✨✨✨
+- **suggest.vue**
+- **no-result.vue**
+- **common/js/util**
+- Returns 404 when no search results are available.
+- Optimization request: 节流功能，在处理搜索框输入字符时，搜索结果不是输入字符出来的结果，再输入一定时间请求。
+- When you scroll, you lose focus, and the mobile input keyboard does not block the interface.
 
 ## 10-11: 08-搜索界面---Search historical data cache to localStorage, vuex data storage.
 - ✨✨
