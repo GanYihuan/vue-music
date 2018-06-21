@@ -692,12 +692,12 @@ npm install good-storage --save
 - **store/actions.js**
 - **playlist.vue**
 
-## 11-7: 10-mini歌曲列表---Delete the animation of a song.
-- ✨✨✨
-*(playlist.vue)*
-*(confirm.vue)*
-1. transition-group
+## 11-7 歌曲列表组件播放列表的实现（5）
 
+- ✨✨✨
+- **playlist.vue**
+- **confirm.vue**
+- transition-group
 
 ## 11-8, 11-9: 10-mini歌曲列表---Mixins public js
 - ✨✨
