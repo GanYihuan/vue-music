@@ -770,12 +770,12 @@ npm install good-storage --save
 - Set height
 - 404 interface
 
-## 13-1: fix-bug
+## 13-1 编译打包-播放内核小bug修复
+
 - ✨✨✨✨
-*(player.vue)*
+- **player.vue**
 
-
-## 13-2: Compile the package
+## 13-2 编译打包-项目编译打包及node服务测试
 - ✨✨✨✨
 1. Compile the package, and the back-end call.
 ```
