@@ -36,6 +36,6 @@
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-  @import "../../common/scss/variable.scss";
+  @import "~common/scss/variable.scss";
   @import "./top-tip.scss";
 </style>
