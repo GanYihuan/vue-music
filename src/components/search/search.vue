@@ -16,7 +16,7 @@
         ref="shortcut"
         :data="shortcut"
       >
-        <!-- Scroll inside, wrap a div, calculate the scroll of two parts. -->
+        <!-- 在里面滚动，包装一个div，计算两个部分的滚动。 -->
         <div>
           <div class="hot-key">
             <h1 class="title">热门搜索</h1>
@@ -125,7 +125,7 @@ export default {
 		}
 	},
 	watch: {
-		// Prevents scroll from being disabled by the current interface.
+		// 防止当前界面禁用滚动
 		query(newQuery) {
 			if (!newQuery) {
 				setTimeout(() => {

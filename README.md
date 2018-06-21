@@ -659,20 +659,15 @@ npm install good-storage --save
 - **common/js/cache.js**
 - **search.vue**
 
-## 10-16: 08-搜索界面---confirm component
+## 10-16 搜索页面confirm 组件功能实现
+
 - ✨✨✨
-*(confirm.js)*
+- **confirm.js**
 
+## 10-17, 10-18 搜索页面剩余功能实现（上）
 
-## 10-17: 08-搜索界面---scroll setting
 - ✨✨✨
-*(search.vue)*
-
-
-## 10-18: 08-搜索界面---set mini Play position
-- ✨✨
-*(search.vue)*
-
+- **search.vue**
 
 ## 11-1: 10-mini歌曲列表---introduce
 - ✨
