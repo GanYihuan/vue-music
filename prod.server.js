@@ -5,6 +5,7 @@ let port = process.env.PORT || config.build.port
 let app = express()
 let apiRoutes = express.Router()
 
+// copy from build/webpack.dev.conf
 apiRoutes.get('/getDiscList', function (req, res) {
   let url = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'
   axios.get(url, {
@@ -20,6 +21,7 @@ apiRoutes.get('/getDiscList', function (req, res) {
   })
 })
 
+// copy from build/webpack.dev.conf
 apiRoutes.get('/lyric', function (req, res) {
   let url = 'https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg'
   axios.get(url, {
@@ -43,6 +45,7 @@ apiRoutes.get('/lyric', function (req, res) {
   })
 })
 
+// copy from build/webpack.dev.conf
 app.use('/api', apiRoutes)
 
 app.use(express.static('./dist'))

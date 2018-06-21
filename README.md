@@ -776,22 +776,28 @@ npm install good-storage --save
 - **player.vue**
 
 ## 13-2 编译打包-项目编译打包及node服务测试
+
 - ✨✨✨✨
-1. Compile the package, and the back-end call.
-```
+- Compile the package, and the back-end call.
+
+```shell
 npm run build
 ```
-2. *(config/index.js)*
-```
+
+- **config/index.js**
+
+```js
 build(){port: 9000}
 ```
-3. *(prod.server.js)*
-##### from dev.conf.js copy
-```
+
+- **prod.server.js**
+- from dev.conf.js copy
+
+```shell
 node prod.server.js
 ```
-##### chrome -> localhost:9000
 
+- chrome -> localhost:9000
 
 ## 13-3: optimize
 - ✨✨✨
