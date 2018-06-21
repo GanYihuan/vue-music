@@ -598,13 +598,13 @@ npm install lyric-parser
 - **api/search.js**
 - **search-box.vue**
 
-## 10-4: 08-搜索界面--The search function
-- ✨✨✨
-*(suggest.vue)* 
-*(api/search.js)*
-1. ES6
-2. jsonp request
+## 10-4 搜索页面suggest组件开发（1）
 
+- ✨✨✨
+- **suggest.vue**
+- **api/search.js**
+- ES6
+- jsonp request
 
 ## 10-5: 08-搜索界面---drop-down refresh
 - ✨✨✨
