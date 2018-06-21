@@ -533,26 +533,26 @@ npm install lyric-parser
 - **player.vue**
 - **common/js/mixin.js**
 
-## 8-1: 热门歌单---Vuex data
+## 8-1 歌单详情页布局介绍及Vuex实现路由数据通讯
+
 - ✨✨
-*(route.js)*
-*(recommend.vue)* 
-*(recommend.js)* 
-*(mutations.js)* 
-*(getter.js)* 
-*(disc.vue)*
+- **route.js**
+- **recommend.vue)**
+- **recommend.js)**
+- **mutations.js)**
+- **getter.js)**
+- **disc.vue**
 
+## 8-2 歌单详情页数据抓取
 
-## 8-2: 热门歌单---fetch data, fetch fail
 - ✨✨
-*(disc.vue)*
-*(api/recommend.js)*
+- **disc.vue**
+- **api/recommend.js**
 
+## 8-3 歌单详情页数据的处理和应用
 
-## 8-3: 热门歌单---Vuex use data
 - ✨✨
-*(disc.vue)*
-
+- **disc.vue**
 
 ## 9-1: 排行榜界面---fetch data
 - ✨✨
