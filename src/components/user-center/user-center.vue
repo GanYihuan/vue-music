@@ -112,9 +112,7 @@ export default {
 				return new Song(song)
 			})
 			// ...mapActions
-			this.randomPlay({
-				list
-			})
+			this.randomPlay({list})
 		}
 	},
 	components: {

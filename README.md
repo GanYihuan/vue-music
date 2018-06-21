@@ -761,19 +761,14 @@ npm install good-storage --save
 - **user-center.vue**
 - **playlist.vue**
 
-## 12-5: 12-用户中心页---Random broadcast
+## 12-5, 12-6 用户中心页面剩余功能实现（上）
+
 - ✨✨✨
-*(user-center.vue)*
-1. Back button function.
-2. Random play button function.
-
-
-## 12-6: 12-用户中心页---Set height, 404 interface.
-- ✨✨✨
-*(user-center.vue)*
-1. Set height
-2. 404 interface
-
+- **user-center.vue**
+- Back button function
+- Random play button function
+- Set height
+- 404 interface
 
 ## 13-1: fix-bug
 - ✨✨✨✨
