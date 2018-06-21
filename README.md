@@ -749,23 +749,17 @@ npm install good-storage --save
 - **m-header.vue**
 - Click ❤️ button to jump to the user center
 
-## 12-2: 12-用户中心页---vuex Data communications
-- ✨✨✨✨
-*(store/actions.js)* 
-*(common/js/cache.js)*
+## 12-3 用户中心页面收藏歌曲功能实现（上）processing
 
-
-## 12-3: 12-用户中心页---Collection function processing
 - ✨✨✨
-*(user-center.vue)*
-*(common/js/mixin.js)*
+- **user-center.vue**
+- **common/js/mixin.js**
 
+## 12-4 用户中心页面收藏歌曲功能实现（下）
 
-## 12-4: 12-用户中心页---Add a song to the list.
 - ✨✨✨
-*(user-center.vue)*
-*(playlist.vue)*
-
+- **user-center.vue**
+- **playlist.vue**
 
 ## 12-5: 12-用户中心页---Random broadcast
 - ✨✨✨
