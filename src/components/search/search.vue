@@ -95,7 +95,9 @@ export default {
 		shortcut() {
 			return this.hotKey.concat(this.searchHistory)
 		}
-	},
+  },
+  // 数据, 不需要被监控, data, props里面的数据会被监控
+  // get back-end data
 	created() {
 		this._getHotKey()
 	},

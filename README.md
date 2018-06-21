@@ -592,11 +592,11 @@ npm install lyric-parser
 - **search.vue**
 - **search-box.vue**
 
-## 10-3: 08-搜索界面---fetch data
-- ✨✨✨
-*(api/search.js)*
-*(search-box.vue)*
+## 10-3 搜索页面热门搜索数据抓取和应用
 
+- ✨✨✨
+- **api/search.js**
+- **search-box.vue**
 
 ## 10-4: 08-搜索界面--The search function
 - ✨✨✨
