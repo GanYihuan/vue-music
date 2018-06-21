@@ -612,12 +612,12 @@ npm install lyric-parser
 - **suggest.vue**
 - **scroll.vue**
 - **loading.vue**
- 
-## 10-6, 10-7, 10-8, 10-9: 08-搜索界面---Click the song on the search interface and insert it into the playlist.
-- ✨✨✨✨✨
-*(store/action.js)*
-*(suggest.vue)*
 
+## 10-6, 10-7, 10-8 搜索页面suggest组件开发（3）
+
+- ✨✨✨✨✨
+- **store/action.js**
+- **suggest.vue**
 
 ## 10-10: 08-搜索界面---optimize
 - ✨✨✨✨
