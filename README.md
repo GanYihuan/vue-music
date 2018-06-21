@@ -722,7 +722,7 @@ npm install good-storage --save
 
 ## 11-13, 11-4 歌曲列表组件add-song组件实现（4）
 
-- ✨✨✨✨✨
+- ✨✨✨✨
 - **add-song.vue**
 - **common/js/cache.js**
 
