@@ -808,26 +808,31 @@ node prod.server.js
 - **config/index.js**
 - 指向本地服务器CDN地址, assetsPublicPath: '/',
 
-## 13-4: vue upgrade
+## 13-4 编译打包-Vue.js升级到最新版
+
 - ✨✨
-*(package.json)*
-1. vue upgrade, change package.json version
+- **package.json**
+- vue upgrade, change package.json version
 > "vue" version and "vue-template-compiler" version equal
 
+## 14 课程总结
 
-## 14-1: Course extension
 - ✨✨✨
-*(main.js)*
-1. Mobile terminal debugging, the interface has a green button vConsole.
-<https://github.com/Tencent/vConsole>
-```
+- **main.js**
+- Mobile terminal debugging, the interface has a green button vConsole.
+- <https://github.com/Tencent/vConsole>
+
+```shell
 cnpm install vconsole
 ```
-2. Caught tools charies(Mac) , Fiddler(Win)
+
+- Caught tools charies(Mac) , Fiddler(Win)
 > There is a default 8888 port.
-3. computer IP
-```
+- computer IP
+
+```shell
 ifconfig
 ```
-4. iphone代理, 无线局域网, 配置代理, 代理IP手动, 电脑IP, 8888端口。 实现代理到charies
-5. android 局域网, 修改网络, 配置http代理, 服务器电脑IP, 8888端口。 实现代理到charies
+
+- iphone代理, 无线局域网, 配置代理, 代理IP手动, 电脑IP, 8888端口。 实现代理到charies
+- android 局域网, 修改网络, 配置http代理, 服务器电脑IP, 8888端口。 实现代理到charies
