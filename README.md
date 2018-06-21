@@ -726,11 +726,11 @@ npm install good-storage --save
 - **add-song.vue**
 - **common/js/cache.js**
 
-## 11-15: 10-mini歌曲列表/添加歌曲到列表---Search history
-- ✨✨✨
-*(add-song.vue)*
-*(common/js/mixin.js)*
+## 11-15 歌曲列表组件add-song组件实现（6）
 
+- ✨✨✨
+- **add-song.vue**
+- **common/js/mixin.js**
 
 ## 11-16: 10-mini歌曲列表/添加歌曲到列表---At the top of the tip
 - ✨✨
