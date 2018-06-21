@@ -742,12 +742,12 @@ npm install good-storage --save
 - ✨✨
 - **add-song.vue**
 
-## 12-1: 12-用户中心页---switch '我喜欢的' '最近听的'
-- ✨✨
-*(user-center.vue)*
-*(m-header.vue)*
-1. Click ❤️button to jump to the user center
+## 12-1, 12-2 用户中心页面收藏列表的Vuex数据设计和实现
 
+- ✨✨
+- **user-center.vue**
+- **m-header.vue**
+- Click ❤️ button to jump to the user center
 
 ## 12-2: 12-用户中心页---vuex Data communications
 - ✨✨✨✨
