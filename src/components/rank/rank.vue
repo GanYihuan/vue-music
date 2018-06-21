@@ -3,18 +3,20 @@
   <div class="rank" ref="rank">
     <scroll class="toplist" ref="toplist" :data="topList">
       <ul>
-        <li class="item"
-            v-for="(item,index) in topList"
-            :key="index"
-            @click="selectItem(item)"
+        <li
+          class="item"
+          v-for="(item,index) in topList"
+          :key="index"
+          @click="selectItem(item)"
         >
           <div class="icon">
             <img width="100" height="100" v-lazy="item.picUrl"/>
           </div>
           <ul class="songlist">
-            <li class="song"
-                v-for="(song,index) in item.songList"
-                :key="index"
+            <li
+              class="song"
+              v-for="(song,index) in item.songList"
+              :key="index"
             >
               <!-- https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg?g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&tpl=3&page=detail&type=top&topid=4&_=1521599753632 -->
               <span>{{index + 1}}</span>
@@ -32,63 +34,65 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import Scroll from 'base/scroll/scroll'
-  import Loading from 'base/loading/loading'
-  import { getTopList } from 'api/rank'
-  import { ERR_OK } from 'api/config'
-  import { playlistMixin } from 'common/js/mixin'
-  import { mapMutations } from 'vuex'
+import Scroll from 'base/scroll/scroll'
+import Loading from 'base/loading/loading'
+import { getTopList } from 'api/rank'
+import { ERR_OK } from 'api/config'
+import { playlistMixin } from 'common/js/mixin'
+import { mapMutations } from 'vuex'
 
-  export default {
-    mixins: [playlistMixin],
-    created () {
-      this._getTopList()
-    },
-    data () {
-      return {
-        topList: []
-      }
-    },
-    methods: {
-      // vuex (store/mutation.js)
-      ...mapMutations({
-        setTopList: 'SET_TOP_LIST'
-      }),
-      handlePlaylist (playlist) {
-        const bottom = playlist.length > 0 ? '60px' : ''
-        this.$refs.rank.style.bottom = bottom
-        this.$refs.toplist.refresh()
-      },
-      selectItem (item) {
-        this.$router.push({
-          path: `/rank/${item.id}`
-        })
-        // ...mapMutations
-        this.setTopList(item)
-      },
-      _getTopList () {
-        getTopList()
-          .then(res => {
-            if (res.code === ERR_OK) {
-              this.topList = res.data.topList
-            }
-          })
-      }
-    },
-    watch: {
-      topList () {
-        setTimeout(() => {
-          this.$Lazyload.lazyLoadHandler()
-        }, 20)
-      }
-    },
-    components: {
-      Scroll,
-      Loading
-    }
-  }
+export default {
+  // insert mixin.js
+  mixins: [playlistMixin],
+  // 数据, 不需要被监控, data, props里面的数据会被监控
+  // get back-end data
+	created() {
+		this._getTopList()
+	},
+	data() {
+		return {
+			topList: []
+		}
+	},
+	methods: {
+		// vuex (store/mutation.js)
+		...mapMutations({
+			setTopList: 'SET_TOP_LIST'
+		}),
+		handlePlaylist(playlist) {
+			const bottom = playlist.length > 0 ? '60px' : ''
+			this.$refs.rank.style.bottom = bottom
+			this.$refs.toplist.refresh()
+		},
+		selectItem(item) {
+			this.$router.push({
+				path: `/rank/${item.id}`
+			})
+			// ...mapMutations
+			this.setTopList(item)
+		},
+		_getTopList() {
+			getTopList().then(res => {
+				if (res.code === ERR_OK) {
+					this.topList = res.data.topList
+				}
+			})
+		}
+	},
+	watch: {
+		topList() {
+			setTimeout(() => {
+				this.$Lazyload.lazyLoadHandler()
+			}, 20)
+		}
+	},
+	components: {
+		Scroll,
+		Loading
+	}
+}
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-  @import "./rank.scss";
+@import './rank.scss';
 </style>

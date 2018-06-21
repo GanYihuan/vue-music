@@ -554,16 +554,16 @@ npm install lyric-parser
 - ✨✨
 - **disc.vue**
 
-## 9-1: 排行榜界面---fetch data
+## 9-1 排行页面布局介绍及排行榜数据抓取
+
 - ✨✨
-*(rank.vue)*
+- **rank.vue**
 
+## 9-2 排行页排行榜数据应用
 
-## 9-2: 排行榜界面---Vuex use data
 - ✨✨✨
-*(rank.vue)*
-*(loading.vue)*
-
+- **rank.vue**
+- **loading.vue**
 
 ## 9-3: 排行榜详情界面---Vuex Data communications
 - ✨✨✨

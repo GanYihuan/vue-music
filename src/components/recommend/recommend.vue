@@ -73,7 +73,8 @@ export default {
 			discList: []
 		}
 	},
-	// get back-end data
+  // 数据, 不需要被监控, data, props里面的数据会被监控
+  // get back-end data
 	created() {
 		// fetch data from the back-end (carousel data) async
 		this._getRecommend()
