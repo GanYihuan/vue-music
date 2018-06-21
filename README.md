@@ -699,10 +699,10 @@ npm install good-storage --save
 - **confirm.vue**
 - transition-group
 
-## 11-8, 11-9: 10-mini歌曲列表---Mixins public js
-- ✨✨
-*(common/js/mixin.js)*
+## 11-8, 10-9 歌曲列表组件 playerMixin的抽象（上）
 
+- ✨✨
+- **common/js/mixin.js**
 
 ## 11-10: 10-mini歌曲列表---'添加歌曲到列表' show & hide
 - ✨✨
