@@ -98,7 +98,7 @@ export default {
 				}
 			})
 		},
-		// drop-down refresh
+		// 下拉刷新
 		searchMore() {
 			if (!this.hasMore) {
 				return
@@ -121,10 +121,7 @@ export default {
 		},
 		_checkMore(data) {
 			const song = data.song
-			if (
-				!song.list.length ||
-				song.curnum + song.curpage * perpage > song.totalnum
-			) {
+			if (!song.list.length || song.curnum + song.curpage * perpage > song.totalnum) {
 				this.hasMore = false
 			}
 		},

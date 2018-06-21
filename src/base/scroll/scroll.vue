@@ -34,7 +34,7 @@ export default {
 			type: Array,
 			default: null
 		},
-		// drop-pull refresh ?
+		// 下拉刷新
 		pullup: {
 			type: Boolean,
 			default: false

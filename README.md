@@ -606,12 +606,12 @@ npm install lyric-parser
 - ES6
 - jsonp request
 
-## 10-5: 08-搜索界面---drop-down refresh
-- ✨✨✨
-*(suggest.vue)*
-*(scroll.vue)*
-*(loading.vue)*
+## 10-5 搜索页面suggest组件开发（2）
 
+- ✨✨✨
+- **suggest.vue**
+- **scroll.vue**
+- **loading.vue**
  
 ## 10-6, 10-7, 10-8, 10-9: 08-搜索界面---Click the song on the search interface and insert it into the playlist.
 - ✨✨✨✨✨
