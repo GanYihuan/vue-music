@@ -10,7 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
-// Interface agents bypass host and referer.
+// 接口代理绕过主机和引用程序
 const express = require('express')
 // ajax
 const axios = require('axios')

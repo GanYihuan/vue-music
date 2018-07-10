@@ -172,9 +172,8 @@ npm i better-scroll@0.1.15 -S
 - **App.vue**
 - **recommend.js**
 - **recommend.vue**
-
-- Grab the song single data interface
-- 500 server error, host problem. Bypass interface constraint
+- 获取歌曲单数据接口
+- Status:500 服务器错误，主机问题。绕过界面约束
 
 ## 4-8 axios 介绍和后端接口代理
 
@@ -182,7 +181,7 @@ npm i better-scroll@0.1.15 -S
 - axios, Start HTTPRequest, modify headers.
 
 ```shell
-cnpm install axios --save
+cnpm i axios -S
 ```
 
 - Modify host *(config/index.js)*

@@ -42,8 +42,8 @@ export function getDiscList() {
 
   return axios
     .get(url, {
-      // api/recommend.js/getDiscList call the back-end interface
-      // *(build/webpack.dev.conf.js)*  app.get('/api/getDiscList', (req, res) => {
+      /* api/recommend.js/getDiscList 调用 back-end 接口 */
+      /* build/webpack.dev.conf.js app.get('/api/getDiscList', (req, res) => { */
       params: data
     })
     .then((res) => {
