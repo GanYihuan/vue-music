@@ -156,8 +156,6 @@ npm i jsonp -S
 npm i better-scroll@0.1.15 -S
 ```
 
-- v-if="recommends.length": Prevent async loading slow
-
 ## 4-5 轮播图组件实现（中)
 
 - ✨✨✨✨
