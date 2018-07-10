@@ -65,7 +65,12 @@ import { ERR_OK } from 'api/config'
 import { mapMutations } from 'vuex'
 
 export default {
-  // insert mixin.js
+	components: {
+		Slider,
+		Loading,
+		Scroll
+	},
+	/* insert mixin.js */
 	mixins: [playlistMixin],
 	data() {
 		return {
@@ -73,12 +78,11 @@ export default {
 			discList: []
 		}
 	},
-  // 数据, 不需要被监控, data, props里面的数据会被监控
-  // get back-end data
+	/* 获取back-end数据, 不需要被监控, data, props里面的数据会被监控 */
 	created() {
-		// fetch data from the back-end (carousel data) async
+		/* fetch data from the back-end (carousel data) async */
 		this._getRecommend()
-		// fetch data from the back-end (歌单数据) async
+		/* fetch data from the back-end (歌单数据) async */
 		this._getDiscList()
 	},
 	methods: {
@@ -102,13 +106,13 @@ export default {
 			this.$router.push({
 				path: `/recommend/${item.dissid}`
 			})
-			// ...mapMutations
+			/* vuex/mapMutations */
 			this.setDisc(item)
 		},
 		_getRecommend() {
 			getRecommend().then(res => {
-				// static/jsonp1.png
-				// res.data.slider: <https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg>
+				/* static/jsonp1.png */
+				/* res.data.slider: <https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg> */
 				if (res.code === ERR_OK) {
 					this.recommends = res.data.slider
 				}
@@ -121,11 +125,6 @@ export default {
 				}
 			})
 		}
-	},
-	components: {
-		Slider,
-		Loading,
-		Scroll
 	}
 }
 </script>

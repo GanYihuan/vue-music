@@ -11,10 +11,10 @@ export const commonParams = {
   format: 'jsonp'
 }
 
-// jsonp callback name
+/* jsonp callback name */
 export const options = {
   param: 'jsonpCallback'
 }
 
-// when data correct (in chrome, jsonp1.png data -> "code": 0)
+/* when data correct (in chrome, jsonp1.png data -> "code": 0) */
 export const ERR_OK = 0
