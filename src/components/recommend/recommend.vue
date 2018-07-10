@@ -8,18 +8,18 @@
       :data="discList"
     >
       <div>
-        <!-- v-if="recommends.length": Prevent async loading slow -->
+        <!-- v-if="recommends.length": 防止由于异步加载慢，导致渲染时机错误, 确保数据已经到来了才渲染 -->
         <div
           class="slider-wrapper"
           ref="sliderWrapper"
           v-if="recommends.length"
         >
           <slider>
-            <div v-for="(item,index) in recommends" :key="index">
+            <div v-for="item in recommends" :key="item.id">
               <!-- https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg -->
               <a :href="item.linkUrl">
                 <!-- class="needsclick" fastclick Don't intercept the click process -->
-                <!-- @load="loadImage" Prevent async loading slow -->
+                <!-- @load="loadImage" 防止由于异步加载慢，导致渲染时机错误, 确保数据已经到来了才渲染 -->
                 <img class="needsclick" :src="item.picUrl" @load="loadImage"/>
               </a>
             </div>

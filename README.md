@@ -153,7 +153,7 @@ npm i jsonp -S
 - better-scroll
 
 ```shell
-cnpm install better-scroll@0.1.15 --save
+npm i better-scroll@0.1.15 -S
 ```
 
 - v-if="recommends.length": Prevent async loading slow
