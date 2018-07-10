@@ -114,7 +114,7 @@ cnpm i babel-polyfill -D
 ## 4-1 页面简介+轮播图数据分析
 
 - ✨✨
-- XHR: ajax request
+- (chrome)XHR: ajax request
 - chrome check jsonp
 - **static/jsonp1.png**
 - jsonp data
