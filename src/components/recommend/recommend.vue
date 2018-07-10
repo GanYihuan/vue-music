@@ -78,11 +78,11 @@ export default {
 			discList: []
 		}
 	},
-	/* 获取back-end数据, 不需要被监控, data, props里面的数据会被监控 */
+	/* 获取back-end数据, 数据不会被监控, data, props里面的数据会被监控 */
 	created() {
-		/* fetch data from the back-end (carousel data) async */
+		/* 获取back-end数据 (carousel data) 异步 */
 		this._getRecommend()
-		/* fetch data from the back-end (歌单数据) async */
+		/* 获取back-end数据 (歌单数据) 异步 */
 		this._getDiscList()
 	},
 	methods: {
