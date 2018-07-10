@@ -23,7 +23,7 @@ export default {
 	data() {
 		return {
       dots: [],
-      /* 轮播图, 当前是第几页 */ 
+      /* 当前第几页, 第一个 */ 
 			currentPageIndex: 0
 		}
 	},
@@ -113,12 +113,17 @@ export default {
 			})
 			/* better-scroll 派发 event */
 			this.slider.on('scrollEnd', () => {
-				/* pageIndex: 轮播图第几个子元素 */
+				/* pageIndex: 第几个子元素 */
 				let pageIndex = this.slider.getCurrentPage().pageX
 				if (this.loop) {
-					/* better-scroll 复制两个子元素放在carousel头部和尾部, 用于循环, 删除头部的子元素(-1) */
+          /* 默认向第一个元素添加一个copy, pageIndex-1=实际index */ 
 					pageIndex -= 1
-				}
+        }
+        /*
+        跳转到下一页
+        第一页下标0, pageIndex开始为1, 赋值到currentPageIndex,
+        currentPageIndex=1, 第二页下标为1, 即跳转到第二页
+        */ 
 				this.currentPageIndex = pageIndex
 				if (this.autoPlay) {
 					clearTimeout(this.timer)
@@ -127,10 +132,9 @@ export default {
 			})
 		},
 		_autoPlay() {
-			/* currentPageIndex: Starting from 0 */
 			let pageIndex = this.currentPageIndex + 1
 			if (this.loop) {
-				/* better-scroll 复制两个子元素放在carousel头部和尾部, 用于循环, 增加尾部的子元素(+1) */
+        /* this.currentPageIndex 从0开始, pageIndex对应到第几个元素比其多一个, 在最开始复制一个副本 */ 
 				pageIndex += 1
 			}
 			this.timer = setTimeout(() => {
