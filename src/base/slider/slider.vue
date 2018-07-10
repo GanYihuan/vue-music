@@ -22,7 +22,8 @@ import { addClass } from 'common/js/dom'
 export default {
 	data() {
 		return {
-			dots: [],
+      dots: [],
+      /* 轮播图, 当前是第几页 */ 
 			currentPageIndex: 0
 		}
 	},
@@ -42,7 +43,7 @@ export default {
 	},
 	/* dom ready */
 	mounted() {
-		/* setTimeout: dom完全刷新, 浏览器17s刷新一次 */
+		/* setTimeout: 20s, dom会完全刷新, 因为浏览器17s刷新一次 */
 		setTimeout(() => {
 			this._setSliderWidth()
 			this._initDots()
@@ -67,7 +68,7 @@ export default {
       // console.log(this.children.length)
       /*
       dom: 5
-      better-scroll 复制两个东西放在carousel头部和尾部, 用于循环
+      better-scroll 复制两个子元素放在 carousel 头部和尾部, 用于循环
 			dom: 5+2=7
       */
       /*
@@ -91,11 +92,11 @@ export default {
 			this.$refs.sliderGroup.style.width = width + 'px'
 		},
 		_initDots() {
-			// length: 5
+			/* length: 5 */
 			this.dots = new Array(this.children.length)
 		},
 		_initSlider() {
-			/* better-scroll 复制两个东西放在carousel头部和尾部, 用于循环 */
+			/* better-scroll 复制两个子元素放在carousel头部和尾部, 用于循环 */
 			/* https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88 */
 			this.slider = new BScroll(this.$refs.slider, {
 				scrollX: true,
@@ -112,10 +113,10 @@ export default {
 			})
 			/* better-scroll 派发 event */
 			this.slider.on('scrollEnd', () => {
-				/* pageIndex: locate which child element, return it index */
+				/* pageIndex: 轮播图第几个子元素 */
 				let pageIndex = this.slider.getCurrentPage().pageX
 				if (this.loop) {
-					// better-scroll copy two sample into the carousel head and tail, use to loop, reduce head sample (-1)
+					/* better-scroll 复制两个子元素放在carousel头部和尾部, 用于循环, 删除头部的子元素(-1) */
 					pageIndex -= 1
 				}
 				this.currentPageIndex = pageIndex
@@ -126,19 +127,19 @@ export default {
 			})
 		},
 		_autoPlay() {
-			// currentPageIndex: Starting from 0
+			/* currentPageIndex: Starting from 0 */
 			let pageIndex = this.currentPageIndex + 1
 			if (this.loop) {
-				// better-scroll copy two sample into the carousel head and tail, use to loop, add tail sample (+1)
+				/* better-scroll 复制两个子元素放在carousel头部和尾部, 用于循环, 增加尾部的子元素(+1) */
 				pageIndex += 1
 			}
 			this.timer = setTimeout(() => {
-				/**
-				 * goToPage(): better-scroll func
-				 * pageIndex: x
-				 * 0: y
-				 * 400: time interval
-				 */
+				/*
+				goToPage(): better-scroll func
+				pageIndex: x
+				0: y
+				400: time interval
+				*/
 				this.slider.goToPage(pageIndex, 0, 400)
 			}, this.interval)
 		}
