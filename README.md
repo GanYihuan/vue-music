@@ -214,13 +214,12 @@ host: '0.0.0.0',
 - ✨✨
 - **recommend.vue**
 - **main.js**
+- class="needsclick" : fastclick 不要拦截点击过程
 - image laz-load: reload depend on scroll
 
 ```shell
-npm install vue-lazyload --save
+npm i vue-lazyload -S
 ```
-
-- class="needsclick" : fastclick Do not intercept the click process.
 
 ## 4-13 loading 基础组件的开发和应用
 

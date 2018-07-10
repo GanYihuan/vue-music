@@ -18,8 +18,8 @@
             <div v-for="item in recommends" :key="item.id">
               <!-- https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg -->
               <a :href="item.linkUrl">
-                <!-- class="needsclick" fastclick Don't intercept the click process -->
-                <!-- @load="loadImage" 防止由于异步加载慢，导致渲染时机错误, 确保数据已经到来了才渲染 -->
+                <!-- class="needsclick" fastclick 不要拦截点击过程 -->
+                <!-- @load="loadImage" 轮播图后渲染出来导致高度计算错误的问题, 解决方法 -->
                 <img class="needsclick" :src="item.picUrl" @load="loadImage"/>
               </a>
             </div>
@@ -35,7 +35,7 @@
               @click="selectItem(item)"
             >
               <div class="icon">
-                <!-- v-lazy: Load only when scrolling -->
+                <!-- v-lazy: 当滚动时才加载 -->
                 <img width="60" height="60" v-lazy="item.imgurl"/>
               </div>
               <div class="text">
