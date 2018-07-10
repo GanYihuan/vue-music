@@ -9,23 +9,27 @@ import BScroll from 'better-scroll'
 
 export default {
 	props: {
-		// [official document](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
-		// probeType: 1，会非实时（屏幕滑动超过一定时间后）派发scroll 事件
-		// probeType: 2，会在屏幕滑动的过程中实时的派发 scroll 事件
-		// probeType: 3，不仅在屏幕滑动的过程中，而且在 momentum 滚动动画运行过程中实时派发 scroll 事件
-		// default ，probeType: 0，don't distribute scroll event
+    /*
+    [official document](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
+		probeType: 1，会非实时（屏幕滑动超过一定时间后）派发scroll 事件
+		probeType: 2，会在屏幕滑动的过程中实时的派发 scroll 事件
+		probeType: 3，不仅在屏幕滑动的过程中，而且在 momentum 滚动动画运行过程中实时派发 scroll 事件
+		default ，probeType: 0，don't distribute scroll event
+    */
 		probeType: {
 			type: Number,
 			default: 1
-		},
-		// better-scroll: By default, the native click event of the browser is blocked.
-		// when set-to true，better-scroll will distributed click event
-		// add a attribute _constructed to distribute event params, which value it's true
+    },
+    /*
+    better-scroll: By default, the native click event of the browser is blocked.
+		when set-to true，better-scroll will distributed click event
+		add a attribute _constructed to distribute event params, which value it's true
+    */
 		click: {
 			type: Boolean,
 			default: true
 		},
-		// listen scroll event
+		/* listen scroll event */
 		listenScroll: {
 			type: Boolean,
 			default: false
@@ -34,31 +38,32 @@ export default {
 			type: Array,
 			default: null
 		},
-		// 下拉刷新
+		/* 下拉刷新 */
 		pullup: {
 			type: Boolean,
 			default: false
 		},
-		// hide mobile keyboard
+		/* hide mobile keyboard */
 		beforeScroll: {
 			type: Boolean,
 			default: false
 		},
-		// delay refresh
+		/* delay refresh */
 		refreshDelay: {
 			type: Number,
 			default: 20
 		}
 	},
-	// mounted: dom ready
+	/* dom ready */
 	mounted() {
-		// maySure dom has rendering
+		/* maySure dom has render */
 		setTimeout(() => {
 			this._initScroll()
 		}, 20)
 	},
 	methods: {
 		_initScroll() {
+      /* 没有值的时候 */ 
 			if (!this.$refs.wrapper) {
 				return
 			}
@@ -72,13 +77,13 @@ export default {
 					me.$emit('scroll', pos)
 				})
 			}
-			// pullup: drop-down refresh
+			/* pullup: drop-down refresh */
 			if (this.pullup) {
-				// listen scrollEnd
+				/* listen scrollEnd */
 				this.scroll.on('scrollEnd', () => {
-					// The parent scrollToEnd is triggered when the screen is scrolling down to 50px.
+					/* The parent scrollToEnd is triggered when the screen is scrolling down to 50px. */
 					if (this.scroll.y <= this.scroll.maxScrollY + 50) {
-						// scrollToEnd: scroll to bottom
+						/* scrollToEnd: scroll to bottom */
 						this.$emit('scrollToEnd')
 					}
 				})
@@ -99,7 +104,7 @@ export default {
 			this.scroll && this.scroll.refresh()
 		},
 		scrollTo() {
-			// apply: scrollTo access parameter, apply pass into scroll.scrollTo
+			/* apply: scrollTo access parameter, apply pass into scroll.scrollTo */
 			this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
 		},
 		scrollToElement() {

@@ -1,7 +1,7 @@
 <template>
   <!-- static/01-推荐界面 -->
   <div class="recommend" ref="recommend">
-    <!-- :data="discList": Prevents async loading slow -->
+    <!-- :data="discList": 防止由于异步加载慢，导致渲染时机错误, 确保数据已经到来了才渲染 -->
     <scroll
       class="recommend-content"
       ref="scroll"
