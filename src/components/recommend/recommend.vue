@@ -30,8 +30,8 @@
           <ul>
             <li
               class="item"
-              v-for="(item,index) in discList"
-              :key="index"
+              v-for="item in discList"
+              :key="item.dissid"
               @click="selectItem(item)"
             >
               <div class="icon">

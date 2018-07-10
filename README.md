@@ -191,7 +191,7 @@ host: '0.0.0.0',
 ```
 
 - _/build/webpack.dev.conf.js_ back-end interface is defined asynchronously.
-- **recommend.vue** 'api/getDiscList' Call the backend interface.
+- **recommend.vue** 'api/getDiscList' Call the back-end interface.
 
 ## 4-9 歌单列表组件开发和数据的应用
 
