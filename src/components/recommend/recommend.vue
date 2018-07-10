@@ -2,14 +2,14 @@
   <!-- static/01-推荐界面 -->
   <div class="recommend" ref="recommend">
     <!-- :data="discList": Prevents async loading slow -->
-    <scroll 
+    <scroll
       class="recommend-content"
       ref="scroll"
       :data="discList"
     >
       <div>
         <!-- v-if="recommends.length": Prevent async loading slow -->
-        <div 
+        <div
           class="slider-wrapper"
           ref="sliderWrapper"
           v-if="recommends.length"
