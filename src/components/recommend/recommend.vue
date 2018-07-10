@@ -80,7 +80,7 @@ export default {
 	},
 	/* 获取back-end数据, 数据不会被监控, data, props里面的数据会被监控 */
 	created() {
-		/* 获取back-end数据 (carousel data) 异步 */
+		/* 获取back-end数据 (轮播图数据) 异步 */
 		this._getRecommend()
 		/* 获取back-end数据 (歌单数据) 异步 */
 		this._getDiscList()
@@ -89,14 +89,14 @@ export default {
 		...mapMutations({
 			setDisc: 'SET_DISC'
 		}),
-		// If there is a mini player, the singer list bottom will add height to display it.
+		/* If there is a mini player, the singer list bottom will add height to display it. */
 		handlePlaylist(playlist) {
 			const bottom = playlist.length > 0 ? '60px' : ''
 			this.$refs.recommend.style.bottom = bottom
 			this.$refs.scroll.refresh()
 		},
 		loadImage() {
-			// This logic is executed only once.
+			/* 只被调用一次, 轮播图后渲染出来导致高度计算错误的问题, 解决方法 */
 			if (!this.checkloaded) {
 				this.checkloaded = true
 				this.$refs.scroll.refresh()
