@@ -51,7 +51,8 @@ export default {
 			if (this.autoPlay) {
 				this._autoPlay()
 			}
-		}, 20)
+    }, 20)
+    /* 窗口改变事件 */ 
 		window.addEventListener('resize', () => {
 			if (!this.slider) {
 				return
@@ -85,7 +86,7 @@ export default {
 				child.style.width = sliderWidth + 'px'
 				width += sliderWidth
 			}
-			/* 长度加倍用于循环 (the carousel component) */
+			/* 长度加倍用于循环 (the carousel component), isResize不执行 */
 			if (this.loop && !isResize) {
 				width += 2 * sliderWidth
 			}
@@ -109,7 +110,9 @@ export default {
         /* 手指滑动时页面可切换的阈值, 大于这个阈值可以滑动到下一页 */
 				snapThreshold: 0.2,
         /* 轮播图切换的动画时间 */
-				snapSpeed: 400
+        snapSpeed: 400
+        /* better-scroll与fastclick冲突, 手机模式下点击轮播图不跳转 */ 
+        // click: true 
 			})
 			/* better-scroll 派发 event */
 			this.slider.on('scrollEnd', () => {
@@ -126,6 +129,7 @@ export default {
         */ 
 				this.currentPageIndex = pageIndex
 				if (this.autoPlay) {
+          /* 防止手动拖动产生问题 */ 
 					clearTimeout(this.timer)
 					this._autoPlay()
 				}
