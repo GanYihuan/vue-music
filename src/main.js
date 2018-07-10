@@ -7,14 +7,12 @@ import fastclick from 'fastclick'
 import store from './store/vuex'
 import 'common/scss/index.scss'
 
-/**
- * Mobile debugging tools.
- */
+/* Mobile debugging tools. */
 /* eslint-disable no-unused-vars */
 // import vConsole from 'vconsole'
 // console.log('test')
 
-// mobile end Clicks 300MS Delay
+/* mobile end Clicks 300MS Delay */
 fastclick.attach(document.body)
 Vue.config.productionTip = false
 Vue.use(VueLazyload, {

@@ -30,7 +30,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 - install
 
 ```shell
-npm install -g vue-cli
+npm i -g vue-cli
 vue init webpack imooc-music
 ```
 
@@ -87,14 +87,14 @@ resolve: {
 - **main.js**
 - **build/webpack.base.config**
 - **components/m-header.vue**
-- 1. babel-runtime: es6 escape
-- 2. fastclick: Click 300MS delay on the mobile end.
-- 3. babel-polyfill: es6 api escape, mobile can use that api
+- babel-runtime: es6 转义
+- fastclick: Click 300MS delay on the mobile end.
+- babel-polyfill: es6 api 转义, mobile can use es6 api
 
 ```shell
-npm install babel-runtime --save
-cnpm install fastclick --save
-cnpm install babel-polyfill --save-dev
+npm i babel-runtime -S
+cnpm i fastclick -S
+cnpm i babel-polyfill -D
 ```
 
 - **build/webpack.base.config**
@@ -108,6 +108,8 @@ cnpm install babel-polyfill --save-dev
 - **route.vue**
 
 ## 3-2 路由配置+ tab 顶导组件开发
+
+- ✨✨
 
 ## 4-1 页面简介+轮播图数据分析
 

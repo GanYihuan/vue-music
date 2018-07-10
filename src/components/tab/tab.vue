@@ -17,10 +17,10 @@
 </template>
 
 <script type="text/ecmascript-6">
-  export default {}
+export default {}
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-  @import "~common/scss/variable.scss";
-  @import "./tab.scss";
+@import '~common/scss/variable.scss';
+@import './tab.scss';
 </style>
