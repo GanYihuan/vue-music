@@ -121,6 +121,7 @@ export default {
 		_getDiscList() {
 			getDiscList().then(res => {
 				if (res.code === ERR_OK) {
+          /* Status: 500, 服务端错误, axios 解决 */ 
 					this.discList = res.data.list
 				}
 			})

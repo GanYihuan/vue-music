@@ -26,7 +26,7 @@ export function getRecommend() {
  * @returns {Promise.<TResult>|*}
  */
 export function getDiscList() {
-  // Request the back-end address, the back-end address sends an HTTP request to qq music to obtain the data.
+  /* 请求back-end地址, the back-end address sends an HTTP request to qq music to obtain the data. */
   const url = '/api/getDiscList'
   const data = Object.assign({}, commonParams, {
     platform: 'yqq',

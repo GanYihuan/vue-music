@@ -3,11 +3,11 @@
     <m-header></m-header>
     <tab></tab>
     <!--
-      keep-alive: The content is cached after the route is loaded,
-      and the cache is read when loaded to prevent continuous loading.
+      keep-alive: 在加载路由后缓存内容,
+      并且缓存在加载时被读取，以防止连续加载.
     -->
-    <!--  <keep-alive exclude="Detail"> -->
-    <!-- name = Detail component Do not do cache processing. -->
+    <!-- <keep-alive exclude="Detail"> -->
+    <!-- name = Detail 组件不做缓存处理. -->
     <keep-alive>
       <!-- router render here -->
       <router-view></router-view>

@@ -152,6 +152,7 @@ export default {
 			}, this.interval)
 		}
 	},
+  /* 路由切走之后要清理计时器 */ 
 	destroyed() {
 		clearTimeout(this.timer)
 	}
