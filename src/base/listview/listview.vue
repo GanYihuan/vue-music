@@ -17,7 +17,7 @@
       >
         <h2 class="list-group-title">{{group.title}}</h2>
         <ul>
-          <li 
+          <li
             class="list-group-item"
             v-for="(item, index) in group.items"
             :key="index"
@@ -60,7 +60,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-// get & set
+/* get & set */
 import { getData } from 'common/js/dom'
 import Scroll from 'base/scroll/scroll'
 import loading from 'base/loading/loading'
@@ -69,20 +69,20 @@ const ANCHOR_HEIGHT = 18
 const FIXED_TITLE_HEIGHT = 30
 
 export default {
-	// created: The values not need monitor
+	/* created: The values not need monitor */
 	created() {
 		this.touch = {}
 		this.listenScroll = true
 		this.probeType = 3
 	},
-	// data, props The values need monitor
+	/* data, props The values need monitor */
 	data() {
 		return {
-			// The location of the real-time scrolling.
+			/* The location of the real-time scrolling. */
 			scrollY: -1,
-			// Which one should be displayed
+			/* Which one should be displayed */
 			currentIndex: 0,
-			// diff: current element celling to pre element floor gaps
+			/* diff: current element celling to pre element floor gaps*/
 			diff: -1
 		}
 	},
