@@ -13,7 +13,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-// vuex 语法糖
+/* vuex 语法糖 */
 import { mapMutations } from 'vuex'
 import { getSingerList } from 'api/singer'
 import { ERR_OK } from 'api/config'
@@ -25,21 +25,24 @@ const HOT_SINGER_LEN = 10
 const HOT_NAME = '热门'
 
 export default {
-  // insert minxin.js
+	components: {
+		ListView
+	},
+	/* insert minxin.js */
 	mixins: [playlistMixin],
-	// Store back-end data.
+	/* Store back-end data. */
 	data() {
 		return {
 			singers: []
 		}
 	},
-	// get back-end data
+	/* 获取back-end数据, 数据不会被监控, data, props里面的数据会被监控 */
 	created() {
-		// fetch data (singer data)
+		/* fetch data (singer data) */
 		this._getSingerList()
 	},
 	methods: {
-		// If there is a mini player, the singer list bottom will add height to display it.
+		/* If there is a mini player, the singer list bottom will add height to display it. */
 		handlePlaylist(playlist) {
 			const bottom = playlist.length > 0 ? '60px' : ''
 			this.$refs.singer.style.bottom = bottom
@@ -49,8 +52,8 @@ export default {
 			this.$router.push({
 				path: `/singer/${singer.id}`
 			})
-      // this.setSinger: ...mapMutations
-      // 存数据到vuex
+			/* this.setSinger: ...mapMutations */
+			/* 存数据到vuex */
 			this.setSinger(singer)
 		},
 		_getSingerList() {
@@ -61,7 +64,7 @@ export default {
 			})
 		},
 		_normalizeSinger(list) {
-			// data structure, custom
+			/* data structure, custom */
 			let map = {
 				hot: {
 					title: HOT_NAME,
@@ -69,7 +72,7 @@ export default {
 				}
 			}
 			list.forEach((item, index) => {
-				// Top 10 data, include '热门'
+				/* Top 10 data, include '热门' */
 				if (index < HOT_SINGER_LEN) {
 					map.hot.items.push(
 						new Singer({
@@ -78,9 +81,9 @@ export default {
 						})
 					)
 				}
-				// Top 10 data after
+				/* Top 10 data after */
 				const key = item.Findex
-				// data structure, custom
+				/* data structure, custom */
 				if (!map[key]) {
 					map[key] = {
 						title: key,
@@ -94,7 +97,7 @@ export default {
 					})
 				)
 			})
-			// Object traversal is unordered and processed as an ordered list
+			/* Object traversal is unordered and processed as an ordered list */
 			let ret = []
 			let hot = []
 			for (let key in map) {
@@ -110,13 +113,10 @@ export default {
 			})
 			return hot.concat(ret)
 		},
-		// call mutation，use mutation-type constants, set state
+		/* call mutation，use mutation-type constants, set state */
 		...mapMutations({
 			setSinger: 'SET_SINGER'
 		})
-	},
-	components: {
-		ListView
 	}
 }
 </script>
