@@ -29,7 +29,7 @@
         </ul>
       </li>
     </ul>
-    <div 
+    <div
       class="list-shortcut"
       @touchstart="onShortCutTouchStart"
       @touchmove.stop.prevent="onShortCutTouchMove"
@@ -60,7 +60,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-/* get & set */
+/* get & set <li class="item" :data-index></li> */
 import { getData } from 'common/js/dom'
 import Scroll from 'base/scroll/scroll'
 import loading from 'base/loading/loading'
@@ -69,13 +69,17 @@ const ANCHOR_HEIGHT = 18
 const FIXED_TITLE_HEIGHT = 30
 
 export default {
+  components: {
+		Scroll,
+		loading
+	},
 	/* created: The values not need monitor */
 	created() {
 		this.touch = {}
 		this.listenScroll = true
 		this.probeType = 3
 	},
-	/* data, props The values need monitor */
+	/* data and props values need monitor */
 	data() {
 		return {
 			/* The location of the real-time scrolling. */
@@ -95,7 +99,7 @@ export default {
 	computed: {
 		shortcutList() {
 			return this.data.map(group => {
-				// '热门' only one singer string '热'
+				/* '热门' 只取一个字 '热' */
 				return group.title.substr(0, 1)
 			})
 		},
@@ -103,7 +107,7 @@ export default {
 			if (this.scrollY > 0) {
 				return ''
 			}
-			// !== undefined
+			/* !== undefined */
 			return this.data[this.currentIndex]
 				? this.data[this.currentIndex].title
 				: ''
@@ -114,25 +118,27 @@ export default {
 			this.$emit('select', item)
 		},
 		onShortCutTouchStart(e) {
-			// getData (common/js/dom.js)
+      /* getData (common/js/dom.js) */
+      /* <li class="item" :data-index></li> */
+      /* getData(el, name, val) */
 			let anchorIndex = getData(e.target, 'index')
-			// touches: Finger position
+			/* e.touches[0]: Finger position */
 			let firstTouch = e.touches[0]
-			// y-axis position
+			/* y-axis position */
 			this.touch.y1 = firstTouch.pageY
-			// The first point anchor index
+			/* 手指第一次点击位于的字母下标 */
 			this.touch.anchorIndex = anchorIndex
 			this._scrollTo(anchorIndex)
 		},
 		onShortCutTouchMove(e) {
-			// touches: Finger position
+			/* touches: Finger position */
 			let firstTouch = e.touches[0]
-			// y-axis position
+			/* y-axis position */
 			this.touch.y2 = firstTouch.pageY
-			// | 0: Math.floor
-			// delta: after move, pass several anchors number
+			/* | 0: Math.floor */
+			/* delta: 手指滑动后偏移了几个‘字母’位置 */
 			let delta = ((this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT) | 0
-			// after move, locate which anchor point number
+			/* 手指滑动后, 停在的位置上的字母下标 */
 			let anchorIndex = parseInt(this.touch.anchorIndex) + delta
 			this._scrollTo(anchorIndex)
 		},
@@ -144,19 +150,19 @@ export default {
 			this.scrollY = pos.y
 		},
 		_scrollTo(index) {
-			// !index: index === null, index == 0 Rule out
+			/* !index: index === null, index == 0 Rule out */
 			if (!index && index !== 0) {
 				return
 			}
-			// Click on the top and bottom empty position
+			/* Click on the top and bottom empty position */
 			if (index < 0) {
 				index = 0
 			} else if (index > this.listHeight.length - 2) {
 				index = this.listHeight.length - 2
 			}
-			// celling position
+			/* celling position */
 			this.scrollY = -this.listHeight[index]
-			// first parameter: Scroll to the corresponding element, second parameter: animation duration
+			/* 第一个参数: 滚动到相应的元素, 第二个参数: 动画时间 */
 			this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
 		},
 		_calculateHeight() {
@@ -171,10 +177,6 @@ export default {
 				this.listHeight.push(height)
 			}
 		}
-	},
-	components: {
-		Scroll,
-		loading
 	},
 	watch: {
 		data() {

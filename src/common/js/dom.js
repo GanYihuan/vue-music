@@ -18,6 +18,7 @@ export function addClass(el, className) {
   el.className = newClass.join(' ')
 }
 
+/* get & set <li class="item" :data-index></li> */
 export function getData(el, name, val) {
   const prefix = 'data-'
   if (val) {

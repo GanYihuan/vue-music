@@ -104,7 +104,8 @@ export default {
 			this.scroll && this.scroll.refresh()
 		},
 		scrollTo() {
-			/* apply: scrollTo access parameter, apply pass into scroll.scrollTo */
+      /* apply: 调用具有给定此值的函数，并将参数作为数组提供 */ 
+			/* apply: scrollTo 接收参数, apply 传递参数到 scroll.scrollTo 中 */
 			this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
 		},
 		scrollToElement() {
