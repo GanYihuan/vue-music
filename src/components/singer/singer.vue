@@ -62,7 +62,8 @@ export default {
 					this.singers = this._normalizeSinger(res.data.list)
 				}
 			})
-		},
+    },
+    /* 规范化singer数据 */ 
 		_normalizeSinger(list) {
 			/* data structure, custom */
 			let map = {
@@ -97,7 +98,7 @@ export default {
 					})
 				)
 			})
-			/* Object traversal is unordered and processed as an ordered list */
+			/* 处理map得到有序列表 */
 			let ret = []
 			let hot = []
 			for (let key in map) {
