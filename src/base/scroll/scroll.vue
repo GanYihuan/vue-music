@@ -33,7 +33,8 @@ export default {
 		listenScroll: {
 			type: Boolean,
 			default: false
-		},
+    },
+    /* 数据是异步获取的, 数据变化要重新计算scroll */ 
 		data: {
 			type: Array,
 			default: null

@@ -1,5 +1,6 @@
 <template>
   <!-- static/02-歌手界面.png -->
+  <!-- :data="data" 数据是异步获取的, 数据变化要重新计算scroll -->
   <scroll 
     class="listview"
     ref="listview"
