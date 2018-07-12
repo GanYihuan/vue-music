@@ -152,16 +152,18 @@ export default {
 			this.scrollY = pos.y
 		},
 		_scrollTo(index) {
+      /* 点击字母列上下空白部分 */ 
 			/* !index: index === null */
 			if (!index && index !== 0) {
 				return
 			}
-			/* 点击字母列上下空白部分 */
+			/* 处理边界情况 */
 			if (index < 0) {
 				index = 0
 			} else if (index > this.listHeight.length - 2) {
 				index = this.listHeight.length - 2
-			}
+      }
+      /* 点击的时候字母高亮不变化解决方法 */
 			/* -this.listHeight[index]: 上限的位置 */
 			this.scrollY = -this.listHeight[index]
 			/* scroll.vue: 第一个参数: 滚动到相应的元素, 第二个参数: 动画时间 */
