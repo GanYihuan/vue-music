@@ -61,12 +61,13 @@ export default {
 				if (res.code === ERR_OK) {
           /* https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0 */ 
 					this.singers = this._normalizeSinger(res.data.list)
-				}
+          // console.log(this._normalizeSinger(res.data.list))
+        }
 			})
     },
     /* 规范化singer数据 */ 
 		_normalizeSinger(list) {
-			/* data structure, custom */
+			/* 数据结构定义 */
 			let map = {
 				hot: {
 					title: HOT_NAME,
@@ -74,7 +75,7 @@ export default {
 				}
 			}
 			list.forEach((item, index) => {
-				/* Top 10 data, include '热门' */
+				/* 前10条数据, 包括 '热门' */
 				if (index < HOT_SINGER_LEN) {
 					map.hot.items.push(
 						new Singer({
@@ -83,9 +84,11 @@ export default {
 						})
 					)
 				}
-				/* Top 10 data after */
+        /* 前10条数据之后 */
+        /* https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0 */ 
+        /* item.Findex: 'A', 'B' 这些字母 */ 
 				const key = item.Findex
-				/* data structure, custom */
+				/* 数据结构定义 */
 				if (!map[key]) {
 					map[key] = {
 						title: key,
@@ -99,7 +102,7 @@ export default {
 					})
 				)
 			})
-			/* 处理map得到有序列表 */
+			/* 处理 map 得到有序列表 */
 			let ret = []
 			let hot = []
 			for (let key in map) {
@@ -109,13 +112,14 @@ export default {
 				} else if (val.title === HOT_NAME) {
 					hot.push(val)
 				}
-			}
+      }
+      /* 升序排序 */
 			ret.sort((a, b) => {
 				return a.title.charCodeAt(0) - b.title.charCodeAt(0)
 			})
 			return hot.concat(ret)
 		},
-		/* call mutation，use mutation-type constants, set state */
+		/* 调用 vuex/mutations */
 		...mapMutations({
 			setSinger: 'SET_SINGER'
 		})
