@@ -106,6 +106,7 @@ export default {
 			})
 		},
 		fixedTitle() {
+      /* 不显示两个'热门'title */ 
 			if (this.scrollY > 0) {
 				return ''
 			}
