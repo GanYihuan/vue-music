@@ -98,6 +98,7 @@ export default {
 		}
 	},
 	computed: {
+    /* 右侧列表'A','B'... */ 
 		shortcutList() {
 			return this.data.map(group => {
 				/* '热门' 只取一个字 '热' */
@@ -123,18 +124,18 @@ export default {
 			/* <li class="item" :data-index></li> */
 			/* getData(el, name, val) */
 			let anchorIndex = getData(e.target, 'index')
-			/* e.touches[0]: Finger position */
+			/* e.touches[0]: 手指点击位置 */
 			let firstTouch = e.touches[0]
-			/* y-axis position */
+			/* 垂直方向点击位置 */
 			this.touch.y1 = firstTouch.pageY
 			/* 手指第一次点击位于的字母下标 */
 			this.touch.anchorIndex = anchorIndex
 			this._scrollTo(anchorIndex)
 		},
 		onShortCutTouchMove(e) {
-			/* touches: Finger position */
+			/* e.touches[0]: 手指点击位置 */
 			let firstTouch = e.touches[0]
-			/* y-axis position */
+			/* 垂直方向点击位置 */
 			this.touch.y2 = firstTouch.pageY
 			/* | 0: Math.floor */
 			/* delta: 手指滑动后偏移了几个‘字母’位置 */
@@ -147,7 +148,7 @@ export default {
 			this.$refs.listview.refresh()
 		},
 		scroll(pos) {
-			// pos.y: 实时滚动位置
+			/* pos.y: 实时滚动位置 */
 			this.scrollY = pos.y
 		},
 		_scrollTo(index) {
@@ -163,7 +164,7 @@ export default {
 			}
 			/* -this.listHeight[index]: 上限的位置 */
 			this.scrollY = -this.listHeight[index]
-			/* 第一个参数: 滚动到相应的元素, 第二个参数: 动画时间 */
+			/* scroll.vue: 第一个参数: 滚动到相应的元素, 第二个参数: 动画时间 */
 			this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
 		},
 		_calculateHeight() {
