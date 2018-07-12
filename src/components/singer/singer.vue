@@ -30,15 +30,15 @@ export default {
 	},
 	/* insert minxin.js */
 	mixins: [playlistMixin],
-	/* Store back-end data. */
+	/* 存储 back-end 数据 */
 	data() {
 		return {
 			singers: []
 		}
 	},
-	/* 获取back-end数据, 数据不会被监控, data, props里面的数据会被监控 */
+	/* 获取 back-end 数据, created 数据不会被监控, data, props 里面的数据会被监控 */
 	created() {
-		/* fetch data (singer data) */
+		/* 获取(singer data) */
 		this._getSingerList()
 	},
 	methods: {
@@ -59,6 +59,7 @@ export default {
 		_getSingerList() {
 			getSingerList().then(res => {
 				if (res.code === ERR_OK) {
+          /* https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0 */ 
 					this.singers = this._normalizeSinger(res.data.list)
 				}
 			})
