@@ -168,7 +168,7 @@ export default {
 		_calculateHeight() {
 			let height = 0
 			let listGroup = this.$refs.listGroup
-			/* listHeight 比 listGroup 多一个元素 */
+			/* listHeight 比 listGroup 多一个元素, 因为添加了上下限 */
 			this.listHeight = []
 			this.listHeight.push(height)
 			for (let i = 0; i < listGroup.length; i++) {
@@ -199,35 +199,36 @@ export default {
 		},
 		scrollY(newY) {
 			let listHeight = this.listHeight
-			/* When scrolling to the top, newY > 0 */
+			/* 当滚动到顶部 newY > 0 */
 			if (newY > 0) {
 				this.currentIndex = 0
 				return
       }
       /*
-      Scroll in the middle
-      length - 1: listHeight has Upper and lower, lower is the first element upper
-      listHeight more one then element
+      当滚动到中间部分,
+      length-1: 第一个元素的上限是第二个元素的下限, 遍历到最后一个 -1, 保证height2存在, 不超过height2
+      listHeight 比 listGroup 多一个元素
       */
 			for (let i = 0; i < listHeight.length - 1; i++) {
-				/* floor */
+				/* 下限 */
 				let height1 = listHeight[i]
-				/* celling */
+				/* 上限 */
 				let height2 = listHeight[i + 1]
-				/* -newY scroll to bottom, newY it's negative，add “-” may it positive */
+				/* -newY: 滚动发生时, newY 是负值, 添加 “-” 保证其是正值 */
 				if (-newY >= height1 && -newY < height2) {
           this.currentIndex = i
           /*
-          newY it negative
-          diff: use for whether trigger title animate
-          next el floor(height2) + scroll top distance(newY) = diff
+          newY 是负值
+          diff: 用来是否触发title的动画效果
+          下一个元素的下限(height2) + scroll top distance(newY) = diff
           */
 					this.diff = newY + height2
 					return
 				}
 				this.currentIndex = 0
-			}
-			/* currentIndex: array index start at 0, listHeight more one element then listGroup, -2 */
+      }
+      /* 当滚动到底部, -newY大于最后一个元素的上限 */
+			/* listHeight.length-2: listHeight 比 listGroup 多一个元素, currentIndex第一个元素下标从0开始 */
 			this.currentIndex = listHeight.length - 2
 		}
 	}
