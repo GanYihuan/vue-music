@@ -11,7 +11,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-// mapGetters: get vuex store, vuex 语法糖
+/* vuex 语法糖 */
 import { mapGetters } from 'vuex'
 import { getSingerDetail } from 'api/singer'
 import { ERR_OK } from 'api/config'
@@ -19,6 +19,9 @@ import { createSong } from 'common/js/song'
 import MusicList from 'components/music-list/music-list'
 
 export default {
+  components: {
+		MusicList
+	},
 	data() {
 		return {
 			songs: []
@@ -31,11 +34,11 @@ export default {
 		bgImage() {
 			return this.singer.avatar
 		},
-		// getters, get (vuex/getters.js) data
+		/* vuex/getters */
 		...mapGetters(['singer'])
-  },
-  // 数据, 不需要被监控, data, props里面的数据会被监控
-  // get back-end data
+	},
+	/* created数据, 不需要被监控, data, props里面的数据会被监控 */
+	/* 获取 back-end 数据 */
 	created() {
 		this._getDetail()
 	},
@@ -61,14 +64,11 @@ export default {
 			})
 			return ret
 		}
-	},
-	components: {
-		MusicList
 	}
 }
 </script>
 
-<style scoped lang="scss" rel="stylesheet/scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
 @import '~common/scss/variable.scss';
 @import './singer-detail.scss';
 </style>
