@@ -211,8 +211,8 @@ export default {
       /*
       判断newY滚动落入哪个group区间
       当滚动到中间部分,
-      length-1: 第一个元素的上限是第二个元素的下限, 遍历到最后一个 -1, 保证height2存在, 不超过height2
-      listHeight 比 listGroup 多一个元素
+      listHeight比listGroup多一个元素
+      listHeight.length - 1: 第一个元素的上限是第二个元素的下限, 遍历到最后一个-1, 保证height2存在, 不超过height2
       */
 			for (let i = 0; i < listHeight.length - 1; i++) {
 				/* 下限 */
@@ -232,8 +232,11 @@ export default {
 				}
 				this.currentIndex = 0
 			}
-			/* 当滚动到底部, -newY大于最后一个元素的上限 */
-			/* listHeight.length-2: listHeight 比 listGroup 多一个元素, currentIndex第一个元素下标从0开始 */
+      /* 
+      当滚动到底部, -newY大于最后一个元素的上限
+      listHeight.length-2: listHeight比listGroup多一个元素
+      currentIndex第一个元素下标从0开始
+      */
 			this.currentIndex = listHeight.length - 2
 		}
 	}
