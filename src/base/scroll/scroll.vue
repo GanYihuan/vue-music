@@ -72,9 +72,9 @@ export default {
 				click: this.click
 			})
 			if (this.listenScroll) {
-				let me = this
+				let that = this
 				this.scroll.on('scroll', pos => {
-					me.$emit('scroll', pos)
+					that.$emit('scroll', pos)
 				})
 			}
 			/* pullup: drop-down refresh */

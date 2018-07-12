@@ -82,9 +82,9 @@ export default {
 	/* data and props values need monitor */
 	data() {
 		return {
-			/* The location of the real-time scrolling. */
+			/* 实时滚动位置 */
 			scrollY: -1,
-			/* Which one should be displayed */
+			/* 当前应该显示第几个字母 */
 			currentIndex: 0,
 			/* diff: current element celling to pre element floor gaps*/
 			diff: -1
@@ -146,7 +146,7 @@ export default {
 			this.$refs.listview.refresh()
 		},
 		scroll(pos) {
-			// scroll.vue: The location of the real-time scrolling.
+			// pos.y: 实时滚动位置
 			this.scrollY = pos.y
 		},
 		_scrollTo(index) {
@@ -160,7 +160,7 @@ export default {
 			} else if (index > this.listHeight.length - 2) {
 				index = this.listHeight.length - 2
 			}
-			/* celling position */
+			/* 顶部位置 */
 			this.scrollY = -this.listHeight[index]
 			/* 第一个参数: 滚动到相应的元素, 第二个参数: 动画时间 */
 			this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
@@ -168,7 +168,7 @@ export default {
 		_calculateHeight() {
 			let height = 0
 			let listGroup = this.$refs.listGroup
-			// listHeight is more one element then listGroup
+			/* listHeight 比 listGroup 多一个元素 */
 			this.listHeight = []
 			this.listHeight.push(height)
 			for (let i = 0; i < listGroup.length; i++) {
@@ -179,6 +179,7 @@ export default {
 		}
 	},
 	watch: {
+    /* 20ms, 17ms, dom渲染完成 */ 
 		data() {
 			setTimeout(() => {
 				this._calculateHeight()
@@ -198,31 +199,35 @@ export default {
 		},
 		scrollY(newY) {
 			let listHeight = this.listHeight
-			// When scrolling to the top, newY > 0
+			/* When scrolling to the top, newY > 0 */
 			if (newY > 0) {
 				this.currentIndex = 0
 				return
-			}
-			// Scroll in the middle
-      // length - 1: listHeight has Upper and lower, lower is the first element upper
-      // listHeight more one then element
+      }
+      /*
+      Scroll in the middle
+      length - 1: listHeight has Upper and lower, lower is the first element upper
+      listHeight more one then element
+      */
 			for (let i = 0; i < listHeight.length - 1; i++) {
-				// floor
+				/* floor */
 				let height1 = listHeight[i]
-				// celling
+				/* celling */
 				let height2 = listHeight[i + 1]
-				// -newY scroll to bottom, newY it's negative，add “-” may it positive
+				/* -newY scroll to bottom, newY it's negative，add “-” may it positive */
 				if (-newY >= height1 && -newY < height2) {
           this.currentIndex = i
-          // newY it negative
-          // diff: use for whether trigger title animate
-          // next el floor(height2) + scroll top distance(newY) = diff
+          /*
+          newY it negative
+          diff: use for whether trigger title animate
+          next el floor(height2) + scroll top distance(newY) = diff
+          */
 					this.diff = newY + height2
 					return
 				}
 				this.currentIndex = 0
 			}
-			// currentIndex: array index start at 0, listHeight more one element then listGroup, -2
+			/* currentIndex: array index start at 0, listHeight more one element then listGroup, -2 */
 			this.currentIndex = listHeight.length - 2
 		}
 	}
