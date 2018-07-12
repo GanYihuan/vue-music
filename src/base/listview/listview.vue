@@ -189,20 +189,23 @@ export default {
 			setTimeout(() => {
 				this._calculateHeight()
 			}, 20)
-		},
+    },
+    /* diff: 用来是否触发title的动画效果, 下一个title的上限距离上一个title的下限距离 */ 
 		diff(newVal) {
+      /* fixedTop: title的区域, 当触发title动画时, fixedTop是个变化值 */ 
 			let fixedTop =
 				newVal > 0 && newVal < FIXED_TITLE_HEIGHT
 					? newVal - FIXED_TITLE_HEIGHT
           : 0
-      /* 减少dom操作 */
+      /* diff 实时变化的过程, 为了减少dom操作, 不触发title动画时, fixedTop是不变化的 */
 			if (this.fixedTop === fixedTop) {
 				return
 			}
 			this.fixedTop = fixedTop
 			/* 开启 GPU 加速 */
 			this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`
-		},
+    },
+    /* 实时滚动位置 */
 		scrollY(newY) {
       /* 保留group的高度的 */ 
 			let listHeight = this.listHeight
@@ -227,7 +230,7 @@ export default {
 					this.currentIndex = i
 					/*
           newY 是负值
-          diff: 用来是否触发title的动画效果
+          diff: 用来是否触发title的动画效果, 下一个title的上限距离上一个title的下限距离
           diff = 下一个元素的上限(height2) - 滚动的距离(newY)
           */
 					this.diff = newY + height2

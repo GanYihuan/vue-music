@@ -291,12 +291,14 @@ npm i vue-lazyload -S
 
 - ✨✨✨
 - **listView.vue**
+- 固定title
 
 ## 5-10 listview 基础组件的开发和应用-滚动固定标题实现（下）
 
 - ✨✨✨✨
 - **listView.vue**
 - **loading.vue**
+- title向上顶一顶
 
 ## 6-1 歌手详情页布局和设计详解
 
