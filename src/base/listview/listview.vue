@@ -74,20 +74,20 @@ export default {
 		Scroll,
 		loading
 	},
-	/* created: The values not need monitor */
+	/* created: 数据不需被监听 */
 	created() {
 		this.touch = {}
 		this.listenScroll = true
 		this.probeType = 3
 	},
-	/* data and props values need monitor */
+	/* data and props 数据需被监听 */
 	data() {
 		return {
 			/* 实时滚动位置 */
 			scrollY: -1,
 			/* 当前应该显示第几个字母 */
 			currentIndex: 0,
-			/* diff: current element celling to pre element floor gaps*/
+			/* diff: current element celling to pre element floor gaps */
 			diff: -1
 		}
 	},
@@ -170,7 +170,7 @@ export default {
 		_calculateHeight() {
 			let height = 0
 			let listGroup = this.$refs.listGroup
-			/* listHeight 比 listGroup 多一个元素, 因为添加了上下限 */
+			/* listHeight比listGroup多一个元素, 因为添加了上下限, 每个group的高度的一个数组 */
 			this.listHeight = []
 			this.listHeight.push(height)
 			for (let i = 0; i < listGroup.length; i++) {
@@ -201,13 +201,15 @@ export default {
 			this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`
 		},
 		scrollY(newY) {
+      /* 保留group的高度的 */ 
 			let listHeight = this.listHeight
 			/* 当滚动到顶部 newY > 0 */
 			if (newY > 0) {
 				this.currentIndex = 0
 				return
 			}
-			/*
+      /*
+      判断newY滚动落入哪个group区间
       当滚动到中间部分,
       length-1: 第一个元素的上限是第二个元素的下限, 遍历到最后一个 -1, 保证height2存在, 不超过height2
       listHeight 比 listGroup 多一个元素
