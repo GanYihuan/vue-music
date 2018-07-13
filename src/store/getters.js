@@ -1,6 +1,6 @@
 /**
  * mapping state data
- * 给外部用来取vuex里面的数据
+ * for outside get vuex state data
  * @param state
  */
 

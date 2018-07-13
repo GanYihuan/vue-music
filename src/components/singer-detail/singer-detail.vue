@@ -11,7 +11,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-/* vuex 语法糖 */
+/* vuex grammer suger */
 import { mapGetters } from 'vuex'
 import { getSingerDetail } from 'api/singer'
 import { ERR_OK } from 'api/config'
@@ -34,11 +34,12 @@ export default {
 		bgImage() {
 			return this.singer.avatar
 		},
-		/* vuex/getters */
+    /* vuex/getters(get vuex state data) */
+    /* singer: vuex/getters.js */
 		...mapGetters(['singer'])
 	},
-	/* created数据, 不需要被监控, data, props里面的数据会被监控 */
-	/* 获取 back-end 数据 */
+	/* created data not monitor, data, props will monitor */
+	/* get back-end data */
 	created() {
 		this._getDetail()
 	},

@@ -321,7 +321,7 @@ npm i vue-lazyload -S
 - api introduce vuex
 
 ```shell
-npm install vuex --save
+npm i vuex -S
 ```
 
 ## 6-4 Vuex 初始化及歌手数据的配置

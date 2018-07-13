@@ -1,5 +1,5 @@
 /**
- * 操作mutation里面的方法的操作名称
+ * operate mutation method
  * @type {string}
  */
 

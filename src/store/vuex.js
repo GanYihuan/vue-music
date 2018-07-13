@@ -8,7 +8,7 @@ import createLogger from 'vuex/dist/logger'
 
 Vue.use(Vuex)
 
-// 开发时使用, 上线关闭
+/* develope open */
 const debug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({
