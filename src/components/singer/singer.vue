@@ -38,7 +38,7 @@ export default {
 	},
 	/* get back-end data, created not monitor, data, props will monitor */
 	created() {
-		/* 获取(singer data) */
+		/* get data(singer data) */
 		this._getSingerList()
 	},
 	methods: {
