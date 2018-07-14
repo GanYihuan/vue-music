@@ -20,7 +20,6 @@
       </div>
       <div class="filter" ref="filter"></div>
     </div>
-    <!-- 遮罩层 -->
     <div class="bg-layer" ref="layer"></div>
     <scroll
       class="list"
@@ -49,11 +48,11 @@
 import Scroll from 'base/scroll/scroll'
 import Loading from 'base/loading/loading'
 import SongList from 'base/song-list/song-list'
-// Configuration of different browser CSS.
+/* config different browser css */
 import { prefixStyle } from 'common/js/dom'
-// Common code
+/* common code */
 import { playlistMixin } from 'common/js/mixin'
-// pass to (vuex/store/actions.js)
+/* pass to vuex/actions.js */
 import { mapActions } from 'vuex'
 
 const RESERVED_HEIGHT = 40
@@ -61,7 +60,7 @@ const transform = prefixStyle('transform')
 const backdrop = prefixStyle('backdrop-filter')
 
 export default {
-	// insert mixin.js, The component method of the same name overrides the method in a mixin.
+	/* insert mixin.js, The component method of the same name overrides the method in a mixin. */
 	mixins: [playlistMixin],
 	props: {
 		bgImage: {
@@ -76,7 +75,7 @@ export default {
 			type: String,
 			default: ''
 		},
-		// 07-排行榜详情界面.png trophy
+		/* 07-排行榜详情界面.png trophy */
 		rank: {
 			type: Boolean,
 			default: false
@@ -87,8 +86,7 @@ export default {
 			scrollY: 0
 		}
   },
-  // 数据, 不需要被监控, data, props里面的数据会被监控
-  // get back-end data
+  /* data not monitor, data, props will monitor, get back-end data */
 	created() {
 		this.probeType = 3
 		this.listenScroll = true
@@ -98,22 +96,22 @@ export default {
 			return `background-image:url(${this.bgImage})`
 		}
   },
-  // mounted: dom ready
+  /* dom ready */
 	mounted() {
 		this.imageHeight = this.$refs.bgImage.clientHeight
-		// use for layer
+		/* use for layer */
 		this.minTransalteY = -this.imageHeight + RESERVED_HEIGHT
 		this.$refs.list.$el.style.top = `${this.imageHeight}px`
 	},
 	methods: {
-		// If there is a mini player, the singer list bottom will add height to display it.
+		/* If there is a mini player, the singer list bottom will add height to display it */
 		handlePlaylist(playlist) {
 			const bottom = playlist.length > 0 ? '60px' : ''
 			this.$refs.list.$el.style.bottom = bottom
 			this.$refs.list.refresh()
 		},
 		scroll(pos) {
-      // 实时滚动的位置
+      /* Real time roll position */
 			this.scrollY = pos.y
 		},
 		back() {

@@ -342,14 +342,7 @@ npm i vuex -S
 - **singer-detail.vue**
 - **api/singer.js**
 
-## 6-6 歌手详情数据处理和Song类的封装（上）
-
-- ✨✨✨✨
-- **singer-detail.vue**
-- **common/js/song.js**
-- song Class encapsulation
-
-## 6-7 歌手详情数据处理和Song类的封装（下）
+## 6-6, 6-7 歌手详情数据处理和Song类的封装（上）
 
 - ✨✨✨✨
 - **singer-detail.vue**

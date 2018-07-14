@@ -2,7 +2,7 @@
   <!-- static/03-歌手详情页.png/歌曲列表 -->
   <div class="song-list">
     <ul>
-      <li 
+      <li
         class="item"
         v-for="(song, index) in songs"
         :key="index"
@@ -27,7 +27,7 @@ export default {
 			type: Array,
 			default: null
 		},
-		// for 07-排行榜详情界面.png, trophy
+		/* for 07-排行榜详情界面.png, trophy */
 		rank: {
 			type: Boolean,
 			default: false
@@ -41,7 +41,6 @@ export default {
 			return `${song.singer}·${song.album}`
 		},
 		getRankCls(index) {
-			// The top three will display the trophy.
 			if (index <= 2) {
 				return `icon icon${index}`
 			} else {
@@ -57,7 +56,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss" rel="stylesheet/scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
 @import '~common/scss/variable.scss';
 @import '~common/scss/_mixin.scss';
 @import './song-list.scss';
