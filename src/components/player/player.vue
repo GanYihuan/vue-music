@@ -146,11 +146,11 @@ export default {
 			currentTime: 0,
 			radius: 32,
 			currentLyric: null,
-			// current lyrics highlight.
+			/* lyrics highlight */
 			currentLineNum: 0,
-			// Disc interface and lyrics interface.
+			/* Disc interface and lyrics interface */
 			currentShow: 'cd',
-			// playingLyric: A line of lyrics displayed below the CD.
+			/* CD below lyrics */
 			playingLyric: ''
 		}
 	},
@@ -170,13 +170,15 @@ export default {
 		percent() {
 			return this.currentTime / this.currentSong.duration
 		},
-		// vuex (store/getter.js)
+		/* vuex/getter.js */
 		...mapGetters(['currentIndex', 'fullScreen', 'playing'])
-	},
-	// 数据, 不需要被监控, data, props里面的数据会被监控
-	// get back-end data
+  },
+  /*
+  data not monitor, data, props will monitor
+  no need get & set
+	get back-end data
+  */
 	created() {
-		// no need get & set, defined in created
 		this.touch = {}
 	},
 	methods: {
@@ -235,9 +237,9 @@ export default {
 			if (!this.songReady) {
 				return
 			}
-			// ...mapMutations
+			/* ...mapMutations */
 			this.setPlayingState(!this.playing)
-			// fixBug: The lyrics can be played when the lyrics scroll, preventing the lyrics from scrolling while they stop playing.
+			/* fixBug: when scroll lyrics can play, preventing the lyrics from scrolling while they stop playing */
 			if (this.currentLyric) {
 				this.currentLyric.togglePlay()
 			}
@@ -252,7 +254,7 @@ export default {
 		loop() {
 			this.$refs.audio.currentTime = 0
 			this.$refs.audio.play()
-			// ...mapMutations
+			/* ...mapMutations */
 			this.setPlayingState(true)
 			// fixBug: When the song goes into the loop, the song starts with the song lyrics at the beginning.
 			if (this.currentLyric) {
@@ -261,21 +263,21 @@ export default {
 			}
 		},
 		next() {
-			// audio ready->songReady
+			/* <audio> ready, songReady */
 			if (!this.songReady) {
 				return
 			}
-			// Only one song exists.
+			/* only one song */
 			if (this.playlist.length === 1) {
 				this.loop()
-				// Optimization: 3 prevents the playback control from being triggered. Return does not call songReady = false.
+				/* optimization: 3 prevents the playback control from being triggered. Return does not call songReady = false */
 				return
 			} else {
 				let index = this.currentIndex + 1
 				if (index === this.playlist.length) {
 					index = 0
 				}
-				// ...mapMutations (common/js/mixin.js)
+				/* ...mapMutations (common/js/mixin.js) */
 				this.setCurrentIndex(index)
 				if (!this.playing) {
 					this.togglePlaying()
@@ -284,12 +286,13 @@ export default {
 			this.songReady = false
 		},
 		prev() {
+      /* <audio> ready, songReady */
 			if (!this.songReady) {
 				return
 			}
 			if (this.playlist.length === 1) {
 				this.loop()
-				// Optimization: 3 prevents the playback control from being triggered. Return does not call songReady = false.
+				/* optimization: 3 prevents the playback control from being triggered. Return does not call songReady = false */
 				return
 			} else {
 				let index = this.currentIndex - 1
@@ -304,16 +307,17 @@ export default {
 			this.songReady = false
 		},
 		ready() {
-			// <audio>, Prevent limit click operation error.
+			/* <audio> prevent limit click operate error */
 			this.songReady = true
-			// ...mapActions
+			/* ...mapActions */
 			this.savePlayHistory(this.currentSong)
 		},
 		error() {
+      /* <audio> prevent limit click operate error */
 			this.songReady = true
 		},
 		updateTime(e) {
-			// <audio>'s currentTime
+			/* <audio> currentTime */
 			this.currentTime = e.target.currentTime
 		},
 		format(interval) {
@@ -480,7 +484,7 @@ export default {
 	},
 	watch: {
 		currentSong(newSong, oldSong) {
-			// when only one song.
+			/* only one song */
 			if (!newSong.id) {
 				return
 			}
@@ -499,16 +503,16 @@ export default {
 			// setTimeout: ensure that the mobile phone is cut from the background to the front desk js execution can be played
 			clearTimeout(this.timer)
 			this.timer = setTimeout(() => {
-				// Synchronized methods
+				// sync method
 				this.$refs.audio.play()
-				// Asynchronous methods
+				// async method
 				// Prevent the call timing error and write the optimization in getLyric()
 				this.getLyric()
 			}, 1000)
 		},
 		playing(newPlaying) {
 			const audio = this.$refs.audio
-			// $nextTick: 在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM。
+			/* 在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM */
 			this.$nextTick(() => {
 				newPlaying ? audio.play() : audio.pause()
 			})
