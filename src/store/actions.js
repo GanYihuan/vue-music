@@ -4,8 +4,11 @@ import { playMode } from 'common/js/config'
 import { shuffle } from 'common/js/util'
 import { saveSearch, clearSearch, deleteSearch, savePlay, saveFavorite, deleteFavorite } from 'common/js/cache'
 
-// The sequence list index song corresponds to a random list of the song index and returns the random list song index.
-// Find out if there a song in the list, if there is return its index.
+/*
+sequencelist song index corresponds randomlist song index
+return randomlist song index
+find out whether have song in the list, return its index
+*/
 function findIndex (list, song) {
   return list.findIndex((item) => {
     return item.id === song.id
@@ -26,9 +29,9 @@ export const selectPlay = function ({commit, state}, {list, index}) {
   if (state.mode === playMode.random) {
     /* shuffle */
     let randomList = shuffle(list)
-    // Change the playlist song.
+    /* change the playlist song */
     commit(types.SET_PLAYLIST, randomList)
-    // 这首歌list[index]在randomList里面的索引
+    /* song(list[index]) at randomList index */
     index = findIndex(randomList, list[index])
   } else {
     commit(types.SET_PLAYLIST, list)
@@ -38,20 +41,20 @@ export const selectPlay = function ({commit, state}, {list, index}) {
   commit(types.SET_PLAYING_STATE, true)
 }
 
-// Random play, no index.
+/* random play, no index */
 export const randomPlay = function ({commit}, {list}) {
-  // Change the playback mode to random mode.
+  /* change the playback mode to random mode */
   commit(types.SET_PLAY_MODE, playMode.random)
-  // Submit mutation, change the list of song sequences.
+  /* submit mutation, change the list of song sequences */
   commit(types.SET_SEQUENCE_LIST, list)
   let randomList = shuffle(list)
-  // Change the playlist song.
+  /* change the playlist song */
   commit(types.SET_PLAYLIST, randomList)
-  // Click on the current song index.
+  /* click on the current song index */
   commit(types.SET_CURRENT_INDEX, 0)
-  // Change to full screen mode.
+  /* change to full screen mode */
   commit(types.SET_FULL_SCREEN, true)
-  // Change the current state of play.
+  /* change the current state of play */
   commit(types.SET_PLAYING_STATE, true)
 }
 

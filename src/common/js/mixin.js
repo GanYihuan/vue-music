@@ -8,7 +8,7 @@ export const playlistMixin = {
       'playlist'
     ])
   },
-  // dom ready
+  /* dom ready */
   mounted () {
     this.handlePlaylist(this.playlist)
   },
@@ -28,8 +28,10 @@ export const playlistMixin = {
   }
 }
 
-// playlist.vue
-// player.vue
+/*
+playlist.vue
+player.vue
+*/
 export const playerMixin = {
   computed: {
     iconMode () {
@@ -58,35 +60,35 @@ export const playerMixin = {
       'deleteFavoriteList'
     ]),
     changeMode () {
-      // 3种状态
+      /* 3 mode */
       const mode = (this.mode + 1) % 3
-      // ...mapMutations
+      /* ...mapMutations */
       this.setPlayMode(mode)
       let list = null
       if (mode === playMode.random) {
-        // sequenceList: origin-List
+        /* sequenceList: origin-List */
         list = shuffle(this.sequenceList)
       } else {
         list = this.sequenceList
       }
       this.resetCurrentIndex(list)
-      // ...mapMutations
+      /* ...mapMutations */
       this.setPlaylist(list)
     },
-    // click mode change btn, keep currentSong no change
+    /* mode change, keep current Song no change */
     resetCurrentIndex (list) {
       let index = list.findIndex((item) => {
         return item.id === this.currentSong.id
       })
-      // ...mapMutations
+      /* ...mapMutations */
       this.setCurrentIndex(index)
     },
     toggleFavorite (song) {
       if (this.isFavorite(song)) {
-        // ...mapActions
+        /* ...mapActions */
         this.deleteFavoriteList(song)
       } else {
-        // ...mapActions
+        /* ...mapActions */
         this.saveFavoriteList(song)
       }
     },
@@ -97,8 +99,8 @@ export const playerMixin = {
       return 'icon-not-favorite'
     },
     isFavorite (song) {
-      // ...mapGetters
-      // Find out whether song is in the favoriteList and if it returns its index index.
+      /* ...mapGetters */
+      /* Find out whether song is in the favoriteList and if it returns its index index */
       const index = this.favoriteList.findIndex((item) => {
         return item.id === song.id
       })
@@ -107,13 +109,15 @@ export const playerMixin = {
   }
 }
 
-// search.vue
-// add-song.vue
+/*
+search.vue
+add-song.vue
+*/
 export const searchMixin = {
   data () {
     return {
       query: '',
-      // Late scroll refresh guarantees that the dom has been loaded.
+      /* Late scroll refresh guarantees that the dom has been loaded. */
       refreshDelay: 120
     }
   },
@@ -130,16 +134,16 @@ export const searchMixin = {
     onQueryChange (query) {
       this.query = query
     },
-    // When scrolling, the search box loses focus and the purpose is to cancel the mobile keyboard.
+    /* When scrolling, the search box loses focus and the purpose is to cancel the mobile keyboard */
     blurInput () {
       this.$refs.searchBox.blur()
     },
     addQuery (query) {
       this.$refs.searchBox.setQuery(query)
     },
-    // Save the search results to localStorage.
+    /* Save the search results to localStorage */
     saveSearch () {
-      // ...mapActions
+      /* ...mapActions */
       this.saveSearchHistory(this.query)
     }
   }

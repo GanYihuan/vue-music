@@ -10,6 +10,7 @@ const state = {
   playlist: [],
   /* Player: sequenceList (control play mode) */
   /* when play mode random, playlist !== sequenceList */
+  /* origin list */
   sequenceList: [],
   mode: playMode.sequence,
   currentIndex: -1,

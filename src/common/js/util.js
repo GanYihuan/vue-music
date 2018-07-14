@@ -1,14 +1,16 @@
-// Returns the random number between min ~ Max, including min & max
+/* return min ~ Max, include min & max */
 function getRandomInt (min, max) {
-  // Math.random() create [0,1) number
-  // create a [x,y) number
-  // Math.round(Math.random()*(y-x))+x;
-  // +1: 保证取到上限这个值
+  /*
+  Math.random() create (0,1] number
+  create a [x,y) number
+  Math.round(Math.random()*(y-x))+x;
+  +1: 保证取到上限这个值
+  */
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 export function shuffle (arr) {
-  // Create a copy to prevent multiple calls.
+  /* create copy prevent multiple call */
   let _arr = arr.slice()
   for (let i = 0; i < _arr.length; i++) {
     let j = getRandomInt(0, i)
@@ -19,7 +21,7 @@ export function shuffle (arr) {
   return _arr
 }
 
-// Throttling function
+/* throttling func */
 export function debounce (func, delay) {
   let timer
   return function (...args) {
