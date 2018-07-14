@@ -148,7 +148,7 @@ export default {
 			currentLyric: null,
 			/* lyrics highlight */
 			currentLineNum: 0,
-			/* Disc interface and lyrics interface */
+			/* disc interface and lyrics interface */
 			currentShow: 'cd',
 			/* CD below lyrics */
 			playingLyric: ''
@@ -343,7 +343,7 @@ export default {
 			this.currentSong
 				.getLyric()
 				.then(lyric => {
-					// prevent fast switching, resulting in unmatched lyrics.
+					/* prevent fast switch, result in unmatched lyric */
 					if (this.currentSong.lyric !== lyric) {
 						return
 					}
@@ -358,18 +358,21 @@ export default {
 					this.currentLineNum = 0
 				})
 		},
-		// handleLyric: Call when the lyrics change.
+		/* handleLyric: call when the lyric change */
 		handleLyric({ lineNum, txt }) {
 			this.currentLineNum = lineNum
 			if (lineNum > 5) {
-				// Make sure to highlight the lyrics in the middle, the current lyrics, move up to 5 lines.
+        /*
+        make sure to highlight lyric in the middle
+        the current lyric, move up to 5 line
+        */
 				let lineEl = this.$refs.lyricLine[lineNum - 5]
 				this.$refs.lyricList.scrollToElement(lineEl, 1000)
 			} else {
-				// The first five lines do not scroll, at the top.
+				/* first five line don't scroll, at the top */
 				this.$refs.lyricList.scrollTo(0, 0, 1000)
 			}
-			// playingLyric: A line of lyrics displayed below the CD.
+			/* playingLyric: a line of lyrics displayed below the CD */
 			this.playingLyric = txt
 		},
 		showPlaylist() {
@@ -377,9 +380,9 @@ export default {
 		},
 		middleTouchStart(e) {
 			this.touch.initiated = true
-			// Used to determine whether or not it is a move.
+			/* decision whether move */
 			this.touch.moved = false
-			// first Click on the finger
+			/* finger first click position */
 			const touch = e.touches[0]
 			this.touch.startX = touch.pageX
 			this.touch.startY = touch.pageY
@@ -389,27 +392,25 @@ export default {
 				return
 			}
 			const touch = e.touches[0]
-			// Moving position
+			/* move position */
 			const deltaX = touch.pageX - this.touch.startX
-			const deltaY = touch.pageY - this.touch.startY
-			// Whether or not a horizontal scrolling switch between the recording interface and
-			// the lyrics interface depends on the horizontal scrolling more than the vertical scrolling.
+      const deltaY = touch.pageY - this.touch.startY
+      /* whether switch depends on x-axis scroll more than y-axic scroll */ 
 			if (Math.abs(deltaY) > Math.abs(deltaX)) {
 				return
 			}
 			if (!this.touch.moved) {
 				this.touch.moved = true
 			}
-			// right: 0; left: -window.innerWidth
+			/* right: 0, left: -window.innerWidth */
 			const left = this.currentShow === 'cd' ? 0 : -window.innerWidth
-			// page left scroll a distance
-			// Minimum: - window.innerWidth; maximum: 0.
-			const offsetWidth = Math.min(
-				0,
-				Math.max(-window.innerWidth, left + deltaX)
-			)
+      /*
+      page left-scroll distance
+			min: - window.innerWidth; max: 0
+      */
+			const offsetWidth = Math.min(0, Math.max(-window.innerWidth, left + deltaX))
 			this.touch.percent = Math.abs(offsetWidth / window.innerWidth)
-			// lyricList: Vue component, $el to access the dom.
+			/* lyricList: Vue component, $el to access the dom */
 			this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
 			this.$refs.lyricList.$el.style[transitionDuration] = 0
 			this.$refs.middleL.style.opacity = 1 - this.touch.percent
@@ -422,7 +423,7 @@ export default {
 			let offsetWidth
 			let opacity
 			if (this.currentShow === 'cd') {
-				// Slide from right to left.
+				/* slide <- */
 				if (this.touch.percent > 0.1) {
 					offsetWidth = -window.innerWidth
 					opacity = 0
@@ -432,7 +433,7 @@ export default {
 					opacity = 1
 				}
 			} else {
-				// Slide from left to right.
+				/* slide -> */
 				if (this.touch.percent < 0.9) {
 					offsetWidth = 0
 					this.currentShow = 'cd'
@@ -504,8 +505,8 @@ export default {
         this.$refs.audio.play()
         /*
         async method
-				Prevent the call timing error and write the optimization in getLyric()
-        */ 
+				prevent call timing error and write the optimization in getLyric()
+        */
 				this.getLyric()
 			}, 1000)
 		},

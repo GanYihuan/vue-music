@@ -506,8 +506,8 @@ npm i create-keyframe-animation -S
 - The lyric parsing, performs the callback function every time it is executed.
 
 ```shell
-npm install js-base64 --save
-npm install lyric-parser
+npm i js-base64 -S
+npm i lyric-parser
 ```
 
 ## 7-21 播放器歌词滚动列表实现
