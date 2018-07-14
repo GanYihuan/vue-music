@@ -1,6 +1,4 @@
-/**
- * 封装mutation操作多个mutation, 异步操作相关
- */
+/* operate lot mutation, async */
 import * as types from './mutation-types'
 import { playMode } from 'common/js/config'
 import { shuffle } from 'common/js/util'
@@ -14,31 +12,29 @@ function findIndex (list, song) {
   })
 }
 
-// music-list.vue/selectItem(item, index))
-// Click on the song name to make changes.
-// Define the action, action Execution, mutation changes, mapping state data.
-// {commit, state} : Submit and retrieve data.
-// {list, index} : Modified song list object.
+/*
+music-list.vue/selectItem(item, index))
+Click on the song name to make changes.
+Define the action, action Execution, mutation changes, mapping state data.
+{commit, state} : Submit and retrieve data.
+{list, index} : Modified song list object.
+*/
 export const selectPlay = function ({commit, state}, {list, index}) {
-  // submit mutation, Change the list of songs.
+  /* submit mutation */
   commit(types.SET_SEQUENCE_LIST, list)
-  // If the playback mode is a random mode.
+  /* If the playback mode is a random mode. */
   if (state.mode === playMode.random) {
-    // Shuffle
+    /* shuffle */
     let randomList = shuffle(list)
     // Change the playlist song.
     commit(types.SET_PLAYLIST, randomList)
     // 这首歌list[index]在randomList里面的索引
     index = findIndex(randomList, list[index])
   } else {
-    // Change playlist
     commit(types.SET_PLAYLIST, list)
   }
-  // Click on the current song index.
   commit(types.SET_CURRENT_INDEX, index)
-  // Change to full screen mode.
   commit(types.SET_FULL_SCREEN, true)
-  // Change the current state of play.
   commit(types.SET_PLAYING_STATE, true)
 }
 

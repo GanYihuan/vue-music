@@ -124,9 +124,10 @@ export default {
 			this.$router.back()
 		},
 		selectItem(item, index) {
-			/* modify action multiple times, package an actions */
+			/* modify action multiple lot, package action */
 			/* ...mapActions */
 			this.selectPlay({
+        /* specific target */ 
 				list: this.songs,
 				index
 			})

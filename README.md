@@ -428,9 +428,10 @@ npm i vuex -S
 
 - ✨✨✨✨
 - **player.vue**
+- 使用js创建css动画
 
 ```shell
-npm install create-keyframe-animation --save
+npm i create-keyframe-animation -S
 ```
 
 ## 7-8 播放器歌曲播放功能实现

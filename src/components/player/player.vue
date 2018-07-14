@@ -1,7 +1,7 @@
 <template>
   <!-- static/04-音乐播放界面 -->
   <div class="player" v-show="playlist.length>0">
-    <transition 
+    <transition
       name="normal"
       @enter="enter"
       @after-enter="afterEnter"
@@ -133,6 +133,12 @@ const transform = prefixStyle('transform')
 const transitionDuration = prefixStyle('transitionDuration')
 
 export default {
+	components: {
+		ProgressBar,
+		ProgressCircle,
+		Scroll,
+		Playlist
+	},
 	mixins: [playerMixin],
 	data() {
 		return {
@@ -140,7 +146,7 @@ export default {
 			currentTime: 0,
 			radius: 32,
 			currentLyric: null,
-			// The current line of lyrics is used to highlight.
+			// current lyrics highlight.
 			currentLineNum: 0,
 			// Disc interface and lyrics interface.
 			currentShow: 'cd',
@@ -166,9 +172,9 @@ export default {
 		},
 		// vuex (store/getter.js)
 		...mapGetters(['currentIndex', 'fullScreen', 'playing'])
-  },
-  // 数据, 不需要被监控, data, props里面的数据会被监控
-  // get back-end data
+	},
+	// 数据, 不需要被监控, data, props里面的数据会被监控
+	// get back-end data
 	created() {
 		// no need get & set, defined in created
 		this.touch = {}
@@ -180,11 +186,11 @@ export default {
 		}),
 		...mapActions(['savePlayHistory']),
 		back() {
-			// ...mapMutations
+			/*  ...mapMutations */
 			this.setFullScreen(false)
 		},
 		open() {
-			// ...mapMutations
+			/* ...mapMutations */
 			this.setFullScreen(true)
 		},
 		enter(el, done) {
@@ -208,7 +214,7 @@ export default {
 					easing: 'linear'
 				}
 			})
-			// done: func
+			/* done: func */
 			animations.runAnimation(this.$refs.cdWrapper, 'move', done)
 		},
 		afterEnter() {
@@ -394,10 +400,15 @@ export default {
 			const left = this.currentShow === 'cd' ? 0 : -window.innerWidth
 			// page left scroll a distance
 			// Minimum: - window.innerWidth; maximum: 0.
-			const offsetWidth = Math.min(0, Math.max(-window.innerWidth, left + deltaX))
+			const offsetWidth = Math.min(
+				0,
+				Math.max(-window.innerWidth, left + deltaX)
+			)
 			this.touch.percent = Math.abs(offsetWidth / window.innerWidth)
 			// lyricList: Vue component, $el to access the dom.
-			this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
+			this.$refs.lyricList.$el.style[
+				transform
+			] = `translate3d(${offsetWidth}px,0,0)`
 			this.$refs.lyricList.$el.style[transitionDuration] = 0
 			this.$refs.middleL.style.opacity = 1 - this.touch.percent
 			this.$refs.middleL.style[transitionDuration] = 0
@@ -430,7 +441,9 @@ export default {
 				}
 			}
 			const time = 300
-			this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
+			this.$refs.lyricList.$el.style[
+				transform
+			] = `translate3d(${offsetWidth}px,0,0)`
 			this.$refs.lyricList.$el.style[transitionDuration] = `${time}ms`
 			this.$refs.middleL.style.opacity = opacity
 			this.$refs.middleL.style[transitionDuration] = `${time}ms`
@@ -444,24 +457,22 @@ export default {
 				len++
 			}
 			return num
-		},
-		// Returns the scale of the large record and the small record,
-		// the center of the big record is the zoom point position.
+    },
+    /* big-record small-record x y scale */
 		_getPosAndScale() {
-			// smaller disc's width
+			/* small-record width */
 			const targetWidth = 40
-			// smaller disc's paddingLeft
+			/* small-record paddingLeft */
 			const paddingLeft = 40
-			// smaller disc's paddingBottom
+			/* small-record paddingBottom */
 			const paddingBottom = 30
-			// large disc's paddingTop, to the top of the container
+			/* big-record paddingTop */
 			const paddingTop = 80
-			// large disc's width
+			/* big-record width */
 			const width = window.innerWidth * 0.8
-			// smaller disc's width / large disc's width
 			const scale = targetWidth / width
-			// target point (x,y) location large circle disc's center
-			// The fourth quadrant is positive
+      /* fourth quadrant */
+      /* big-record is center point */ 
 			const x = -(window.innerWidth / 2 - paddingLeft)
 			const y = window.innerHeight - paddingTop - width / 2 - paddingBottom
 			return { x, y, scale }
@@ -509,12 +520,6 @@ export default {
 				}, 20)
 			}
 		}
-	},
-	components: {
-		ProgressBar,
-		ProgressCircle,
-		Scroll,
-		Playlist
 	}
 }
 </script>
