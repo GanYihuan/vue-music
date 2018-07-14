@@ -42,7 +42,7 @@ export default {
 		this._getSingerList()
 	},
 	methods: {
-		/* If there is a mini player, the singer list bottom will add height to display it. */
+		/* if mini player, the singerlist bottom add height */
 		handlePlaylist(playlist) {
 			const bottom = playlist.length > 0 ? '60px' : ''
 			this.$refs.singer.style.bottom = bottom

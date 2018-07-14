@@ -35,7 +35,7 @@
               @click="selectItem(item)"
             >
               <div class="icon">
-                <!-- v-lazy: 当滚动时才加载 -->
+                <!-- v-lazy: when scroll then load -->
                 <img width="60" height="60" v-lazy="item.imgurl"/>
               </div>
               <div class="text">
@@ -78,11 +78,11 @@ export default {
 			discList: []
 		}
 	},
-	/* 获取back-end数据, 数据不会被监控, data, props里面的数据会被监控 */
+	/* get back-end data, not monitor, data, props data will monitor */
 	created() {
-		/* 获取back-end数据 (轮播图数据) 异步 */
+		/* get back-end data (轮播图数据) async */
 		this._getRecommend()
-		/* 获取back-end数据 (歌单数据) 异步 */
+		/* get back-end data (歌单数据) async */
 		this._getDiscList()
 	},
 	methods: {
@@ -96,7 +96,7 @@ export default {
 			this.$refs.scroll.refresh()
 		},
 		loadImage() {
-			/* 只被调用一次, 轮播图后渲染出来导致高度计算错误的问题, 解决方法 */
+			/* call once, carousel render late caouse height wrong, fix it */
 			if (!this.checkloaded) {
 				this.checkloaded = true
 				this.$refs.scroll.refresh()
@@ -121,7 +121,7 @@ export default {
 		_getDiscList() {
 			getDiscList().then(res => {
 				if (res.code === ERR_OK) {
-          /* Status: 500, 服务端错误, axios 解决 */ 
+          /* Status: 500, server error, axios can fix */ 
 					this.discList = res.data.list
 				}
 			})

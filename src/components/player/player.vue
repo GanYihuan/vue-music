@@ -258,7 +258,7 @@ export default {
 			this.setPlayingState(true)
 			/* fixBug: When the song goes into the loop, the song starts with the song lyrics at the beginning */
 			if (this.currentLyric) {
-				/* <audio>, The song jumps to the beginning */
+				/* <audio>, song jump to begin */
 				this.currentLyric.seek(0)
 			}
 		},
@@ -335,7 +335,7 @@ export default {
 				this.togglePlaying()
 			}
 			if (this.currentLyric) {
-				/* fixBug: The lyrics not follow the progress bar */
+				/* fixBug: lyrics not follow the progress bar */
 				this.currentLyric.seek(currentTime * 1000)
 			}
 		},
@@ -372,7 +372,7 @@ export default {
 				/* first five line don't scroll, at the top */
 				this.$refs.lyricList.scrollTo(0, 0, 1000)
 			}
-			/* playingLyric: a line of lyrics displayed below the CD */
+			/* playingLyric: lyrics displayed below the CD */
 			this.playingLyric = txt
 		},
 		showPlaylist() {
@@ -492,13 +492,13 @@ export default {
 			}
 			/* fixBug: currentLyric There is a timer in it, and when the next song is cut, the timer goes into the next song */
       if (this.currentLyric) {
-				/* Stop the timer of the first song */
+				/* stop timer of the first song */
 				this.currentLyric.stop()
 				this.currentTime = 0
 				this.playingLyric = ''
 				this.currentLineNum = 0
 			}
-			/* setTimeout: ensure that the mobile phone is cut from the background to the front desk js execution can be played */
+			/* setTimeout: ensure mobile phone can be played */
 			clearTimeout(this.timer)
 			this.timer = setTimeout(() => {
 				/* sync method */
