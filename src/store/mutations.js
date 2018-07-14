@@ -6,19 +6,18 @@ import * as types from './mutation-types'
 
 const mutations = {
   [types.SET_SINGER](state, singer) {
-    /* singner: string */
+    /* singer: string */
     state.singer = singer
   },
   [types.SET_PLAYING_STATE](state, flag) {
-    // flag: boolean
+    /* flag: boolean */
     state.playing = flag
   },
   [types.SET_FULL_SCREEN](state, flag) {
-    // flag: boolean
     state.fullScreen = flag
   },
   [types.SET_PLAYLIST](state, list) {
-    // list: array
+    /* list: array */
     state.playlist = list
   },
   [types.SET_SEQUENCE_LIST](state, list) {

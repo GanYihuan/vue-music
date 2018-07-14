@@ -1,6 +1,6 @@
 /**
  * mapping state data
- * for outside get vuex state data
+ * outside can get vuex state data
  * @param state
  */
 
@@ -11,8 +11,7 @@ export const playlist = state => state.playlist
 export const sequenceList = state => state.sequenceList
 export const mode = state => state.mode
 export const currentIndex = state => state.currentIndex
-// according state calculate attribute: playlist, currentIndex calculate currentSong
-// modify currentIndex, equal modify currentSong, Realize the song forward backward function.
+/* realize song forward backward */
 export const currentSong = (state) => {
   return state.playlist[state.currentIndex] || {}
 }
