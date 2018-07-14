@@ -1,13 +1,13 @@
 <template>
   <!-- static/04-音乐播放界面.png/歌曲控件 -->
-  <div 
+  <div
     class="progress-bar"
     ref="progressBar"
     @click="progressClick"
   >
     <div class="bar-inner">
       <div class="progress" ref="progress"></div>
-      <div 
+      <div
         class="progress-btn-wrapper"
         ref="progressBtn"
         @touchstart="progressTouchStart"
@@ -33,29 +33,31 @@ export default {
 			default: 0
 		}
   },
-  // 数据, 不需要被监控, data, props里面的数据会被监控
-  // get back-end data
+  /*
+  data not monitor, data, props will monitor
+  get back-end data
+  */
 	created() {
-    // 共享数据
+    /* share data */
 		this.touch = {}
 	},
 	methods: {
 		progressTouchStart(e) {
 			this.touch.init = true
-			// this.touch.startX: Click on location for the first time
+			/* this.touch.startX: finger x-axis distance */
 			this.touch.startX = e.touches[0].pageX
-			// this.$refs.progress: Progress bar generated progress width
 			this.touch.left = this.$refs.progress.clientWidth
 		},
 		progressTouchMove(e) {
 			if (!this.touch.init) {
 				return
 			}
-			// progressBarWidth: real progress width, yellow color
+			/* progressBarWidth: progress bar can move distance = progress bar length - ball length */
 			const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-			// detailX: Progress bar moving distance = current click position - pre click position
+			/* detailX: progressbar move distance = current finger x-axis distance - pre finger x-axis distance */
 			const detailX = e.touches[0].pageX - this.touch.startX
-			// 不小于0: Math.max(0, X): (X>0) The value returned is not less than 0
+      /* bigger 0: Math.max(0, X): (X>0) */
+      /* offsetWidth: yellow color, real progress width */
 			const offsetWidth = Math.min(progressBarWidth, Math.max(0, this.touch.left + detailX))
 			this._offset(offsetWidth)
 		},
@@ -64,19 +66,20 @@ export default {
 			this._triggerPercent()
 		},
 		progressClick(e) {
-			// getBoundingClientRect: static/getBoundingClientRect.png
+			/* getBoundingClientRect: static/getBoundingClientRect.png */
 			const rect = this.$refs.progressBar.getBoundingClientRect()
-			// offsetWidth: real progress = stop position - rect
+			/* offsetWidth: real progress = stop position - rect */
 			const offsetWidth = e.pageX - rect.left
 			this._offset(offsetWidth)
 			this._triggerPercent()
 		},
 		_triggerPercent() {
-			// progressBarWidth: Progress bar can move distance = progress bar length - ball length
+			/* progressBarWidth: progress bar can move distance = progress bar length - ball length */
 			const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
 			const percent = this.$refs.progress.clientWidth / progressBarWidth
 			this.$emit('percentChange', percent)
-		},
+    },
+    /* yellow color, real progress width */ 
 		_offset(offsetWidth) {
 			this.$refs.progress.style.width = `${offsetWidth}px`
 			this.$refs.progressBtn.style[transform] = `translate3d(${offsetWidth}px, 0, 0)`
@@ -84,11 +87,11 @@ export default {
 	},
 	watch: {
 		percent(newPercent) {
-			// !this.touch.init: progress bar dragging process cannot be modified
+			/* !this.touch.init: progress bar drag process cancel */
 			if (newPercent >= 0 && !this.touch.init) {
-				// progressBarWidth: Progress bar can move distance = progress bar length - ball length
+				/* progressBarWidth: progress bar can move distance = progress bar length - ball length */
 				const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-				// offsetWidth: real progress width, yellow color
+				/* offsetWidth: yellow color, real progress width */
 				const offsetWidth = progressBarWidth * newPercent
 				this._offset(offsetWidth)
 			}

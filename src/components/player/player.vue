@@ -256,9 +256,9 @@ export default {
 			this.$refs.audio.play()
 			/* ...mapMutations */
 			this.setPlayingState(true)
-			// fixBug: When the song goes into the loop, the song starts with the song lyrics at the beginning.
+			/* fixBug: When the song goes into the loop, the song starts with the song lyrics at the beginning */
 			if (this.currentLyric) {
-				// <audio>, The song jumps to the beginning.
+				/* <audio>, The song jumps to the beginning */
 				this.currentLyric.seek(0)
 			}
 		},
@@ -321,10 +321,10 @@ export default {
 			this.currentTime = e.target.currentTime
 		},
 		format(interval) {
-			// | 0: (+math.floor)
+			/* | 0: math.floor */
 			interval = interval | 0
 			const minute = (interval / 60) | 0
-			// _pad: Use 0 to fill 2 bits.
+			/* _pad: Use 0 to fill 2 bits */
 			const second = this._pad(interval % 60)
 			return `${minute}:${second}`
 		},
@@ -335,7 +335,7 @@ export default {
 				this.togglePlaying()
 			}
 			if (this.currentLyric) {
-				// fixBug: The lyrics not follow the progress bar
+				/* fixBug: The lyrics not follow the progress bar */
 				this.currentLyric.seek(currentTime * 1000)
 			}
 		},
@@ -445,15 +445,13 @@ export default {
 				}
 			}
 			const time = 300
-			this.$refs.lyricList.$el.style[
-				transform
-			] = `translate3d(${offsetWidth}px,0,0)`
+			this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
 			this.$refs.lyricList.$el.style[transitionDuration] = `${time}ms`
 			this.$refs.middleL.style.opacity = opacity
 			this.$refs.middleL.style[transitionDuration] = `${time}ms`
 			this.touch.initiated = false
 		},
-		// _pad: Use 0 to fill 2 bits.
+		/* _pad: use 0 to fill 2 bits */
 		_pad(num, n = 2) {
 			let len = num.toString().length
 			while (len < n) {
