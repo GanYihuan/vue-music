@@ -60,6 +60,11 @@ const transform = prefixStyle('transform')
 const backdrop = prefixStyle('backdrop-filter')
 
 export default {
+  components: {
+		Scroll,
+		Loading,
+		SongList
+	},
 	/* insert mixin.js, The component method of the same name overrides the method in a mixin. */
 	mixins: [playlistMixin],
 	props: {
@@ -83,6 +88,7 @@ export default {
 	},
 	data() {
 		return {
+      /* real time roll position */
 			scrollY: 0
 		}
   },
@@ -99,39 +105,39 @@ export default {
   /* dom ready */
 	mounted() {
 		this.imageHeight = this.$refs.bgImage.clientHeight
-		/* use for layer */
+		/* for bg-layer */
 		this.minTransalteY = -this.imageHeight + RESERVED_HEIGHT
 		this.$refs.list.$el.style.top = `${this.imageHeight}px`
 	},
 	methods: {
-		/* If there is a mini player, the singer list bottom will add height to display it */
+		/* if mini player, singer list bottom add height */
 		handlePlaylist(playlist) {
 			const bottom = playlist.length > 0 ? '60px' : ''
 			this.$refs.list.$el.style.bottom = bottom
 			this.$refs.list.refresh()
 		},
 		scroll(pos) {
-      /* Real time roll position */
+      /* real time roll position */
 			this.scrollY = pos.y
 		},
 		back() {
 			this.$router.back()
 		},
 		selectItem(item, index) {
-			// Modify action multiple times, package an actions
-			// ...mapActions
+			/* modify action multiple times, package an actions */
+			/* ...mapActions */
 			this.selectPlay({
 				list: this.songs,
 				index
 			})
 		},
 		random() {
-			// ...mapActions
+			/* ...mapActions */
 			this.randomPlay({
 				list: this.songs
 			})
 		},
-		// vuex (store/actions.js)
+		/* vuex/action */
 		...mapActions(['selectPlay', 'randomPlay'])
 	},
 	watch: {
@@ -141,7 +147,7 @@ export default {
 			let zIndex = 0
 			let blur = 0
 			const percent = Math.abs(newVal / this.imageHeight)
-			// pull down
+			/* pull down */
 			if (newVal > 0) {
 				scale = 1 + percent
 				zIndex = 10
@@ -149,12 +155,12 @@ export default {
 				blur = Math.min(percent * 20, 20)
 			}
 			this.$refs.layer.style[transform] = `translate3d(0,${translateY}px,0)`
-			// Gaussian-blur: iphone can view
+			/* gaussian-blur: iphone can view */
 			this.$refs.filter.style[backdrop] = `blur(${blur}px)`
-			// scroll to top
+			/* scroll to top */
 			if (newVal < this.minTransalteY) {
 				zIndex = 10
-				// css file: .bg-image { padding-top: 70%; width: 100%, height: 0 }, w : h = 10 : 7
+				/* css file: .bg-image { padding-top: 70%; width: 100%, height: 0 }, w : h = 10 : 7 */
 				this.$refs.bgImage.style.paddingTop = 0
 				this.$refs.bgImage.style.height = `${RESERVED_HEIGHT}px`
 				this.$refs.playBtn.style.display = 'none'
@@ -166,16 +172,11 @@ export default {
 			this.$refs.bgImage.style[transform] = `scale(${scale})`
 			this.$refs.bgImage.style.zIndex = zIndex
 		}
-	},
-	components: {
-		Scroll,
-		Loading,
-		SongList
 	}
 }
 </script>
 
-<style scoped lang="scss" rel="stylesheet/scss">
+<style lang="scss" rel="stylesheet/scss" scoped>
 @import '~common/scss/variable.scss';
 @import '~common/scss/_mixin.scss';
 @import './music-list.scss';
