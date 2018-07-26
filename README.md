@@ -44,10 +44,9 @@ npm run dev
 
 ## 2-3 项目目录介绍及图标字体、公共样式等资源准备
 
-- ✨✨
-- **build/webpack.base.config**
-- dialog introduce
-1. api: (Back-end request, jsonp request, AJAX request.)
+- ESLint webpack 文件的改变都要重新 npm run start
+- 目录介绍
+1. api: (back-end request, jsonp request, ajax request.)
 2. common: (Shared static resources: img, common js, style)
 3. components: (Common component)
 4. base: (Share component)
@@ -56,23 +55,19 @@ npm run dev
 7. main.js (entrance)
 - npm install
 
-```shell
-"sass-loader": "^6.0.7",
-"node-sass": "^4.7.2",
-"stylus": "^0.54.5",
-"stylus-loader": "^2.1.1",
+```node
+npm install sass-loader node-sass stylus stylus-loader -D
 ```
 
 - eslintrc.js
 - **webpack.base.conf.js** alias config
 > import 'common/scss/index.scss'
 
-```shell
-context: path.resolve(__dirname, '..', dir),
+```json
 resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'common': resolve('src/common')
     }
   },
 ```

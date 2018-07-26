@@ -6,11 +6,11 @@
   }
 }
 
-/* 不换行 */
+/* 不换行 two */
 @mixin no-wrap() {
   text-overflow: ellipsis;
-  overflow: hidden;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 /* 扩展小图标点击区域 */
