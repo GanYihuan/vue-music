@@ -53,23 +53,22 @@ npm run dev
 5. router: (route)
 6. store: (Vuex data)
 7. main.js (entrance)
-- npm install
 
 ```node
 npm install sass-loader node-sass stylus stylus-loader -D
 ```
 
-- eslintrc.js
-- **webpack.base.conf.js** alias config
+- **eslintrc.js** verify config
+- **webpack.base.conf.js** alias config, 下面代码路径 common 对应 src/common
 > import 'common/scss/index.scss'
 
 ```json
 resolve: {
-    extensions: ['.js', '.vue', '.json'],
-    alias: {
-      'common': resolve('src/common')
-    }
-  },
+  extensions: ['.js', '.vue', '.json'],
+  alias: {
+    'common': resolve('src/common')
+  }
+}
 ```
 
 ## 3-1: entrance, header component
