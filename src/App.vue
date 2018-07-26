@@ -10,7 +10,7 @@
     <!-- name = Detail 组件不做缓存处理. -->
     <keep-alive>
       <!-- router render here -->
-       
+      <router-view></router-view>
     </keep-alive>
     <player></player>
   </div>

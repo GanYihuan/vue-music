@@ -40,7 +40,7 @@
         font-size: $font-size-small;
 
         .song {
-        no-wrap();
+          @include no-wrap();
           line-height: 26px;
         }
       }

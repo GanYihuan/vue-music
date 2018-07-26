@@ -83,8 +83,6 @@ npm i babel-polyfill babel-runtime fastclick vue-lazyload -S
 
 ## 3-2 路由配置+ tab 顶导组件开发
 
-- ✨✨
-
 ## 4-1 页面简介+轮播图数据分析
 
 - ✨✨
