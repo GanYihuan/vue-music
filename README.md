@@ -94,7 +94,6 @@ npm i babel-polyfill babel-runtime fastclick vue-lazyload -S
 
 ## 4-2 jsonp原理介绍+Promise封装
 
-- ✨✨✨✨
 - **common/js/jsonp.js**
 - Promise:
 > pass async message object
@@ -103,7 +102,7 @@ npm i babel-polyfill babel-runtime fastclick vue-lazyload -S
 > 动态创建script标签(没有同源限制可以跨域), script的src指向服务端地址, 有一个callback, 后端解析这个url, 带callback=a这个参数, 返回数据里调用a包裹一个方法, 在前端执行a这个方法, window注册这个方法, 定义这个a方法获得数据
 - install jsonp
 
-```shell
+```node
 npm i jsonp -S
 ```
 
