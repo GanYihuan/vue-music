@@ -3,7 +3,7 @@
 ## Vue-开发移动端音乐WebApp
 
 ## Build Setup
-
+                            
 ``` bash
 # install dependencies
 cnpm install
@@ -26,22 +26,19 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ## 2-2 Vue-cli脚手架安装
 
-- ✨
-- install
-
-```shell
+```node
 npm i -g vue-cli
 vue init webpack imooc-music
 ```
 
-- 'RunTime-only':  More light
-- vue-router 'Y': vue router
-- ESLint 'Y': ES6 style code checker.
+- 'RunTime-only': 更轻量
+- vue-router: y
+- ESLint: y
 - Standard
-- karma, e2e test 'N':
+- karma, e2e test: n
 - npm install
 
-```shell
+```node
 npm run dev
 ```
 
