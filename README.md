@@ -62,7 +62,7 @@ npm install sass-loader node-sass stylus stylus-loader -D
 - **webpack.base.conf.js** alias config, 下面代码路径 common 对应 src/common
 > import 'common/scss/index.scss'
 
-```json
+```js
 resolve: {
   extensions: ['.js', '.vue', '.json'],
   alias: {
@@ -71,32 +71,15 @@ resolve: {
 }
 ```
 
-## 3-1: entrance, header component
-
-- ✨✨
-- **App.vue**
-- **main.js**
-- **build/webpack.base.config**
-- **components/m-header.vue**
-- babel-runtime: es6 转义
-- fastclick: Click 300MS delay on the mobile end.
-- babel-polyfill: es6 api 转义, mobile can use es6 api
-
-```shell
-npm i babel-runtime -S
-cnpm i fastclick -S
-cnpm i babel-polyfill -D
-```
-
-- **build/webpack.base.config**
-> Alias configuration, abbreviated application file path.
-
 ## 3-1 页面入口+header 组件的编写
 
-- ✨✨
-- **tab.vue**
-- **App.vue**
-- **route.vue**
+- babel-runtime: es6 转义
+- babel-polyfill: es6 api 转义, mobile can use es6 api
+- fastclick: Click 300MS delay on the mobile end.
+
+```node
+npm i babel-polyfill babel-runtime fastclick vue-lazyload -S
+```
 
 ## 3-2 路由配置+ tab 顶导组件开发
 
