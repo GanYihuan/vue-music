@@ -3,8 +3,8 @@
     <m-header></m-header>
     <tab></tab>
     <!--
-      keep-alive: 在加载路由后缓存内容,
-      并且缓存在加载时被读取，以防止连续加载.
+    keep-alive: 在加载路由后缓存内容,
+    并且缓存在加载时被读取，以防止连续加载.
     -->
     <!-- <keep-alive exclude="Detail"> -->
     <!-- name = Detail 组件不做缓存处理. -->
@@ -22,6 +22,7 @@ import Tab from 'components/tab/tab'
 import Player from 'components/player/player'
 
 export default {
+  name: 'App',
 	components: {
 		MHeader,
 		Tab,

@@ -78,7 +78,10 @@ export default {
 			discList: []
 		}
 	},
-	/* get back-end data, not monitor, data, props data will monitor */
+  /* 
+  get back-end data
+  data not monitor
+  */
 	created() {
 		/* get back-end data (轮播图数据) async */
 		this._getRecommend()

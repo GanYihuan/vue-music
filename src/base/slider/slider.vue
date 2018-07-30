@@ -23,7 +23,7 @@ export default {
 	data() {
 		return {
       dots: [],
-      /* 当前第几页, 第一个 */ 
+      /* 当前第几页, 第一个 */
 			currentPageIndex: 0
 		}
 	},
@@ -50,7 +50,7 @@ export default {
 			this._initSlider()
 			if (this.autoPlay) {
 				this._autoPlay()
-			}
+			} 
     }, 20)
     /* 窗口改变事件 */ 
 		window.addEventListener('resize', () => {
