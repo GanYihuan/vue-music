@@ -98,7 +98,7 @@ export default {
 		}
 	},
 	computed: {
-    /* 右侧列表'A','B'... */ 
+    /* 右侧列表'A','B'... */
 		shortcutList() {
 			return this.data.map(group => {
 				/* '热门' 只取一个字 '热' */

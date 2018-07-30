@@ -43,7 +43,7 @@ export default {
 	},
 	/* dom ready */
 	mounted() {
-		/* setTimeout: 20s, dom会完全刷新, 因为浏览器17s刷新一次 */
+		/* setTimeout: 20s, dom 会完全刷新, 因为浏览器17s刷新一次 */
 		setTimeout(() => {
 			this._setSliderWidth()
 			this._initDots()
@@ -64,8 +64,7 @@ export default {
 	},
 	methods: {
 		_setSliderWidth(isResize) {
-			let width = 0
-			this.children = this.$refs.sliderGroup.children
+      this.children = this.$refs.sliderGroup.children
       // console.log(this.children.length)
       /*
       dom: 5
@@ -73,11 +72,11 @@ export default {
 			dom: 5+2=7
       */
       /*
-      scrollWidth: The width of the actual content of the object, not including the width of the border line, varies with the amount of content in the object
-      clientWidth: The visible width of the object, excluding edges such as scroll bars, varies with the display size of the window
-      offsetWidth: The visible width of the object, including edges such as scroll bars, varies with the display size of the window
+      clientWidth: (样式宽 + padding) The visual portion of the box content, not including borders or scroll bars , but includes padding . Can not be calculated directly from CSS, depends on the system's scroll bar size.
+      offsetWidth: (样式宽 + padding + border) The size of the visual box incuding all borders. Can be calculated by adding width/height and paddings and borders, if the element has display: block
+      scrollWidth: The size of all of the box's content, including the parts that are currently hidden outside the scrolling area. Can not be calculated directly from CSS, depends on the content.
       */
-			/* parent clientWidth */
+			let width = 0
 			let sliderWidth = this.$refs.slider.clientWidth
 			for (let i = 0; i < this.children.length; i++) {
 				let child = this.children[i]
@@ -86,7 +85,7 @@ export default {
 				child.style.width = sliderWidth + 'px'
 				width += sliderWidth
 			}
-			/* 长度加倍用于循环 (the carousel component), isResize不执行 */
+			/* 长度加倍用于循环 (the carousel component), isResize 不执行 */
 			if (this.loop && !isResize) {
 				width += 2 * sliderWidth
 			}

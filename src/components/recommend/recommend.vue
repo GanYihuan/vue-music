@@ -1,22 +1,22 @@
 <template>
   <!-- static/01-推荐界面 -->
   <div class="recommend" ref="recommend">
-    <!-- :data="discList": 防止由于异步加载慢，导致渲染时机错误, 确保数据已经到来了才渲染 -->
+    <!-- :data="discList": 防止异步加载导致渲染时机错误, 确保数据已经到来 -->
     <scroll
       class="recommend-content"
       ref="scroll"
       :data="discList"
     >
       <div>
-        <!-- v-if="recommends.length": 防止由于异步加载慢，导致渲染时机错误, 确保数据已经到来了才渲染 -->
+        <!-- v-if="recommends.length": 防止异步加载导致渲染时机错误, 确保数据已经到来 -->
         <div
           class="slider-wrapper"
           ref="sliderWrapper"
           v-if="recommends.length"
         >
           <slider>
+            <!-- https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg -->
             <div v-for="item in recommends" :key="item.id">
-              <!-- https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg -->
               <a :href="item.linkUrl">
                 <!-- class="needsclick" fastclick 不要拦截点击过程 -->
                 <!-- @load="loadImage" 轮播图后渲染出来导致高度计算错误的问题, 解决方法 -->
@@ -78,10 +78,7 @@ export default {
 			discList: []
 		}
 	},
-  /* 
-  get back-end data
-  data not monitor
-  */
+  /* get back-end data, data not monitor */
 	created() {
 		/* get back-end data (轮播图数据) async */
 		this._getRecommend()

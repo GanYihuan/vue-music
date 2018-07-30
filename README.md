@@ -200,6 +200,7 @@ npm i vue-lazyload -S
 ## 5-1 歌手页面布局和设计讲解
 
 - ✨
+- **singer.vue**(处理数据) **listview.vue**(歌手界面)
 
 ## 5-2 歌手数据接口抓取
 
@@ -273,6 +274,7 @@ npm i vue-lazyload -S
 ## 6-1 歌手详情页布局和设计详解
 
 - ✨
+- **singer.vue**(构造数据结构) **singer-detail.vue**(数据满足某条件才添加) **music-list.vue**(歌手界面)
 
 ## 6-2 子路由配置以及转场动画实现
 
