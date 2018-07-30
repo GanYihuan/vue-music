@@ -39,7 +39,7 @@ vue init webpack imooc-music
 - npm install
 
 ```node
-npm run dev
+npm run start
 ```
 
 ## 2-3 项目目录介绍及图标字体、公共样式等资源准备
@@ -55,11 +55,11 @@ npm run dev
 7. main.js (entrance)
 
 ```node
-npm install sass-loader node-sass stylus stylus-loader -D
+npm i sass-loader node-sass stylus stylus-loader -D
 ```
 
-- **eslintrc.js** verify config
-- **webpack.base.conf.js** alias config, 下面代码路径 common 对应 src/common
+- **eslintrc.js** 配置
+- **webpack.base.conf.js** 别名配置, 下面代码路径 common 对应 src/common
 > import 'common/scss/index.scss'
 
 ```js
