@@ -305,13 +305,11 @@ npm i vuex -S
 
 ## 6-5 歌手详情数据抓取
 
-- ✨✨
-- **singer-detail.vue**
-- **api/singer.js**
+- **api/singer.js** (jsonp 抓取数据)
+- **singer-detail.vue** (获得抓取数据)
 
 ## 6-6, 6-7 歌手详情数据处理和Song类的封装（上）
 
-- ✨✨✨✨
 - **singer-detail.vue**
 - **common/js/song.js**
 - song Class encapsulation
