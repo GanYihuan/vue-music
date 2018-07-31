@@ -308,11 +308,10 @@ npm i vuex -S
 - **api/singer.js** (jsonp 抓取数据)
 - **singer-detail.vue** (获得抓取数据)
 
-## 6-6, 6-7 歌手详情数据处理和Song类的封装（上）
+## 6-6, 6-7 歌手详情数据处理和Song类的封装
 
-- **singer-detail.vue**
-- **common/js/song.js**
-- song Class encapsulation
+- **common/js/song.js** (Song 类的封装)
+- **singer-detail.vue** (从数据里面抽取出一个对象)
 
 ## 6-8 music-list 组件开发（1）
 

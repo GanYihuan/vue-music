@@ -54,10 +54,12 @@ export default {
 					// console.log(this.songs)
 				}
 			})
-		},
+    },
+    /* 从数据里面抽取出一个对象 */
 		_normalizeSongs(list) {
 			let ret = []
 			list.forEach(item => {
+        /* musicData 是数据里面的一个对象, 这里解构赋值定义出来 */
 				let { musicData } = item
 				if (musicData.songid && musicData.albummid) {
 					ret.push(createSong(musicData))
