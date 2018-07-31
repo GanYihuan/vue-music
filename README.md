@@ -315,48 +315,31 @@ npm i vuex -S
 
 ## 6-8 music-list 组件开发（1）
 
-- ✨✨
-- **music-list.vue**
-- **singer-detail.vue**
-- singer-detail.vue handle data, music-list.vue show component
+- **top-list.vue** 传递数据到 **music-list.vue**
 
 ## 6-9 music-list 组件开发（2）
 
-- ✨✨
-- **music-list.vue**
-- **song-list.vue**
+- **music-list.vue** 编写样式
 
 ## 6-10 music-list 组件开发（3）
 
-- ✨✨✨✨
-- **song-list.vue**
-- **music-list.vue**
-- 创建滑块遮罩
+- **music-list.vue** (创建滑块遮罩效果)
 
 ## 6-11 music-list 组件开发（4）
 
-- ✨✨✨✨
-- **song-list.vue**
-- **music-list.vue**
-- 滑块遮罩只运动到某个位置
+- **music-list.vue** (创建滑块遮罩效果)
 
 ## 6-12 music-list 组件开发（5）
 
-- ✨✨✨✨
-- **song-list.vue**
-- **music-list.vue**
-- 滑块遮罩运动, 歌手图片变化
+- **music-list.vue** (创建滑块遮罩效果)
 
 ## 6-13 music-list 组件开发（6）
 
-- ✨✨✨✨
-- **common/js/dom.js**
+- **common/js/dom.js** (webkit前缀封装)
 - **music-list.vue**
-- webkit前缀封装
 
 ## 6-14 music-list 组件开发（7）
 
-- ✨✨
 - **music-list.vue**
 - back btn
 - loading
