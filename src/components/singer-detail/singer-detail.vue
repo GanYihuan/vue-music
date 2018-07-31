@@ -34,7 +34,7 @@ export default {
 		bgImage() {
 			return this.singer.avatar
 		},
-    /* vuex/getters(get vuex state data) */
+    /* vuex/getters 获取 vuex/state data */
     /* singer: vuex/getters.js */
 		...mapGetters(['singer'])
 	},

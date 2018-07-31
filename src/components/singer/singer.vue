@@ -49,11 +49,12 @@ export default {
 			this.$refs.list.refresh()
 		},
 		selectSinger(singer) {
+      /* 路由跳转 */
 			this.$router.push({
 				path: `/singer/${singer.id}`
 			})
       /* this.setSinger: ...mapMutations */
-      /* mutation submit */ 
+      /* 保存数据到 vuex/state */
 			this.setSinger(singer)
 		},
 		_getSingerList() {

@@ -30,9 +30,9 @@
       @scroll="scroll"
     >
       <div class="song-list-wrapper">
-        <song-list 
-          :songs="songs" 
-          :rank="rank" 
+        <song-list
+          :songs="songs"
+          :rank="rank"
           @select="selectItem"
         >
         </song-list>

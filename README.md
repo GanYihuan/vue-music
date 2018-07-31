@@ -273,24 +273,20 @@ npm i vue-lazyload -S
 
 ## 6-1 歌手详情页布局和设计详解
 
-- ✨
-- **singer.vue**(构造数据结构) **singer-detail.vue**(数据满足某条件才添加) **music-list.vue**(歌手界面)
+- **singer.vue**(数据结构)
+- **singer-detail.vue**(数据验证)
+- **music-list.vue**(歌手界面)
 
 ## 6-2 子路由配置以及转场动画实现
 
-- ✨✨
-- **route.js**
-- **listView.vue**
-- **singer.vue**
-- **singer-detail.vue**
-- route config
-- animate css
+- **route.js** 二级路由配置
+- **singer.vue** 路由跳转
+- **singer-detail.vue** animate 配置
 
 ## 6-3 初识 Vuex
 
-- ✨✨
 - **static/vuex.png**
-- api introduce vuex
+- introduce vuex
 
 ```shell
 npm i vuex -S
@@ -298,15 +294,14 @@ npm i vuex -S
 
 ## 6-4 Vuex 初始化及歌手数据的配置
 
-- ✨✨✨✨
 - **store/vuex.js** vuex config
-- **store/state.js** data
-- **store/getters.js** 给外部用来取vuex里面的数据
-- **store/mutation-types**: 操作mutation里面的方法的操作名称
-- **store/mutations.js** modify data operation
-- **store/action.js** 封装mutation, 异步操作相关
-- **singer.vue** use vuex, save data into vuex
-- **singer-detail.vue** use vuex, get data from vuex
+- **store/state.js** 定义数据
+- **store/getters.js** 取 vuex/state 的数据
+- **store/mutation-types**: 操作 mutation 里面的方法的操作名称
+- **store/mutations.js** 操作数据
+- **store/action.js** 封装 mutation, 异步操作相关
+- **singer.vue** 保存数据到 vuex/state
+- **singer-detail.vue** 获取 vuex/state 数据
 
 ## 6-5 歌手详情数据抓取
 

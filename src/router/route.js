@@ -75,6 +75,7 @@ export default new Router({
     {
       path: '/rank',
       component: Rank,
+      /* 二级路由配置 */
       children: [
         {
           path: ':id',
