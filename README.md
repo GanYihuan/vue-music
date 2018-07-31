@@ -480,7 +480,6 @@ npm i lyric-parser
 
 ## 8-1 歌单详情页布局介绍及Vuex实现路由数据通讯
 
-- ✨✨
 - **route.js**
 - **recommend.vue)**
 - **recommend.js)**
@@ -490,40 +489,33 @@ npm i lyric-parser
 
 ## 8-2 歌单详情页数据抓取
 
-- ✨✨
 - **disc.vue**
 - **api/recommend.js**
 
 ## 8-3 歌单详情页数据的处理和应用
 
-- ✨✨
 - **disc.vue**
 
 ## 9-1 排行页面布局介绍及排行榜数据抓取
 
-- ✨✨
 - **rank.vue**
 
 ## 9-2 排行页排行榜数据应用
 
-- ✨✨✨
 - **rank.vue**
 - **loading.vue**
 
 ## 9-3 榜单详情页布局介绍及Vuex实现路由数据通讯
 
-- ✨✨✨
 - **top-list.vue**
 
 ## 9-4 榜单详情页数据抓取和应用
 
-- ✨✨✨
 - **top-list.vue**
 - **api/rank.js**
 
 ## 9-5 带排行的song-list组件扩展和应用
 
-- ✨✨✨
 - **top-list.vue**
 - **song-list.vue**
 
