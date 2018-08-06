@@ -3,10 +3,10 @@
 ## Vue-开发移动端音乐WebApp
 
 ## Build Setup
-                            
-``` bash
+
+```console
 # install dependencies
-cnpm install
+npm install
 
 # serve with hot reload at localhost:8080
 npm run dev
@@ -26,19 +26,19 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ## 2-2 Vue-cli脚手架安装
 
-```node
+```console
 npm i -g vue-cli
 vue init webpack imooc-music
 ```
 
-- 'RunTime-only': 更轻量
+- 'RunTime-only': Lighter
 - vue-router: y
 - ESLint: y
 - Standard
 - karma, e2e test: n
 - npm install
 
-```node
+```console
 npm run start
 ```
 
@@ -54,8 +54,8 @@ npm run start
 6. store: (Vuex data)
 7. main.js (entrance)
 
-```node
-npm i sass-loader node-sass stylus stylus-loader -D
+```console
+npm i sass-loader console-sass stylus stylus-loader -D
 ```
 
 - **eslintrc.js** 配置
@@ -77,7 +77,7 @@ resolve: {
 - babel-polyfill: es6 api 转义, mobile can use es6 api
 - fastclick: Click 300MS delay on the mobile end.
 
-```node
+```console
 npm i babel-polyfill babel-runtime fastclick vue-lazyload -S
 ```
 
@@ -102,7 +102,7 @@ npm i babel-polyfill babel-runtime fastclick vue-lazyload -S
 > 动态创建script标签(没有同源限制可以跨域), script的src指向服务端地址, 有一个callback, 后端解析这个url, 带callback=a这个参数, 返回数据里调用a包裹一个方法, 在前端执行a这个方法, window注册这个方法, 定义这个a方法获得数据
 - install jsonp
 
-```node
+```console
 npm i jsonp -S
 ```
 
@@ -712,7 +712,7 @@ npm install good-storage --save
 - ✨✨✨✨
 - **player.vue**
 
-## 13-2 编译打包-项目编译打包及node服务测试
+## 13-2 编译打包-项目编译打包及console服务测试
 
 - ✨✨✨✨
 - Compile the package, and the back-end call.
@@ -731,7 +731,7 @@ build(){port: 9000}
 - from dev.conf.js copy
 
 ```shell
-node prod.server.js
+console prod.server.js
 ```
 
 - chrome -> localhost:9000
