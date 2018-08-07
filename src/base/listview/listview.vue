@@ -188,13 +188,16 @@ export default {
 				this._calculateHeight()
 			}, 20)
     },
-    /* diff: Whether to trigger the animation of the title, The upper limit of the next title is the lower limit distance of the previous title */ 
+    /* diff: trigger the animation of the fix title */ 
 		diff(newVal) {
-      /* fixedTop: Title area, When the title animation is triggered, fixedTop is a change value */ 
+      /* newVal: diff */
       let fixedTop = newVal > 0 && newVal < FIXED_TITLE_HEIGHT 
           ? newVal - FIXED_TITLE_HEIGHT
           : 0
-      /* diff Real-time changing process, Real-time change process, When the title animation is not triggered, fixedTop is not changing */
+      /*
+      When the title animation is not triggered,
+      fixedTop is not changing 
+      */
 			if (this.fixedTop === fixedTop) {
 				return
 			}
@@ -229,9 +232,8 @@ export default {
 					this.currentIndex = i
 					/*
           newY is negative
-          diff: Whether to trigger the animation of the title, 
-          The upper limit of the next title is the lower limit distance of the previous title
-          diff = Upper limit of the next element(height2) - Rolling distance(newY)
+          diff: trigger the animation of the fix title, 
+          diff = next element Upper limit(height2) - rolling distance(newY)
           */
 					this.diff = newY + height2
 					return
