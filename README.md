@@ -268,14 +268,18 @@ npm i vuex -S
 
 ## 6-4 Vuex 初始化及歌手数据的配置
 
-- **store/vuex.js** vuex config
-- **store/state.js** 定义数据
-- **store/getters.js** 取 vuex/state 的数据
-- **store/mutation-types**: 操作 mutation 里面的方法的操作名称
-- **store/mutations.js** 操作数据
-- **store/action.js** 封装 mutation, 异步操作相关
-- **singer.vue** 保存数据到 vuex/state
-- **singer-detail.vue** 获取 vuex/state 数据
+- **store/vuex.js**(vuex config)
+- **store/state.js**(定义数据)
+- **store/getters.js**(取 vuex/state 数据)
+- **store/mutation-types**(mutation 里的方法的操作名称)
+- **store/mutations.js**(操作 vuex/state 数据)
+- **store/action.js**(封装 mutation 异步相关)
+- **singer.vue**(保存数据到 vuex/state)
+- **singer-detail.vue**(获取 vuex/state 数据)
+
+```console
+npm i vuex -S
+```
 
 ## 6-5 歌手详情数据抓取
 

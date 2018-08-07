@@ -34,7 +34,7 @@ export default {
 		bgImage() {
 			return this.singer.avatar
 		},
-		/* vuex/getters 获取 vuex/state data */
+		/* vuex/getters get vuex/state data */
 		/* singer: vuex/getters.js */
 		...mapGetters(['singer'])
 	},
@@ -55,11 +55,11 @@ export default {
 				}
 			})
 		},
-		/* 从数据里面抽取出一个对象 */
+		/* Extract an object from the data */
 		_normalizeSongs(list) {
 			let ret = []
 			list.forEach(item => {
-				/* musicData 是数据里面的一个对象, 这里解构赋值定义出来 */
+				/* musicData Is an object in the data, Destructor assignment is defined here */
 				let { musicData } = item
 				if (musicData.songid && musicData.albummid) {
 					ret.push(createSong(musicData))
