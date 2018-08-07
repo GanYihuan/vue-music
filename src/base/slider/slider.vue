@@ -8,7 +8,7 @@
         class="dot"
         v-for="(item, index) in dots"
         :key="index"
-        :class="{active: currentPageIndex === index }"
+        :class="{ active: currentPageIndex === index }"
       >
       </span>
     </div>
@@ -23,7 +23,7 @@ export default {
 	data() {
 		return {
       dots: [],
-      /* 当前第几页, 第一个 */
+      /* Current page, First */
 			currentPageIndex: 0
 		}
 	},
@@ -43,7 +43,7 @@ export default {
 	},
 	/* dom ready */
 	mounted() {
-		/* setTimeout: 20s, dom 会完全刷新, 因为浏览器17s刷新一次 */
+		/* setTimeout: 20s, dom will Refresh, Because the browser 17s refreshes once */
 		setTimeout(() => {
 			this._setSliderWidth()
 			this._initDots()
@@ -52,7 +52,7 @@ export default {
 				this._autoPlay()
 			} 
     }, 20)
-    /* 窗口改变事件 */ 
+    /* Window change event */ 
 		window.addEventListener('resize', () => {
 			if (!this.slider) {
 				return
@@ -68,7 +68,7 @@ export default {
       // console.log(this.children.length)
       /*
       dom: 5
-      better-scroll 复制两个子元素放在 carousel 头部和尾部, 用于循环
+      better-scroll Copy two child elements in carousel Head and tail, For looping
 			dom: 5+2=7
       */
       /*
@@ -85,7 +85,7 @@ export default {
 				child.style.width = sliderWidth + 'px'
 				width += sliderWidth
 			}
-			/* 长度加倍用于循环 (the carousel component), isResize 不执行 */
+			/* Double the length For looping (the carousel component), isResize mean not executed */
 			if (this.loop && !isResize) {
 				width += 2 * sliderWidth
 			}
@@ -96,39 +96,40 @@ export default {
 			this.dots = new Array(this.children.length)
 		},
 		_initSlider() {
-			/* better-scroll 复制两个子元素放在carousel头部和尾部, 用于循环 */
-			/* https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88 */
+			/* better-scroll Copy two child elements in carousel Head and tail, For looping */
+			/* <https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88> */
 			this.slider = new BScroll(this.$refs.slider, {
 				scrollX: true,
 				scrollY: false,
-        /* 当快速滑动时是否开启滑动惯性 */
-				momentum: false,
+        /* Whether to open the sliding inertia when sliding quickly */
+        momentum: false,
+        /* for slide component */
 				snap: true,
-        /* 是否可以无缝循环轮播 */
+        /* Is it possible to seamlessly cycle the carousel? */
 				snapLoop: this.loop,
-        /* 手指滑动时页面可切换的阈值, 大于这个阈值可以滑动到下一页 */
+        /* The threshold at which the page can be switched when the finger is swiped, You can switch the threshold of the page when you swipe your finger */
 				snapThreshold: 0.2,
-        /* 轮播图切换的动画时间 */
+        /* Animation time for carousel switching */
         snapSpeed: 400
-        /* better-scroll与fastclick冲突, 手机模式下点击轮播图不跳转 */ 
+        /* better-scroll and fastclick versus, Clicking on the carousel in mobile mode does not jump */ 
         // click: true 
 			})
-			/* better-scroll 派发 event */
+			/* better-scroll Distribute event */
 			this.slider.on('scrollEnd', () => {
 				/* pageIndex: 第几个子元素 */
 				let pageIndex = this.slider.getCurrentPage().pageX
 				if (this.loop) {
-          /* 默认向第一个元素添加一个copy, pageIndex-1=实际index */ 
+          /* Add one copy to the first element by default, pageIndex-1=实际index */ 
 					pageIndex -= 1
         }
         /*
-        跳转到下一页
-        第一页下标0, pageIndex开始为1, 赋值到currentPageIndex,
-        currentPageIndex=1, 第二页下标为1, 即跳转到第二页
+        Jump to the next page
+        First page subscript 0, pageIndex Start with 1, Assigned to currentPageIndex,
+        currentPageIndex=1, The second page is subscripted as 1 1, Jump to the second page
         */ 
 				this.currentPageIndex = pageIndex
 				if (this.autoPlay) {
-          /* 防止手动拖动产生问题 */ 
+          /* Carousel switch animation time */ 
 					clearTimeout(this.timer)
 					this._autoPlay()
 				}
@@ -137,7 +138,7 @@ export default {
 		_autoPlay() {
 			let pageIndex = this.currentPageIndex + 1
 			if (this.loop) {
-        /* this.currentPageIndex 从0开始, pageIndex对应到第几个元素比其多一个, 在最开始复制一个副本 */ 
+        /* this.currentPageIndex Starting from 0, pageIndex Corresponding to the first few elements one more than, Copy a copy at the very beginning */ 
 				pageIndex += 1
 			}
 			this.timer = setTimeout(() => {
@@ -151,7 +152,7 @@ export default {
 			}, this.interval)
 		}
 	},
-  /* 路由切走之后要清理计时器 */ 
+  /* Clear the timer after the route is cut */ 
 	destroyed() {
 		clearTimeout(this.timer)
 	}

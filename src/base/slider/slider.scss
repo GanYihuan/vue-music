@@ -9,15 +9,16 @@
     .slider-item {
       float: left;
       box-sizing: border-box;
-      overflow: hidden;
       text-align: center;
+      overflow: hidden;
 
       a {
         display: block;
         width: 100%;
-        overflow: hidden;
         text-decoration: none;
+        overflow: hidden;
       }
+      
       img {
         display: block;
         width: 100%;
@@ -42,8 +43,8 @@
       background: $color-text-l;
 
       &.active {
-        width: 20px;
         border-radius: 5px;
+        width: 20px;
         background: $color-text-ll;
       }
     }

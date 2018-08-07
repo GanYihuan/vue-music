@@ -113,14 +113,13 @@ npm i jsonp -S
 
 ## 4-4 轮播图组件实现（上)
 
-- ✨✨✨✨
 - **recommend.vue**
 - **slider.vue**
 - **common/js/dom.js**
-- 推荐界面: carousel component
+- Recommended interface: carousel component
 - better-scroll
 
-```shell
+```console
 npm i better-scroll@0.1.15 -S
 ```
 
@@ -148,13 +147,13 @@ npm i better-scroll@0.1.15 -S
 - ✨✨✨✨
 - axios, Start HTTPRequest, modify headers.
 
-```shell
+```console
 cnpm i axios -S
 ```
 
 - Modify host *(config/index.js)*
 
-```shell
+```console
 host: '0.0.0.0',
 ```
 
@@ -185,7 +184,7 @@ host: '0.0.0.0',
 - class="needsclick" : fastclick 不要拦截点击过程
 - image laz-load: reload depend on scroll
 
-```shell
+```console
 npm i vue-lazyload -S
 ```
 
@@ -228,7 +227,7 @@ npm i vue-lazyload -S
 - **common/dom.js**
 - get element index **common/dom.js**
 
-```shell
+```console
 <li
   class="item"
   v-for="(item, index) in shortcutList"
@@ -286,7 +285,7 @@ npm i vue-lazyload -S
 - **static/vuex.png**
 - introduce vuex
 
-```shell
+```console
 npm i vuex -S
 ```
 
@@ -375,7 +374,7 @@ npm i vuex -S
 - **player.vue**
 - 使用js创建css动画
 
-```shell
+```console
 npm i create-keyframe-animation -S
 ```
 
@@ -450,7 +449,7 @@ npm i create-keyframe-animation -S
 - Base64 decoding and encoding
 - The lyric parsing, performs the callback function every time it is executed.
 
-```shell
+```console
 npm i js-base64 -S
 npm i lyric-parser
 ```
@@ -570,7 +569,7 @@ npm i lyric-parser
 - **common/js/cache.js**
 - **store/actions.js**
 
-```shell
+```console
 npm install good-storage --save
 ```
 
@@ -715,7 +714,7 @@ npm install good-storage --save
 - ✨✨✨✨
 - Compile the package, and the back-end call.
 
-```shell
+```console
 npm run build
 ```
 
@@ -728,7 +727,7 @@ build(){port: 9000}
 - **prod.server.js**
 - from dev.conf.js copy
 
-```shell
+```console
 console prod.server.js
 ```
 
@@ -757,7 +756,7 @@ console prod.server.js
 - Mobile terminal debugging, the interface has a green button vConsole.
 - <https://github.com/Tencent/vConsole>
 
-```shell
+```console
 cnpm install vconsole
 ```
 
@@ -765,7 +764,7 @@ cnpm install vconsole
 > There is a default 8888 port.
 - computer IP
 
-```shell
+```console
 ifconfig
 ```
 

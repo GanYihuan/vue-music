@@ -15,7 +15,6 @@
           v-if="recommends.length"
         >
           <slider>
-            <!-- https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg -->
             <div v-for="item in recommends" :key="item.id">
               <a :href="item.linkUrl">
                 <!-- class="needsclick" fastclick Don't block the click process -->
@@ -111,8 +110,7 @@ export default {
 		},
 		_getRecommend() {
 			getRecommend().then(res => {
-				/* static/jsonp1.png */
-				/* res.data.slider: <https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg> */
+				/* res: [推荐界面数据](https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg) */
 				if (res.code === ERR_OK) {
 					this.recommends = res.data.slider
 				}
