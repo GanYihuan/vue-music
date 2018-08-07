@@ -42,6 +42,11 @@ export default {
 		this._getSingerList()
 	},
 	methods: {
+    	/* call vuex/mutations */
+		...mapMutations({
+      /* SET_SINGER: vuex/mutation-type */ 
+			setSinger: 'SET_SINGER'
+		}),
 		/* if mini player, the singerlist bottom add height */
 		handlePlaylist(playlist) {
 			const bottom = playlist.length > 0 ? '60px' : ''
@@ -60,13 +65,13 @@ export default {
 		_getSingerList() {
 			getSingerList().then(res => {
 				if (res.code === ERR_OK) {
-          /* https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0 */ 
+          /* [歌手数据](https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0) */ 
 					this.singers = this._normalizeSinger(res.data.list)
           // console.log(this._normalizeSinger(res.data.list))
         }
 			})
     },
-    /* handle data */ 
+    /* handle data */
 		_normalizeSinger(list) {
 			/* data structure */
 			let map = {
@@ -86,8 +91,6 @@ export default {
 					)
 				}
         /* after 10 data */
-        /* https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0 */ 
-        /* item.Findex: 'A', 'B'... */ 
 				const key = item.Findex
 				/* data structure */
 				if (!map[key]) {
@@ -103,7 +106,7 @@ export default {
 					})
 				)
 			})
-			/* handle map get order list */
+			/* handle map become order list */
 			let ret = []
 			let hot = []
 			for (let key in map) {
@@ -119,12 +122,7 @@ export default {
 				return a.title.charCodeAt(0) - b.title.charCodeAt(0)
 			})
 			return hot.concat(ret)
-		},
-		/* call vuex/mutations */
-		...mapMutations({
-      /* SET_SINGER: vuex/mutation-type */ 
-			setSinger: 'SET_SINGER'
-		})
+		}
 	}
 }
 </script>
