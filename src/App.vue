@@ -3,11 +3,11 @@
     <m-header></m-header>
     <tab></tab>
     <!--
-    keep-alive: 在加载路由后缓存内容,
-    并且缓存在加载时被读取，以防止连续加载.
+    keep-alive: Cache content after loading a route,
+    And the cache is read at load time to prevent continuous loading
     -->
     <!-- <keep-alive exclude="Detail"> -->
-    <!-- name = Detail 组件不做缓存处理. -->
+    <!-- name=Detail Components are not cached. -->
     <keep-alive>
       <!-- router render here -->
       <router-view></router-view>
@@ -22,7 +22,7 @@ import Tab from 'components/tab/tab'
 import Player from 'components/player/player'
 
 export default {
-  name: 'App',
+	name: 'App',
 	components: {
 		MHeader,
 		Tab,

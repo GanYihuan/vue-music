@@ -44,9 +44,9 @@ npm run start
 
 ## 2-3 项目目录介绍及图标字体、公共样式等资源准备
 
-- ESLint webpack 文件的改变都要重新 npm run start
-- 目录介绍
-1. api: (back-end request, jsonp request, ajax request.)
+- ESLint webpack File changes must be renewed npm run start
+- Directory introduction
+1. api: (back-end request, jsonp request, ajax request)
 2. common: (Shared static resources: img, common js, style)
 3. components: (Common component)
 4. base: (Share component)
@@ -58,8 +58,8 @@ npm run start
 npm i sass-loader console-sass stylus stylus-loader -D
 ```
 
-- **eslintrc.js** 配置
-- **webpack.base.conf.js** 别名配置, 下面代码路径 common 对应 src/common
+- **eslintrc.js** Configuration
+- **webpack.base.conf.js** Alias ​​configuration, 'common' correspond 'src/common'
 > import 'common/scss/index.scss'
 
 ```js
