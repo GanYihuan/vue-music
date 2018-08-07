@@ -19,7 +19,7 @@ import { createSong } from 'common/js/song'
 import MusicList from 'components/music-list/music-list'
 
 export default {
-  components: {
+	components: {
 		MusicList
 	},
 	data() {
@@ -34,8 +34,8 @@ export default {
 		bgImage() {
 			return this.singer.avatar
 		},
-    /* vuex/getters 获取 vuex/state data */
-    /* singer: vuex/getters.js */
+		/* vuex/getters 获取 vuex/state data */
+		/* singer: vuex/getters.js */
 		...mapGetters(['singer'])
 	},
 	/* created data not monitor, data, props will monitor */
@@ -54,12 +54,12 @@ export default {
 					// console.log(this.songs)
 				}
 			})
-    },
-    /* 从数据里面抽取出一个对象 */
+		},
+		/* 从数据里面抽取出一个对象 */
 		_normalizeSongs(list) {
 			let ret = []
 			list.forEach(item => {
-        /* musicData 是数据里面的一个对象, 这里解构赋值定义出来 */
+				/* musicData 是数据里面的一个对象, 这里解构赋值定义出来 */
 				let { musicData } = item
 				if (musicData.songid && musicData.albummid) {
 					ret.push(createSong(musicData))

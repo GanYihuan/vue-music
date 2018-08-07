@@ -245,15 +245,17 @@ npm i vue-lazyload -S
 
 ## 6-1 歌手详情页布局和设计详解
 
-- **singer.vue**(数据结构)
-- **singer-detail.vue**(数据验证)
-- **music-list.vue**(歌手界面)
+- **singer.vue**(路由跳转起点)
+- **singer-detail.vue**(歌手详情界面数据处理)
+- **music-list.vue**(歌手详情界面)
 
 ## 6-2 子路由配置以及转场动画实现
 
-- **route.js** 二级路由配置
-- **singer.vue** 路由跳转
-- **singer-detail.vue** animate 配置
+- **route.js**(二级路由配置)
+- **singer.vue**(路由跳转起点)
+- **singer-detail.vue**(歌手详情界面数据处理)
+- **music-list.vue**(歌手详情界面)
+- animate
 
 ## 6-3 初识 Vuex
 
