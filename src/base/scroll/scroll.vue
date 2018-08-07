@@ -10,7 +10,7 @@ import BScroll from 'better-scroll'
 export default {
 	props: {
     /*
-    [official document](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
+    [better-scroll 官方文档](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
 		probeType: 1，会非实时（屏幕滑动超过一定时间后）派发scroll 事件
 		probeType: 2，会在屏幕滑动的过程中实时的派发 scroll 事件
 		probeType: 3，不仅在屏幕滑动的过程中，而且在 momentum 滚动动画运行过程中实时派发 scroll 事件
@@ -34,12 +34,12 @@ export default {
 			type: Boolean,
 			default: false
     },
-    /* 数据是异步获取的, 数据变化要重新计算scroll */ 
+    /* Data is obtained async, Data changes to recalculate the scroll */ 
 		data: {
 			type: Array,
 			default: null
 		},
-		/* 下拉刷新 */
+		/* Pull down to refresh */
 		pullup: {
 			type: Boolean,
 			default: false
@@ -64,7 +64,7 @@ export default {
 	},
 	methods: {
 		_initScroll() {
-      /* 没有值的时候 */ 
+      /* When there is no value */
 			if (!this.$refs.wrapper) {
 				return
 			}
@@ -105,8 +105,8 @@ export default {
 			this.scroll && this.scroll.refresh()
 		},
 		scrollTo() {
-      /* apply: 调用具有给定此值的函数，并将参数作为数组提供 */ 
-			/* apply: scrollTo 接收参数, apply 传递参数到 scroll.scrollTo 中 */
+      /* apply: Call a function with this value given And provide parameters as an array */ 
+			/* apply: scrollTo Receiving parameter, apply Pass the parameters to scroll.scrollTo */
 			this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
 		},
 		scrollToElement() {

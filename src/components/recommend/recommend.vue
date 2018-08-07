@@ -1,14 +1,14 @@
 <template>
   <!-- static/01-推荐界面 -->
   <div class="recommend" ref="recommend">
-    <!-- :data="discList": Prevent asynchronous loading from causing rendering timing errors, Make sure the data has arrived -->
+    <!-- :data="discList": Prevent async loading from causing rendering timing errors, Make sure the data has arrived -->
     <scroll
       class="recommend-content"
       ref="scroll"
       :data="discList"
     >
       <div>
-        <!-- v-if="recommends.length": Prevent asynchronous loading from causing rendering timing errors, Make sure the data has arrived -->
+        <!-- v-if="recommends.length": Prevent async loading from causing rendering timing errors, Make sure the data has arrived -->
         <div
           class="slider-wrapper"
           ref="sliderWrapper"
@@ -18,7 +18,7 @@
             <div v-for="item in recommends" :key="item.id">
               <a :href="item.linkUrl">
                 <!-- class="needsclick" fastclick Don't block the click process -->
-                <!-- @load="loadImage" Rendering after the carousel is used to cause a height calculation error, Solution -->
+                <!-- @load="loadImage" carousel render too late cause height wrong -->
                 <img class="needsclick" :src="item.picUrl" @load="loadImage"/>
               </a>
             </div>
@@ -95,9 +95,11 @@ export default {
 			this.$refs.scroll.refresh()
 		},
 		loadImage() {
-			/* call once, carousel render late caouse height wrong, fix it */
+			/* carousel render too late cause height wrong */
 			if (!this.checkloaded) {
-				this.checkloaded = true
+        /* invoked once */
+        this.checkloaded = true
+        /* better-scroll: refresh() */
 				this.$refs.scroll.refresh()
 			}
 		},

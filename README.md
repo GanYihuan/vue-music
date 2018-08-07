@@ -154,14 +154,12 @@ host: '0.0.0.0',
 
 ## 4-10 scroll 组件的抽象和应用（上）
 
-- ✨✨✨
 - **scroll.vue**
-- [official document](https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88)
 
 ## 4-11 scroll 组件的抽象和应用（下）
 
-- ✨✨✨
 - **recommend.vue**
+- carousel render too late cause height wrong
 
 ## 4-12 vue-lazyload 懒加载插件介绍和应用
 
