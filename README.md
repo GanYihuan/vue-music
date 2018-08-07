@@ -202,10 +202,9 @@ npm i vue-lazyload -S
 
 - **listView.vue**
 - **scroll.vue**
-- **common/dom.js**
-- get element index **common/dom.js**
+- **common/dom.js** (get element index)
 
-```console
+```html
 <li
   class="item"
   v-for="(item, index) in shortcutList"
