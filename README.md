@@ -123,19 +123,12 @@ npm i jsonp -S
 npm i better-scroll@0.1.15 -S
 ```
 
-## 4-5 轮播图组件实现（中)
+## 4-5, 4-6 轮播图组件实现
 
-- ✨✨✨✨
-- **slider.vue**
-
-## 4-6 轮播图组件实现（下)
-
-- ✨✨
 - **slider.vue**
 
 ## 4-7 歌单数据接口分析
 
-- ✨✨
 - **App.vue**
 - **recommend.js**
 - **recommend.vue**

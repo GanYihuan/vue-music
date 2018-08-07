@@ -23,7 +23,7 @@ export default {
 	data() {
 		return {
       dots: [],
-      /* Current page, First */
+      /* current page */
 			currentPageIndex: 0
 		}
 	},
@@ -68,7 +68,7 @@ export default {
       // console.log(this.children.length)
       /*
       dom: 5
-      better-scroll Copy two child elements in carousel Head and tail, For looping
+      better-scroll copy two child elements in carousel Head and tail, For looping
 			dom: 5+2=7
       */
       /*
@@ -119,22 +119,17 @@ export default {
 				/* pageIndex: 第几个子元素 */
 				let pageIndex = this.slider.getCurrentPage().pageX
 				if (this.loop) {
-          /* Add one copy to the first element by default, pageIndex-1=实际index */ 
+          /* Add one copy to the first element by default, pageIndex-1= current index */ 
 					pageIndex -= 1
         }
-        /*
-        Jump to the next page
-        First page subscript 0, pageIndex Start with 1, Assigned to currentPageIndex,
-        currentPageIndex=1, The second page is subscripted as 1 1, Jump to the second page
-        */ 
 				this.currentPageIndex = pageIndex
 				if (this.autoPlay) {
-          /* Carousel switch animation time */ 
 					clearTimeout(this.timer)
 					this._autoPlay()
 				}
 			})
-		},
+    },
+    /* jump to next page */
 		_autoPlay() {
 			let pageIndex = this.currentPageIndex + 1
 			if (this.loop) {
