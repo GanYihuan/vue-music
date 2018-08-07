@@ -193,7 +193,7 @@ npm i vue-lazyload -S
 - **singer.js** (request data)
 - **singer.vue** (Processing singer data)
 
-## 5-4 listview 基础组件的开发和应用-滚动列表实现
+## 5-4 基础组件的开发和应用-滚动列表实现
 
 - **singer.vue** (Processing singer data)
 - **listView.vue** (singer list)
