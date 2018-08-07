@@ -163,10 +163,9 @@ host: '0.0.0.0',
 
 ## 4-12 vue-lazyload 懒加载插件介绍和应用
 
-- ✨✨
 - **recommend.vue**
 - **main.js**
-- class="needsclick" : fastclick 不要拦截点击过程
+- class="needsclick": fastclick 不要拦截点击过程
 - image laz-load: reload depend on scroll
 
 ```console
@@ -175,7 +174,6 @@ npm i vue-lazyload -S
 
 ## 4-13 loading 基础组件的开发和应用
 
-- ✨✨
 - **loading.vue**
 - **recommend.vue**
 
