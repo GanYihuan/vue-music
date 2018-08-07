@@ -59,7 +59,7 @@ export default {
 				path: `/singer/${singer.id}`
 			})
       /* this.setSinger: ...mapMutations */
-      /* 保存数据到 vuex/state */
+      /* Save data to vuex/state */
 			this.setSinger(singer)
 		},
 		_getSingerList() {

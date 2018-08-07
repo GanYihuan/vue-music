@@ -200,7 +200,6 @@ npm i vue-lazyload -S
 
 ## 5-5 listview 基础组件的开发和应用-右侧快速入口实现（1）
 
-- ✨✨✨✨
 - **listView.vue**
 - **scroll.vue**
 - **common/dom.js**

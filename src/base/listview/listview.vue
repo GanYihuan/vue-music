@@ -1,6 +1,6 @@
 <template>
   <!-- static/02-歌手界面.png -->
-  <!-- :data="data" 数据是异步获取的, 数据变化要重新计算scroll -->
+  <!-- :data="data" Data is obtained asynchronously, Data changes to recalculate the scroll -->
   <scroll 
     class="listview"
     ref="listview"
@@ -80,7 +80,7 @@ export default {
 			default: null
 		}
 	},
-	/* data and props 数据需被监听 */
+	/* data and props Data needs to be monitored */
 	data() {
 		return {
 			/* 实时滚动位置 */
@@ -92,19 +92,19 @@ export default {
 		}
 	},
 	computed: {
-    /* 右侧列表'A','B'... */
+    /* Right list 'A','B'... */
 		shortcutList() {
 			return this.data.map(group => {
-				/* '热门' 只取一个字 '热' */
+				/* '热门' Take only one word '热' */
 				return group.title.substr(0, 1)
 			})
 		},
 		fixedTitle() {
-      /* 不显示两个'热门'title */ 
+      /* Do not display two '热门' title */ 
 			if (this.scrollY > 0) {
 				return ''
 			}
-			/* 确保 !== undefined */
+			/* make sure !== undefined */
 			return this.data[this.currentIndex]
 				? this.data[this.currentIndex].title
 				: ''
@@ -121,27 +121,27 @@ export default {
 			this.$emit('select', item)
 		},
 		onShortCutTouchStart(e) {
-			/* getData (common/js/dom.js) */
+			/* getData **dom.js** */
 			/* <li class="item" :data-index></li> */
-			/* getData(el, name, val) */
+			/* getData(el, name, val) return el.getAttribute('data' + name) */
 			let anchorIndex = getData(e.target, 'index')
-			/* e.touches[0]: 手指点击位置 */
+			/* e.touches[0]: Finger click position */
 			let firstTouch = e.touches[0]
-			/* 垂直方向点击位置 */
+			/* vertical click position */
 			this.touch.y1 = firstTouch.pageY
-			/* 手指第一次点击位于的字母下标 */
+			/* the first time the finger clicks on the letter subscript */
 			this.touch.anchorIndex = anchorIndex
 			this._scrollTo(anchorIndex)
 		},
 		onShortCutTouchMove(e) {
-			/* e.touches[0]: 手指点击位置 */
+			/* e.touches[0]: Finger click position */
 			let firstTouch = e.touches[0]
-			/* 垂直方向点击位置 */
+			/* Vertical click position */
 			this.touch.y2 = firstTouch.pageY
 			/* | 0: Math.floor */
-			/* delta: 手指滑动后偏移了几个‘字母’位置 */
+			/* delta: Shifted a few 'letter' positions after the finger swiped */
 			let delta = ((this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT) | 0
-			/* 手指滑动后, 停在的位置上的字母下标 */
+			/* After sliding your finger, letter subscript on the stopped position */
 			let anchorIndex = parseInt(this.touch.anchorIndex) + delta
 			this._scrollTo(anchorIndex)
 		},
@@ -149,31 +149,31 @@ export default {
 			this.$refs.listview.refresh()
 		},
 		scroll(pos) {
-			/* pos.y: 实时滚动位置 */
+			/* pos.y: Real-time scroll position */
 			this.scrollY = pos.y
 		},
 		_scrollTo(index) {
-      /* 点击字母列上下空白部分 */ 
+      /* Click on the upper and lower blanks of the letter column */ 
 			/* !index: index === null */
 			if (!index && index !== 0) {
 				return
 			}
-			/* 处理边界情况 */
+			/* Handling boundary conditions */
 			if (index < 0) {
 				index = 0
 			} else if (index > this.listHeight.length - 2) {
 				index = this.listHeight.length - 2
       }
-      /* 点击的时候字母高亮不变化解决方法 */
+      /* When the click is highlighted, the letter does not change. */
 			/* -this.listHeight[index]: 上限的位置 */
 			this.scrollY = -this.listHeight[index]
-			/* scroll.vue: 第一个参数: 滚动到相应的元素, 第二个参数: 动画时间 */
+			/* scroll.vue: First parameter: Scroll to the corresponding element, Second parameter: 动画时间 */
 			this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
 		},
 		_calculateHeight() {
 			let height = 0
 			let listGroup = this.$refs.listGroup
-			/* listHeight比listGroup多一个元素, 因为添加了上下限, 每个group的高度的一个数组 */
+			/* listHeight比listGroup One more element, Because the upper and lower limits have been added, Each group height array */
 			this.listHeight = []
 			this.listHeight.push(height)
 			for (let i = 0; i < listGroup.length; i++) {
@@ -184,54 +184,54 @@ export default {
 		}
 	},
 	watch: {
-		/* 20ms, 17ms, dom渲染完成 */
+		/* 20ms, 17ms, dom Rendering completed */
 		data() {
 			setTimeout(() => {
 				this._calculateHeight()
 			}, 20)
     },
-    /* diff: 用来是否触发title的动画效果, 下一个title的上限距离上一个title的下限距离 */ 
+    /* diff: Whether to trigger the animation of the title, The upper limit of the next title is the lower limit distance of the previous title */ 
 		diff(newVal) {
-      /* fixedTop: title的区域, 当触发title动画时, fixedTop是个变化值 */ 
+      /* fixedTop: Title area, When the title animation is triggered, fixedTop is a change value */ 
 			let fixedTop =
 				newVal > 0 && newVal < FIXED_TITLE_HEIGHT
 					? newVal - FIXED_TITLE_HEIGHT
           : 0
-      /* diff 实时变化的过程, 为了减少dom操作, 不触发title动画时, fixedTop是不变化的 */
+      /* diff Real-time changing process, Real-time change process, When the title animation is not triggered, fixedTop is not changing */
 			if (this.fixedTop === fixedTop) {
 				return
 			}
 			this.fixedTop = fixedTop
-			/* 开启 GPU 加速 */
+			/* Turn on GPU acceleration */
 			this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`
     },
-    /* 实时滚动位置 */
+    /* Real-time scroll position */
 		scrollY(newY) {
-      /* 保留group的高度的 */ 
+      /* Keep the height of the group */ 
 			let listHeight = this.listHeight
-			/* 当滚动到顶部 newY > 0 */
+			/* When scrolling to the top newY > 0 */
 			if (newY > 0) {
 				this.currentIndex = 0
 				return
 			}
       /*
-      判断newY滚动落入哪个group区间
-      当滚动到中间部分,
-      listHeight比listGroup多一个元素
-      listHeight.length - 1: 第一个元素的上限是第二个元素的下限, 遍历到最后一个-1, 保证height2存在, 不超过height2
+      Determine which group interval the newY scrolls into
+      When scrolling to the middle section,
+      listHeight比listGroup One more element
+      listHeight.length - 1: The upper limit of the first element is the lower limit of the second element, Traversing to the last one -1, Ensure that height2 exists, No more than height2
       */
 			for (let i = 0; i < listHeight.length - 1; i++) {
-				/* 下限 */
+				/* Lower limit */
 				let height1 = listHeight[i]
-				/* 上限 */
+				/* Upper limit */
 				let height2 = listHeight[i + 1]
-				/* -newY: 滚动发生时, newY 是负值, 添加 “-” 保证其是正值 */
+				/* -newY: When scrolling occurs, newY Is negative, Add to “-” Ensure that it is positive */
 				if (-newY >= height1 && -newY < height2) {
 					this.currentIndex = i
 					/*
-          newY 是负值
-          diff: 用来是否触发title的动画效果, 下一个title的上限距离上一个title的下限距离
-          diff = 下一个元素的上限(height2) - 滚动的距离(newY)
+          newY Is negative
+          diff: Whether to trigger the animation of the title, The upper limit of the next title is the lower limit distance of the previous title
+          diff = Upper limit of the next element(height2) - Rolling distance(newY)
           */
 					this.diff = newY + height2
 					return
@@ -239,9 +239,9 @@ export default {
 				this.currentIndex = 0
 			}
       /* 
-      当滚动到底部, -newY大于最后一个元素的上限
-      listHeight.length-2: listHeight比listGroup多一个元素
-      currentIndex第一个元素下标从0开始
+      When scrolling to the bottom, -newY is greater than the upper limit of the last element
+      listHeight.length-2: listHeight比listGroup One more element
+      currentIndex The first element subscript starts from 0
       */
 			this.currentIndex = listHeight.length - 2
 		}
