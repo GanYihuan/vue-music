@@ -1,14 +1,14 @@
 <template>
   <!-- static/01-推荐界面 -->
   <div class="recommend" ref="recommend">
-    <!-- :data="discList": 防止异步加载导致渲染时机错误, 确保数据已经到来 -->
+    <!-- :data="discList": Prevent asynchronous loading from causing rendering timing errors, Make sure the data has arrived -->
     <scroll
       class="recommend-content"
       ref="scroll"
       :data="discList"
     >
       <div>
-        <!-- v-if="recommends.length": 防止异步加载导致渲染时机错误, 确保数据已经到来 -->
+        <!-- v-if="recommends.length": Prevent asynchronous loading from causing rendering timing errors, Make sure the data has arrived -->
         <div
           class="slider-wrapper"
           ref="sliderWrapper"
@@ -18,8 +18,8 @@
             <!-- https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg -->
             <div v-for="item in recommends" :key="item.id">
               <a :href="item.linkUrl">
-                <!-- class="needsclick" fastclick 不要拦截点击过程 -->
-                <!-- @load="loadImage" 轮播图后渲染出来导致高度计算错误的问题, 解决方法 -->
+                <!-- class="needsclick" fastclick Don't block the click process -->
+                <!-- @load="loadImage" Rendering after the carousel is used to cause a height calculation error, Solution -->
                 <img class="needsclick" :src="item.picUrl" @load="loadImage"/>
               </a>
             </div>
@@ -80,9 +80,9 @@ export default {
 	},
   /* get back-end data, data not monitor */
 	created() {
-		/* get back-end data (轮播图数据) async */
+		/* get back-end data (Carousel data) async */
 		this._getRecommend()
-		/* get back-end data (歌单数据) async */
+		/* get back-end data (Song list data) async */
 		this._getDiscList()
 	},
 	methods: {

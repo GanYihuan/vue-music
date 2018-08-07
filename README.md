@@ -105,9 +105,8 @@ npm i babel-polyfill babel-runtime fastclick vue-lazyload -S
 npm i jsonp -S
 ```
 
-## 4-3 jsonp的应用+轮播图数据抓取
+## 4-3 jsonp的应用 + 轮播图数据抓取
 
-- ✨✨✨
 - **api/config**
 - **api/recommend.js**
 - **recommend.vue**

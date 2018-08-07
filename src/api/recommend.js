@@ -10,7 +10,7 @@ import axios from 'axios'
 export function getRecommend() {
   /* static/jsonp1.png: open in chrome, copy url(copy '?' before) */
   const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
-  /* Object.assign: 将所有可枚举属性的值从一个或多个源对象复制到目标对象 */
+  /* Object.assign: copy the values of all enumerable own properties from one or more source objects to a target object. It will return the target object */
   /* It will return the target object. */
   const data = Object.assign({}, commonParams, {
     platform: 'h5',
