@@ -7,7 +7,7 @@
     And the cache is read at load time to prevent continuous loading
     -->
     <!-- <keep-alive exclude="Detail"> -->
-    <!-- name=Detail Components are not cached. -->
+    <!-- name=Detail Components are not cached -->
     <keep-alive>
       <!-- router render here -->
       <router-view></router-view>
@@ -30,8 +30,3 @@ export default {
 	}
 }
 </script>
-
-<style scoped lang="scss" rel="stylesheet/scss">
-/* scoped: is a Boolean property */
-/* Styles apply to the parent element of a style element and its child elements */
-</style>

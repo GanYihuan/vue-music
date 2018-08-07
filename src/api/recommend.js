@@ -26,7 +26,7 @@ export function getRecommend() {
  * @returns {Promise.<TResult>|*}
  */
 export function getDiscList() {
-  /* 请求back-end地址, the back-end address sends an HTTP request to qq music to obtain the data. */
+  /* request back-end address, the back-end address sends an HTTP request to qq music to obtain the data. */
   const url = '/api/getDiscList'
   const data = Object.assign({}, commonParams, {
     platform: 'yqq',
@@ -42,8 +42,8 @@ export function getDiscList() {
 
   return axios
     .get(url, {
-      /* api/recommend.js/getDiscList 调用 back-end 接口 */
-      /* build/webpack.dev.conf.js app.get('/api/getDiscList', (req, res) => { */
+      /* api/recommend.js/getDiscList invoked back-end interface */
+      /* webpack.dev.conf.js app.get('/api/getDiscList', (req, res) => {}) */
       params: data
     })
     .then((res) => {

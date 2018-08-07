@@ -45,7 +45,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
               referer: 'https://c.y.qq.com/',
               host: 'c.y.qq.com'
             },
-            // parameter, (recommend.js -> getDiscList -> data) pass to url address
+            // params, (recommend.js/getDiscList) pass to url address
             params: req.query
           })
           .then((response) => {

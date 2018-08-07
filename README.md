@@ -137,16 +137,16 @@ npm i better-scroll@0.1.15 -S
 
 ## 4-8 axios 介绍和后端接口代理
 
-- ✨✨✨✨
+- **webpack.dev.conf.js**
 - axios, Start HTTPRequest, modify headers.
 
 ```console
-cnpm i axios -S
+npm i axios -S
 ```
 
-- Modify host *(config/index.js)*
+- Modify host **config/index.js**
 
-```console
+```js
 host: '0.0.0.0',
 ```
 
