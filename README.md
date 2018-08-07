@@ -138,7 +138,7 @@ npm i better-scroll@0.1.15 -S
 ## 4-8 axios 介绍和后端接口代理
 
 - **webpack.dev.conf.js**
-- axios, Start HTTPRequest, modify headers.
+- **recommend.js**
 
 ```console
 npm i axios -S
@@ -149,9 +149,6 @@ npm i axios -S
 ```js
 host: '0.0.0.0',
 ```
-
-- _/build/webpack.dev.conf.js_ back-end interface is defined asynchronously.
-- **recommend.vue** 'api/getDiscList' Call the back-end interface.
 
 ## 4-9 歌单列表组件开发和数据的应用
 
