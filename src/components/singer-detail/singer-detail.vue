@@ -59,7 +59,7 @@ export default {
 		_normalizeSongs(list) {
 			let ret = []
 			list.forEach(item => {
-				/* musicData Is an object in the data, Destructor assignment is defined here */
+				/* musicData Is an object in the data, Destructor definition */
 				let { musicData } = item
 				if (musicData.songid && musicData.albummid) {
 					ret.push(createSong(musicData))

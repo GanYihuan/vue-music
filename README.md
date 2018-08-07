@@ -132,8 +132,8 @@ npm i better-scroll@0.1.15 -S
 - **App.vue**
 - **recommend.js**
 - **recommend.vue**
-- 获取歌曲单数据接口
-- Status:500 服务器错误，主机问题。绕过界面约束
+- Get song single data interface
+- Status:500 server error
 
 ## 4-8 axios 介绍和后端接口代理
 
@@ -165,7 +165,7 @@ host: '0.0.0.0',
 
 - **recommend.vue**
 - **main.js**
-- class="needsclick": fastclick 不要拦截点击过程
+- class="needsclick": fastclick Don't block the click process
 - image laz-load: reload depend on scroll
 
 ```console
@@ -179,7 +179,7 @@ npm i vue-lazyload -S
 
 ## 5-1 歌手页面布局和设计讲解
 
-- **singer.vue**(处理数据)
+- **singer.vue**(handle data)
 - **listview.vue**(歌手界面)
 
 ## 5-2 歌手数据接口抓取
@@ -195,7 +195,7 @@ npm i vue-lazyload -S
 
 ## 5-4 基础组件的开发和应用-滚动列表实现
 
-- **singer.vue** (Processing singer data)
+- **singer.vue** (handle singer data)
 - **listView.vue** (singer list)
 
 ## 5-5 listview 基础组件的开发和应用-右侧快速入口实现（1）
@@ -245,15 +245,15 @@ npm i vue-lazyload -S
 
 ## 6-1 歌手详情页布局和设计详解
 
-- **singer.vue**(路由跳转起点)
-- **singer-detail.vue**(歌手详情界面数据处理)
+- **singer.vue**(Route jump starting point)
+- **singer-detail.vue**(歌手详情界面 handle data)
 - **music-list.vue**(歌手详情界面)
 
 ## 6-2 子路由配置以及转场动画实现
 
-- **route.js**(二级路由配置)
-- **singer.vue**(路由跳转起点)
-- **singer-detail.vue**(歌手详情界面数据处理)
+- **route.js**(Secondary routing configuration)
+- **singer.vue**(Route jump starting point)
+- **singer-detail.vue**(歌手详情界面 handle data)
 - **music-list.vue**(歌手详情界面)
 - animate
 
@@ -269,13 +269,13 @@ npm i vuex -S
 ## 6-4 Vuex 初始化及歌手数据的配置
 
 - **store/vuex.js**(vuex config)
-- **store/state.js**(定义数据)
-- **store/getters.js**(取 vuex/state 数据)
-- **store/mutation-types**(mutation 里的方法的操作名称)
-- **store/mutations.js**(操作 vuex/state 数据)
-- **store/action.js**(封装 mutation 异步相关)
-- **singer.vue**(保存数据到 vuex/state)
-- **singer-detail.vue**(获取 vuex/state 数据)
+- **store/state.js**(Defining data)
+- **store/getters.js**(get vuex/state data)
+- **store/mutation-types**(mutation operate name)
+- **store/mutations.js**(handle vuex/state data)
+- **store/action.js**(package mutation, async)
+- **singer.vue**(save data to vuex/state)
+- **singer-detail.vue**(get vuex/state data)
 
 ```console
 npm i vuex -S
@@ -283,13 +283,13 @@ npm i vuex -S
 
 ## 6-5 歌手详情数据抓取
 
-- **api/singer.js** (jsonp 抓取数据)
-- **singer-detail.vue** (获得抓取数据)
+- **api/singer.js** (jsonp get data)
+- **singer-detail.vue** (get data)
 
 ## 6-6, 6-7 歌手详情数据处理和Song类的封装
 
-- **common/js/song.js** (Song 类的封装)
-- **singer-detail.vue** (从数据里面抽取出一个对象)
+- **common/js/song.js** (Song Class package)
+- **singer-detail.vue** (Extract an object from the data)
 
 ## 6-8 music-list 组件开发（1）
 
