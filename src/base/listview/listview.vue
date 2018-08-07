@@ -153,19 +153,17 @@ export default {
 			this.scrollY = pos.y
 		},
 		_scrollTo(index) {
-      /* Click on the upper and lower blanks of the letter column */ 
+      /* click on the upper and lower blank of the letter */ 
 			/* !index: index === null */
 			if (!index && index !== 0) {
 				return
 			}
-			/* Handling boundary conditions */
+			/* handle boundary */
 			if (index < 0) {
-				index = 0
+        index = 0
 			} else if (index > this.listHeight.length - 2) {
 				index = this.listHeight.length - 2
       }
-      /* When the click is highlighted, the letter does not change. */
-			/* -this.listHeight[index]: Upper limit position */
 			this.scrollY = -this.listHeight[index]
 			/* scroll.vue: First parameter: Scroll to the corresponding element, Second parameter: 动画时间 */
 			this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
