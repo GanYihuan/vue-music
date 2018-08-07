@@ -216,13 +216,11 @@ npm i vue-lazyload -S
 
 ## 5-6 listview 基础组件的开发和应用-右侧快速入口实现（2）
 
-- ✨✨✨✨
 - **listView.vue**
 - **scroll.vue**
 
 ## 5-7 listview 基础组件的开发和应用-右侧快速入口实现（3）
 
-- ✨✨✨✨
 - **listView.vue**
 - **scroll.vue**
 

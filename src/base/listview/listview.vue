@@ -83,9 +83,9 @@ export default {
 	/* data and props Data needs to be monitored */
 	data() {
 		return {
-			/* 实时滚动位置 */
+			/* Real-time scroll position */
 			scrollY: -1,
-			/* 当前应该显示第几个字母 */
+			/* which letters should be displayed */
 			currentIndex: 0,
 			/* diff: current element celling to pre element floor gaps */
 			diff: -1
@@ -165,7 +165,7 @@ export default {
 				index = this.listHeight.length - 2
       }
       /* When the click is highlighted, the letter does not change. */
-			/* -this.listHeight[index]: 上限的位置 */
+			/* -this.listHeight[index]: Upper limit position */
 			this.scrollY = -this.listHeight[index]
 			/* scroll.vue: First parameter: Scroll to the corresponding element, Second parameter: 动画时间 */
 			this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
@@ -173,7 +173,7 @@ export default {
 		_calculateHeight() {
 			let height = 0
 			let listGroup = this.$refs.listGroup
-			/* listHeight比listGroup One more element, Because the upper and lower limits have been added, Each group height array */
+			/* listHeight has one more element than listGroup  */
 			this.listHeight = []
 			this.listHeight.push(height)
 			for (let i = 0; i < listGroup.length; i++) {
@@ -184,7 +184,7 @@ export default {
 		}
 	},
 	watch: {
-		/* 20ms, 17ms, dom Rendering completed */
+		/* 17ms dom Rendering completed */
 		data() {
 			setTimeout(() => {
 				this._calculateHeight()
@@ -193,9 +193,8 @@ export default {
     /* diff: Whether to trigger the animation of the title, The upper limit of the next title is the lower limit distance of the previous title */ 
 		diff(newVal) {
       /* fixedTop: Title area, When the title animation is triggered, fixedTop is a change value */ 
-			let fixedTop =
-				newVal > 0 && newVal < FIXED_TITLE_HEIGHT
-					? newVal - FIXED_TITLE_HEIGHT
+      let fixedTop = newVal > 0 && newVal < FIXED_TITLE_HEIGHT 
+          ? newVal - FIXED_TITLE_HEIGHT
           : 0
       /* diff Real-time changing process, Real-time change process, When the title animation is not triggered, fixedTop is not changing */
 			if (this.fixedTop === fixedTop) {
@@ -207,7 +206,7 @@ export default {
     },
     /* Real-time scroll position */
 		scrollY(newY) {
-      /* Keep the height of the group */ 
+      /* Keep the height of the group */
 			let listHeight = this.listHeight
 			/* When scrolling to the top newY > 0 */
 			if (newY > 0) {
@@ -217,20 +216,23 @@ export default {
       /*
       Determine which group interval the newY scrolls into
       When scrolling to the middle section,
-      listHeight比listGroup One more element
-      listHeight.length - 1: The upper limit of the first element is the lower limit of the second element, Traversing to the last one -1, Ensure that height2 exists, No more than height2
+      listHeight has one more element than listGroup
+      listHeight.length - 1: The upper limit of the first element is the lower limit of the second element, 
+      Traversing to the last one -1, Ensure that height2 exists, 
+      No more than height2
       */
 			for (let i = 0; i < listHeight.length - 1; i++) {
 				/* Lower limit */
 				let height1 = listHeight[i]
 				/* Upper limit */
 				let height2 = listHeight[i + 1]
-				/* -newY: When scrolling occurs, newY Is negative, Add to “-” Ensure that it is positive */
+				/* -newY: When scrolling occurs, newY Is negative, Add “-” Ensure that it is positive */
 				if (-newY >= height1 && -newY < height2) {
 					this.currentIndex = i
 					/*
-          newY Is negative
-          diff: Whether to trigger the animation of the title, The upper limit of the next title is the lower limit distance of the previous title
+          newY is negative
+          diff: Whether to trigger the animation of the title, 
+          The upper limit of the next title is the lower limit distance of the previous title
           diff = Upper limit of the next element(height2) - Rolling distance(newY)
           */
 					this.diff = newY + height2
@@ -238,10 +240,11 @@ export default {
 				}
 				this.currentIndex = 0
 			}
-      /* 
-      When scrolling to the bottom, -newY is greater than the upper limit of the last element
-      listHeight.length-2: listHeight比listGroup One more element
-      currentIndex The first element subscript starts from 0
+      /*
+      When scrolling to the bottom, 
+      -newY is bigger than the upper limit of the last element
+      listHeight.length-2: listHeight has one more element than listGroup
+      currentIndex subscript starts from 0
       */
 			this.currentIndex = listHeight.length - 2
 		}

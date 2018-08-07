@@ -54,7 +54,7 @@ export default {
 			this.$refs.list.refresh()
 		},
 		selectSinger(singer) {
-      /* 路由跳转 */
+      /* Route jump */
 			this.$router.push({
 				path: `/singer/${singer.id}`
 			})
