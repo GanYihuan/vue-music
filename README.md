@@ -73,9 +73,9 @@ resolve: {
 
 ## 3-1 页面入口+header 组件的编写
 
-- babel-runtime: es6 转义
-- babel-polyfill: es6 api 转义, mobile can use es6 api
-- fastclick: Click 300MS delay on the mobile end.
+- babel-runtime: es6 Escape
+- babel-polyfill: es6 api Escape, mobile can use es6 api
+- fastclick: Click 300MS delay on the mobile end
 
 ```console
 npm i babel-polyfill babel-runtime fastclick vue-lazyload -S

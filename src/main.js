@@ -15,6 +15,7 @@ import 'common/scss/index.scss'
 /* fastclick: mobile end Clicks 300MS Delay */
 fastclick.attach(document.body)
 Vue.config.productionTip = false
+
 /* VueLazyload */
 Vue.use(VueLazyload, {
   loading: require('common/image/default.png')
