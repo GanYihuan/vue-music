@@ -71,7 +71,7 @@ resolve: {
 }
 ```
 
-## 3-1 页面入口+header 组件的编写
+## 3-1 页面入口 + header 组件的编写
 
 - babel-runtime: es6 Escape
 - babel-polyfill: es6 api Escape, mobile can use es6 api
@@ -81,9 +81,9 @@ resolve: {
 npm i babel-polyfill babel-runtime fastclick vue-lazyload -S
 ```
 
-## 3-2 路由配置+ tab 顶导组件开发
+## 3-2 路由配置 + tab 顶导组件开发
 
-## 4-1 页面简介+轮播图数据分析
+## 4-1 页面简介 + 轮播图数据分析
 
 - (chrome) XHR: ajax request
 - chrome check jsonp

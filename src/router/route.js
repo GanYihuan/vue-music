@@ -44,7 +44,6 @@ const UserCenter = resolve => {
   })
 }
 
-// Routing nested, parent-child routing relationships.
 export default new Router({
   routes: [
     /* default route path */
@@ -75,7 +74,7 @@ export default new Router({
     {
       path: '/rank',
       component: Rank,
-      /* 二级路由配置 */
+      /* Secondary routing configuration */
       children: [
         {
           path: ':id',
