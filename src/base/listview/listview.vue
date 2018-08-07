@@ -73,12 +73,12 @@ export default {
 	components: {
 		Scroll,
 		loading
-	},
-	/* created: 数据不需被监听 */
-	created() {
-		this.touch = {}
-		this.listenScroll = true
-		this.probeType = 3
+  },
+  props: {
+		data: {
+			type: Array,
+			default: null
+		}
 	},
 	/* data and props 数据需被监听 */
 	data() {
@@ -89,12 +89,6 @@ export default {
 			currentIndex: 0,
 			/* diff: current element celling to pre element floor gaps */
 			diff: -1
-		}
-	},
-	props: {
-		data: {
-			type: Array,
-			default: null
 		}
 	},
 	computed: {
@@ -115,6 +109,12 @@ export default {
 				? this.data[this.currentIndex].title
 				: ''
 		}
+  },
+  /* get back-end data, created not monitor, data, props will monitor */
+	created() {
+		this.touch = {}
+		this.listenScroll = true
+		this.probeType = 3
 	},
 	methods: {
 		selectItem(item) {
