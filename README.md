@@ -320,7 +320,7 @@ npm i vuex -S
 
 ## 6-14 music-list 组件开发（7）
 
-- **music-list.vue**
+- **music-list.vue**(歌手详情界面)
 - back btn
 - loading
 
