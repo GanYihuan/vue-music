@@ -306,20 +306,17 @@ npm i vuex -S
 - **music-list.vue**(歌手详情界面)
 - scrollY()
 
-## 6-11 music-list 组件开发（4）
+## 6-11, 6-12 music-list 组件开发（4）
 
 - **music-list.vue**(歌手详情界面)
 - scrollY()
 - Create a slider mask effect
 
-## 6-12 music-list 组件开发（5）
-
-- **music-list.vue** (创建滑块遮罩效果)
-
 ## 6-13 music-list 组件开发（6）
 
-- **common/js/dom.js** (webkit前缀封装)
-- **music-list.vue**
+- **dom.js**
+- **music-list.vue**(歌手详情界面)
+- webkit prefix package
 
 ## 6-14 music-list 组件开发（7）
 
