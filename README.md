@@ -303,12 +303,14 @@ npm i vuex -S
 
 ## 6-10 music-list 组件开发（3）
 
-- **music-list.vue** (创建滑块遮罩效果)
+- **music-list.vue**(歌手详情界面)
 - scrollY()
 
 ## 6-11 music-list 组件开发（4）
 
-- **music-list.vue** (创建滑块遮罩效果)
+- **music-list.vue**(歌手详情界面)
+- scrollY()
+- Create a slider mask effect
 
 ## 6-12 music-list 组件开发（5）
 
