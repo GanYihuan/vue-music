@@ -155,6 +155,8 @@ export default {
 		}
 	},
 	computed: {
+    /* vuex/getter.js */
+		...mapGetters(['currentIndex', 'fullScreen', 'playing']),
 		cdCls() {
 			return this.playing ? 'play' : 'play pause'
 		},
@@ -169,11 +171,9 @@ export default {
 		},
 		percent() {
 			return this.currentTime / this.currentSong.duration
-		},
-		/* vuex/getter.js */
-		...mapGetters(['currentIndex', 'fullScreen', 'playing'])
-  },
-  /*
+		}
+	},
+	/*
   data not monitor, data, props will monitor
   no need get & set
 	get back-end data
@@ -226,7 +226,9 @@ export default {
 		leave(el, done) {
 			this.$refs.cdWrapper.style.transition = 'all 0.4s'
 			const { x, y, scale } = this._getPosAndScale()
-			this.$refs.cdWrapper.style[transform] = `translate3d(${x}px,${y}px,0) scale(${scale})`
+			this.$refs.cdWrapper.style[
+				transform
+			] = `translate3d(${x}px,${y}px,0) scale(${scale})`
 			this.$refs.cdWrapper.addEventListener('transitionend', done)
 		},
 		afterLeave() {
@@ -286,7 +288,7 @@ export default {
 			this.songReady = false
 		},
 		prev() {
-      /* <audio> ready, songReady */
+			/* <audio> ready, songReady */
 			if (!this.songReady) {
 				return
 			}
@@ -313,7 +315,7 @@ export default {
 			this.savePlayHistory(this.currentSong)
 		},
 		error() {
-      /* <audio> prevent limit click operate error */
+			/* <audio> prevent limit click operate error */
 			this.songReady = true
 		},
 		updateTime(e) {
@@ -362,7 +364,7 @@ export default {
 		handleLyric({ lineNum, txt }) {
 			this.currentLineNum = lineNum
 			if (lineNum > 5) {
-        /*
+				/*
         make sure to highlight lyric in the middle
         the current lyric, move up to 5 line
         */
@@ -394,8 +396,9 @@ export default {
 			const touch = e.touches[0]
 			/* move position */
 			const deltaX = touch.pageX - this.touch.startX
-      const deltaY = touch.pageY - this.touch.startY
-      /* whether switch depends on x-axis scroll more than y-axic scroll */ 
+			const deltaY = touch.pageY - this.touch.startY
+			/* whether switch depends on x-axis scroll more than y-axic scroll */
+
 			if (Math.abs(deltaY) > Math.abs(deltaX)) {
 				return
 			}
@@ -404,14 +407,19 @@ export default {
 			}
 			/* right: 0, left: -window.innerWidth */
 			const left = this.currentShow === 'cd' ? 0 : -window.innerWidth
-      /*
+			/*
       page left-scroll distance
 			min: - window.innerWidth; max: 0
       */
-			const offsetWidth = Math.min(0, Math.max(-window.innerWidth, left + deltaX))
+			const offsetWidth = Math.min(
+				0,
+				Math.max(-window.innerWidth, left + deltaX)
+			)
 			this.touch.percent = Math.abs(offsetWidth / window.innerWidth)
 			/* lyricList: Vue component, $el to access the dom */
-			this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
+			this.$refs.lyricList.$el.style[
+				transform
+			] = `translate3d(${offsetWidth}px,0,0)`
 			this.$refs.lyricList.$el.style[transitionDuration] = 0
 			this.$refs.middleL.style.opacity = 1 - this.touch.percent
 			this.$refs.middleL.style[transitionDuration] = 0
@@ -444,7 +452,9 @@ export default {
 				}
 			}
 			const time = 300
-			this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
+			this.$refs.lyricList.$el.style[
+				transform
+			] = `translate3d(${offsetWidth}px,0,0)`
 			this.$refs.lyricList.$el.style[transitionDuration] = `${time}ms`
 			this.$refs.middleL.style.opacity = opacity
 			this.$refs.middleL.style[transitionDuration] = `${time}ms`
@@ -458,8 +468,8 @@ export default {
 				len++
 			}
 			return num
-    },
-    /* big-record small-record x y scale */
+		},
+		/* big-record small-record x y scale */
 		_getPosAndScale() {
 			/* small-record width */
 			const targetWidth = 40
@@ -472,8 +482,8 @@ export default {
 			/* big-record width */
 			const width = window.innerWidth * 0.8
 			const scale = targetWidth / width
-      /* fourth quadrant */
-      /* big-record is center point */ 
+			/* fourth quadrant */
+			/* big-record is center point */
 			const x = -(window.innerWidth / 2 - paddingLeft)
 			const y = window.innerHeight - paddingTop - width / 2 - paddingBottom
 			return { x, y, scale }
@@ -486,12 +496,12 @@ export default {
 				return
 			}
 			/* mixin.js/changeMode(), currentSong no change */
-      /* id no change, return */
+			/* id no change, return */
 			if (newSong.id === oldSong.id) {
 				return
 			}
 			/* fixBug: currentLyric There is a timer in it, and when the next song is cut, the timer goes into the next song */
-      if (this.currentLyric) {
+			if (this.currentLyric) {
 				/* stop timer of the first song */
 				this.currentLyric.stop()
 				this.currentTime = 0
@@ -502,8 +512,8 @@ export default {
 			clearTimeout(this.timer)
 			this.timer = setTimeout(() => {
 				/* sync method */
-        this.$refs.audio.play()
-        /*
+				this.$refs.audio.play()
+				/*
         async method
 				prevent call timing error and write the optimization in getLyric()
         */

@@ -332,11 +332,10 @@ npm i vuex -S
 
 ## 7-3 播放器Vuex的相关应用
 
-- ✨✨✨✨
 - **player.vue**
 - **song-list.vue**
 - **music-list.vue**
-- **store/actions.js**
+- **actions.js**
 
 ## 7-4 播放器基础样式及歌曲数据的应用
 
