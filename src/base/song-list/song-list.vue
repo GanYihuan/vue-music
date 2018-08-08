@@ -27,7 +27,7 @@ export default {
 			type: Array,
 			default: null
 		},
-		/* for 07-排行榜详情界面.png, trophy */
+		/* trophy */
 		rank: {
 			type: Boolean,
 			default: false

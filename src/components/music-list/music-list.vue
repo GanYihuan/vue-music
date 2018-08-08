@@ -92,24 +92,26 @@ export default {
 			scrollY: 0
 		}
   },
+  computed: {
+		bgStyle() {
+			return `background-image:url(${this.bgImage})`
+		}
+  },
   /* data not monitor, data, props will monitor, get back-end data */
 	created() {
 		this.probeType = 3
 		this.listenScroll = true
 	},
-	computed: {
-		bgStyle() {
-			return `background-image:url(${this.bgImage})`
-		}
-  },
   /* dom ready */
 	mounted() {
 		this.imageHeight = this.$refs.bgImage.clientHeight
-		/* for bg-layer */
+		/* bg-layer */
 		this.minTransalteY = -this.imageHeight + RESERVED_HEIGHT
 		this.$refs.list.$el.style.top = `${this.imageHeight}px`
 	},
 	methods: {
+    /* vuex/action */
+		...mapActions(['selectPlay', 'randomPlay']),
 		/* if mini player, singer list bottom add height */
 		handlePlaylist(playlist) {
 			const bottom = playlist.length > 0 ? '60px' : ''
@@ -137,9 +139,7 @@ export default {
 			this.randomPlay({
 				list: this.songs
 			})
-		},
-		/* vuex/action */
-		...mapActions(['selectPlay', 'randomPlay'])
+		}
 	},
 	watch: {
 		scrollY(newVal) {

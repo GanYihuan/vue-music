@@ -299,11 +299,12 @@ npm i vuex -S
 
 ## 6-9 music-list 组件开发（2）
 
-- **music-list.vue** 编写样式
+- **music-list.vue**(歌手详情界面)
 
 ## 6-10 music-list 组件开发（3）
 
 - **music-list.vue** (创建滑块遮罩效果)
+- scrollY()
 
 ## 6-11 music-list 组件开发（4）
 
