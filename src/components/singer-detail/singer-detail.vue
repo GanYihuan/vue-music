@@ -28,17 +28,16 @@ export default {
 		}
 	},
 	computed: {
+		/* singer: vuex/getters.js */
+		...mapGetters(['singer']),
 		title() {
 			return this.singer.name
 		},
 		bgImage() {
 			return this.singer.avatar
-		},
-		/* vuex/getters get vuex/state data */
-		/* singer: vuex/getters.js */
-		...mapGetters(['singer'])
+		}
 	},
-	/* created data not monitor, data, props will monitor */
+	/* created data not monitor, data & props will monitor */
 	/* get back-end data */
 	created() {
 		this._getDetail()

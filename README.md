@@ -283,17 +283,19 @@ npm i vuex -S
 
 ## 6-5 歌手详情数据抓取
 
-- **api/singer.js** (jsonp get data)
-- **singer-detail.vue** (get data)
+- **api/singer.js**(jsonp get data)
+- **singer-detail.vue**(handle data)
 
 ## 6-6, 6-7 歌手详情数据处理和Song类的封装
 
-- **common/js/song.js** (Song Class package)
-- **singer-detail.vue** (Extract an object from the data)
+- **common/js/song.js**(Song Class package)
+- **singer-detail.vue**(Extract an object from the data, handle data)
 
 ## 6-8 music-list 组件开发（1）
 
-- **top-list.vue** 传递数据到 **music-list.vue**
+- **singer-detail.vue**(handle data)
+- **music-list.vue**(歌手详情界面)
+- accept data
 
 ## 6-9 music-list 组件开发（2）
 

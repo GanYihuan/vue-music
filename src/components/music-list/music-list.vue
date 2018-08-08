@@ -80,7 +80,7 @@ export default {
 			type: String,
 			default: ''
 		},
-		/* 07-排行榜详情界面.png trophy */
+		/* trophy */
 		rank: {
 			type: Boolean,
 			default: false
