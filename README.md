@@ -326,12 +326,9 @@ npm i vuex -S
 
 ## 7-1 播放器页面设计详解
 
-- ✨
-
 ## 7-2 播放器Vuex数据设计
 
-- ✨✨✨
-- **store/state.js**
+- **state.js**
 
 ## 7-3 播放器Vuex的相关应用
 
