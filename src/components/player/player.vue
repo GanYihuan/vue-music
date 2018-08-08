@@ -10,7 +10,7 @@
     >
       <div class="normal-player" v-show="fullScreen">
         <div class="background">
-          <img width="100%" height="100%" :src="currentSong.image">
+          <img width="100%" height="100%" :src="currentSong.image"/>
         </div>
         <div class="top">
           <div class="back" @click="back">
@@ -87,7 +87,7 @@
     <transition name="mini">
       <div class="mini-player" v-show="!fullScreen" @click="open">
         <div class="icon">
-          <img width="40" height="40" :class="cdCls" :src="currentSong.image">
+          <img width="40" height="40" :class="cdCls" :src="currentSong.image"/>
         </div>
         <div class="text">
           <h2 class="name" v-html="currentSong.name"></h2>
@@ -188,7 +188,7 @@ export default {
 		}),
 		...mapActions(['savePlayHistory']),
 		back() {
-			/*  ...mapMutations */
+			/* ...mapMutations */
 			this.setFullScreen(false)
 		},
 		open() {

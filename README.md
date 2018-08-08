@@ -339,8 +339,9 @@ npm i vuex -S
 
 ## 7-4 播放器基础样式及歌曲数据的应用
 
-- ✨✨
-- **player.vue*
+- **player.vue**
+- back()
+- open()
 
 ## 7-5 播放器展开收起动画（上）
 
