@@ -88,12 +88,12 @@ export default {
 			/* scroll to top */
 			this.$refs.suggest.scrollTo(0, 0)
 			/**
-			 * api/search.js
-			 * @param query: Retrieve the value
-			 * @param page: page index
-			 * @param showSinger: Do you want a singer ?
-			 * @param perpage: The number of returns per page.
-			 */
+       * api/search.js
+       * @param query: Retrieve the value
+       * @param page: page index
+       * @param showSinger: Do you want a singer ?
+       * @param perpage: The number of returns per page.
+       */
 			search(this.query, this.page, this.showSinger, perpage).then(res => {
 				if (res.code === ERR_OK) {
 					this.result = this._genResult(res.data)
@@ -102,22 +102,22 @@ export default {
 				}
 			})
 		},
-		/* pull down to refresh */
+		/* pull down refresh */
 		searchMore() {
 			if (!this.hasMore) {
 				return
 			}
 			/* load next page */
 			this.page++
-			/**
-			 * query: retrieve value
-			 * page: page index
-			 * this.showSinger: Do you want a singer ?
-			 * perpage: The number of returns per page.
-			 */
+      /**
+       * api/search.js
+       * @param query: Retrieve the value
+       * @param page: page index
+       * @param showSinger: Do you want a singer ?
+       * @param perpage: The number of returns per page.
+       */
 			search(this.query, this.page, this.showSinger, perpage).then(res => {
 				if (res.code === ERR_OK) {
-					// concat: Array splicing, result change, data change, incoming scroll value change, scroll refresh.
 					this.result = this.result.concat(this._genResult(res.data))
 					this._checkMore(res.data)
 				}

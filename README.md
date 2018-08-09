@@ -518,10 +518,7 @@ npm i lyric-parser -S
 
 ## 10-5 搜索页面suggest组件开发（2）
 
-- ✨✨✨
-- **suggest.vue**
-- **scroll.vue**
-- **loading.vue**
+- **suggest.vue**(search result)
 
 ## 10-6, 10-7, 10-8, 10-9 搜索页面suggest组件开发（3）
 
