@@ -377,11 +377,15 @@ npm i create-keyframe-animation -S
 - prev()
 - next()
 - back()
+- ready()
+- error()
 
 ## 7-11 播放器播放时间获取和更新
 
-- ✨✨✨
 - **player.vue**
+- updateTime(e)
+- format(interval)
+- _pad(num, n = 2)
 
 ## 7-12 播放器progress-bar进度条组件实现（上）
 

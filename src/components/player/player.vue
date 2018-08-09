@@ -399,7 +399,6 @@ export default {
 			const deltaX = touch.pageX - this.touch.startX
 			const deltaY = touch.pageY - this.touch.startY
 			/* whether switch depends on x-axis scroll more than y-axic scroll */
-
 			if (Math.abs(deltaY) > Math.abs(deltaX)) {
 				return
 			}
