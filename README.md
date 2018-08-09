@@ -435,6 +435,7 @@ npm i create-keyframe-animation -S
 - **common/js/song.js**
 - Base64 decoding and encoding
 - The lyric parsing
+- getLyric()
 
 ```console
 npm i js-base64 -S
@@ -443,8 +444,8 @@ npm i lyric-parser -S
 
 ## 7-21 播放器歌词滚动列表实现
 
-- ✨✨✨
 - **player.vue**
+- handleLyric({ lineNum, txt })
 
 ## 7-22, 7-23 播放器歌词左右滑动实现（上）
 
