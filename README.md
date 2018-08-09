@@ -461,11 +461,7 @@ npm i lyric-parser -S
 
 ## 8-1 歌单详情页布局介绍及Vuex实现路由数据通讯
 
-- **route.js**
-- **recommend.vue)**
-- **recommend.js)**
-- **mutations.js)**
-- **getter.js)**
+- **recommend.vue**
 - **disc.vue**
 
 ## 8-2 歌单详情页数据抓取
