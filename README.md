@@ -447,17 +447,12 @@ npm i lyric-parser -S
 - **player.vue**
 - handleLyric({ lineNum, txt })
 
-## 7-22, 7-23 播放器歌词左右滑动实现（上）
+## 7-22, 7-23, 7-24 播放器歌词左右滑动实现（上）
 
 - **player.vue**
 - @touchstart.prevent="middleTouchStart"
 - @touchmove.prevent="middleTouchMove"
 - @touchend="middleTouchEnd"
-
-## 7-24 播放器歌词剩余功能实现
-
-- ✨✨✨✨
-- **player.vue**
 
 ## 7-25 播放器底部播放器适配+mixin的应用
 
