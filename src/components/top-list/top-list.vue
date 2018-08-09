@@ -19,8 +19,10 @@ import { mapGetters } from 'vuex'
 import { createSong } from 'common/js/song'
 
 export default {
-	// 数据, 不需要被监控, data, props里面的数据会被监控
-	// get back-end data
+  components: {
+		MusicList
+	},
+	/* data not monitor, data & props need monitor, get back-end data */
 	created() {
 		this._getMusicList()
 	},
@@ -31,10 +33,10 @@ export default {
 		}
 	},
 	computed: {
-		// vuex (store/state.js)
+		/* store/state.js */
 		...mapGetters(['topList']),
 		title() {
-			// ...mapGetters
+			/* ...mapGetters */
 			return this.topList.topTitl
 		},
 		bgImage() {
@@ -66,9 +68,6 @@ export default {
 			})
 			return ret
 		}
-	},
-	components: {
-		MusicList
 	}
 }
 </script>

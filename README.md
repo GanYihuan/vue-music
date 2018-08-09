@@ -484,7 +484,8 @@ npm i lyric-parser -S
 
 ## 9-3 榜单详情页布局介绍及Vuex实现路由数据通讯
 
-- **top-list.vue**
+- **rank.vue**(rank page)
+- **top-list.vue**(handle data)
 
 ## 9-4 榜单详情页数据抓取和应用
 

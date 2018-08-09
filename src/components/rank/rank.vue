@@ -18,7 +18,6 @@
               v-for="(song,index) in item.songList"
               :key="index"
             >
-              <!-- https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg?g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&tpl=3&page=detail&type=top&topid=4&_=1521599753632 -->
               <span>{{index + 1}}</span>
               <span>{{song.songname}}-{{song.singername}}</span>
             </li>
@@ -42,10 +41,9 @@ import { playlistMixin } from 'common/js/mixin'
 import { mapMutations } from 'vuex'
 
 export default {
-  // insert mixin.js
+  /* mixin.js */
   mixins: [playlistMixin],
-  // 数据, 不需要被监控, data, props里面的数据会被监控
-  // get back-end data
+  /* data not monitor, data & props need monitor, get back-end data */
 	created() {
 		this._getTopList()
 	},
@@ -55,7 +53,7 @@ export default {
 		}
 	},
 	methods: {
-		// vuex (store/mutation.js)
+		/* store/mutation.js */
 		...mapMutations({
 			setTopList: 'SET_TOP_LIST'
 		}),
@@ -68,9 +66,10 @@ export default {
 			this.$router.push({
 				path: `/rank/${item.id}`
 			})
-			// ...mapMutations
+			/* ...mapMutations */
 			this.setTopList(item)
-		},
+    },
+    /* https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg?g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&tpl=3&page=detail&type=top&topid=4&_=1521599753632 */
 		_getTopList() {
 			getTopList().then(res => {
 				if (res.code === ERR_OK) {
