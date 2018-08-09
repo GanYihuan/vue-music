@@ -369,7 +369,6 @@ npm i create-keyframe-animation -S
 
 ## 7-8 播放器歌曲播放功能实现
 
-- ✨✨✨
 - **player.vue**
 
 ## 7-9, 7-10 播放器歌曲前进后退功能实现（上）

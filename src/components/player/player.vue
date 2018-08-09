@@ -174,7 +174,7 @@ export default {
 		}
 	},
 	/*
-  data not monitor, data, props will monitor
+  data not monitor, data & props will monitor
   no need get & set
 	get back-end data
   */
@@ -226,9 +226,7 @@ export default {
 		leave(el, done) {
 			this.$refs.cdWrapper.style.transition = 'all 0.4s'
 			const { x, y, scale } = this._getPosAndScale()
-			this.$refs.cdWrapper.style[
-				transform
-			] = `translate3d(${x}px,${y}px,0) scale(${scale})`
+			this.$refs.cdWrapper.style[transform] = `translate3d(${x}px,${y}px,0) scale(${scale})`
 			this.$refs.cdWrapper.addEventListener('transitionend', done)
 		},
 		afterLeave() {
@@ -239,7 +237,8 @@ export default {
 			if (!this.songReady) {
 				return
 			}
-			/* ...mapMutations */
+      /* ...mapMutations */
+      /* ...mapGetters */
 			this.setPlayingState(!this.playing)
 			/* fixBug: when scroll lyrics can play, preventing the lyrics from scrolling while they stop playing */
 			if (this.currentLyric) {
