@@ -410,11 +410,11 @@ export default {
 			const left = this.currentShow === 'cd' ? 0 : -window.innerWidth
 			/*
       page left-scroll distance
-			min: - window.innerWidth; max: 0
+			min: -window.innerWidth; max: 0
       */
 			const offsetWidth = Math.min(0, Math.max(-window.innerWidth, left + deltaX))
 			this.touch.percent = Math.abs(offsetWidth / window.innerWidth)
-			/* lyricList: Vue component, $el to access the dom */
+			/* lyricList: Vue component, $el access dom */
 			this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
 			this.$refs.lyricList.$el.style[transitionDuration] = 0
 			this.$refs.middleL.style.opacity = 1 - this.touch.percent
