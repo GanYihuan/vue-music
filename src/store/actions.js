@@ -1,4 +1,4 @@
-/* operate lot mutation, async */
+/* operate lots of mutation, async */
 import * as types from './mutation-types'
 import { playMode } from 'common/js/config'
 import { shuffle } from 'common/js/util'

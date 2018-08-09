@@ -419,7 +419,6 @@ npm i create-keyframe-animation -S
 
 ## 7-18 播放器模式切换功能实现（下）
 
-- ✨✨✨✨
 - **player.vue**
 - **store/actions**
 
