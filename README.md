@@ -392,7 +392,7 @@ npm i create-keyframe-animation -S
 - **progress-bar.vue**
 - **player.vue**
 
-## 7-13, 7-14 播放器progress-bar进度条组件实现（中）
+## 7-13, 7-14 播放器 progress-bar 进度条组件实现（中）
 
 - **progress-bar.vue**
 - **player.vue**
@@ -400,9 +400,8 @@ npm i create-keyframe-animation -S
 - @touchmove="progressTouchMove"
 - @touchend="progressTouchEnd"
 
-## 7-15 播放器progress-circle 圆形进度条组件实现
+## 7-15 播放器 progress-circle 圆形进度条组件实现
 
-- ✨✨✨✨
 - **progress-circle.vue**
 - SVG
 
