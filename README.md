@@ -522,9 +522,10 @@ npm i lyric-parser -S
 
 ## 10-6, 10-7, 10-8, 10-9 搜索页面suggest组件开发（3）
 
-- ✨✨✨✨✨
+- ✨✨✨✨
 - **store/action.js**
-- **suggest.vue**
+- **suggest.vue**(search result)
+- selectItem()
 
 ## 10-10 搜索页面suggest组件开发（7）
 
