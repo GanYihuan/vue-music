@@ -389,7 +389,6 @@ npm i create-keyframe-animation -S
 
 ## 7-12 播放器progress-bar进度条组件实现（上）
 
-- ✨✨✨
 - **progress-bar.vue**
 - **player.vue**
 
