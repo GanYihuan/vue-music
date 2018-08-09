@@ -350,12 +350,21 @@ npm i vuex -S
 
 ## 7-6, 7-7 播放器展开收起动画（中）
 
-- ✨✨✨✨
 - **player.vue**
-- 使用js创建css动画
+- use js create css animate
 
 ```console
 npm i create-keyframe-animation -S
+```
+
+```html
+<transition
+  name="normal"
+  @enter="enter"
+  @after-enter="afterEnter"
+  @leave="leave"
+  @after-leave="afterLeave"
+></transition>
 ```
 
 ## 7-8 播放器歌曲播放功能实现
