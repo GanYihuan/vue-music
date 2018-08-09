@@ -80,7 +80,14 @@ import SearchList from 'base/search-list/search-list'
 import Confirm from 'base/confirm/confirm'
 
 export default {
-	mixins: [playlistMixin, searchMixin],
+  mixins: [playlistMixin, searchMixin],
+  components: {
+		SearchBox,
+		Scroll,
+		Suggest,
+		SearchList,
+		Confirm
+	},
 	data() {
 		return {
 			hotKey: [],
@@ -89,7 +96,7 @@ export default {
 	},
 	computed: {
 		/* ...mapGetters */
-		// When hotKey, searchHistory changes, scroll resets the height.
+		/* when hotKey, searchHistory changes, scroll resets the height */
 		shortcut() {
 			return this.hotKey.concat(this.searchHistory)
 		}
@@ -131,13 +138,6 @@ export default {
 				}, 20)
 			}
 		}
-	},
-	components: {
-		SearchBox,
-		Scroll,
-		Suggest,
-		SearchList,
-		Confirm
 	}
 }
 </script>

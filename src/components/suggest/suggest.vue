@@ -42,10 +42,15 @@ import { createSong } from 'common/js/song'
 import { mapMutations, mapActions } from 'vuex'
 
 const TYPE_SINGER = 'singer'
-// perpage: The number of returns per page.
 const perpage = 20
 
 export default {
+  components: {
+		Scroll,
+		Loading,
+		NoResult,
+		Singer
+	},
 	props: {
 		showSinger: {
 			type: Boolean,
@@ -58,12 +63,11 @@ export default {
 	},
 	data() {
 		return {
-			// What page
 			page: 1,
-			// The drop-down refresh
+			/* drop-down refresh */
 			pullup: true,
 			beforeScroll: true,
-			// Data loading finish ？
+			/* Data loading finish ？ */
 			hasMore: true,
 			result: []
 		}
@@ -76,12 +80,12 @@ export default {
 		refresh() {
 			this.$refs.suggest.refresh()
 		},
-		// Request the service end, grab search retrieve data.
+		/* request service end, grab search retrieve data */
 		search() {
-			// Just search
+			/* just search */
 			this.page = 1
 			this.hasMore = true
-			// scroll to top
+			/* scroll to top */
 			this.$refs.suggest.scrollTo(0, 0)
 			/**
 			 * api/search.js
@@ -93,17 +97,17 @@ export default {
 			search(this.query, this.page, this.showSinger, perpage).then(res => {
 				if (res.code === ERR_OK) {
 					this.result = this._genResult(res.data)
-					// have more data ?
+					/* have more data ? */
 					this._checkMore(res.data)
 				}
 			})
 		},
-		// 下拉刷新
+		/* pull down to refresh */
 		searchMore() {
 			if (!this.hasMore) {
 				return
 			}
-			// load next page
+			/* load next page */
 			this.page++
 			/**
 			 * query: retrieve value
@@ -137,10 +141,10 @@ export default {
 				this.$router.push({
 					path: `/search/${singer.id}`
 				})
-				// ...mapMutations
+				/* ...mapMutations */
 				this.setSinger(singer)
 			} else {
-				// ...mapActions
+				/* ...mapActions */
 				this.insertSong(item)
 			}
 			this.$emit('select', item)
@@ -161,10 +165,10 @@ export default {
 		},
 		_genResult(data) {
 			let ret = []
-			// zhida: Do you want a singer?
-			// zhida.singerid: singer id
+			/* zhida: want singer? */
+			/* zhida.singerid: singer id */
 			if (data.zhida && data.zhida.singerid) {
-				// type: distinguish between singers and songs.
+				/* type: distinguish between singers and songs */
 				ret.push({ ...data.zhida, ...{ type: TYPE_SINGER } })
 			}
 			if (data.song) {
@@ -176,7 +180,7 @@ export default {
 			let ret = []
 			list.forEach(musicData => {
 				if (musicData.songid && musicData.albummid) {
-					// Convert to song instance.
+					/* convert to song instance */
 					ret.push(createSong(musicData))
 				}
 			})
@@ -185,15 +189,9 @@ export default {
 	},
 	watch: {
 		query(newQuery) {
-			// request server (api/search.js)
+			/* request server api/search.js */
 			this.search(newQuery)
 		}
-	},
-	components: {
-		Scroll,
-		Loading,
-		NoResult,
-		Singer
 	}
 }
 </script>

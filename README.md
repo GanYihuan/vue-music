@@ -512,9 +512,8 @@ npm i lyric-parser -S
 
 ## 10-4 搜索页面suggest组件开发（1）
 
-- **suggest.vue**(search result)
 - **api/search.js**
-- ES6
+- **suggest.vue**(search result)
 - jsonp request
 
 ## 10-5 搜索页面suggest组件开发（2）
