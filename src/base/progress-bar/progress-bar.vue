@@ -34,11 +34,10 @@ export default {
 		}
   },
   /*
-  data not monitor, data, props will monitor
+  data not monitor, data & props will monitor
   get back-end data
   */
 	created() {
-    /* share data */
 		this.touch = {}
 	},
 	methods: {
@@ -56,7 +55,7 @@ export default {
 			const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
 			/* detailX: progressbar move distance = current finger x-axis distance - pre finger x-axis distance */
 			const detailX = e.touches[0].pageX - this.touch.startX
-      /* bigger 0: Math.max(0, X): (X>0) */
+      /* bigger then 0: Math.max(0, X): (X>0) */
       /* offsetWidth: yellow color, real progress width */
 			const offsetWidth = Math.min(progressBarWidth, Math.max(0, this.touch.left + detailX))
 			this._offset(offsetWidth)
@@ -64,7 +63,13 @@ export default {
 		progressTouchEnd() {
 			this.touch.init = false
 			this._triggerPercent()
-		},
+    },
+    _triggerPercent() {
+			/* progressBarWidth: progress bar can move distance = progress bar length - ball length */
+			const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
+			const percent = this.$refs.progress.clientWidth / progressBarWidth
+			this.$emit('percentChange', percent)
+    },
 		progressClick(e) {
 			/* getBoundingClientRect: static/getBoundingClientRect.png */
 			const rect = this.$refs.progressBar.getBoundingClientRect()
@@ -73,13 +78,7 @@ export default {
 			this._offset(offsetWidth)
 			this._triggerPercent()
 		},
-		_triggerPercent() {
-			/* progressBarWidth: progress bar can move distance = progress bar length - ball length */
-			const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-			const percent = this.$refs.progress.clientWidth / progressBarWidth
-			this.$emit('percentChange', percent)
-    },
-    /* yellow color, real progress width */ 
+    /* yellow color, real progress width */
 		_offset(offsetWidth) {
 			this.$refs.progress.style.width = `${offsetWidth}px`
 			this.$refs.progressBtn.style[transform] = `translate3d(${offsetWidth}px, 0, 0)`

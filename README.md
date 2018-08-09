@@ -394,9 +394,11 @@ npm i create-keyframe-animation -S
 
 ## 7-13, 7-14 播放器progress-bar进度条组件实现（中）
 
-- ✨✨✨
 - **progress-bar.vue**
 - **player.vue**
+- @touchstart="progressTouchStart"
+- @touchmove="progressTouchMove"
+- @touchend="progressTouchEnd"
 
 ## 7-15 播放器progress-circle 圆形进度条组件实现
 

@@ -218,7 +218,7 @@ export default {
 			})
 			/* done: func */
 			animations.runAnimation(this.$refs.cdWrapper, 'move', done)
-		},
+    },
 		afterEnter() {
 			animations.unregisterAnimation('move')
 			this.$refs.cdWrapper.style.animation = ''
