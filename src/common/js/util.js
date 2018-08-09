@@ -1,10 +1,10 @@
 /* return min ~ Max, include min & max */
 function getRandomInt (min, max) {
   /*
-  Math.random() create (0,1] number
+  Math.random() create (0,1) number
   create a [x,y) number
   Math.round(Math.random()*(y-x))+x;
-  +1: 保证取到上限这个值
+  +1: Guaranteed to get the upper limit of this value
   */
   return Math.floor(Math.random() * (max - min + 1) + min)
 }

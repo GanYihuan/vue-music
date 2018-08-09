@@ -407,17 +407,15 @@ npm i create-keyframe-animation -S
 
 ## 7-16 播放器模式切换功能实现（上）
 
-- ✨✨✨
 - **player.vue**
 - **common/js/mixin.js**
 
 ## 7-17 播放器模式切换功能实现（中）
 
-- ✨✨✨✨
 - **player.vue**
 - **common/js/util.js**
 - **common/js/mixin.js**
-- 洗牌函数
+- shuffle()
 
 ## 7-18 播放器模式切换功能实现（下）
 
