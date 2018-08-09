@@ -264,11 +264,11 @@ export default {
 			}
 		},
 		next() {
-			/* <audio> ready, songReady */
+			/* <audio> ready */
 			if (!this.songReady) {
 				return
 			}
-			/* only one song */
+			/* when only one song */
 			if (this.playlist.length === 1) {
 				this.loop()
 				/* optimization: 3 prevents the playback control from being triggered. Return does not call songReady = false */
@@ -287,10 +287,11 @@ export default {
 			this.songReady = false
 		},
 		prev() {
-			/* <audio> ready, songReady */
+			/* <audio> ready */
 			if (!this.songReady) {
 				return
-			}
+      }
+      /* when only one song */
 			if (this.playlist.length === 1) {
 				this.loop()
 				/* optimization: 3 prevents the playback control from being triggered. Return does not call songReady = false */
@@ -299,7 +300,8 @@ export default {
 				let index = this.currentIndex - 1
 				if (index === -1) {
 					index = this.playlist.length - 1
-				}
+        }
+        /* ...mapMutations (common/js/mixin.js) */
 				this.setCurrentIndex(index)
 				if (!this.playing) {
 					this.togglePlaying()
@@ -410,15 +412,10 @@ export default {
       page left-scroll distance
 			min: - window.innerWidth; max: 0
       */
-			const offsetWidth = Math.min(
-				0,
-				Math.max(-window.innerWidth, left + deltaX)
-			)
+			const offsetWidth = Math.min(0, Math.max(-window.innerWidth, left + deltaX))
 			this.touch.percent = Math.abs(offsetWidth / window.innerWidth)
 			/* lyricList: Vue component, $el to access the dom */
-			this.$refs.lyricList.$el.style[
-				transform
-			] = `translate3d(${offsetWidth}px,0,0)`
+			this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
 			this.$refs.lyricList.$el.style[transitionDuration] = 0
 			this.$refs.middleL.style.opacity = 1 - this.touch.percent
 			this.$refs.middleL.style[transitionDuration] = 0
@@ -451,9 +448,7 @@ export default {
 				}
 			}
 			const time = 300
-			this.$refs.lyricList.$el.style[
-				transform
-			] = `translate3d(${offsetWidth}px,0,0)`
+			this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
 			this.$refs.lyricList.$el.style[transitionDuration] = `${time}ms`
 			this.$refs.middleL.style.opacity = opacity
 			this.$refs.middleL.style[transitionDuration] = `${time}ms`

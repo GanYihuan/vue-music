@@ -373,8 +373,10 @@ npm i create-keyframe-animation -S
 
 ## 7-9, 7-10 播放器歌曲前进后退功能实现（上）
 
-- ✨✨✨
 - **player.vue**
+- prev()
+- next()
+- back()
 
 ## 7-11 播放器播放时间获取和更新
 
