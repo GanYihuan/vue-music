@@ -10,7 +10,6 @@
       v-show="!query"
       :refreshDelay="refreshDelay"
     >
-      <!-- Pass in data, scroll to calculate the height according to data changes. -->
       <scroll
         class="shortcut"
         ref="shortcut"
@@ -89,14 +88,13 @@ export default {
 		}
 	},
 	computed: {
-		// ...mapGetters (mixin.js)
+		/* ...mapGetters */
 		// When hotKey, searchHistory changes, scroll resets the height.
 		shortcut() {
 			return this.hotKey.concat(this.searchHistory)
 		}
   },
-  // 数据, 不需要被监控, data, props里面的数据会被监控
-  // get back-end data
+  /* data not monitor, data & props data need monitor, get back-end data */
 	created() {
 		this._getHotKey()
 	},
@@ -116,15 +114,16 @@ export default {
 			this.$refs.searchBox.setQuery(query)
 		},
 		_getHotKey() {
-			getHotKey().then(res => {
-				if (res.code === ERR_OK) {
-					this.hotKey = res.data.hotkey.slice(0, 10)
-				}
-			})
+      getHotKey()
+        .then(res => {
+          if (res.code === ERR_OK) {
+            this.hotKey = res.data.hotkey.slice(0, 10)
+          }
+        })
 		}
 	},
 	watch: {
-		// 防止当前界面禁用滚动
+		/* Prevent current interface from disabling scrolling */
 		query(newQuery) {
 			if (!newQuery) {
 				setTimeout(() => {

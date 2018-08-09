@@ -2,7 +2,7 @@ import jsonp from 'common/js/jsonp'
 import { commonParams, options } from './config'
 
 /**
- * 热门搜索
+ * hot search
  */
 export function getHotKey () {
   const url = 'https://c.y.qq.com/splcloud/fcgi-bin/gethotkey.fcg'
@@ -16,7 +16,7 @@ export function getHotKey () {
 }
 
 /**
- * 检索界面
+ * search page
  * @param query: Retrieve the value
  * @param page: Index page
  * @param zhida: Do you want a singer?？

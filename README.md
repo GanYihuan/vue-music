@@ -506,14 +506,13 @@ npm i lyric-parser -S
 
 ## 10-3 搜索页面热门搜索数据抓取和应用
 
-- ✨✨✨
 - **api/search.js**
 - **search-box.vue**
+- **search.vue**
 
 ## 10-4 搜索页面suggest组件开发（1）
 
-- ✨✨✨
-- **suggest.vue**
+- **suggest.vue**(search result)
 - **api/search.js**
 - ES6
 - jsonp request
