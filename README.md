@@ -431,15 +431,14 @@ npm i create-keyframe-animation -S
 
 ## 7-20 播放器歌词数据解析
 
-- ✨✨✨✨
 - **player.vue**
 - **common/js/song.js**
 - Base64 decoding and encoding
-- The lyric parsing, performs the callback function every time it is executed.
+- The lyric parsing
 
 ```console
 npm i js-base64 -S
-npm i lyric-parser
+npm i lyric-parser -S
 ```
 
 ## 7-21 播放器歌词滚动列表实现

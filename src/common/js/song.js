@@ -20,14 +20,13 @@ export default class Song {
   /* api/song/getLyric() */
   getLyric () {
     if (this.lyric) {
-      /* return promise */
       return Promise.resolve(this.lyric)
     }
     return new Promise((resolve, reject) => {
       getLyric(this.mid)
         .then((res) => {
           if (res.retcode === ERR_OK) {
-            /* base64 parse */
+            /* Base64: `npm i js-base64 -S` */
             this.lyric = Base64.decode(res.lyric)
             resolve(this.lyric)
           } else {

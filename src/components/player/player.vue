@@ -349,7 +349,8 @@ export default {
 					/* prevent fast switch, result in unmatched lyric */
 					if (this.currentSong.lyric !== lyric) {
 						return
-					}
+          }
+          /* new Lyric: `npm i lyric-parser -S` */
 					this.currentLyric = new Lyric(lyric, this.handleLyric)
 					if (this.playing) {
 						this.currentLyric.play()
