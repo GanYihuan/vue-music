@@ -8,7 +8,6 @@
 </template>
 
 <script type="text/ecmascript-6">
-// Optimize the request throttling function.
 import { debounce } from 'common/js/util'
 
 export default {
@@ -31,20 +30,16 @@ export default {
 		setQuery(query) {
 			this.query = query
 		},
-		// When scrolling, the search box loses focus and the purpose is to remove the keyboard from the mobile terminal.
 		blur() {
 			this.$refs.query.blur()
 		}
-	},
-  // 数据, 不需要被监控, data, props里面的数据会被监控
-  // get back-end data
-  // Not directly in the watch.
+  },
+  /* data not monitor, data & props data need monitor, get back-end data */
 	created() {
-		// debounce(): (common/js/util.js) 节流函数
+		// debounce(): **common/js/util.js** Throttling function
 		// Throttling function, optimizing request.
-		this.$watch(
-			'query',
-			debounce(newQuery => {
+    this.$watch('query', debounce(newQuery => 
+      {
 				this.$emit('query', newQuery)
 			}, 200)
 		)

@@ -16,7 +16,6 @@
         ref="shortcut"
         :data="shortcut"
       >
-        <!-- 在里面滚动，包装一个div，计算两个部分的滚动。 -->
         <div>
           <div class="hot-key">
             <h1 class="title">热门搜索</h1>

@@ -499,11 +499,8 @@ npm i lyric-parser -S
 
 ## 10-1 搜索页面页面布局和功能介绍
 
-- ✨
-
 ## 10-2 搜索页面search-box组件开发
 
-- ✨✨
 - **search.vue**
 - **search-box.vue**
 
