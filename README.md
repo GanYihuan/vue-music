@@ -456,7 +456,6 @@ npm i lyric-parser -S
 
 ## 7-25 播放器底部播放器适配+mixin的应用
 
-- ✨✨✨✨
 - **player.vue**
 - **common/js/mixin.js**
 
