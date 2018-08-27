@@ -20,13 +20,6 @@ import BScroll from 'better-scroll'
 import { addClass } from 'common/js/dom'
 
 export default {
-	data() {
-		return {
-      dots: [],
-      /* current page */
-			currentPageIndex: 0
-		}
-	},
 	props: {
 		loop: {
 			type: Boolean,
@@ -41,6 +34,13 @@ export default {
 			default: 4000
 		}
 	},
+	data() {
+		return {
+			dots: [],
+			/* current page */
+			currentPageIndex: 0
+		}
+	},
 	/* dom ready */
 	mounted() {
 		/* setTimeout: 20s, dom will Refresh, Because the browser 17s refreshes once */
@@ -50,9 +50,9 @@ export default {
 			this._initSlider()
 			if (this.autoPlay) {
 				this._autoPlay()
-			} 
-    }, 20)
-    /* Window change event */ 
+			}
+		}, 20)
+		/* Window change event */
 		window.addEventListener('resize', () => {
 			if (!this.slider) {
 				return
@@ -64,14 +64,14 @@ export default {
 	},
 	methods: {
 		_setSliderWidth(isResize) {
-      this.children = this.$refs.sliderGroup.children
-      // console.log(this.children.length)
-      /*
+			this.children = this.$refs.sliderGroup.children
+			// console.log(this.children.length)
+			/*
       dom: 5
       better-scroll copy two child elements in carousel Head and tail, For looping
 			dom: 5+2=7
       */
-      /*
+			/*
       clientWidth: (样式宽 + padding) The visual portion of the box content, not including borders or scroll bars , but includes padding . Can not be calculated directly from CSS, depends on the system's scroll bar size.
       offsetWidth: (样式宽 + padding + border) The size of the visual box incuding all borders. Can be calculated by adding width/height and paddings and borders, if the element has display: block
       scrollWidth: The size of all of the box's content, including the parts that are currently hidden outside the scrolling area. Can not be calculated directly from CSS, depends on the content.
@@ -101,39 +101,39 @@ export default {
 			this.slider = new BScroll(this.$refs.slider, {
 				scrollX: true,
 				scrollY: false,
-        /* Whether to open the sliding inertia when sliding quickly */
-        momentum: false,
-        /* for slide component */
+				/* Whether to open the sliding inertia when sliding quickly */
+				momentum: false,
+				/* for slide component */
 				snap: true,
-        /* Is it possible to seamlessly cycle the carousel? */
+				/* Is it possible to seamlessly cycle the carousel? */
 				snapLoop: this.loop,
-        /* The threshold at which the page can be switched when the finger is swiped, You can switch the threshold of the page when you swipe your finger */
+				/* The threshold at which the page can be switched when the finger is swiped, You can switch the threshold of the page when you swipe your finger */
 				snapThreshold: 0.2,
-        /* Animation time for carousel switching */
-        snapSpeed: 400
-        /* better-scroll and fastclick versus, Clicking on the carousel in mobile mode does not jump */ 
-        // click: true 
+				/* Animation time for carousel switching */
+				snapSpeed: 400
+				/* better-scroll and fastclick versus, Clicking on the carousel in mobile mode does not jump */
+				// click: true
 			})
 			/* better-scroll Distribute event */
 			this.slider.on('scrollEnd', () => {
 				/* pageIndex: 第几个子元素 */
 				let pageIndex = this.slider.getCurrentPage().pageX
 				if (this.loop) {
-          /* Add one copy to the first element by default, pageIndex-1= current index */ 
+					/* Add one copy to the first element by default, pageIndex-1= current index */
 					pageIndex -= 1
-        }
+				}
 				this.currentPageIndex = pageIndex
 				if (this.autoPlay) {
 					clearTimeout(this.timer)
 					this._autoPlay()
 				}
 			})
-    },
-    /* jump to next page */
+		},
+		/* jump to next page */
 		_autoPlay() {
 			let pageIndex = this.currentPageIndex + 1
 			if (this.loop) {
-        /* this.currentPageIndex Starting from 0, pageIndex Corresponding to the first few elements one more than, Copy a copy at the very beginning */ 
+				/* this.currentPageIndex Starting from 0, pageIndex Corresponding to the first few elements one more than, Copy a copy at the very beginning */
 				pageIndex += 1
 			}
 			this.timer = setTimeout(() => {
@@ -147,7 +147,7 @@ export default {
 			}, this.interval)
 		}
 	},
-  /* Clear the timer after the route is cut */ 
+	/* Clear the timer after the route is cut */
 	destroyed() {
 		clearTimeout(this.timer)
 	}
@@ -155,6 +155,5 @@ export default {
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-@import '~common/scss/variable.scss';
 @import './slider.scss';
 </style>

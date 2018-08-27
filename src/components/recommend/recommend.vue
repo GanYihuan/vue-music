@@ -77,7 +77,7 @@ export default {
 			discList: []
 		}
 	},
-  /* get back-end data, data not monitor */
+	/* get back-end data, data not monitor */
 	created() {
 		/* get back-end data (Carousel data) async */
 		this._getRecommend()
@@ -97,9 +97,9 @@ export default {
 		loadImage() {
 			/* carousel render too late cause height wrong */
 			if (!this.checkloaded) {
-        /* invoked once */
-        this.checkloaded = true
-        /* better-scroll: refresh() */
+				/* invoked once */
+				this.checkloaded = true
+				/* better-scroll: refresh() */
 				this.$refs.scroll.refresh()
 			}
 		},
@@ -121,8 +121,8 @@ export default {
 		_getDiscList() {
 			getDiscList().then(res => {
 				if (res.code === ERR_OK) {
-          /* res: [歌单数据](https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&needNewCode=0&platform=yqq&order=listen&begin=0&num=80&songstatus=1&singermid=0025NhlN2yWrP4&jsonpCallback=__jp1) */
-          /* Status: 500, server error, axios can fix */ 
+					/* res: [歌单数据](https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&needNewCode=0&platform=yqq&order=listen&begin=0&num=80&songstatus=1&singermid=0025NhlN2yWrP4&jsonpCallback=__jp1) */
+					/* Status: 500, server error, axios can fix */
 					this.discList = res.data.list
 				}
 			})
@@ -132,6 +132,5 @@ export default {
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-@import '~common/scss/variable.scss';
 @import './recommend.scss';
 </style>
