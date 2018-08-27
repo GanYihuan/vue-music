@@ -1,15 +1,13 @@
 import jsonp from 'common/js/jsonp'
-import {
-  commonParams,
-  options
-} from './config'
+import { commonParams, options } from './config'
 /* ajax */
 import axios from 'axios'
 
 /* use jsonp fetch data (carousel data) */
 export function getRecommend() {
   /* static/jsonp1.png: open in chrome, copy url(copy '?' before) */
-  const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
+  const url =
+    'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
   /* Object.assign: copy the values of all enumerable own properties from one or more source objects to a target object. It will return the target object */
   /* It will return the target object. */
   const data = Object.assign({}, commonParams, {
@@ -46,7 +44,7 @@ export function getDiscList() {
       /* webpack.dev.conf.js app.get('/api/getDiscList', (req, res) => {}) */
       params: data
     })
-    .then((res) => {
+    .then(res => {
       return Promise.resolve(res.data)
     })
 }

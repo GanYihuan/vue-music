@@ -1,6 +1,6 @@
 <template>
   <!-- static/02-歌手界面.png -->
-  <!-- :data="data" Data is obtained asynchronously, Data changes to recalculate the scroll -->
+  <!-- :data="data" Data is obtained async, Data changes to refresh the scroll -->
   <scroll 
     class="listview"
     ref="listview"
@@ -90,6 +90,12 @@ export default {
 			/* diff: current element celling to pre element floor gaps */
 			diff: -1
 		}
+  },
+  /* get back-end data, created not monitor, data, props will monitor */
+	created() {
+		this.touch = {}
+		this.listenScroll = true
+		this.probeType = 3
 	},
 	computed: {
     /* Right list 'A','B'... */
@@ -110,12 +116,6 @@ export default {
 				: ''
 		}
   },
-  /* get back-end data, created not monitor, data, props will monitor */
-	created() {
-		this.touch = {}
-		this.listenScroll = true
-		this.probeType = 3
-	},
 	methods: {
 		selectItem(item) {
 			this.$emit('select', item)
@@ -196,7 +196,7 @@ export default {
           : 0
       /*
       When the title animation is not triggered,
-      fixedTop is not changing 
+      fixedTop is not changing
       */
 			if (this.fixedTop === fixedTop) {
 				return
@@ -215,12 +215,9 @@ export default {
 				return
 			}
       /*
-      Determine which group interval the newY scrolls into
       When scrolling to the middle section,
       listHeight has one more element than listGroup
-      listHeight.length - 1: The upper limit of the first element is the lower limit of the second element, 
-      Traversing to the last one -1, Ensure that height2 exists, 
-      No more than height2
+      listHeight.length-1: the first element upper limit is the second element lower limit, 
       */
 			for (let i = 0; i < listHeight.length - 1; i++) {
 				/* Lower limit */
@@ -241,10 +238,9 @@ export default {
 				this.currentIndex = 0
 			}
       /*
-      When scrolling to the bottom, 
-      -newY is bigger than the upper limit of the last element
+      When scrolling to the bottom,
+      -newY is bigger than the last element upper limit
       listHeight.length-2: listHeight has one more element than listGroup
-      currentIndex subscript starts from 0
       */
 			this.currentIndex = listHeight.length - 2
 		}
@@ -253,6 +249,5 @@ export default {
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-@import '~common/scss/variable.scss';
 @import './listview.scss';
 </style>

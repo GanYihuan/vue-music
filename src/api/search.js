@@ -4,7 +4,7 @@ import { commonParams, options } from './config'
 /**
  * hot search
  */
-export function getHotKey () {
+export function getHotKey() {
   const url = 'https://c.y.qq.com/splcloud/fcgi-bin/gethotkey.fcg'
   const data = Object.assign({}, commonParams, {
     uin: 0,
@@ -22,7 +22,7 @@ export function getHotKey () {
  * @param zhida: Do you want a singer?？
  * @param perpage: The number of returns per page.
  */
-export function search (query, page, zhida, perpage) {
+export function search(query, page, zhida, perpage) {
   const url = 'https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp'
   const data = Object.assign({}, commonParams, {
     w: query,

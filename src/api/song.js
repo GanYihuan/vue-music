@@ -3,7 +3,7 @@ import { commonParams } from './config'
 import axios from 'axios'
 
 /* get lyric */
-export function getLyric (mid) {
+export function getLyric(mid) {
   /* browser accesse address, back-end proxy address */
   const url = '/api/lyric'
   const data = Object.assign({}, commonParams, {
@@ -20,7 +20,7 @@ export function getLyric (mid) {
     .get(url, {
       params: data
     })
-    .then((res) => {
+    .then(res => {
       return Promise.resolve(res.data)
     })
 }
