@@ -1,6 +1,6 @@
 # imooc-music
 
-## Vue-开发移动端音乐WebApp
+> Vue-开发移动端音乐WebApp
 
 ## Build Setup
 
@@ -55,7 +55,7 @@ npm run start
 7. main.js (entrance)
 
 ```console
-npm i sass-loader console-sass stylus stylus-loader -D
+npm i sass-loader node-sass stylus stylus-loader -D
 ```
 
 - **eslintrc.js** Configuration
