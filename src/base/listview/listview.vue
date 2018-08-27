@@ -195,7 +195,7 @@ export default {
           ? newVal - FIXED_TITLE_HEIGHT
           : 0
       /*
-      When the title animation is not triggered,
+      When the title animation is not triggered
       fixedTop is not changing
       */
 			if (this.fixedTop === fixedTop) {
