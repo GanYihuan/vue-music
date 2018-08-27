@@ -58,7 +58,8 @@ export default {
 				return
 			}
 			this._setSliderWidth(true)
-			/* better-scroll: refresh */
+      /* better-scroll: refresh */
+      /* When the width changes */
 			this.slider.refresh()
 		})
 	},
@@ -67,7 +68,7 @@ export default {
 			this.children = this.$refs.sliderGroup.children
 			// console.log(this.children.length)
 			/*
-      dom: 5
+      this.children.length: 5
       better-scroll copy two child elements in carousel Head and tail, For looping
 			dom: 5+2=7
       */
@@ -114,12 +115,12 @@ export default {
 				/* better-scroll and fastclick versus, Clicking on the carousel in mobile mode does not jump */
 				// click: true
 			})
-			/* better-scroll Distribute event */
+			/* better-scroll distribute event */
 			this.slider.on('scrollEnd', () => {
 				/* pageIndex: 第几个子元素 */
 				let pageIndex = this.slider.getCurrentPage().pageX
 				if (this.loop) {
-					/* Add one copy to the first element by default, pageIndex-1= current index */
+					/* add one copy to the first element by default, pageIndex-1 = current index */
 					pageIndex -= 1
 				}
 				this.currentPageIndex = pageIndex
@@ -133,7 +134,7 @@ export default {
 		_autoPlay() {
 			let pageIndex = this.currentPageIndex + 1
 			if (this.loop) {
-				/* this.currentPageIndex Starting from 0, pageIndex Corresponding to the first few elements one more than, Copy a copy at the very beginning */
+				/* this.currentPageIndex starting from 0, pageIndex corresponding to the first few elements one more than, Copy a copy at the very beginning */
 				pageIndex += 1
 			}
 			this.timer = setTimeout(() => {
