@@ -1,10 +1,12 @@
 import 'babel-polyfill'
 import Vue from 'vue'
+import fastclick from 'fastclick'
+import VueLazyload from 'vue-lazyload'
+
 import App from './App.vue'
 import router from './router/route'
-import VueLazyload from 'vue-lazyload'
-import fastclick from 'fastclick'
 import store from './store/vuex'
+
 import 'common/scss/index.scss'
 
 /* Mobile debugging tools. */
