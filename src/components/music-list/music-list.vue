@@ -60,7 +60,7 @@ const transform = prefixStyle('transform')
 const backdrop = prefixStyle('backdrop-filter')
 
 export default {
-  components: {
+	components: {
 		Scroll,
 		Loading,
 		SongList
@@ -88,29 +88,29 @@ export default {
 	},
 	data() {
 		return {
-      /* real time roll position */
+			/* real time roll position */
 			scrollY: 0
 		}
-  },
-  /* data not monitor, data, props will monitor, get back-end data */
+	},
+	/* data not monitor, data, props will monitor, get back-end data */
 	created() {
 		this.probeType = 3
 		this.listenScroll = true
 	},
-  /* dom ready */
+	/* dom ready */
 	mounted() {
 		this.imageHeight = this.$refs.bgImage.clientHeight
 		/* bg-layer */
 		this.minTransalteY = -this.imageHeight + RESERVED_HEIGHT
 		this.$refs.list.$el.style.top = `${this.imageHeight}px`
-  },
-  computed: {
+	},
+	computed: {
 		bgStyle() {
 			return `background-image:url(${this.bgImage})`
 		}
-  },
+	},
 	methods: {
-    /* vuex/action */
+		/* vuex/action.js */
 		...mapActions(['selectPlay', 'randomPlay']),
 		/* if mini player, singer list bottom add height */
 		handlePlaylist(playlist) {
@@ -119,7 +119,7 @@ export default {
 			this.$refs.list.refresh()
 		},
 		scroll(pos) {
-      /* real time roll position */
+			/* real time roll position */
 			this.scrollY = pos.y
 		},
 		back() {
@@ -128,7 +128,6 @@ export default {
 		selectItem(item, index) {
 			/* ...mapActions */
 			this.selectPlay({
-        /* specific target */ 
 				list: this.songs,
 				index
 			})

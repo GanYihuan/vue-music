@@ -2,27 +2,33 @@
 import * as types from './mutation-types'
 import { playMode } from 'common/js/config'
 import { shuffle } from 'common/js/util'
-import { saveSearch, clearSearch, deleteSearch, savePlay, saveFavorite, deleteFavorite } from 'common/js/cache'
+import {
+  saveSearch,
+  clearSearch,
+  deleteSearch,
+  savePlay,
+  saveFavorite,
+  deleteFavorite
+} from 'common/js/cache'
 
 /*
 sequencelist song index corresponds randomlist song index
 return randomlist song index
 find out whether have song in the list, return its index
 */
-function findIndex (list, song) {
-  return list.findIndex((item) => {
+function findIndex(list, song) {
+  return list.findIndex(item => {
     return item.id === song.id
   })
 }
 
 /*
-music-list.vue/selectItem(item, index))
-Click on the song name to make changes.
-Define the action, action Execution, mutation changes, mapping state data.
-{commit, state} : Submit and retrieve data.
-{list, index} : Modified song list object.
+Click on song-list to invoked
+action Execution, mutation will changes, mapping state data
+{commit, state}: Submit and retrieve state data
+{list, index}: **music-list.vue**selectItem(list, index), Modified song list object.
 */
-export const selectPlay = function ({commit, state}, {list, index}) {
+export const selectPlay = function({ commit, state }, { list, index }) {
   /* submit mutation */
   commit(types.SET_SEQUENCE_LIST, list)
   /* If the playback mode is a random mode. */
@@ -42,7 +48,7 @@ export const selectPlay = function ({commit, state}, {list, index}) {
 }
 
 /* random play, no index */
-export const randomPlay = function ({commit}, {list}) {
+export const randomPlay = function({ commit }, { list }) {
   /* change the playback mode to random mode */
   commit(types.SET_PLAY_MODE, playMode.random)
   /* submit mutation, change the list of song sequences */
@@ -59,7 +65,7 @@ export const randomPlay = function ({commit}, {list}) {
 }
 
 // Click on the search interface song and add it to the playlist.
-export const insertSong = function ({commit, state}, song) {
+export const insertSong = function({ commit, state }, song) {
   // The state can not be modified in other places, only in mutation.
   // A copy will not modify the state.
   let playlist = state.playlist.slice()
@@ -104,21 +110,21 @@ export const insertSong = function ({commit, state}, song) {
 }
 
 // Save to localStorage, saveSearch(call cache.js)
-export const saveSearchHistory = function ({commit}, query) {
+export const saveSearchHistory = function({ commit }, query) {
   commit(types.SET_SEARCH_HISTORY, saveSearch(query))
 }
 
 // Remove the search term from localStorage, deleteSearch(call cache.js)
-export const deleteSearchHistory = function ({commit}, query) {
+export const deleteSearchHistory = function({ commit }, query) {
   commit(types.SET_SEARCH_HISTORY, deleteSearch(query))
 }
 
 // clearSearch: cache.js Clean cache, clearSearch(call cache.js)
-export const clearSearchHistory = function ({commit}) {
+export const clearSearchHistory = function({ commit }) {
   commit(types.SET_SEARCH_HISTORY, clearSearch())
 }
 
-export const deleteSong = function ({commit, state}, song) {
+export const deleteSong = function({ commit, state }, song) {
   // The state can not be modified in other places, only in mutation.
   // A copy will not modify the state.
   let playlist = state.playlist.slice()
@@ -143,7 +149,7 @@ export const deleteSong = function ({commit, state}, song) {
 }
 
 // Empty the mini song list.
-export const deleteSongList = function ({commit}) {
+export const deleteSongList = function({ commit }) {
   commit(types.SET_CURRENT_INDEX, -1)
   commit(types.SET_PLAYLIST, [])
   commit(types.SET_SEQUENCE_LIST, [])
@@ -151,16 +157,16 @@ export const deleteSongList = function ({commit}) {
 }
 
 // Save the playback history.
-export const savePlayHistory = function ({commit}, song) {
+export const savePlayHistory = function({ commit }, song) {
   commit(types.SET_PLAY_HISTORY, savePlay(song))
 }
 
 // Save the collection
-export const saveFavoriteList = function ({commit}, song) {
+export const saveFavoriteList = function({ commit }, song) {
   commit(types.SET_FAVORITE_LIST, saveFavorite(song))
 }
 
 // Cancel the collection
-export const deleteFavoriteList = function ({commit}, song) {
+export const deleteFavoriteList = function({ commit }, song) {
   commit(types.SET_FAVORITE_LIST, deleteFavorite(song))
 }

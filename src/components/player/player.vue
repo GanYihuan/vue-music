@@ -154,7 +154,15 @@ export default {
 			playingLyric: ''
 		}
 	},
-	computed: {
+	/*
+  data not monitor, data & props will monitor
+  no need get & set
+	get back-end data
+  */
+	created() {
+		this.touch = {}
+  },
+  computed: {
     /* vuex/getter.js */
 		...mapGetters(['currentIndex', 'fullScreen', 'playing']),
 		cdCls() {
@@ -172,14 +180,6 @@ export default {
 		percent() {
 			return this.currentTime / this.currentSong.duration
 		}
-	},
-	/*
-  data not monitor, data & props will monitor
-  no need get & set
-	get back-end data
-  */
-	created() {
-		this.touch = {}
 	},
 	methods: {
 		...mapMutations({
@@ -533,7 +533,5 @@ export default {
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-@import '~common/scss/variable.scss';
-@import '~common/scss/_mixin.scss';
 @import './player.scss';
 </style>
