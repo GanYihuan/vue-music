@@ -92,11 +92,6 @@ export default {
 			scrollY: 0
 		}
   },
-  computed: {
-		bgStyle() {
-			return `background-image:url(${this.bgImage})`
-		}
-  },
   /* data not monitor, data, props will monitor, get back-end data */
 	created() {
 		this.probeType = 3
@@ -108,7 +103,12 @@ export default {
 		/* bg-layer */
 		this.minTransalteY = -this.imageHeight + RESERVED_HEIGHT
 		this.$refs.list.$el.style.top = `${this.imageHeight}px`
-	},
+  },
+  computed: {
+		bgStyle() {
+			return `background-image:url(${this.bgImage})`
+		}
+  },
 	methods: {
     /* vuex/action */
 		...mapActions(['selectPlay', 'randomPlay']),
@@ -177,7 +177,5 @@ export default {
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-@import '~common/scss/variable.scss';
-@import '~common/scss/_mixin.scss';
 @import './music-list.scss';
 </style>

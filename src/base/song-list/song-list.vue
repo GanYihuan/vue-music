@@ -57,7 +57,5 @@ export default {
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-@import '~common/scss/variable.scss';
-@import '~common/scss/_mixin.scss';
 @import './song-list.scss';
 </style>
