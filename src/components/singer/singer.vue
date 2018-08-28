@@ -42,7 +42,7 @@ export default {
 		this._getSingerList()
 	},
 	methods: {
-    	/* invoked vuex/mutations */
+    /* invoked vuex/mutations */
 		...mapMutations({
       /* SET_SINGER: vuex/mutation-type */ 
 			setSinger: 'SET_SINGER'

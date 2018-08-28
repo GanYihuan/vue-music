@@ -58,7 +58,7 @@ export default {
 		_normalizeSongs(list) {
 			let ret = []
 			list.forEach(item => {
-				/* musicData Is an object in the data, Destructor definition */
+				/* musicData is an object in the data, Destructor definition */
 				let { musicData } = item
 				if (musicData.songid && musicData.albummid) {
 					ret.push(createSong(musicData))
@@ -71,6 +71,5 @@ export default {
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-@import '~common/scss/variable.scss';
 @import './singer-detail.scss';
 </style>
