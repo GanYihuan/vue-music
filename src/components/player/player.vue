@@ -161,9 +161,9 @@ export default {
   */
 	created() {
 		this.touch = {}
-  },
-  computed: {
-    /* vuex/getter.js */
+	},
+	computed: {
+		/* vuex/getter.js */
 		...mapGetters(['currentIndex', 'fullScreen', 'playing']),
 		cdCls() {
 			return this.playing ? 'play' : 'play pause'
@@ -218,7 +218,7 @@ export default {
 			})
 			/* done: func */
 			animations.runAnimation(this.$refs.cdWrapper, 'move', done)
-    },
+		},
 		afterEnter() {
 			animations.unregisterAnimation('move')
 			this.$refs.cdWrapper.style.animation = ''
@@ -226,7 +226,9 @@ export default {
 		leave(el, done) {
 			this.$refs.cdWrapper.style.transition = 'all 0.4s'
 			const { x, y, scale } = this._getPosAndScale()
-			this.$refs.cdWrapper.style[transform] = `translate3d(${x}px,${y}px,0) scale(${scale})`
+			this.$refs.cdWrapper.style[
+				transform
+			] = `translate3d(${x}px,${y}px,0) scale(${scale})`
 			this.$refs.cdWrapper.addEventListener('transitionend', done)
 		},
 		afterLeave() {
@@ -237,8 +239,8 @@ export default {
 			if (!this.songReady) {
 				return
 			}
-      /* ...mapMutations */
-      /* ...mapGetters */
+			/* ...mapMutations */
+			/* ...mapGetters */
 			this.setPlayingState(!this.playing)
 			/* fixBug: when scroll lyrics can play, preventing the lyrics from scrolling while they stop playing */
 			if (this.currentLyric) {
@@ -278,7 +280,7 @@ export default {
 				if (index === this.playlist.length) {
 					index = 0
 				}
-				/* ...mapMutations (common/js/mixin.js) */
+				/* ...mapMutations */
 				this.setCurrentIndex(index)
 				if (!this.playing) {
 					this.togglePlaying()
@@ -290,8 +292,8 @@ export default {
 			/* <audio> ready */
 			if (!this.songReady) {
 				return
-      }
-      /* when only one song */
+			}
+			/* when only one song */
 			if (this.playlist.length === 1) {
 				this.loop()
 				/* optimization: 3 prevents the playback control from being triggered. Return does not call songReady = false */
@@ -300,8 +302,8 @@ export default {
 				let index = this.currentIndex - 1
 				if (index === -1) {
 					index = this.playlist.length - 1
-        }
-        /* ...mapMutations (common/js/mixin.js) */
+				}
+				/* ...mapMutations */
 				this.setCurrentIndex(index)
 				if (!this.playing) {
 					this.togglePlaying()
@@ -331,6 +333,15 @@ export default {
 			const second = this._pad(interval % 60)
 			return `${minute}:${second}`
 		},
+		/* _pad: use 0 to fill 2 bits */
+		_pad(num, n = 2) {
+			let len = num.toString().length
+			while (len < n) {
+				num = '0' + num
+				len++
+			}
+			return num
+		},
 		onProgressBarChange(percent) {
 			const currentTime = this.currentSong.duration * percent
 			this.$refs.audio.currentTime = currentTime
@@ -349,8 +360,8 @@ export default {
 					/* prevent fast switch, result in unmatched lyric */
 					if (this.currentSong.lyric !== lyric) {
 						return
-          }
-          /* new Lyric: `npm i lyric-parser -S` */
+					}
+					/* new Lyric: `npm i lyric-parser -S` */
 					this.currentLyric = new Lyric(lyric, this.handleLyric)
 					if (this.playing) {
 						this.currentLyric.play()
@@ -412,10 +423,15 @@ export default {
       page left-scroll distance
 			min: -window.innerWidth; max: 0
       */
-			const offsetWidth = Math.min(0, Math.max(-window.innerWidth, left + deltaX))
+			const offsetWidth = Math.min(
+				0,
+				Math.max(-window.innerWidth, left + deltaX)
+			)
 			this.touch.percent = Math.abs(offsetWidth / window.innerWidth)
 			/* lyricList: Vue component, $el access dom */
-			this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
+			this.$refs.lyricList.$el.style[
+				transform
+			] = `translate3d(${offsetWidth}px,0,0)`
 			this.$refs.lyricList.$el.style[transitionDuration] = 0
 			this.$refs.middleL.style.opacity = 1 - this.touch.percent
 			this.$refs.middleL.style[transitionDuration] = 0
@@ -448,20 +464,13 @@ export default {
 				}
 			}
 			const time = 300
-			this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
+			this.$refs.lyricList.$el.style[
+				transform
+			] = `translate3d(${offsetWidth}px,0,0)`
 			this.$refs.lyricList.$el.style[transitionDuration] = `${time}ms`
 			this.$refs.middleL.style.opacity = opacity
 			this.$refs.middleL.style[transitionDuration] = `${time}ms`
 			this.touch.initiated = false
-		},
-		/* _pad: use 0 to fill 2 bits */
-		_pad(num, n = 2) {
-			let len = num.toString().length
-			while (len < n) {
-				num = '0' + num
-				len++
-			}
-			return num
 		},
 		/* big-record small-record x y scale */
 		_getPosAndScale() {
