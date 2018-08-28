@@ -37,7 +37,7 @@ export const selectPlay = function({ commit, state }, { list, index }) {
     let randomList = shuffle(list)
     /* change the playlist song */
     commit(types.SET_PLAYLIST, randomList)
-    /* song(list[index]) at randomList index */
+    /* return song(list[index]) at randomList index */
     index = findIndex(randomList, list[index])
   } else {
     commit(types.SET_PLAYLIST, list)

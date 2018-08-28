@@ -377,14 +377,9 @@ export default {
 		handleLyric({ lineNum, txt }) {
 			this.currentLineNum = lineNum
 			if (lineNum > 5) {
-				/*
-        make sure to highlight lyric in the middle
-        the current lyric, move up to 5 line
-        */
 				let lineEl = this.$refs.lyricLine[lineNum - 5]
 				this.$refs.lyricList.scrollToElement(lineEl, 1000)
 			} else {
-				/* first five line don't scroll, at the top */
 				this.$refs.lyricList.scrollTo(0, 0, 1000)
 			}
 			/* playingLyric: lyrics displayed below the CD */
@@ -419,9 +414,9 @@ export default {
 			}
 			/* right: 0, left: -window.innerWidth */
 			const left = this.currentShow === 'cd' ? 0 : -window.innerWidth
-			/*
+      /*
+      Math.max(a,b): >a, <b
       page left-scroll distance
-			min: -window.innerWidth; max: 0
       */
 			const offsetWidth = Math.min(
 				0,
