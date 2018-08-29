@@ -18,7 +18,7 @@ import { mapGetters } from 'vuex'
 import { createSong } from 'common/js/song'
 
 export default {
-  components: {
+	components: {
 		MusicList
 	},
 	data() {
@@ -26,21 +26,21 @@ export default {
 			songs: []
 		}
 	},
+	/* data not monitor, data & props will monitor, get back-end data */
+	created() {
+		this._getSongList()
+	},
 	computed: {
-    /* store/getter.js */
+		/* store/getter.js */
 		...mapGetters(['disc']),
 		title() {
-      /* ...mapGetters */
+			/* ...mapGetters */
 			return this.disc.dissname
 		},
 		bgImage() {
 			/* ...mapGetters */
 			return this.disc.imgurl
 		}
-  },
-  /* data not monitor, data & props will monitor, get back-end data */
-	created() {
-		this._getSongList()
 	},
 	methods: {
 		_getSongList() {
@@ -48,13 +48,11 @@ export default {
 				this.$router.push('/recommend')
 				return
 			}
-      getSongList(this.disc.dissid)
-        .then(res => {
-          if (res.code === ERR_OK) {
-            this.songs = this._normalizeSongs(res.cdlist[0].songlist)
-          }
-        }
-      )
+			getSongList(this.disc.dissid).then(res => {
+				if (res.code === ERR_OK) {
+					this.songs = this._normalizeSongs(res.cdlist[0].songlist)
+				}
+			})
 		},
 		_normalizeSongs(list) {
 			let ret = []

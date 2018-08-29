@@ -19,7 +19,7 @@ import { mapGetters } from 'vuex'
 import { createSong } from 'common/js/song'
 
 export default {
-  components: {
+	components: {
 		MusicList
 	},
 	/* data not monitor, data & props need monitor, get back-end data */

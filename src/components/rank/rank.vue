@@ -41,9 +41,13 @@ import { playlistMixin } from 'common/js/mixin'
 import { mapMutations } from 'vuex'
 
 export default {
-  /* mixin.js */
-  mixins: [playlistMixin],
-  /* data not monitor, data & props need monitor, get back-end data */
+	components: {
+		Scroll,
+		Loading
+	},
+	/* mixin.js */
+	mixins: [playlistMixin],
+	/* data not monitor, data & props need monitor, get back-end data */
 	created() {
 		this._getTopList()
 	},
@@ -68,8 +72,8 @@ export default {
 			})
 			/* ...mapMutations */
 			this.setTopList(item)
-    },
-    /* https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg?g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&tpl=3&page=detail&type=top&topid=4&_=1521599753632 */
+		},
+		/* https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg?g_tk=5381&uin=0&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&tpl=3&page=detail&type=top&topid=4&_=1521599753632 */
 		_getTopList() {
 			getTopList().then(res => {
 				if (res.code === ERR_OK) {
@@ -84,10 +88,6 @@ export default {
 				this.$Lazyload.lazyLoadHandler()
 			}, 20)
 		}
-	},
-	components: {
-		Scroll,
-		Loading
 	}
 }
 </script>
