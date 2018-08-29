@@ -80,8 +80,8 @@ import SearchList from 'base/search-list/search-list'
 import Confirm from 'base/confirm/confirm'
 
 export default {
-  mixins: [playlistMixin, searchMixin],
-  components: {
+	mixins: [playlistMixin, searchMixin],
+	components: {
 		SearchBox,
 		Scroll,
 		Suggest,
@@ -94,16 +94,16 @@ export default {
 			query: ''
 		}
 	},
+	/* data not monitor, data & props data need monitor, get back-end data */
+	created() {
+		this._getHotKey()
+	},
 	computed: {
 		/* ...mapGetters */
 		/* when hotKey, searchHistory changes, scroll resets the height */
 		shortcut() {
 			return this.hotKey.concat(this.searchHistory)
 		}
-  },
-  /* data not monitor, data & props data need monitor, get back-end data */
-	created() {
-		this._getHotKey()
 	},
 	methods: {
 		...mapActions(['clearSearchHistory']),
@@ -121,12 +121,11 @@ export default {
 			this.$refs.searchBox.setQuery(query)
 		},
 		_getHotKey() {
-      getHotKey()
-        .then(res => {
-          if (res.code === ERR_OK) {
-            this.hotKey = res.data.hotkey.slice(0, 10)
-          }
-        })
+			getHotKey().then(res => {
+				if (res.code === ERR_OK) {
+					this.hotKey = res.data.hotkey.slice(0, 10)
+				}
+			})
 		}
 	},
 	watch: {
@@ -143,7 +142,5 @@ export default {
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-@import '~common/scss/variable.scss';
-@import '~common/scss/_mixin.scss';
 @import './search.scss';
 </style>

@@ -522,14 +522,12 @@ npm i lyric-parser -S
 
 ## 10-6, 10-7, 10-8, 10-9 搜索页面suggest组件开发（3）
 
-- ✨✨✨✨
 - **store/action.js**
 - **suggest.vue**(search result)
 - selectItem()
 
 ## 10-10 搜索页面suggest组件开发（7）
 
-- ✨✨✨✨
 - **suggest.vue**
 - **no-result.vue**
 - **common/js/util**
@@ -539,7 +537,6 @@ npm i lyric-parser -S
 
 ## 10-11, 10-12, 10-13: 搜索页面搜索结果保存功能实现（1）
 
-- ✨✨✨✨✨
 - **common/js/cache.js**
 - **store/actions.js**
 
@@ -557,121 +554,100 @@ npm install good-storage --save
 
 ## 10-14 搜索页面search-list 组件功能实现（上）
 
-- ✨✨
 - **search-list.vue**
 - **search.vue**
 
 ## 10-15 搜索页面search-list 组件功能实现（下）
 
-- ✨✨✨✨
 - **common/js/cache.js**
 - **search.vue**
 
 ## 10-16 搜索页面confirm 组件功能实现
 
-- ✨✨✨
 - **confirm.js**
 
 ## 10-17, 10-18 搜索页面剩余功能实现（上）
 
-- ✨✨✨
 - **search.vue**
 
 ## 11-1 歌曲列表组件布局和功能介绍
 
-- ✨
 - **playlist.vue**
 
 ## 11-2 歌曲列表组件显示和隐藏的控制
 
-- ✨✨
 - **playlist.vue**
 - **player.vue**
 - prevent bubble
 
 ## 11-3, 11-4 歌曲列表组件播放列表的实现（1）
 
-- ✨✨✨
 - **playlist.vue**
 
 ## 11-5, 11-6 歌曲列表组件播放列表的实现（3）
 
-- ✨✨✨✨
 - **store/actions.js**
 - **playlist.vue**
 
 ## 11-7 歌曲列表组件播放列表的实现（5）
 
-- ✨✨✨
 - **playlist.vue**
 - **confirm.vue**
 - transition-group
 
 ## 11-8, 10-9 歌曲列表组件 playerMixin的抽象（上）
 
-- ✨✨
 - **common/js/mixin.js**
 
 ## 11-10 歌曲列表组件add-song组件实现（1）
 
-- ✨✨
 - **add-song.vue**
 
 ## 11-11 歌曲列表组件add-song组件实现（2）
 
-- ✨✨
 - **add-song.vue**
 - **common/js/mixin.js**
 
 ## 11-12 歌曲列表组件add-song组件实现（3）
 
-- ✨✨
 - **switches.vue**
 
 ## 11-13, 11-4 歌曲列表组件add-song组件实现（4）
 
-- ✨✨✨✨
 - **add-song.vue**
 - **common/js/cache.js**
 
 ## 11-15 歌曲列表组件add-song组件实现（6）
 
-- ✨✨✨
 - **add-song.vue**
 - **common/js/mixin.js**
 
 ## 11-16 歌曲列表组件top-list组件实现
 
-- ✨✨
 - **top-tip.vue**
 
 ## 11-17 歌曲列表组件scroll组件能力的扩展
 
-- ✨✨
 - **add-song.vue**
 
 ## 12-1, 12-2 用户中心页面收藏列表的Vuex数据设计和实现
 
-- ✨✨
 - **user-center.vue**
 - **m-header.vue**
 - Click ❤️ button to jump to the user center
 
 ## 12-3 用户中心页面收藏歌曲功能实现（上）processing
 
-- ✨✨✨
 - **user-center.vue**
 - **common/js/mixin.js**
 
 ## 12-4 用户中心页面收藏歌曲功能实现（下）
 
-- ✨✨✨
 - **user-center.vue**
 - **playlist.vue**
 
 ## 12-5, 12-6 用户中心页面剩余功能实现（上）
 
-- ✨✨✨
 - **user-center.vue**
 - Back button function
 - Random play button function
@@ -680,12 +656,10 @@ npm install good-storage --save
 
 ## 13-1 编译打包-播放内核小bug修复
 
-- ✨✨✨✨
 - **player.vue**
 
 ## 13-2 编译打包-项目编译打包及console服务测试
 
-- ✨✨✨✨
 - Compile the package, and the back-end call.
 
 ```console
@@ -709,7 +683,6 @@ console prod.server.js
 
 ## 13-3 编译打包-路由组件实现懒加载
 
-- ✨✨✨
 - **router/index.js**
 - router Lazy loading
 - **router/route.js**
@@ -718,14 +691,12 @@ console prod.server.js
 
 ## 13-4 编译打包-Vue.js升级到最新版
 
-- ✨✨
 - **package.json**
 - vue upgrade, change package.json version
 > "vue" version and "vue-template-compiler" version equal
 
 ## 14 课程总结
 
-- ✨✨✨
 - **main.js**
 - Mobile terminal debugging, the interface has a green button vConsole.
 - <https://github.com/Tencent/vConsole>

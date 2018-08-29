@@ -45,7 +45,7 @@ const TYPE_SINGER = 'singer'
 const perpage = 20
 
 export default {
-  components: {
+	components: {
 		Scroll,
 		Loading,
 		NoResult,
@@ -88,12 +88,12 @@ export default {
 			/* scroll to top */
 			this.$refs.suggest.scrollTo(0, 0)
 			/**
-       * api/search.js
-       * @param query: Retrieve the value
-       * @param page: page index
-       * @param showSinger: Do you want a singer ?
-       * @param perpage: The number of returns per page.
-       */
+			 * api/search.js
+			 * @param query: Retrieve the value
+			 * @param page: page index
+			 * @param showSinger: Do you want a singer ?
+			 * @param perpage: The number of returns per page.
+			 */
 			search(this.query, this.page, this.showSinger, perpage).then(res => {
 				if (res.code === ERR_OK) {
 					this.result = this._genResult(res.data)
@@ -109,23 +109,49 @@ export default {
 			}
 			/* load next page */
 			this.page++
-      /**
-       * api/search.js
-       * @param query: Retrieve the value
-       * @param page: page index
-       * @param showSinger: Do you want a singer ?
-       * @param perpage: The number of returns per page.
-       */
+			/**
+			 * api/search.js
+			 * @param query: Retrieve the value
+			 * @param page: page index
+			 * @param showSinger: Do you want a singer ?
+			 * @param perpage: The number of returns per page.
+			 */
 			search(this.query, this.page, this.showSinger, perpage).then(res => {
 				if (res.code === ERR_OK) {
 					this.result = this.result.concat(this._genResult(res.data))
 					this._checkMore(res.data)
 				}
 			})
+    },
+    _genResult(data) {
+			let ret = []
+			/* zhida: want singer? */
+			/* zhida.singerid: singer id */
+			if (data.zhida && data.zhida.singerid) {
+				/* type: distinguish between singers and songs */
+				ret.push({ ...data.zhida, ...{ type: TYPE_SINGER } })
+			}
+			if (data.song) {
+				ret = ret.concat(this._normalizeSongs(data.song.list))
+			}
+			return ret
+    },
+    _normalizeSongs(list) {
+			let ret = []
+			list.forEach(musicData => {
+				if (musicData.songid && musicData.albummid) {
+					/* convert to song instance */
+					ret.push(createSong(musicData))
+				}
+			})
+			return ret
 		},
 		_checkMore(data) {
 			const song = data.song
-			if (!song.list.length || song.curnum + song.curpage * perpage > song.totalnum) {
+			if (
+				!song.list.length ||
+				song.curnum + song.curpage * perpage > song.totalnum
+			) {
 				this.hasMore = false
 			}
 		},
@@ -162,34 +188,11 @@ export default {
 			} else {
 				return 'icon-music'
 			}
-		},
-		_genResult(data) {
-			let ret = []
-			/* zhida: want singer? */
-			/* zhida.singerid: singer id */
-			if (data.zhida && data.zhida.singerid) {
-				/* type: distinguish between singers and songs */
-				ret.push({ ...data.zhida, ...{ type: TYPE_SINGER } })
-			}
-			if (data.song) {
-				ret = ret.concat(this._normalizeSongs(data.song.list))
-			}
-			return ret
-		},
-		_normalizeSongs(list) {
-			let ret = []
-			list.forEach(musicData => {
-				if (musicData.songid && musicData.albummid) {
-					/* convert to song instance */
-					ret.push(createSong(musicData))
-				}
-			})
-			return ret
 		}
 	},
 	watch: {
 		query(newQuery) {
-			/* request server api/search.js */
+			/* request server **api/search.js** */
 			this.search(newQuery)
 		}
 	}
@@ -197,7 +200,5 @@ export default {
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-@import '~common/scss/variable.scss';
-@import '~common/scss/_mixin.scss';
 @import './suggest.scss';
 </style>

@@ -59,6 +59,5 @@ export default {
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-@import '~common/scss/variable.scss';
 @import './comfirm.scss';
 </style>

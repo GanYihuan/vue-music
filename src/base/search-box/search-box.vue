@@ -19,9 +19,19 @@ export default {
 	},
 	data() {
 		return {
-			// Search keywords
 			query: ''
 		}
+  },
+  /* data not monitor, data & props data need monitor, get back-end data */
+	created() {
+		// debounce(): **common/js/util.js** Throttling function
+		// Throttling function, optimizing request.
+		this.$watch(
+			'query',
+			debounce(newQuery => {
+				this.$emit('query', newQuery)
+			}, 200)
+		)
 	},
 	methods: {
 		clear() {
@@ -33,21 +43,10 @@ export default {
 		blur() {
 			this.$refs.query.blur()
 		}
-  },
-  /* data not monitor, data & props data need monitor, get back-end data */
-	created() {
-		// debounce(): **common/js/util.js** Throttling function
-		// Throttling function, optimizing request.
-    this.$watch('query', debounce(newQuery => 
-      {
-				this.$emit('query', newQuery)
-			}, 200)
-		)
 	}
 }
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-@import '~common/scss/variable.scss';
 @import './search-box.scss';
 </style>
