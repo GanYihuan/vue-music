@@ -56,6 +56,12 @@ import NoResult from 'base/no-result/no-result'
 import Song from 'common/js/song'
 
 export default {
+	components: {
+		Switches,
+		Scroll,
+		SongList,
+		NoResult
+	},
 	mixins: [playlistMixin],
 	data() {
 		return {
@@ -112,20 +118,12 @@ export default {
 				return new Song(song)
 			})
 			// ...mapActions
-			this.randomPlay({list})
+			this.randomPlay({ list })
 		}
-	},
-	components: {
-		Switches,
-		Scroll,
-		SongList,
-		NoResult
 	}
 }
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-@import '~common/scss/variable.scss';
-@import '~common/scss/_mixin.scss';
 @import './user-center.scss';
 </style>

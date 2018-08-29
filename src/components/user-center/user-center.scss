@@ -1,3 +1,5 @@
+@import '~common/scss/variable';
+@import '~common/scss/_mixin';
 .user-center {
   position: fixed;
   top: 0;
@@ -6,11 +8,13 @@
   width: 100%;
   background: $color-background;
 
-  &.slide-enter-active, &.slide-leave-active {
+  &.slide-enter-active,
+  &.slide-leave-active {
     transition: all 0.3s;
   }
 
-  &.slide-enter, &.slide-leave-to {
+  &.slide-enter,
+  &.slide-leave-to {
     transform: translate3d(100%, 0, 0);
   }
 
