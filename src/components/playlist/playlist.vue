@@ -69,6 +69,11 @@ import Confirm from 'base/confirm/confirm'
 import AddSong from 'components/add-song/add-song'
 
 export default {
+	components: {
+		Scroll,
+		AddSong,
+		Confirm
+	},
 	mixins: [playerMixin],
 	data() {
 		return {
@@ -90,7 +95,7 @@ export default {
 			// The display is refreshed to prevent the dom from being correctly calculated, resulting in scroll failure.
 			setTimeout(() => {
 				this.$refs.listContent.refresh()
-				// currentSong: ...mapGetters (mixin.js)
+				// currentSong: ...mapGetters **mixin.js**
 				this.scrollToCurrent(this.currentSong)
 			}, 20)
 		},
@@ -130,7 +135,10 @@ export default {
 				return current.id === song.id
 			})
 			// Scroll to the elements of this list.
-			this.$refs.listContent.scrollToElement(this.$refs.list.$el.children[index], 300)
+			this.$refs.listContent.scrollToElement(
+				this.$refs.list.$el.children[index],
+				300
+			)
 		},
 		deleteOne(item) {
 			// ...mapActions
@@ -152,17 +160,10 @@ export default {
 				this.scrollToCurrent(newSong)
 			}, 20)
 		}
-	},
-	components: {
-		Scroll,
-		AddSong,
-		Confirm
 	}
 }
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-@import '~common/scss/variable.scss';
-@import '~common/scss/_mixin.scss';
 @import './playlist.scss';
 </style>

@@ -1,3 +1,5 @@
+@import '~common/scss/variable';
+@import '~common/scss/_mixin';
 .playlist {
   position: fixed;
   left: 0;
@@ -7,7 +9,8 @@
   z-index: 200;
   background-color: $color-background-d;
 
-  &.list-fade-enter-active, &.list-fade-leave-active {
+  &.list-fade-enter-active,
+  &.list-fade-leave-active {
     transition: opacity 0.3s;
 
     .list-wrapper {
@@ -15,7 +18,8 @@
     }
   }
 
-  &.list-fade-enter, &.list-fade-leave-to {
+  &.list-fade-enter,
+  &.list-fade-leave-to {
     opacity: 0;
 
     .list-wrapper {
@@ -23,7 +27,8 @@
     }
   }
 
-  &.list-fade-enter, .list-wrapper {
+  &.list-fade-enter,
+  .list-wrapper {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -72,11 +77,13 @@
         padding: 0 30px 0 20px;
         overflow: hidden;
 
-        &.list-enter-active, &.list-leave-active {
+        &.list-enter-active,
+        &.list-leave-active {
           transition: all 0.1s;
         }
 
-        &.list-enter, &.list-leave-to {
+        &.list-enter,
+        &.list-leave-to {
           height: 0;
         }
 

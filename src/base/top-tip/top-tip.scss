@@ -1,3 +1,4 @@
+@import '~common/scss/variable';
 .top-tip {
   position: fixed;
   top: 0;
@@ -5,11 +6,13 @@
   z-index: 500;
   background: $color-dialog-background;
 
-  &.drop-enter-active, &.drop-leave-active {
+  &.drop-enter-active,
+  &.drop-leave-active {
     transition: all 0.3s;
   }
 
-  &.drop-enter, &.drop-leave-to {
+  &.drop-enter,
+  &.drop-leave-to {
     transform: translate3d(0, -100%, 0);
   }
 }

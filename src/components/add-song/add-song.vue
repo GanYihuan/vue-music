@@ -85,6 +85,15 @@ import { mapGetters, mapActions } from 'vuex'
 import Song from 'common/js/song'
 
 export default {
+	components: {
+		SearchBox,
+		SongList,
+		SearchList,
+		Scroll,
+		Switches,
+		TopTip,
+		Suggest
+	},
 	mixins: [searchMixin],
 	data() {
 		return {
@@ -129,21 +138,10 @@ export default {
 		switchItem(index) {
 			this.currentIndex = index
 		}
-	},
-	components: {
-		SearchBox,
-		SongList,
-		SearchList,
-		Scroll,
-		Switches,
-		TopTip,
-		Suggest
 	}
 }
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-@import '~common/scss/variable.scss';
-@import '~common/scss/_mixin.scss';
 @import './add-song.scss';
 </style>

@@ -22,15 +22,15 @@ export default {
 	components: {
 		MusicList
 	},
-	/* data not monitor, data & props need monitor, get back-end data */
-	created() {
-		this._getMusicList()
-	},
 	data() {
 		return {
 			songs: [],
 			rank: true
 		}
+  },
+  /* data not monitor, data & props need monitor, get back-end data */
+	created() {
+		this._getMusicList()
 	},
 	computed: {
 		/* store/state.js */
