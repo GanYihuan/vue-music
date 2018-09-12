@@ -1,6 +1,6 @@
 # imooc-music
 
-> Vue-开发移动端音乐WebApp
+> Vue-开发移动端音乐 WebApp
 
 ## Build Setup
 
@@ -24,7 +24,16 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 - [歌手数据](https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&needNewCode=0&platform=yqq&order=listen&begin=0&num=80&songstatus=1&singermid=0025NhlN2yWrP4&jsonpCallback=__jp1)
 - [歌单数据](https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0)
 
-## 2-2 Vue-cli脚手架安装
+## 2-2 Vue-cli 脚手架安装
+
+### node 升级
+
+```console
+npm i nvm
+nvm ls
+nvm install 8.9.1
+nvm use 8.9.1
+```
 
 ```console
 npm i -g vue-cli
@@ -46,6 +55,7 @@ npm run start
 
 - ESLint webpack File changes must be renewed npm run start
 - Directory introduction
+
 1. api: (back-end request, jsonp request, ajax request)
 2. common: (Shared static resources: img, common js, style)
 3. components: (Common component)
@@ -60,7 +70,7 @@ npm i sass-loader node-sass stylus stylus-loader -D
 
 - **eslintrc.js** Configuration
 - **webpack.base.conf.js** Alias ​​configuration, 'common' correspond 'src/common'
-> import 'common/scss/index.scss'
+  > import 'common/scss/index.scss'
 
 ```js
 resolve: {
@@ -91,21 +101,21 @@ npm i babel-polyfill babel-runtime fastclick vue-lazyload -S
 - jsonp data
 - [推荐界面数据](https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg)
 
-## 4-2 jsonp原理介绍 + Promise封装
+## 4-2 jsonp 原理介绍 + Promise 封装
 
 - **common/js/jsonp.js**
 - Promise:
-> pass async message object
-> an event which indicate that result will be know in the future
+  > pass async message object
+  > an event which indicate that result will be know in the future
 - jsonp(url, opts, fn)
-> 动态创建script标签(没有同源限制可以跨域), script的src指向服务端地址, 有一个callback, 后端解析这个url, 带callback=a这个参数, 返回数据里调用a包裹一个方法, 在前端执行a这个方法, window注册这个方法, 定义这个a方法获得数据
+  > 动态创建 script 标签(没有同源限制可以跨域), script 的 src 指向服务端地址, 有一个 callback, 后端解析这个 url, 带 callback=a 这个参数, 返回数据里调用 a 包裹一个方法, 在前端执行 a 这个方法, window 注册这个方法, 定义这个 a 方法获得数据
 - install jsonp
 
 ```console
 npm i jsonp -S
 ```
 
-## 4-3 jsonp的应用 + 轮播图数据抓取
+## 4-3 jsonp 的应用 + 轮播图数据抓取
 
 - **api/config**
 - **api/recommend.js**
@@ -218,7 +228,7 @@ npm i vue-lazyload -S
 
 - **scroll.vue**
 - **listView.vue**
-- _calculateHeight()
+- \_calculateHeight()
 
 ## 5-7 listview 基础组件的开发和应用-右侧快速入口实现（3）
 
@@ -230,7 +240,7 @@ npm i vue-lazyload -S
 
 - **scroll.vue**
 - **listView.vue**
-- _scrollTo()
+- \_scrollTo()
 
 ## 5-9 listview 基础组件的开发和应用-滚动固定标题实现（上）
 
@@ -286,7 +296,7 @@ npm i vuex -S
 - **api/singer.js**(jsonp get data)
 - **singer-detail.vue**(handle data)
 
-## 6-6, 6-7 歌手详情数据处理和Song类的封装
+## 6-6, 6-7 歌手详情数据处理和 Song 类的封装
 
 - **common/js/song.js**(Song Class package)
 - **singer-detail.vue**(Extract an object from the data, handle data)
@@ -326,11 +336,11 @@ npm i vuex -S
 
 ## 7-1 播放器页面设计详解
 
-## 7-2 播放器Vuex数据设计
+## 7-2 播放器 Vuex 数据设计
 
 - **state.js**
 
-## 7-3 播放器Vuex的相关应用
+## 7-3 播放器 Vuex 的相关应用
 
 - **player.vue**
 - **song-list.vue**
@@ -385,9 +395,9 @@ npm i create-keyframe-animation -S
 - **player.vue**
 - updateTime(e)
 - format(interval)
-- _pad(num, n = 2)
+- \_pad(num, n = 2)
 
-## 7-12 播放器progress-bar进度条组件实现（上）
+## 7-12 播放器 progress-bar 进度条组件实现（上）
 
 - **progress-bar.vue**
 - **player.vue**
@@ -454,12 +464,12 @@ npm i lyric-parser -S
 - @touchmove.prevent="middleTouchMove"
 - @touchend="middleTouchEnd"
 
-## 7-25 播放器底部播放器适配+mixin的应用
+## 7-25 播放器底部播放器适配+mixin 的应用
 
 - **player.vue**
 - **common/js/mixin.js**
 
-## 8-1 歌单详情页布局介绍及Vuex实现路由数据通讯
+## 8-1 歌单详情页布局介绍及 Vuex 实现路由数据通讯
 
 - **recommend.vue**
 - **disc.vue**
@@ -482,7 +492,7 @@ npm i lyric-parser -S
 - **rank.vue**
 - **loading.vue**
 
-## 9-3 榜单详情页布局介绍及Vuex实现路由数据通讯
+## 9-3 榜单详情页布局介绍及 Vuex 实现路由数据通讯
 
 - **rank.vue**(rank page)
 - **top-list.vue**(handle data)
@@ -492,14 +502,14 @@ npm i lyric-parser -S
 - **top-list.vue**
 - **api/rank.js**
 
-## 9-5 带排行的song-list组件扩展和应用
+## 9-5 带排行的 song-list 组件扩展和应用
 
 - **top-list.vue**
 - **song-list.vue**
 
 ## 10-1 搜索页面页面布局和功能介绍
 
-## 10-2 搜索页面search-box组件开发
+## 10-2 搜索页面 search-box 组件开发
 
 - **search.vue**
 - **search-box.vue**
@@ -510,23 +520,23 @@ npm i lyric-parser -S
 - **search-box.vue**
 - **search.vue**
 
-## 10-4 搜索页面suggest组件开发（1）
+## 10-4 搜索页面 suggest 组件开发（1）
 
 - **api/search.js**
 - **suggest.vue**(search result)
 - jsonp request
 
-## 10-5 搜索页面suggest组件开发（2）
+## 10-5 搜索页面 suggest 组件开发（2）
 
 - **suggest.vue**(search result)
 
-## 10-6, 10-7, 10-8, 10-9 搜索页面suggest组件开发（3）
+## 10-6, 10-7, 10-8, 10-9 搜索页面 suggest 组件开发（3）
 
 - **store/action.js**
 - **suggest.vue**(search result)
 - selectItem()
 
-## 10-10 搜索页面suggest组件开发（7）
+## 10-10 搜索页面 suggest 组件开发（7）
 
 - **suggest.vue**
 - **no-result.vue**
@@ -548,21 +558,21 @@ npm install good-storage --save
 - storage.set(key, val)
 - storage.get(key, def)
 - storage.remove(key)
-- sessionStorage封装
+- sessionStorage 封装
 - storage.session.set(key, val)
 - storage.session.get(key, def)
 
-## 10-14 搜索页面search-list 组件功能实现（上）
+## 10-14 搜索页面 search-list 组件功能实现（上）
 
 - **search-list.vue**
 - **search.vue**
 
-## 10-15 搜索页面search-list 组件功能实现（下）
+## 10-15 搜索页面 search-list 组件功能实现（下）
 
 - **common/js/cache.js**
 - **search.vue**
 
-## 10-16 搜索页面confirm 组件功能实现
+## 10-16 搜索页面 confirm 组件功能实现
 
 - **confirm.js**
 
@@ -595,42 +605,42 @@ npm install good-storage --save
 - **confirm.vue**
 - transition-group
 
-## 11-8, 10-9 歌曲列表组件 playerMixin的抽象（上）
+## 11-8, 10-9 歌曲列表组件 playerMixin 的抽象（上）
 
 - **common/js/mixin.js**
 
-## 11-10 歌曲列表组件add-song组件实现（1）
+## 11-10 歌曲列表组件 add-song 组件实现（1）
 
 - **add-song.vue**
 
-## 11-11 歌曲列表组件add-song组件实现（2）
+## 11-11 歌曲列表组件 add-song 组件实现（2）
 
 - **add-song.vue**
 - **common/js/mixin.js**
 
-## 11-12 歌曲列表组件add-song组件实现（3）
+## 11-12 歌曲列表组件 add-song 组件实现（3）
 
 - **switches.vue**
 
-## 11-13, 11-4 歌曲列表组件add-song组件实现（4）
+## 11-13, 11-4 歌曲列表组件 add-song 组件实现（4）
 
 - **add-song.vue**
 - **common/js/cache.js**
 
-## 11-15 歌曲列表组件add-song组件实现（6）
+## 11-15 歌曲列表组件 add-song 组件实现（6）
 
 - **add-song.vue**
 - **common/js/mixin.js**
 
-## 11-16 歌曲列表组件top-list组件实现
+## 11-16 歌曲列表组件 top-list 组件实现
 
 - **top-tip.vue**
 
-## 11-17 歌曲列表组件scroll组件能力的扩展
+## 11-17 歌曲列表组件 scroll 组件能力的扩展
 
 - **add-song.vue**
 
-## 12-1, 12-2 用户中心页面收藏列表的Vuex数据设计和实现
+## 12-1, 12-2 用户中心页面收藏列表的 Vuex 数据设计和实现
 
 - **user-center.vue**
 - **m-header.vue**
@@ -654,11 +664,11 @@ npm install good-storage --save
 - Set height
 - 404 interface
 
-## 13-1 编译打包-播放内核小bug修复
+## 13-1 编译打包-播放内核小 bug 修复
 
 - **player.vue**
 
-## 13-2 编译打包-项目编译打包及console服务测试
+## 13-2 编译打包-项目编译打包及 console 服务测试
 
 - Compile the package, and the back-end call.
 
@@ -687,13 +697,13 @@ console prod.server.js
 - router Lazy loading
 - **router/route.js**
 - **config/index.js**
-- 指向本地服务器CDN地址, assetsPublicPath: '/',
+- 指向本地服务器 CDN 地址, assetsPublicPath: '/',
 
-## 13-4 编译打包-Vue.js升级到最新版
+## 13-4 编译打包-Vue.js 升级到最新版
 
 - **package.json**
 - vue upgrade, change package.json version
-> "vue" version and "vue-template-compiler" version equal
+  > "vue" version and "vue-template-compiler" version equal
 
 ## 14 课程总结
 
@@ -706,12 +716,12 @@ cnpm install vconsole
 ```
 
 - Caught tools charies(Mac) , Fiddler(Win)
-> There is a default 8888 port.
+  > There is a default 8888 port.
 - computer IP
 
 ```console
 ifconfig
 ```
 
-- iphone代理, 无线局域网, 配置代理, 代理IP手动, 电脑IP, 8888端口。 实现代理到charies
-- android 局域网, 修改网络, 配置http代理, 服务器电脑IP, 8888端口。 实现代理到charies
+- iphone 代理, 无线局域网, 配置代理, 代理 IP 手动, 电脑 IP, 8888 端口。 实现代理到 charies
+- android 局域网, 修改网络, 配置 http 代理, 服务器电脑 IP, 8888 端口。 实现代理到 charies

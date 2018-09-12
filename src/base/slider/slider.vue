@@ -37,7 +37,6 @@ export default {
 	data() {
 		return {
 			dots: [],
-			/* current page */
 			currentPageIndex: 0
 		}
 	},
@@ -58,8 +57,8 @@ export default {
 				return
 			}
 			this._setSliderWidth(true)
-      /* better-scroll: refresh */
-      /* When the width changes */
+			/* better-scroll: refresh */
+			/* When the width changes */
 			this.slider.refresh()
 		})
 	},
@@ -120,7 +119,7 @@ export default {
 				/* pageIndex: 第几个子元素 */
 				let pageIndex = this.slider.getCurrentPage().pageX
 				if (this.loop) {
-					/* add one copy to the first element by default, pageIndex-1 = current index */
+					/* add one copy to the first element by default, pageIndex-1 = currentIndex */
 					pageIndex -= 1
 				}
 				this.currentPageIndex = pageIndex
