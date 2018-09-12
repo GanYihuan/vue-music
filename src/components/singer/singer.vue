@@ -1,5 +1,5 @@
 <template>
-  <!-- static/02-歌手界面.png -->
+  <!-- static/02-歌手列表.png -->
   <div class="singer" ref="singer">
     <list-view 
       ref="list"
@@ -73,7 +73,7 @@ export default {
     },
     /* handle data */
 		_normalizeSinger(list) {
-			/* data structure */
+			/* data structure 热门,A,B... */
 			let map = {
 				hot: {
 					title: HOT_NAME,

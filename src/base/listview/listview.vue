@@ -1,5 +1,5 @@
 <template>
-  <!-- static/02-歌手界面.png -->
+  <!-- static/02-歌手列表.png -->
   <!-- :data="data" Data is obtained async, Data changes to refresh the scroll -->
   <scroll 
     class="listview"
@@ -164,6 +164,7 @@ export default {
 			} else if (index > this.listHeight.length - 2) {
 				index = this.listHeight.length - 2
       }
+      /* 每个 listHeight 上限位置 */
 			this.scrollY = -this.listHeight[index]
 			/* scroll.vue: First parameter: Scroll to the corresponding element, Second parameter: 动画时间 */
 			this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
