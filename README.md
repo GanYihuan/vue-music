@@ -228,7 +228,7 @@ npm i vue-lazyload -S
 
 - **scroll.vue**
 - **listView.vue**
-- \_calculateHeight()
+- _calculateHeight()
 
 ## 5-7 listview 基础组件的开发和应用-右侧快速入口实现（3）
 
@@ -240,7 +240,7 @@ npm i vue-lazyload -S
 
 - **scroll.vue**
 - **listView.vue**
-- \_scrollTo()
+- _scrollTo()
 
 ## 5-9 listview 基础组件的开发和应用-滚动固定标题实现（上）
 
@@ -287,8 +287,16 @@ npm i vuex -S
 - **singer.vue**(save data to vuex/state)
 - **singer-detail.vue**(get vuex/state data)
 
+> 支持新语法, ...mapState(), **.babelrc** 配置
+
 ```console
-npm i vuex -S
+npm i babel-preset-stage-1 -D
+```
+
+```json
+"presets": [
+  "stage-1"
+],
 ```
 
 ## 6-5 歌手详情数据抓取
@@ -395,7 +403,7 @@ npm i create-keyframe-animation -S
 - **player.vue**
 - updateTime(e)
 - format(interval)
-- \_pad(num, n = 2)
+- _pad(num, n = 2)
 
 ## 7-12 播放器 progress-bar 进度条组件实现（上）
 
@@ -679,7 +687,7 @@ npm run build
 - **config/index.js**
 
 ```js
-build(){port: 9000}
+build() {port: 9000}
 ```
 
 - **prod.server.js**
