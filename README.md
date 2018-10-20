@@ -2,23 +2,7 @@
 
 > Vue-开发移动端音乐 WebApp
 
-## Build Setup
-
-```console
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## data
 
 - [推荐界面数据](https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg)
 - [歌手数据](https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&needNewCode=0&platform=yqq&order=listen&begin=0&num=80&songstatus=1&singermid=0025NhlN2yWrP4&jsonpCallback=__jp1)
@@ -26,7 +10,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ## 2-2 Vue-cli 脚手架安装
 
-### node 升级
+> node 升级
 
 ```console
 npm i nvm
@@ -34,6 +18,8 @@ nvm ls
 nvm install 8.9.1
 nvm use 8.9.1
 ```
+
+> vue enviroment
 
 ```console
 npm i -g vue-cli
@@ -53,19 +39,19 @@ npm run start
 
 ## 2-3 项目目录介绍及图标字体、公共样式等资源准备
 
-- ESLint webpack File changes must be renewed npm run start
-- Directory introduction
+> ESLint webpack File changes must be renew `npm run start`
+> Directory introduction
 
-1. api: (back-end request, jsonp request, ajax request)
-2. common: (Shared static resources: img, common js, style)
-3. components: (Common component)
-4. base: (Share component)
-5. router: (route)
-6. store: (Vuex data)
-7. main.js (entrance)
+- api: (back-end request, jsonp request, ajax request)
+- common: (Shared static resources: img, common js, style)
+- components: (Common component)
+- base: (Share component)
+- router: (route)
+- store: (Vuex data)
+- main.js (entrance)
 
 ```console
-npm i sass-loader node-sass stylus stylus-loader -D
+npm install sass-loader node-sass stylus stylus-loader -D
 ```
 
 - **eslintrc.js** Configuration
@@ -88,10 +74,12 @@ resolve: {
 - fastclick: Click 300MS delay on the mobile end
 
 ```console
-npm i babel-polyfill babel-runtime fastclick vue-lazyload -S
+npm install babel-polyfill babel-runtime fastclick vue-lazyload -S
 ```
 
 ## 3-2 路由配置 + tab 顶导组件开发
+
+- **tab.vue** **m-header.vue**
 
 ## 4-1 页面简介 + 轮播图数据分析
 
@@ -228,7 +216,7 @@ npm i vue-lazyload -S
 
 - **scroll.vue**
 - **listView.vue**
-- _calculateHeight()
+- \_calculateHeight()
 
 ## 5-7 listview 基础组件的开发和应用-右侧快速入口实现（3）
 
@@ -240,7 +228,7 @@ npm i vue-lazyload -S
 
 - **scroll.vue**
 - **listView.vue**
-- _scrollTo()
+- \_scrollTo()
 
 ## 5-9 listview 基础组件的开发和应用-滚动固定标题实现（上）
 
@@ -403,7 +391,7 @@ npm i create-keyframe-animation -S
 - **player.vue**
 - updateTime(e)
 - format(interval)
-- _pad(num, n = 2)
+- \_pad(num, n = 2)
 
 ## 7-12 播放器 progress-bar 进度条组件实现（上）
 
