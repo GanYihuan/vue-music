@@ -39,7 +39,7 @@
           <scroll class="middle-r" ref="lyricList" :data="currentLyric && currentLyric.lines">
             <div class="lyric-wrapper">
               <div v-if="currentLyric">
-                <p 
+                <p
                   class="text"
                   ref="lyricLine"
                   v-for="(line,index) in currentLyric.lines"
@@ -415,7 +415,7 @@ export default {
 			/* right: 0, left: -window.innerWidth */
 			const left = this.currentShow === 'cd' ? 0 : -window.innerWidth
       /*
-      Math.max(a,b): >a, <b
+      Math.max(a, b): b>a
       page left-scroll distance
       */
 			const offsetWidth = Math.min(
