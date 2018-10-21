@@ -474,7 +474,7 @@ npm i lyric-parser -S
 ## 7-21 播放器歌词滚动列表实现
 
 - **player.vue**
-- handleLyric({ lineNum, txt })
+- `handleLyric({ lineNum, txt })`
 
 ## 7-22, 7-23, 7-24 播放器歌词左右滑动实现（上）
 

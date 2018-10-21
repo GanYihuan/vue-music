@@ -10,7 +10,7 @@
           @click="selectItem(item)"
         >
           <div class="icon">
-            <img width="100" height="100" v-lazy="item.picUrl"/>
+            <img width="100" height="100" v-lazy="item.picUrl" />
           </div>
           <ul class="songlist">
             <li
