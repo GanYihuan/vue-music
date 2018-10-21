@@ -1,7 +1,7 @@
 <template>
   <!-- static/02-歌手列表.png -->
   <!-- :data="data" Data is obtained async, Data changes to refresh the scroll -->
-  <scroll 
+  <scroll
     class="listview"
     ref="listview"
     :data="data"
@@ -24,7 +24,7 @@
             :key="index"
             @click="selectItem(item)"
           >
-            <img class="avatar" v-lazy="item.avatar"/>
+            <img class="avatar" v-lazy="item.avatar" />
             <span class="name">{{item.name}}</span>
           </li>
         </ul>
@@ -47,7 +47,7 @@
         </li>
       </ul>
     </div>
-    <div 
+    <div
       class="list-fixed"
       ref="fixed"
       v-show="fixedTitle"
@@ -106,7 +106,7 @@ export default {
 			})
 		},
 		fixedTitle() {
-      /* Do not display two '热门' title */ 
+      /* Do not display two '热门' title */
 			if (this.scrollY > 0) {
 				return ''
 			}
@@ -153,7 +153,7 @@ export default {
 			this.scrollY = pos.y
 		},
 		_scrollTo(index) {
-      /* click on the upper and lower blank of the letter */ 
+      /* click on the upper and lower blank of the letter */
 			/* !index: index === null */
 			if (!index && index !== 0) {
 				return
@@ -189,10 +189,10 @@ export default {
 				this._calculateHeight()
 			}, 20)
     },
-    /* diff: trigger the animation of the fix title */ 
+    /* diff: trigger the animation of the fix title */
 		diff(newVal) {
       /* newVal: diff */
-      let fixedTop = newVal > 0 && newVal < FIXED_TITLE_HEIGHT 
+      let fixedTop = newVal > 0 && newVal < FIXED_TITLE_HEIGHT
           ? newVal - FIXED_TITLE_HEIGHT
           : 0
       /*
@@ -218,7 +218,7 @@ export default {
       /*
       When scrolling to the middle section,
       listHeight has one more element than listGroup
-      listHeight.length-1: the first element upper limit is the second element lower limit, 
+      listHeight.length-1: the first element upper limit is the second element lower limit,
       */
 			for (let i = 0; i < listHeight.length - 1; i++) {
 				/* Lower limit */
@@ -230,7 +230,7 @@ export default {
 					this.currentIndex = i
 					/*
           newY is negative
-          diff: trigger the animation of the fix title, 
+          diff: trigger the animation of the fix title,
           diff = next element Upper limit(height2) - rolling distance(newY)
           */
 					this.diff = newY + height2

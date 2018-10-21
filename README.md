@@ -227,9 +227,9 @@ npm i vue-lazyload -S
 
 - **scroll.vue**
 - **listView.vue**
-- \_calculateHeight()
+- _calculateHeight()
 
-## 5-7 listview 基础组件的开发和应用-右侧快速入口实现（3）
+## 5-7 listview 基础组件的开发和应用-右侧快速入口实现（3）最难!
 
 - **scroll.vue**
 - **listView.vue**
@@ -239,7 +239,7 @@ npm i vue-lazyload -S
 
 - **scroll.vue**
 - **listView.vue**
-- \_scrollTo()
+- _scrollTo()
 
 ## 5-9 listview 基础组件的开发和应用-滚动固定标题实现（上）
 
