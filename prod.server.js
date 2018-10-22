@@ -47,7 +47,6 @@ apiRoutes.get('/lyric', function (req, res) {
 
 // copy from build/webpack.dev.conf
 app.use('/api', apiRoutes)
-
 app.use(express.static('./dist'))
 
 module.exports = app.listen(port, function (err) {

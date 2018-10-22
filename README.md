@@ -705,31 +705,29 @@ npm install good-storage --save
 
 ## 13-2 编译打包-项目编译打包及 console 服务测试
 
-- Compile the package, and the back-end call.
+- **prod.server.js** from dev.conf.js copy
 
 ```console
-npm run build
+node prod.server.js
 ```
 
+- chrome -> localhost:9000
 - **config/index.js**
 
 ```js
 build() {port: 9000}
 ```
 
-- **prod.server.js**
-- from dev.conf.js copy
+- Compile the package, and the back-end call.
 
 ```console
-console prod.server.js
+npm run build
 ```
-
-- chrome -> localhost:9000
 
 ## 13-3 编译打包-路由组件实现懒加载
 
 - **router/index.js**
-- router Lazy loading
+- router Lazy load
 - **router/route.js**
 - **config/index.js**
 - 指向本地服务器 CDN 地址, assetsPublicPath: '/',

@@ -35,3 +35,13 @@
 ## good-storage (10-12)
 
 ## transition-group (11-7)
+
+## package (13-2)
+
+## router Lazy load (13-3)
+
+## computer IP
+
+```console
+ifconfig
+```
