@@ -627,6 +627,7 @@ npm install good-storage --save
 ## 11-3, 11-4 歌曲列表组件播放列表的实现（1）
 
 - **playlist.vue**
+- `this.$refs.listContent.scrollToElement(this.$refs.list.$el.children[index],300)`
 
 ## 11-5, 11-6 歌曲列表组件播放列表的实现（3）
 
