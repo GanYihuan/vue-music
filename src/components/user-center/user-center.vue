@@ -18,7 +18,7 @@
         <span class="text">随机播放全部</span>
       </div>
       <div class="list-wrapper" ref="listWrapper">
-        <scroll 
+        <scroll
           class="list-scroll"
           ref="favoriteList"
           v-if="currentIndex===0"
@@ -28,7 +28,7 @@
             <song-list :songs="favoriteList" @select="selectSong"></song-list>
           </div>
         </scroll>
-        <scroll 
+        <scroll
           class="list-scroll"
           ref="playList"
           v-if="currentIndex===1"
