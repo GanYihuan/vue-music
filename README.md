@@ -564,6 +564,21 @@ npm i lyric-parser -S
 - Optimization request: 节流功能，在处理搜索框输入字符时，搜索结果不是输入字符出来的结果，再输入一定时间请求。
 - When you scroll, you lose focus, and the mobile input keyboard does not block the interface.
 
+> 要节流函数所有不在 watch 里面写
+
+```js
+created() {
+  // debounce(): **common/js/util.js** Throttling function
+  // Throttling function, optimizing request.
+  this.$watch(
+    'query',
+    debounce(newQuery => {
+      this.$emit('query', newQuery)
+    }, 200)
+  )
+},
+```
+
 ## 10-11, 10-12, 10-13: 搜索页面搜索结果保存功能实现（1）
 
 - **common/js/cache.js**

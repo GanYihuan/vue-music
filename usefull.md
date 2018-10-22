@@ -15,7 +15,7 @@
   @after-enter="afterEnter"
   @leave="leave"
   @after-leave="afterLeave"
->
+></transition>
 ```
 
 ## create-keyframe-animation (7-6)
@@ -29,3 +29,7 @@
 ## lyric-parser (7-20)
 
 ## mixins: [playerMixin] (7-25)
+
+## debounce() (10-10)
+
+## good-storage (10-12)

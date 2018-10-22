@@ -25,7 +25,7 @@ function findIndex(list, song) {
 /*
 Click on song-list to invoked
 action Execution, mutation will changes, mapping state data
-{commit, state}: Submit and retrieve state data
+{commit, state}: commit: submit, state: get state data
 {list, index}: **music-list.vue**selectItem(list, index), Modified song list object.
 */
 export const selectPlay = function({ commit, state }, { list, index }) {
