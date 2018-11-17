@@ -10,11 +10,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
-// 接口代理绕过主机和引用程序
 const express = require('express')
+const app = express()
+
+// 接口代理绕过主机和引用程序
 // ajax
 const axios = require('axios')
-const app = express()
 var apiRoutes = express.Router()
 app.use('/api', apiRoutes)
 

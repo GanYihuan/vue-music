@@ -93,7 +93,9 @@ export default {
 			const bottom = playlist.length > 0 ? '60px' : ''
 			this.$refs.recommend.style.bottom = bottom
 			this.$refs.scroll.refresh()
-		},
+    },
+    // 保证 dom 渲染好，有数据变化 better-scroll 要 refresh
+    // 一旦有一张图片撑开了 slider, dom 变化了, better-scroll 要 refresh
 		loadImage() {
 			/* carousel render too late cause height wrong */
 			if (!this.checkloaded) {
