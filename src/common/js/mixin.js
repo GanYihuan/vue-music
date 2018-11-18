@@ -66,21 +66,23 @@ export const playerMixin = {
       this.setPlayMode(mode)
       let list = null
       if (mode === playMode.random) {
-        /* sequenceList: origin-List */
         list = shuffle(this.sequenceList)
       } else {
         list = this.sequenceList
       }
+      // list 改变， currentSong 马上改变 (getters)
+      // 需求: 当切换播放模式时, 当前听的歌曲不改变，后面的歌曲改变
+      // list 改变时 index 也改变, 这样 curentSong.id 能不变 (getters)
       this.resetCurrentIndex(list)
       /* ...mapMutations */
       this.setPlaylist(list)
     },
-    /* mode change, keep current Song no change */
     resetCurrentIndex (list) {
       let index = list.findIndex((item) => {
         return item.id === this.currentSong.id
       })
       /* ...mapMutations */
+      // list 改变时 index 也改变, 这样 curentSong.id 能不变 (getters)
       this.setCurrentIndex(index)
     },
     toggleFavorite (song) {

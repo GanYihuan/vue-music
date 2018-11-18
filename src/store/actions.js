@@ -38,6 +38,7 @@ export const selectPlay = function({ commit, state }, { list, index }) {
     /* change the playlist song */
     commit(types.SET_PLAYLIST, randomList)
     /* return song(list[index]) at randomList index */
+    // 返回播放的这首歌在随机播放列表的下标
     index = findIndex(randomList, list[index])
   } else {
     commit(types.SET_PLAYLIST, list)

@@ -1,12 +1,11 @@
 <template>
   <!-- static/04-音乐播放界面 -->
   <div class="player" v-show="playlist.length>0">
-    <transition
-      name="normal"
-      @enter="enter"
-      @after-enter="afterEnter"
-      @leave="leave"
-      @after-leave="afterLeave"
+    <transition name="normal"
+                @enter="enter"
+                @after-enter="afterEnter"
+                @leave="leave"
+                @after-leave="afterLeave"
     >
       <div class="normal-player" v-show="fullScreen">
         <div class="background">
@@ -19,11 +18,10 @@
           <h1 class="title" v-html="currentSong.name"></h1>
           <h2 class="subtitle" v-html="currentSong.singer"></h2>
         </div>
-        <div
-          class="middle"
-          @touchstart.prevent="middleTouchStart"
-          @touchmove.prevent="middleTouchMove"
-          @touchend="middleTouchEnd"
+        <div class="middle"
+             @touchstart.prevent="middleTouchStart"
+             @touchmove.prevent="middleTouchMove"
+             @touchend="middleTouchEnd"
         >
           <div class="middle-l" ref="middleL">
             <div class="cd-wrapper" ref="cdWrapper">
@@ -39,12 +37,11 @@
           <scroll class="middle-r" ref="lyricList" :data="currentLyric && currentLyric.lines">
             <div class="lyric-wrapper">
               <div v-if="currentLyric">
-                <p
-                  class="text"
-                  ref="lyricLine"
-                  v-for="(line,index) in currentLyric.lines"
-                  :key="index"
-                  :class="{'current': currentLineNum === index}"
+                <p class="text"
+                   ref="lyricLine"
+                   v-for="(line,index) in currentLyric.lines"
+                   :key="index"
+                   :class="{'current': currentLineNum === index}"
                 >
                   {{line.txt}}
                 </p>
@@ -105,13 +102,12 @@
       </div>
     </transition>
     <playlist ref="playlist"></playlist>
-    <audio
-      ref="audio"
-      :src="currentSong.url"
-      @play="ready"
-      @error="error"
-      @timeupdate="updateTime"
-      @ended="end"
+    <audio ref="audio"
+           :src="currentSong.url"
+           @play="ready"
+           @error="error"
+           @timeupdate="updateTime"
+           @ended="end"
     >
     </audio>
   </div>
@@ -138,7 +134,8 @@ export default {
 		ProgressCircle,
 		Scroll,
 		Playlist
-	},
+  },
+  // 组件同名方法能覆盖 mixin 里面的内容
 	mixins: [playerMixin],
 	data() {
 		return {
@@ -322,7 +319,7 @@ export default {
 			this.songReady = true
 		},
 		updateTime(e) {
-			/* <audio> currentTime */
+			/* <audio> 当前播放时间 */
 			this.currentTime = e.target.currentTime
 		},
 		format(interval) {
@@ -402,7 +399,6 @@ export default {
 				return
 			}
 			const touch = e.touches[0]
-			/* move position */
 			const deltaX = touch.pageX - this.touch.startX
 			const deltaY = touch.pageY - this.touch.startY
 			/* whether switch depends on x-axis scroll more than y-axic scroll */
@@ -414,10 +410,9 @@ export default {
 			}
 			/* right: 0, left: -window.innerWidth */
 			const left = this.currentShow === 'cd' ? 0 : -window.innerWidth
-      /*
-      Math.max(a, b): b>a
-      page left-scroll distance
-      */
+      /* page left-scroll distance */
+      // Math.min(a, b) a < b, 不能大于 a
+      // Math.max(a, b) a < b, 不能小于 a
 			const offsetWidth = Math.min(
 				0,
 				Math.max(-window.innerWidth, left + deltaX)
@@ -467,21 +462,21 @@ export default {
 			this.$refs.middleL.style[transitionDuration] = `${time}ms`
 			this.touch.initiated = false
 		},
-		/* big-record small-record x y scale */
+		/* 大唱片 小唱片: x y scale */
 		_getPosAndScale() {
-			/* small-record width */
+			/* 小唱片 width */
 			const targetWidth = 40
-			/* small-record paddingLeft */
+			/* 小唱片 paddingLeft */
 			const paddingLeft = 40
-			/* small-record paddingBottom */
+			/* 小唱片 paddingBottom */
 			const paddingBottom = 30
-			/* big-record paddingTop */
+			/* 大唱片 paddingTop */
 			const paddingTop = 80
-			/* big-record width */
+			/* 大唱片 width */
 			const width = window.innerWidth * 0.8
 			const scale = targetWidth / width
-			/* fourth quadrant */
-			/* big-record is center point */
+			/* 第四象限坐标系 */
+			/* 大唱片中间点 (x, y) */
 			const x = -(window.innerWidth / 2 - paddingLeft)
 			const y = window.innerHeight - paddingTop - width / 2 - paddingBottom
 			return { x, y, scale }
@@ -493,8 +488,7 @@ export default {
 			if (!newSong.id) {
 				return
 			}
-			/* mixin.js/changeMode(), currentSong no change */
-			/* id no change, return */
+			/* mixin.js/changeMode(), currentSong.id no change currentSong no change */
 			if (newSong.id === oldSong.id) {
 				return
 			}

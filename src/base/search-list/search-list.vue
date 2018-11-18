@@ -2,11 +2,10 @@
   <!-- 09-搜索历史列表 -->
   <div class="search-list" v-show="searches.length">
     <transition-group name="list" tag="ul">
-      <li
-        class="search-item"
-        v-for="item in searches"
-        :key="item"
-        @click="selectItem(item)"
+      <li class="search-item"
+          v-for="item in searches"
+          :key="item"
+          @click="selectItem(item)"
       >
         <span class="text">{{item}}</span>
         <span class="icon" @click.stop="deleteOne(item)">
