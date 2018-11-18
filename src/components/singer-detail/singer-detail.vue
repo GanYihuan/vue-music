@@ -1,7 +1,7 @@
 <template>
   <!-- static/03-歌手详情页.png/歌手详情页 -->
   <transition name="slide">
-    <music-list 
+    <music-list
       :songs="songs"
       :title="title"
       :bg-image="bgImage"
@@ -28,7 +28,6 @@ export default {
 		}
 	},
 	computed: {
-		/* singer: vuex/getters.js */
 		...mapGetters(['singer']),
 		title() {
 			return this.singer.name
@@ -38,7 +37,7 @@ export default {
 		}
 	},
 	/* created data not monitor, data & props will monitor */
-	/* get back-end data */
+  /* get back-end data */
 	created() {
 		this._getDetail()
 	},
@@ -58,7 +57,7 @@ export default {
 		_normalizeSongs(list) {
 			let ret = []
 			list.forEach(item => {
-				/* musicData is an object in the data, Destructor definition */
+        // musicData 里面保存着歌手信息，是个对象的集合
 				let { musicData } = item
 				if (musicData.songid && musicData.albummid) {
 					ret.push(createSong(musicData))

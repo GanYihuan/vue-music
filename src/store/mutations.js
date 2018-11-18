@@ -4,6 +4,7 @@
 import * as types from './mutation-types'
 
 const mutations = {
+  // state, 传的参数
   [types.SET_SINGER](state, singer) {
     /* singer: string */
     state.singer = singer
