@@ -484,7 +484,7 @@ export default {
 	},
 	watch: {
 		currentSong(newSong, oldSong) {
-			/* only one song */
+			/* 没有歌曲时 */
 			if (!newSong.id) {
 				return
 			}

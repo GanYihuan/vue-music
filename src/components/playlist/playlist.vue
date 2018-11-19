@@ -94,7 +94,7 @@ export default {
 		...mapActions(['deleteSong', 'deleteSongList']),
 		show() {
 			this.showFlag = true
-			// The display is refreshed to prevent the dom from being correctly calculated, resulting in scroll failure.
+      // 显示后 dom 重新计算，better-scroll 要刷新
 			setTimeout(() => {
 				this.$refs.listContent.refresh()
 				// currentSong: ...mapGetters **mixin.js**
@@ -121,7 +121,7 @@ export default {
 		selectItem(item, index) {
 			if (this.mode === playMode.random) {
 				// ...mapGetters (mixin.js)
-				// The index index of item under playlist.
+				// 当前歌曲在当前播放列表的位置
 				index = this.playlist.findIndex(song => {
 					return song.id === item.id
 				})
@@ -132,7 +132,7 @@ export default {
 			this.setPlayingState(true)
 		},
 		scrollToCurrent(current) {
-			// Current is index index under sequenceList.
+      // 当前歌曲在原始播放列表的索引
 			const index = this.sequenceList.findIndex(song => {
 				return current.id === song.id
 			})

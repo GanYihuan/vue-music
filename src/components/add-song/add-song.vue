@@ -1,5 +1,5 @@
 <template>
-  <!-- 11-歌曲列表 -->
+  <!-- 11-添加歌曲到列表 -->
   <transition name="slide">
     <div class="add-song" v-show="showFlag" @click.stop>
       <div class="header">
@@ -24,7 +24,7 @@
         >
         </switches>
         <div class="list-wrapper">
-          <scroll 
+          <scroll
             class="list-scroll"
             ref="songList"
             v-if="currentIndex === 0"
@@ -34,7 +34,7 @@
               <song-list :songs="playHistory" @select="selectSong"></song-list>
             </div>
           </scroll>
-          <scroll 
+          <scroll
             class="list-scroll"
             ref="searchList"
             v-if="currentIndex === 1"
@@ -125,7 +125,8 @@ export default {
 		},
 		selectSong(song, index) {
 			if (index !== 0) {
-				// ...mapActions
+        // ...mapActions
+        // song 实例插入
 				this.insertSong(new Song(song))
 				this.$refs.topTip.show()
 			}
