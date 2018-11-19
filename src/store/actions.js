@@ -65,35 +65,35 @@ export const randomPlay = function({ commit }, { list }) {
   commit(types.SET_PLAYING_STATE, true)
 }
 
-// Click on the search interface song and add it to the playlist.
+// 点击搜索列表的歌曲1添加到当前播放列表
 export const insertSong = function({ commit, state }, song) {
   // The state can not be modified in other places, only in mutation.
   // A copy will not modify the state.
   let playlist = state.playlist.slice()
   let sequenceList = state.sequenceList.slice()
   let currentIndex = state.currentIndex
-  // Record current song
+  // 记录当前歌曲2
   let currentSong = playlist[currentIndex]
-  // Find the song, and return its index in the playlist.
+  // 查找当前播放列表要插入的歌曲1下标
   let fpIndex = findIndex(playlist, song)
-  // Insert the song, so index +1.
+  // 插入到当前歌曲2的下一个索引
   currentIndex++
-  // Insert song into the currentIndex position.
+  // 插入要插入的歌曲1到当前播放列表歌曲2位置的下一个索引上
   playlist.splice(currentIndex, 0, song)
-  // If you already have this song.
+  // 当前播放列表已经有这首歌曲1
   if (fpIndex > -1) {
-    // If the currently inserted currentIndex is greater than the target song fpIndex in the list.
     if (currentIndex > fpIndex) {
+      // 删除当前播放列表存在的原来歌曲1
       playlist.splice(fpIndex, 1)
       currentIndex--
     } else {
       playlist.splice(fpIndex + 1, 1)
     }
   }
-  // sequenceList: Current song list, different mode, song location is different.
-  // currentSIndex: sequenceList Insert the location
+  // 当前播放列表 playList, 原始播放列表 sequenceList, 不同模式下, playList 展现不同歌曲位置
+  // 插入位置, 当前歌曲2在原始播放列表的位置下一位
   let currentSIndex = findIndex(sequenceList, currentSong) + 1
-  // Find the song, and return its index in the sequenceList.
+  // 插入的歌曲1在原始播放列表的位置
   let fsIndex = findIndex(sequenceList, song)
   sequenceList.splice(currentSIndex, 0, song)
   if (fsIndex > -1) {

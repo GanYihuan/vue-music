@@ -82,10 +82,8 @@ export default {
 		},
 		/* request service end, grab search retrieve data */
 		search() {
-			/* just search */
 			this.page = 1
 			this.hasMore = true
-			/* scroll to top */
 			this.$refs.suggest.scrollTo(0, 0)
 			/**
 			 * api/search.js

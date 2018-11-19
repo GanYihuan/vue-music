@@ -24,8 +24,7 @@ export default {
   },
   /* data not monitor, data & props data need monitor, get back-end data */
 	created() {
-		// debounce(): **common/js/util.js** Throttling function
-		// Throttling function, optimizing request.
+		// 节流函数, optimizing request
 		this.$watch(
 			'query',
 			debounce(newQuery => {

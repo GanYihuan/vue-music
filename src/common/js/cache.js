@@ -14,7 +14,7 @@ const FAVORITE_KEY = '__favorite__'
 const FAVORITE_MAX_LEN = 200
 
 /**
- * val data is inserted into the arr array and placed at the beginning
+ * query 数据插入到数组里的第一个位置上
  * @param arr: Stored array
  * @param val: Stored value
  * @param compare: func
@@ -23,30 +23,30 @@ const FAVORITE_MAX_LEN = 200
 function insertArray(arr, val, compare, maxLen) {
   // findIndex: Find the arr array with the compare element and return the subscript.
   const index = arr.findIndex(compare)
+  // 第一条数据位置上
   if (index === 0) {
     return
   }
-  // not in the first place.
+  // 不在第一条数据位置上
   if (index > 0) {
     arr.splice(index, 1)
   }
-  // Insert val's data into the arr first place.
+  // 插入到第一条数据位置上
   arr.unshift(val)
   if (maxLen && arr.length > maxLen) {
-    // Delete the end of arr
+    // 删掉最后一个数据
     arr.pop()
   }
 }
 
 /**
- * localStorage, Query history
+ * query 储存到 localStorage, 并且返回这个缓存
  * @param query
  * @returns {*}
  */
 export function saveSearch(query) {
   // gets cached data, historical data, no data returns an empty array.
   let searches = storage.get(SEARCH_KEY, [])
-  // val data is inserted into arr array and placed first.
   insertArray(
     searches,
     query,
