@@ -1,26 +1,29 @@
 <template>
   <!-- static/02-歌手列表.png -->
   <!-- :data="data" Data is obtained async, Data changes to refresh the scroll -->
-  <scroll class="listview"
-          ref="listview"
-          :data="data"
-          :listenScroll="listenScroll"
-          :probeType='probeType'
-          @scroll="scroll"
+  <scroll
+    class="listview"
+    ref="listview"
+    :data="data"
+    :listenScroll="listenScroll"
+    :probeType='probeType'
+    @scroll="scroll"
   >
     <!-- 歌手信息 -->
     <ul>
-      <li class="list-group"
-          ref="listGroup"
-          v-for="(group, index) in data"
-          :key="index"
+      <li
+        class="list-group"
+        ref="listGroup"
+        v-for="(group, index) in data"
+        :key="index"
       >
         <h2 class="list-group-title">{{group.title}}</h2>
         <ul>
-          <li class="list-group-item"
-              v-for="(item, index) in group.items"
-              :key="index"
-              @click="selectItem(item)"
+          <li
+            class="list-group-item"
+            v-for="(item, index) in group.items"
+            :key="index"
+            @click="selectItem(item)"
           >
             <img class="avatar" v-lazy="item.avatar" />
             <span class="name">{{item.name}}</span>
@@ -29,25 +32,28 @@
       </li>
     </ul>
     <!-- 右侧字母 -->
-    <div class="list-shortcut"
-         @touchstart="onShortCutTouchStart"
-         @touchmove.stop.prevent="onShortCutTouchMove"
+    <div
+      class="list-shortcut"
+      @touchstart="onShortCutTouchStart"
+      @touchmove.stop.prevent="onShortCutTouchMove"
     >
       <ul>
-        <li class="item"
-            v-for="(item, index) in shortcutList"
-            :key="index"
-            :class="{'current': currentIndex === index}"
-            :data-index="index"
+        <li
+          class="item"
+          v-for="(item, index) in shortcutList"
+          :key="index"
+          :class="{'current': currentIndex === index}"
+          :data-index="index"
         >
           {{item}}
         </li>
       </ul>
     </div>
     <!-- 分类字母 -->
-    <div class="list-fixed"
-         ref="fixed"
-         v-show="fixedTitle"
+    <div
+      class="list-fixed"
+      ref="fixed"
+      v-show="fixedTitle"
     >
       <h2 class="fixed-title">{{fixedTitle}}</h2>
     </div>
@@ -59,12 +65,12 @@
 
 <script type="text/ecmascript-6">
 /* get & set <li class="item" :data-index></li> */
-import { getData } from "common/js/dom";
-import Scroll from "base/scroll/scroll";
-import loading from "base/loading/loading";
+import { getData } from 'common/js/dom'
+import Scroll from 'base/scroll/scroll'
+import loading from 'base/loading/loading'
 
-const ANCHOR_HEIGHT = 18;
-const FIXED_TITLE_HEIGHT = 30;
+const ANCHOR_HEIGHT = 18
+const FIXED_TITLE_HEIGHT = 30
 
 export default {
   components: {
@@ -86,96 +92,88 @@ export default {
       currentIndex: 0,
       /* diff: current element celling to pre element floor gaps */
       diff: -1
-    };
+    }
   },
   /* get back-end data, created not monitor, data, props will monitor */
   created() {
-    this.touch = {};
-    this.listenScroll = true;
-    this.probeType = 3;
+    this.touch = {}
+    this.listenScroll = true
+    this.probeType = 3
   },
   computed: {
     /* Right list 'A','B'... */
     shortcutList() {
       return this.data.map(group => {
-        /* '热门' Take only one word '热' */
-        return group.title.substr(0, 1);
-      });
+        return group.title.substr(0, 1)
+      })
     },
     fixedTitle() {
-      /* Do not display two '热门' title */
       if (this.scrollY > 0) {
-        return "";
+        return ''
       }
       /* make sure !== undefined */
-      return this.data[this.currentIndex]
-        ? this.data[this.currentIndex].title
-        : "";
+      return this.data[this.currentIndex] ? this.data[this.currentIndex].title : ''
     }
   },
   methods: {
     selectItem(item) {
-      this.$emit("select", item);
+      this.$emit('select', item)
     },
     onShortCutTouchStart(e) {
-      /* getData **dom.js** */
-      /* <li class="item" :data-index></li> */
-      /* getData(el, name, val) return el.getAttribute('data' + name) */
-      let anchorIndex = getData(e.target, "index");
+      /* 获取列表项的 index 值 */
+      const anchorIndex = getData(e.target, 'index')
       /* e.touches[0]: Finger click position */
-      let firstTouch = e.touches[0];
+      const firstTouch = e.touches[0]
       /* vertical click position */
-      this.touch.y1 = firstTouch.pageY;
+      this.touch.y1 = firstTouch.pageY
       /* the first time the finger clicks on the letter subscript */
-      this.touch.anchorIndex = anchorIndex;
-      this._scrollTo(anchorIndex);
+      this.touch.anchorIndex = anchorIndex
+      this._scrollTo(anchorIndex)
     },
     onShortCutTouchMove(e) {
-      /* e.touches[0]: Finger click position */
-      let firstTouch = e.touches[0];
-      /* Vertical click position */
-      this.touch.y2 = firstTouch.pageY;
+      const firstTouch = e.touches[0]
+      this.touch.y2 = firstTouch.pageY
       /* | 0: Math.floor */
       /* delta: Shifted a few 'letter' positions after the finger swiped */
-      let delta = ((this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT) | 0;
+      const delta = ((this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT) | 0
       /* After sliding your finger, letter subscript on the stopped position */
-      let anchorIndex = parseInt(this.touch.anchorIndex) + delta;
-      this._scrollTo(anchorIndex);
+      const anchorIndex = parseInt(this.touch.anchorIndex) + delta
+      this._scrollTo(anchorIndex)
     },
     refresh() {
-      this.$refs.listview.refresh();
+      this.$refs.listview.refresh()
     },
     scroll(pos) {
       /* pos.y: Real-time scroll position */
-      this.scrollY = pos.y;
+      this.scrollY = pos.y
     },
     _scrollTo(index) {
       /* click on the upper and lower blank of the letter */
       /* !index: index === null */
       if (!index && index !== 0) {
-        return;
+        return
       }
       /* handle boundary */
       if (index < 0) {
-        index = 0;
+        index = 0
       } else if (index > this.listHeight.length - 2) {
-        index = this.listHeight.length - 2;
+        index = this.listHeight.length - 2
       }
-      /* 每个 listHeight 上限位置 */
-      this.scrollY = -this.listHeight[index];
+      /* 当前元素的上线 */
+      this.scrollY = -this.listHeight[index]
       /* scroll.vue: First parameter: Scroll to the corresponding element, Second parameter: 动画时间 */
-      this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0);
+      this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
     },
     _calculateHeight() {
-      let height = 0;
-      let listGroup = this.$refs.listGroup;
+      let height = 0
+      const listGroup = this.$refs.listGroup
       /* listHeight has one more element than listGroup  */
-      this.listHeight = [];
-      this.listHeight.push(height);
+      this.listHeight = []
+      this.listHeight.push(height)
       for (let i = 0; i < listGroup.length; i++) {
-        let item = listGroup[i];
-        height += item.clientHeight;
-        this.listHeight.push(height);
+        const item = listGroup[i]
+        height += item.clientHeight
+        this.listHeight.push(height)
       }
     }
   },
@@ -183,35 +181,29 @@ export default {
     /* 17ms dom Rendering completed */
     data() {
       setTimeout(() => {
-        this._calculateHeight();
-      }, 20);
+        this._calculateHeight()
+      }, 20)
     },
-    /* diff: trigger the animation of the fix title */
     diff(newVal) {
-      /* newVal: diff */
-      let fixedTop =
-        newVal > 0 && newVal < FIXED_TITLE_HEIGHT
-          ? newVal - FIXED_TITLE_HEIGHT
-          : 0;
+      const fixedTop = newVal > 0 && newVal < FIXED_TITLE_HEIGHT ? newVal - FIXED_TITLE_HEIGHT : 0
       /*
       When the title animation is not triggered
       fixedTop is not changing
       */
       if (this.fixedTop === fixedTop) {
-        return;
+        return
       }
-      this.fixedTop = fixedTop;
-      /* Turn on GPU acceleration */
-      this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`;
+      this.fixedTop = fixedTop
+      this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`
     },
     /* Real-time scroll position */
     scrollY(newY) {
       /* Keep the height of the group */
-      let listHeight = this.listHeight;
+      const listHeight = this.listHeight
       /* When scrolling to the top newY > 0 */
       if (newY > 0) {
-        this.currentIndex = 0;
-        return;
+        this.currentIndex = 0
+        return
       }
       /*
       When scrolling to the middle section,
@@ -219,32 +211,32 @@ export default {
       listHeight.length-1: the first element upper limit is the second element lower limit,
       */
       for (let i = 0; i < listHeight.length - 1; i++) {
-        /* 当前元素的下线 Lower limit */
-        let height1 = listHeight[i];
-        /* 下一个元素的上线 Upper limit */
-        let height2 = listHeight[i + 1];
+        /* 当前元素的上线 */
+        const height1 = listHeight[i]
+        /* 下一个元素的上线 */
+        const height2 = listHeight[i + 1]
         /* -newY: When scrolling occurs, newY Is negative, Add “-” Ensure that it is positive */
         if (-newY >= height1 && -newY < height2) {
-          this.currentIndex = i;
+          this.currentIndex = i
           /*
           newY is negative
           diff: trigger the animation of the fix title,
-          diff = next element Upper limit(height2) - rolling distance(newY)
+          diff = rolling distance(newY) + 下一个元素的上线
           */
-          this.diff = newY + height2;
-          return;
+          this.diff = newY + height2
+          return
         }
-        this.currentIndex = 0;
+        this.currentIndex = 0
       }
       /*
-      When scrolling to the bottom,
+      When scrolling to the bottom
       -newY is bigger than the last element upper limit
       listHeight.length-2: listHeight has one more element than listGroup
       */
-      this.currentIndex = listHeight.length - 2;
+      this.currentIndex = listHeight.length - 2
     }
   }
-};
+}
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">

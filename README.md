@@ -133,19 +133,9 @@ host: '0.0.0.0',
 
 ## 5-3 歌手数据处理和 Singer 类的封装
 
-- **singer.js** (request data)
-- **singer.vue** (Processing singer data)
-
 ## 5-4 基础组件的开发和应用-滚动列表实现
 
-- **singer.vue** (handle singer data)
-- **listView.vue** (singer list)
-
 ## 5-5 listview 基础组件的开发和应用-右侧快速入口实现（1）
-
-- **listView.vue**
-- **scroll.vue**
-- **common/dom.js** (get element index)
 
 ```html
 <li
