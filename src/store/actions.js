@@ -26,7 +26,7 @@ function findIndex(list, song) {
 Click on song-list to invoked
 action Execution, mutation will changes, mapping state data
 {commit, state}: commit: submit, state: get state data
-{list, index}: **music-list.vue**selectItem(list, index), Modified song list object.
+{list, index}: **music-list.vue** selectItem(item, index) {}
 */
 export const selectPlay = function({ commit, state }, { list, index }) {
   /* submit mutation */
@@ -34,7 +34,7 @@ export const selectPlay = function({ commit, state }, { list, index }) {
   /* If the playback mode is a random mode. */
   if (state.mode === playMode.random) {
     /* shuffle */
-    let randomList = shuffle(list)
+    const randomList = shuffle(list)
     /* change the playlist song */
     commit(types.SET_PLAYLIST, randomList)
     /* return song(list[index]) at randomList index */
@@ -54,7 +54,7 @@ export const randomPlay = function({ commit }, { list }) {
   commit(types.SET_PLAY_MODE, playMode.random)
   /* submit mutation, change the list of song sequences */
   commit(types.SET_SEQUENCE_LIST, list)
-  let randomList = shuffle(list)
+  const randomList = shuffle(list)
   /* change the playlist song */
   commit(types.SET_PLAYLIST, randomList)
   /* click on the current song index */
@@ -69,13 +69,13 @@ export const randomPlay = function({ commit }, { list }) {
 export const insertSong = function({ commit, state }, song) {
   // The state can not be modified in other places, only in mutation.
   // A copy will not modify the state.
-  let playlist = state.playlist.slice()
-  let sequenceList = state.sequenceList.slice()
+  const playlist = state.playlist.slice()
+  const sequenceList = state.sequenceList.slice()
   let currentIndex = state.currentIndex
   // 记录当前歌曲2
-  let currentSong = playlist[currentIndex]
+  const currentSong = playlist[currentIndex]
   // 查找当前播放列表要插入的歌曲1下标
-  let fpIndex = findIndex(playlist, song)
+  const fpIndex = findIndex(playlist, song)
   // 插入到当前歌曲2的下一个索引
   currentIndex++
   // 插入要插入的歌曲1到当前播放列表歌曲2位置的下一个索引上
@@ -92,9 +92,9 @@ export const insertSong = function({ commit, state }, song) {
   }
   // 当前播放列表 playList, 原始播放列表 sequenceList, 不同模式下, playList 展现不同歌曲位置
   // 插入位置, 当前歌曲2在原始播放列表的位置下一位
-  let currentSIndex = findIndex(sequenceList, currentSong) + 1
+  const currentSIndex = findIndex(sequenceList, currentSong) + 1
   // 插入的歌曲1在原始播放列表的位置
-  let fsIndex = findIndex(sequenceList, song)
+  const fsIndex = findIndex(sequenceList, song)
   sequenceList.splice(currentSIndex, 0, song)
   if (fsIndex > -1) {
     if (currentSIndex > fsIndex) {
@@ -128,12 +128,12 @@ export const clearSearchHistory = function({ commit }) {
 export const deleteSong = function({ commit, state }, song) {
   // The state can not be modified in other places, only in mutation.
   // A copy will not modify the state.
-  let playlist = state.playlist.slice()
-  let sequenceList = state.sequenceList.slice()
+  const playlist = state.playlist.slice()
+  const sequenceList = state.sequenceList.slice()
   let currentIndex = state.currentIndex
-  let pIndex = findIndex(playlist, song)
+  const pIndex = findIndex(playlist, song)
   playlist.splice(pIndex, 1)
-  let sIndex = findIndex(sequenceList, song)
+  const sIndex = findIndex(sequenceList, song)
   sequenceList.splice(sIndex, 1)
   if (currentIndex > pIndex || currentIndex === playlist.length) {
     currentIndex--

@@ -53,7 +53,7 @@ export function createSong(musicData) {
 
 /* some item have two singer */
 function filterSinger(singer) {
-  let ret = []
+  const ret = []
   if (!singer) {
     return ''
   }

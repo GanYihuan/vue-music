@@ -137,50 +137,27 @@ host: '0.0.0.0',
 
 ## 5-5 listview 基础组件的开发和应用-右侧快速入口实现（1）
 
-```html
-<li
-  class="item"
-  v-for="(item, index) in shortcutList"
-  :key="index"
-  :class="{'current': currentIndex === index}"
-  :data-index="index"
->
-```
-
 ## 5-6 listview 基础组件的开发和应用-右侧快速入口实现（2）
 
-- **scroll.vue**
-- **listView.vue**
 - `_calculateHeight()`
 
 ## 5-7 listview 基础组件的开发和应用-右侧快速入口实现（3）(最难)
 
-- **scroll.vue**
-- **listView.vue**
 - scrollY()
 
 ## 5-8 listview 基础组件的开发和应用-右侧快速入口实现（4）
 
-- **scroll.vue**
-- **listView.vue**
 - `_scrollTo()`
 
 ## 5-9 listview 基础组件的开发和应用-滚动固定标题实现（上）
 
-- **listView.vue**
 - fixedTitle()
 
 ## 5-10 listview 基础组件的开发和应用-滚动固定标题实现（下）
 
-- **listView.vue**
-- **loading.vue**
 - diff()
 
 ## 6-1 歌手详情页布局和设计详解
-
-- **singer.vue**(Route jump starting point)
-- **singer-detail.vue**(歌手详情界面 handle data)
-- **music-list.vue**(歌手详情界面)
 
 ## 6-2 子路由配置以及转场动画实现
 

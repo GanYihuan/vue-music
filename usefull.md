@@ -1,2 +1,3 @@
-﻿watch: {
-  scrollY(newY) {
+﻿methods: {
+  /* vuex/action.js */
+  ...mapActions(['selectPlay', 'randomPlay']),
