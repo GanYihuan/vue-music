@@ -69,17 +69,7 @@ resolve: {
 
 ## 3-1 页面入口 + header 组件的编写
 
-- babel-runtime: es6 Escape
-- babel-polyfill: es6 api Escape, mobile can use es6 api
-- fastclick: Click 300MS delay on the mobile end
-
-```console
-npm install babel-polyfill babel-runtime fastclick vue-lazyload -S
-```
-
 ## 3-2 路由配置 + tab 顶导组件开发
-
-- **tab.vue** **m-header.vue**
 
 ## 4-1 页面简介 + 轮播图数据分析
 
@@ -91,50 +81,14 @@ npm install babel-polyfill babel-runtime fastclick vue-lazyload -S
 
 ## 4-2 jsonp 原理介绍 + Promise 封装
 
-- **common/js/jsonp.js**
-- Promise:
-  > pass async message object
-  > an event which indicate that result will be know in the future
-- jsonp(url, opts, fn)
-  > 动态创建 script 标签(没有同源限制可以跨域), script 的 src 指向服务端地址, 有一个 callback, 后端解析这个 url, 带 callback=a 这个参数, 返回数据里调用 a 包裹一个方法, 在前端执行 a 这个方法, window 注册这个方法, 定义这个 a 方法获得数据
-
-```console
-npm install jsonp -S
-```
-
-- encodeURIComponent(): encode a string as a URI component
-
 ## 4-3 jsonp 的应用 + 轮播图数据抓取
-
-- **api/config**
-- **api/recommend.js**
-- **recommend.vue**
-- Object.assign({}, a, b)
 
 ## 4-4 轮播图组件实现（上)
 
-- **recommend.vue**
-- **slider.vue**
-- **common/js/dom.js**
-- Recommended interface: carousel component
-- better-scroll
-
-```console
-npm i better-scroll@0.1.15 -S
-```
-
 ## 4-5, 4-6 轮播图组件实现
-
-- **slider.vue**
-- `this.slider.goToPage()`
-- `this.slider.getCurrentPage().pageX`: 第几个子元素
-- `this.slider.refresh()`: When the width changes
 
 ## 4-7 歌单数据接口分析
 
-- **App.vue**
-- **recommend.js**
-- **recommend.vue**
 - Get song single data interface
 - Status:500 server error
 - keep-alive: Cache content after loading a route, And the cache is read at load time to prevent continuous loading
@@ -158,33 +112,13 @@ host: '0.0.0.0',
 
 ## 4-9 歌单列表组件开发和数据的应用
 
-- **recommend.vue** `<h2 class="name" v-html="item.creator.name"></h2>` v-html parse data inside entity character
-
 ## 4-10 scroll 组件的抽象和应用（上）
-
-- **scroll.vue**
 
 ## 4-11 scroll 组件的抽象和应用（下）
 
-- **recommend.vue**
-- carousel render too late cause height wrong
-- 数据变化, dom 变化可能要调用 `better-scroll refresh()`, 数据传给 better-scroll 组件, 会自动更新 `<scroll :data="discList">`
-
 ## 4-12 vue-lazyload 懒加载插件介绍和应用
 
-- **recommend.vue**
-- **main.js**
-- class="needsclick": fastclick Don't block the click process
-- image laz-load: reload depend on scroll `<img v-lazy="item.imgurl"/>`
-
-```console
-npm i vue-lazyload -S
-```
-
 ## 4-13 loading 基础组件的开发和应用
-
-- **loading.vue**
-- **recommend.vue**
 
 ## 5-1 歌手页面布局和设计讲解
 

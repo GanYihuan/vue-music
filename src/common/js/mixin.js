@@ -1,6 +1,6 @@
-import {mapGetters, mapMutations, mapActions} from 'vuex'
-import {playMode} from 'common/js/config'
-import {shuffle} from 'common/js/util'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
+import { playMode } from 'common/js/config'
+import { shuffle } from 'common/js/util'
 
 export const playlistMixin = {
   computed: {
@@ -9,20 +9,20 @@ export const playlistMixin = {
     ])
   },
   /* dom ready */
-  mounted () {
+  mounted() {
     this.handlePlaylist(this.playlist)
   },
-  activated () {
+  activated() {
     this.handlePlaylist(this.playlist)
   },
   watch: {
-    playlist (newVal) {
+    playlist(newVal) {
       this.handlePlaylist(newVal)
     }
   },
   methods: {
     // If the component does not define the handlePlaylist, it calls the handlePlaylist in the mixin.
-    handlePlaylist () {
+    handlePlaylist() {
       throw new Error('component must implement handlePlaylist method')
     }
   }
@@ -34,7 +34,7 @@ player.vue
 */
 export const playerMixin = {
   computed: {
-    iconMode () {
+    iconMode() {
       return this.mode === playMode.sequence
         ? 'icon-sequence'
         : this.mode === playMode.loop
@@ -59,7 +59,7 @@ export const playerMixin = {
       'saveFavoriteList',
       'deleteFavoriteList'
     ]),
-    changeMode () {
+    changeMode() {
       /* 3 mode */
       const mode = (this.mode + 1) % 3
       /* ...mapMutations */
@@ -77,15 +77,15 @@ export const playerMixin = {
       /* ...mapMutations */
       this.setPlaylist(list)
     },
-    resetCurrentIndex (list) {
-      let index = list.findIndex((item) => {
+    resetCurrentIndex(list) {
+      const index = list.findIndex((item) => {
         return item.id === this.currentSong.id
       })
       /* ...mapMutations */
       // list 改变时 index 也改变, 这样 curentSong.id 能不变 (getters)
       this.setCurrentIndex(index)
     },
-    toggleFavorite (song) {
+    toggleFavorite(song) {
       if (this.isFavorite(song)) {
         /* ...mapActions */
         this.deleteFavoriteList(song)
@@ -94,13 +94,13 @@ export const playerMixin = {
         this.saveFavoriteList(song)
       }
     },
-    getFavoriteIcon (song) {
+    getFavoriteIcon(song) {
       if (this.isFavorite(song)) {
         return 'icon-favorite'
       }
       return 'icon-not-favorite'
     },
-    isFavorite (song) {
+    isFavorite(song) {
       /* ...mapGetters */
       /* Find out whether song is in the favoriteList and if it returns its index index */
       const index = this.favoriteList.findIndex((item) => {
@@ -116,7 +116,7 @@ search.vue
 add-song.vue
 */
 export const searchMixin = {
-  data () {
+  data() {
     return {
       query: '',
       /* Late scroll refresh guarantees that the dom has been loaded. */
@@ -133,18 +133,18 @@ export const searchMixin = {
       'saveSearchHistory',
       'deleteSearchHistory'
     ]),
-    onQueryChange (query) {
+    onQueryChange(query) {
       this.query = query
     },
     /* When scrolling, the search box loses focus and the purpose is to cancel the mobile keyboard */
-    blurInput () {
+    blurInput() {
       this.$refs.searchBox.blur()
     },
-    addQuery (query) {
+    addQuery(query) {
       this.$refs.searchBox.setQuery(query)
     },
     /* Save the search results to localStorage */
-    saveSearch () {
+    saveSearch() {
       /* ...mapActions */
       this.saveSearchHistory(this.query)
     }

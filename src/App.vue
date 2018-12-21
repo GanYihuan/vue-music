@@ -22,11 +22,11 @@ import Tab from 'components/tab/tab'
 import Player from 'components/player/player'
 
 export default {
-	name: 'App',
-	components: {
-		MHeader,
-		Tab,
-		Player
-	}
+  name: 'App',
+  components: {
+    MHeader,
+    Tab,
+    Player
+  }
 }
 </script>

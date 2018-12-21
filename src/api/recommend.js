@@ -6,16 +6,14 @@ import axios from 'axios'
 /* use jsonp fetch data (carousel data) */
 export function getRecommend() {
   /* static/jsonp1.png: open in chrome, copy url(copy '?' before) */
-  const url =
-    'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
-  /* Object.assign: copy the values of all enumerable own properties from one or more source objects to a target object. It will return the target object */
+  const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
+  /* Object.assign: object extend attributes */
   /* It will return the target object. */
   const data = Object.assign({}, commonParams, {
     platform: 'h5',
     uin: 0,
     needNewCode: 1
   })
-
   return jsonp(url, data, options)
 }
 
@@ -37,7 +35,6 @@ export function getDiscList() {
     rnd: Math.random(),
     format: 'json'
   })
-
   return axios
     .get(url, {
       /* api/recommend.js/getDiscList invoked back-end interface */
@@ -61,6 +58,5 @@ export function getSongList(disstid) {
     platform: 'yqq',
     needNewCode: 0
   })
-
   return jsonp(url, data, options)
 }
