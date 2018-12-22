@@ -245,18 +245,16 @@ export default {
       this.$refs.audio.currentTime = 0
       this.$refs.audio.play()
       this.setPlayingState(true)
-      /* fixBug: When the song goes into the loop, the song starts with the song lyrics at the beginning */
       if (this.currentLyric) {
         /* <audio>, song jump to begin */
         this.currentLyric.seek(0)
       }
     },
     next() {
-      /* <audio> ready */
       if (!this.songReady) {
         return
       }
-      /* when only one song */
+      /* only one song */
       if (this.playlist.length === 1) {
         this.loop()
         return
@@ -273,11 +271,10 @@ export default {
       this.songReady = false
     },
     prev() {
-      /* <audio> ready */
       if (!this.songReady) {
         return
       }
-      /* when only one song */
+      /* only one song */
       if (this.playlist.length === 1) {
         this.loop()
         /* optimization: 3 prevents the playback control from being triggered. Return does not call songReady = false */
@@ -333,7 +330,6 @@ export default {
         this.togglePlaying()
       }
       if (this.currentLyric) {
-        /* fixBug: lyrics not follow the progress bar */
         this.currentLyric.seek(currentTime * 1000)
       }
     },
@@ -373,7 +369,7 @@ export default {
     middleTouchStart(e) {
       this.touch.initiated = true
       this.touch.moved = false
-      /* finger first click position */
+      /* finger click position */
       const touch = e.touches[0]
       this.touch.startX = touch.pageX
       this.touch.startY = touch.pageY
@@ -392,11 +388,8 @@ export default {
       if (!this.touch.moved) {
         this.touch.moved = true
       }
-      /* right: 0, left: -window.innerWidth */
       const left = this.currentShow === 'cd' ? 0 : -window.innerWidth
       /* page left-scroll distance */
-      // Math.min(a, b) a < b, 不能大于 a
-      // Math.max(a, b) a < b, 不能小于 a
       const offsetWidth = Math.min(
         0,
         Math.max(-window.innerWidth, left + deltaX)
@@ -462,7 +455,7 @@ export default {
   },
   watch: {
     currentSong(newSong, oldSong) {
-      /* 没有歌曲时 */
+      /* no song */
       if (!newSong.id) {
         return
       }
@@ -470,7 +463,6 @@ export default {
       if (newSong.id === oldSong.id) {
         return
       }
-      /* fixBug: currentLyric There is a timer in it, and when the next song is cut, the timer goes into the next song */
       if (this.currentLyric) {
         /* stop timer of the first song */
         this.currentLyric.stop()
@@ -482,10 +474,6 @@ export default {
       this.timer = setTimeout(() => {
         /* sync method, data it's sync */
         this.$refs.audio.play()
-        /*
-        async method
-        prevent call timing error and write the optimization in getLyric()
-        */
         this.getLyric()
       }, 1000)
     },
