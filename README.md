@@ -258,52 +258,25 @@ npm i babel-preset-stage-1 -D
 
 ## 7-2 播放器 Vuex 数据设计
 
-- **state.js**
-
 ## 7-3 播放器 Vuex 的相关应用
-
-- **player.vue**
-- **song-list.vue**
-- **music-list.vue**
-- **actions.js**
 
 ## 7-4 播放器基础样式及歌曲数据的应用
 
-- **player.vue**
 - back()
 - open()
 
-## 7-5 播放器展开收起动画（上）
+## 7-5, 7-6, 7-7 播放器展开收起动画（中）
 
-- **player.vue**
-- animate
-
-## 7-6, 7-7 播放器展开收起动画（中）
-
-- **player.vue**
 - use js create css animate
 
 ```console
 npm i create-keyframe-animation -S
 ```
 
-```html
-<transition
-  name="normal"
-  @enter="enter"
-  @after-enter="afterEnter"
-  @leave="leave"
-  @after-leave="afterLeave"
-></transition>
-```
-
 ## 7-8 播放器歌曲播放功能实现
-
-- **player.vue**
 
 ## 7-9, 7-10 播放器歌曲前进后退功能实现（上）
 
-- **player.vue**
 - prev()
 - next()
 - back()
@@ -312,45 +285,21 @@ npm i create-keyframe-animation -S
 
 ## 7-11 播放器播放时间获取和更新
 
-- **player.vue**
-- updateTime(e)
-- format(interval)
-- `_pad(num, n = 2)`
-
 ## 7-12 播放器 progress-bar 进度条组件实现（上）
-
-- **progress-bar.vue**
-- **player.vue**
 
 ## 7-13, 7-14 播放器 progress-bar 进度条组件实现（中）
 
-- **progress-bar.vue**
-- **player.vue**
-- @touchstart="progressTouchStart"
-- @touchmove="progressTouchMove"
-- @touchend="progressTouchEnd"
-
 ## 7-15 播放器 progress-circle 圆形进度条组件实现
 
-- **progress-circle.vue**
 - SVG
 
 ## 7-16 播放器模式切换功能实现（上）
 
-- **player.vue**
-- **common/js/mixin.js**
-
 ## 7-17 播放器模式切换功能实现（中）
 
-- **player.vue**
-- **common/js/util.js**
-- **common/js/mixin.js**
 - shuffle()
 
 ## 7-18 播放器模式切换功能实现（下）
-
-- **player.vue**
-- **store/actions**
 
 ## 7-19 播放器歌词数据抓取
 
@@ -361,25 +310,15 @@ npm i create-keyframe-animation -S
 
 ## 7-20 播放器歌词数据解析
 
-- **player.vue**
-- **common/js/song.js**
 - Base64 decoding and encoding
-- The lyric parsing
 - getLyric()
-
-```console
-npm i js-base64 -S
-npm i lyric-parser -S
-```
 
 ## 7-21 播放器歌词滚动列表实现
 
-- **player.vue**
 - `handleLyric({ lineNum, txt })`
 
 ## 7-22, 7-23, 7-24 播放器歌词左右滑动实现（上）
 
-- **player.vue**
 - @touchstart.prevent="middleTouchStart"
 - @touchmove.prevent="middleTouchMove"
 - @touchend="middleTouchEnd"

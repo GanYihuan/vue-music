@@ -31,11 +31,8 @@ action Execution, mutation will changes, mapping state data
 export const selectPlay = function({ commit, state }, { list, index }) {
   /* submit mutation */
   commit(types.SET_SEQUENCE_LIST, list)
-  /* If the playback mode is a random mode. */
   if (state.mode === playMode.random) {
-    /* shuffle */
     const randomList = shuffle(list)
-    /* change the playlist song */
     commit(types.SET_PLAYLIST, randomList)
     /* return song(list[index]) at randomList index */
     // 返回播放的这首歌在随机播放列表的下标
