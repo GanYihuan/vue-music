@@ -1,4 +1,7 @@
-﻿/* finger click position */
-const touch = e.touches[0]
-this.touch.startX = touch.pageX
-this.touch.startY = touch.pageY
+﻿对 localStorage 与 sessionStorage 的封装
+npm i good-storage -S
+
+import storage from 'good-storage'
+storage.set(key, value)
+storage.get(key, value)
+storage.remove(key)

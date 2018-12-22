@@ -56,71 +56,69 @@ import NoResult from 'base/no-result/no-result'
 import Song from 'common/js/song'
 
 export default {
-	components: {
-		Switches,
-		Scroll,
-		SongList,
-		NoResult
-	},
-	mixins: [playlistMixin],
-	data() {
-		return {
-			// The first switch option.
-			currentIndex: 0,
-			switches: [{ name: '我喜欢的' }, { name: '最近听的' }]
-		}
-	},
-	computed: {
-		...mapGetters(['favoriteList', 'playHistory']),
-		noResult() {
-			if (this.currentIndex === 0) {
-				return !this.favoriteList.length
-			} else {
-				return !this.playHistory.length
-			}
-		},
-		noResultDesc() {
-			if (this.currentIndex === 0) {
-				return '暂无收藏歌曲'
-			} else {
-				return '你还没有听过歌曲'
-			}
-		}
-	},
-	methods: {
-		...mapActions(['insertSong', 'randomPlay']),
-		// Set the mini player to the correct position.
-		handlePlaylist(playlist) {
-			const bottom = playlist.length > 0 ? '60px' : ''
-			this.$refs.listWrapper.style.bottom = bottom
-			// html use v-if value, it might not exist to make sure it's not undefined.
-			this.$refs.favoriteList && this.$refs.favoriteList.refresh()
-			this.$refs.playList && this.$refs.playList.refresh()
-		},
-		switchItem(index) {
-			this.currentIndex = index
-		},
-		selectSong(song) {
-			// ...mapActions
-			this.insertSong(new Song(song))
-		},
-		back() {
-			this.$router.back()
-		},
-		random() {
-			let list = this.currentIndex === 0 ? this.favoriteList : this.playHistory
-			// No data
-			if (list.length === 0) {
-				return
-			}
-			// List gets the Song instance and gets the Song specific method.
-			list = list.map(song => {
-				return new Song(song)
-			})
-			// ...mapActions
-			this.randomPlay({ list })
-		}
-	}
+  components: {
+    Switches,
+    Scroll,
+    SongList,
+    NoResult
+  },
+  mixins: [playlistMixin],
+  data() {
+    return {
+      // The first switch option.
+      currentIndex: 0,
+      switches: [{ name: '我喜欢的' }, { name: '最近听的' }]
+    }
+  },
+  computed: {
+    ...mapGetters(['favoriteList', 'playHistory']),
+    noResult() {
+      if (this.currentIndex === 0) {
+        return !this.favoriteList.length
+      } else {
+        return !this.playHistory.length
+      }
+    },
+    noResultDesc() {
+      if (this.currentIndex === 0) {
+        return '暂无收藏歌曲'
+      } else {
+        return '你还没有听过歌曲'
+      }
+    }
+  },
+  methods: {
+    ...mapActions(['insertSong', 'randomPlay']),
+    // Set the mini player to the correct position.
+    handlePlaylist(playlist) {
+      const bottom = playlist.length > 0 ? '60px' : ''
+      this.$refs.listWrapper.style.bottom = bottom
+      // html use v-if value, it might not exist to make sure it's not undefined.
+      this.$refs.favoriteList && this.$refs.favoriteList.refresh()
+      this.$refs.playList && this.$refs.playList.refresh()
+    },
+    switchItem(index) {
+      this.currentIndex = index
+    },
+    selectSong(song) {
+      this.insertSong(new Song(song))
+    },
+    back() {
+      this.$router.back()
+    },
+    random() {
+      let list = this.currentIndex === 0 ? this.favoriteList : this.playHistory
+      // No data
+      if (list.length === 0) {
+        return
+      }
+      // List gets the Song instance and gets the Song specific method.
+      list = list.map(song => {
+        return new Song(song)
+      })
+      this.randomPlay({ list })
+    }
+  }
 }
 </script>
 

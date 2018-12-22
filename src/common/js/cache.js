@@ -46,7 +46,7 @@ function insertArray(arr, val, compare, maxLen) {
  */
 export function saveSearch(query) {
   // gets cached data, historical data, no data returns an empty array.
-  let searches = storage.get(SEARCH_KEY, [])
+  const searches = storage.get(SEARCH_KEY, [])
   insertArray(
     searches,
     query,
@@ -66,9 +66,7 @@ export function saveSearch(query) {
  * @param compare: return func
  */
 function deleteFromArray(arr, compare) {
-  // findIndex: Find the arr array with the compare element and return the subscript.
   const index = arr.findIndex(compare)
-  // If there is
   if (index > -1) {
     arr.splice(index, 1)
   }
@@ -81,7 +79,7 @@ function deleteFromArray(arr, compare) {
  */
 export function deleteSearch(query) {
   // Gets cached data, historical data.
-  let searches = storage.get(SEARCH_KEY, [])
+  const searches = storage.get(SEARCH_KEY, [])
   deleteFromArray(searches, item => {
     return item === query
   })
@@ -108,7 +106,7 @@ export function loadSearch() {
  */
 export function savePlay(song) {
   // Gets the playback history localStorage and returns an empty array if no.
-  let songs = storage.get(PLAY_KEY, [])
+  const songs = storage.get(PLAY_KEY, [])
   // Song is inserted into songs, passed in the comparison function, and song moves him to the front.
   insertArray(
     songs,
@@ -135,7 +133,7 @@ export function loadPlay() {
  */
 export function saveFavorite(song) {
   // Get the collection list localStorage.
-  let songs = storage.get(FAVORITE_KEY, [])
+  const songs = storage.get(FAVORITE_KEY, [])
   // Song is inserted into songs, passed in the comparison function, and song moves him to the front.
   insertArray(
     songs,
@@ -156,7 +154,7 @@ export function saveFavorite(song) {
  * @returns {*}
  */
 export function deleteFavorite(song) {
-  let songs = storage.get(FAVORITE_KEY, [])
+  const songs = storage.get(FAVORITE_KEY, [])
   // Remove compare from arr array.
   deleteFromArray(songs, item => {
     return item.id === song.id

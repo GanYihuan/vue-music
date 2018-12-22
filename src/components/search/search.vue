@@ -80,64 +80,62 @@ import SearchList from 'base/search-list/search-list'
 import Confirm from 'base/confirm/confirm'
 
 export default {
-	mixins: [playlistMixin, searchMixin],
-	components: {
-		SearchBox,
-		Scroll,
-		Suggest,
-		SearchList,
-		Confirm
-	},
-	data() {
-		return {
-			hotKey: [],
-			query: ''
-		}
-	},
-	/* data not monitor, data & props data need monitor, get back-end data */
-	created() {
-		this._getHotKey()
-	},
-	computed: {
-		/* ...mapGetters */
-		/* when hotKey, searchHistory changes, scroll resets the height */
-		shortcut() {
-			return this.hotKey.concat(this.searchHistory)
-		}
-	},
-	methods: {
-		...mapActions(['clearSearchHistory']),
-		handlePlaylist(playlist) {
-			const bottom = playlist.length > 0 ? '60px' : ''
-			this.$refs.searchResult.style.bottom = bottom
-			this.$refs.suggest.refresh()
-			this.$refs.shortcutWrapper.style.bottom = bottom
-			this.$refs.shortcut.refresh()
-		},
-		showConfirm() {
-			this.$refs.confirm.show()
-		},
-		addQuery(query) {
-			this.$refs.searchBox.setQuery(query)
-		},
-		_getHotKey() {
-			getHotKey().then(res => {
-				if (res.code === ERR_OK) {
-					this.hotKey = res.data.hotkey.slice(0, 10)
-				}
-			})
-		}
-	},
-	watch: {
-		/* Prevent current interface from disabling scrolling */
-		query(newQuery) {
-			if (!newQuery) {
-				setTimeout(() => {
-					this.$refs.shortcut.refresh()
-				}, 20)
-			}
-		}
-	}
+  mixins: [playlistMixin, searchMixin],
+  components: {
+    SearchBox,
+    Scroll,
+    Suggest,
+    SearchList,
+    Confirm
+  },
+  data() {
+    return {
+      hotKey: [],
+      query: ''
+    }
+  },
+  created() {
+    this._getHotKey()
+  },
+  computed: {
+    /* when hotKey, searchHistory changes, scroll resets the height */
+    shortcut() {
+      return this.hotKey.concat(this.searchHistory)
+    }
+  },
+  methods: {
+    ...mapActions(['clearSearchHistory']),
+    handlePlaylist(playlist) {
+      const bottom = playlist.length > 0 ? '60px' : ''
+      this.$refs.searchResult.style.bottom = bottom
+      this.$refs.suggest.refresh()
+      this.$refs.shortcutWrapper.style.bottom = bottom
+      this.$refs.shortcut.refresh()
+    },
+    showConfirm() {
+      this.$refs.confirm.show()
+    },
+    addQuery(query) {
+      this.$refs.searchBox.setQuery(query)
+    },
+    _getHotKey() {
+      getHotKey().then(res => {
+        if (res.code === ERR_OK) {
+          this.hotKey = res.data.hotkey.slice(0, 10)
+        }
+      })
+    }
+  },
+  watch: {
+    /* Prevent current interface from disabling scrolling */
+    query(newQuery) {
+      if (!newQuery) {
+        setTimeout(() => {
+          this.$refs.shortcut.refresh()
+        }, 20)
+      }
+    }
+  }
 }
 </script>
 

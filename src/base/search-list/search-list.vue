@@ -2,10 +2,11 @@
   <!-- 09-搜索历史列表 -->
   <div class="search-list" v-show="searches.length">
     <transition-group name="list" tag="ul">
-      <li class="search-item"
-          v-for="item in searches"
-          :key="item"
-          @click="selectItem(item)"
+      <li
+        class="search-item"
+        v-for="item in searches"
+        :key="item"
+        @click="selectItem(item)"
       >
         <span class="text">{{item}}</span>
         <span class="icon" @click.stop="deleteOne(item)">
@@ -18,20 +19,20 @@
 
 <script type="text/ecmascript-6">
 export default {
-	props: {
-		searches: {
-			type: Array,
-			default: null
-		}
-	},
-	methods: {
-		selectItem(item) {
-			this.$emit('select', item)
-		},
-		deleteOne(item) {
-			this.$emit('delete', item)
-		}
-	}
+  props: {
+    searches: {
+      type: Array,
+      default: null
+    }
+  },
+  methods: {
+    selectItem(item) {
+      this.$emit('select', item)
+    },
+    deleteOne(item) {
+      this.$emit('delete', item)
+    }
+  }
 }
 </script>
 

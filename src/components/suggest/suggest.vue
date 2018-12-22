@@ -45,155 +45,149 @@ const TYPE_SINGER = 'singer'
 const perpage = 20
 
 export default {
-	components: {
-		Scroll,
-		Loading,
-		NoResult,
-		Singer
-	},
-	props: {
-		showSinger: {
-			type: Boolean,
-			default: true
-		},
-		query: {
-			type: String,
-			default: ''
-		}
-	},
-	data() {
-		return {
-			page: 1,
-			/* drop-down refresh */
-			pullup: true,
-			beforeScroll: true,
-			/* Data loading finish ？ */
-			hasMore: true,
-			result: []
-		}
-	},
-	methods: {
-		...mapMutations({
-			setSinger: 'SET_SINGER'
-		}),
-		...mapActions(['insertSong']),
-		refresh() {
-			this.$refs.suggest.refresh()
-		},
-		/* request service end, grab search retrieve data */
-		search() {
-			this.page = 1
-			this.hasMore = true
-			this.$refs.suggest.scrollTo(0, 0)
-			/**
-			 * api/search.js
-			 * @param query: Retrieve the value
-			 * @param page: page index
-			 * @param showSinger: Do you want a singer ?
-			 * @param perpage: The number of returns per page.
-			 */
-			search(this.query, this.page, this.showSinger, perpage).then(res => {
-				if (res.code === ERR_OK) {
-					this.result = this._genResult(res.data)
-					/* have more data ? */
-					this._checkMore(res.data)
-				}
-			})
-		},
-		/* pull down refresh */
-		searchMore() {
-			if (!this.hasMore) {
-				return
-			}
-			/* load next page */
-			this.page++
-			/**
-			 * api/search.js
-			 * @param query: Retrieve the value
-			 * @param page: page index
-			 * @param showSinger: Do you want a singer ?
-			 * @param perpage: The number of returns per page.
-			 */
-			search(this.query, this.page, this.showSinger, perpage).then(res => {
-				if (res.code === ERR_OK) {
-					this.result = this.result.concat(this._genResult(res.data))
-					this._checkMore(res.data)
-				}
-			})
+  components: {
+    Scroll,
+    Loading,
+    NoResult,
+    Singer
+  },
+  props: {
+    showSinger: {
+      type: Boolean,
+      default: true
+    },
+    query: {
+      type: String,
+      default: ''
+    }
+  },
+  data() {
+    return {
+      page: 1,
+      /* drop-down refresh */
+      pullup: true,
+      beforeScroll: true,
+      /* Data loading finish ？ */
+      hasMore: true,
+      result: []
+    }
+  },
+  methods: {
+    ...mapMutations({
+      setSinger: 'SET_SINGER'
+    }),
+    ...mapActions(['insertSong']),
+    refresh() {
+      this.$refs.suggest.refresh()
+    },
+    /* request service end, grab search retrieve data */
+    search() {
+      this.page = 1
+      this.hasMore = true
+      this.$refs.suggest.scrollTo(0, 0)
+      /**
+       * api/search.js
+       * @param query: retrieve value
+       * @param page: page
+       * @param showSinger: want a singer ?
+       * @param perpage: number of per page
+       */
+      search(this.query, this.page, this.showSinger, perpage).then(res => {
+        if (res.code === ERR_OK) {
+          this.result = this._genResult(res.data)
+          /* more data ? */
+          this._checkMore(res.data)
+        }
+      })
+    },
+    searchMore() {
+      if (!this.hasMore) {
+        return
+      }
+      /* load next page */
+      this.page++
+      /**
+       * api/search.js
+       * @param query: Retrieve the value
+       * @param page: page index
+       * @param showSinger: Do you want a singer ?
+       * @param perpage: The number of returns per page.
+       */
+      search(this.query, this.page, this.showSinger, perpage).then(res => {
+        if (res.code === ERR_OK) {
+          this.result = this.result.concat(this._genResult(res.data))
+          this._checkMore(res.data)
+        }
+      })
     },
     _genResult(data) {
-			let ret = []
-			/* zhida: want singer? */
-			/* zhida.singerid: singer id */
-			if (data.zhida && data.zhida.singerid) {
-				/* type: distinguish between singers and songs */
-				ret.push({ ...data.zhida, ...{ type: TYPE_SINGER } })
-			}
-			if (data.song) {
-				ret = ret.concat(this._normalizeSongs(data.song.list))
-			}
-			return ret
+      let ret = []
+      /* zhida: want singer? */
+      if (data.zhida && data.zhida.singerid) {
+        /* type: distinguish singer or song */
+        /* eslint-disable standard/object-curly-even-spacing */
+        ret.push({ ...data.zhida, ...{ type: TYPE_SINGER }})
+      }
+      if (data.song) {
+        ret = ret.concat(this._normalizeSongs(data.song.list))
+      }
+      return ret
     },
     _normalizeSongs(list) {
-			let ret = []
-			list.forEach(musicData => {
-				if (musicData.songid && musicData.albummid) {
-					/* convert to song instance */
-					ret.push(createSong(musicData))
-				}
-			})
-			return ret
-		},
-		_checkMore(data) {
-			const song = data.song
-			if (
-				!song.list.length ||
-				song.curnum + song.curpage * perpage > song.totalnum
-			) {
-				this.hasMore = false
-			}
-		},
-		listScroll() {
-			this.$emit('listScroll')
-		},
-		selectItem(item) {
-			if (item.type === TYPE_SINGER) {
-				const singer = new Singer({
-					id: item.singermid,
-					name: item.singername
-				})
-				this.$router.push({
-					path: `/search/${singer.id}`
-				})
-				/* ...mapMutations */
-				this.setSinger(singer)
-			} else {
-				/* ...mapActions */
-				this.insertSong(item)
-			}
-			this.$emit('select', item)
-		},
-		getDisplayName(item) {
-			if (item.type === TYPE_SINGER) {
-				return item.singername
-			} else {
-				return `${item.name}-${item.singer}`
-			}
-		},
-		getIconCls(item) {
-			if (item.type === TYPE_SINGER) {
-				return 'icon-mine'
-			} else {
-				return 'icon-music'
-			}
-		}
-	},
-	watch: {
-		query(newQuery) {
-			/* request server **api/search.js** */
-			this.search(newQuery)
-		}
-	}
+      const ret = []
+      list.forEach(musicData => {
+        if (musicData.songid && musicData.albummid) {
+          /* convert to song instance */
+          ret.push(createSong(musicData))
+        }
+      })
+      return ret
+    },
+    _checkMore(data) {
+      const song = data.song
+      if (!song.list.length || song.curnum + song.curpage * perpage > song.totalnum) {
+        this.hasMore = false
+      }
+    },
+    listScroll() {
+      this.$emit('listScroll')
+    },
+    selectItem(item) {
+      if (item.type === TYPE_SINGER) {
+        const singer = new Singer({
+          id: item.singermid,
+          name: item.singername
+        })
+        this.$router.push({
+          path: `/search/${singer.id}`
+        })
+        this.setSinger(singer)
+      } else {
+        this.insertSong(item)
+      }
+      this.$emit('select', item)
+    },
+    getDisplayName(item) {
+      if (item.type === TYPE_SINGER) {
+        return item.singername
+      } else {
+        return `${item.name}-${item.singer}`
+      }
+    },
+    getIconCls(item) {
+      if (item.type === TYPE_SINGER) {
+        return 'icon-mine'
+      } else {
+        return 'icon-music'
+      }
+    }
+  },
+  watch: {
+    query(newQuery) {
+      /* request server **api/search.js** */
+      this.search(newQuery)
+    }
+  }
 }
 </script>
 
