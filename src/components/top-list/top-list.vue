@@ -19,56 +19,53 @@ import { mapGetters } from 'vuex'
 import { createSong } from 'common/js/song'
 
 export default {
-	components: {
-		MusicList
-	},
-	data() {
-		return {
-			songs: [],
-			rank: true
-		}
+  components: {
+    MusicList
   },
-  /* data not monitor, data & props need monitor, get back-end data */
-	created() {
-		this._getMusicList()
-	},
-	computed: {
-		/* store/state.js */
-		...mapGetters(['topList']),
-		title() {
-			/* ...mapGetters */
-			return this.topList.topTitl
-		},
-		bgImage() {
-			if (this.songs.length) {
-				return this.songs[0].image
-			}
-			return ''
-		}
-	},
-	methods: {
-		_getMusicList() {
-			if (!this.topList.id) {
-				this.$router.push('/rank')
-				return
-			}
-			getMusicList(this.topList.id).then(res => {
-				if (res.code === ERR_OK) {
-					this.songs = this._normalizeSongs(res.songlist)
-				}
-			})
-		},
-		_normalizeSongs(list) {
-			let ret = []
-			list.forEach(item => {
-				const musicData = item.data
-				if (musicData.songid && musicData.albummid) {
-					ret.push(createSong(musicData))
-				}
-			})
-			return ret
-		}
-	}
+  data() {
+    return {
+      songs: [],
+      rank: true
+    }
+  },
+  created() {
+    this._getMusicList()
+  },
+  computed: {
+    ...mapGetters(['topList']),
+    title() {
+      return this.topList.topTitl
+    },
+    bgImage() {
+      if (this.songs.length) {
+        return this.songs[0].image
+      }
+      return ''
+    }
+  },
+  methods: {
+    _getMusicList() {
+      if (!this.topList.id) {
+        this.$router.push('/rank')
+        return
+      }
+      getMusicList(this.topList.id).then(res => {
+        if (res.code === ERR_OK) {
+          this.songs = this._normalizeSongs(res.songlist)
+        }
+      })
+    },
+    _normalizeSongs(list) {
+      const ret = []
+      list.forEach(item => {
+        const musicData = item.data
+        if (musicData.songid && musicData.albummid) {
+          ret.push(createSong(musicData))
+        }
+      })
+      return ret
+    }
+  }
 }
 </script>
 
