@@ -69,100 +69,91 @@ import Confirm from 'base/confirm/confirm'
 import AddSong from 'components/add-song/add-song'
 
 export default {
-	components: {
-		Scroll,
-		AddSong,
-		Confirm
-	},
-	mixins: [playerMixin],
-	data() {
-		return {
-			showFlag: false,
-			refreshDelay: 120
-		}
-	},
-	computed: {
-		modeText() {
-			return this.mode === playMode.sequence
-				? '顺序播放'
-				: this.mode === playMode.random
-					? '随机播放'
-					: '单曲循环'
-		}
-	},
-	methods: {
-		...mapActions(['deleteSong', 'deleteSongList']),
-		show() {
-			this.showFlag = true
+  components: {
+    Scroll,
+    AddSong,
+    Confirm
+  },
+  mixins: [playerMixin],
+  data() {
+    return {
+      showFlag: false,
+      refreshDelay: 120
+    }
+  },
+  computed: {
+    modeText() {
+      return this.mode === playMode.sequence
+        ? '顺序播放'
+        : this.mode === playMode.random
+          ? '随机播放'
+          : '单曲循环'
+    }
+  },
+  methods: {
+    ...mapActions(['deleteSong', 'deleteSongList']),
+    show() {
+      this.showFlag = true
       // 显示后 dom 重新计算，better-scroll 要刷新
-			setTimeout(() => {
-				this.$refs.listContent.refresh()
-				// currentSong: ...mapGetters **mixin.js**
-				this.scrollToCurrent(this.currentSong)
-			}, 20)
-		},
-		hide() {
-			this.showFlag = false
-		},
-		showConfirm() {
-			this.$refs.confirm.show()
-		},
-		confirmClear() {
-			// ...mapActions
-			this.deleteSongList()
-			this.hide()
-		},
-		getCurrentIcon(item) {
-			if (this.currentSong.id === item.id) {
-				return 'icon-play'
-			}
-			return ''
-		},
-		selectItem(item, index) {
-			if (this.mode === playMode.random) {
-				// ...mapGetters (mixin.js)
-				// 当前歌曲在当前播放列表的位置
-				index = this.playlist.findIndex(song => {
-					return song.id === item.id
-				})
-			}
-			// ...mapMutations (mixin.js)
-			this.setCurrentIndex(index)
-			// ...mapMutations (mixin.js)
-			this.setPlayingState(true)
-		},
-		scrollToCurrent(current) {
+      setTimeout(() => {
+        this.$refs.listContent.refresh()
+        this.scrollToCurrent(this.currentSong)
+      }, 20)
+    },
+    hide() {
+      this.showFlag = false
+    },
+    showConfirm() {
+      this.$refs.confirm.show()
+    },
+    confirmClear() {
+      this.deleteSongList()
+      this.hide()
+    },
+    getCurrentIcon(item) {
+      if (this.currentSong.id === item.id) {
+        return 'icon-play'
+      }
+      return ''
+    },
+    selectItem(item, index) {
+      if (this.mode === playMode.random) {
+        // 当前歌曲在当前播放列表的位置
+        index = this.playlist.findIndex(song => {
+          return song.id === item.id
+        })
+      }
+      this.setCurrentIndex(index)
+      this.setPlayingState(true)
+    },
+    scrollToCurrent(current) {
       // 当前歌曲在原始播放列表的索引
-			const index = this.sequenceList.findIndex(song => {
-				return current.id === song.id
-			})
-			// Scroll to the elements of this list.
-			this.$refs.listContent.scrollToElement(
-				this.$refs.list.$el.children[index],
-				300
-			)
-		},
-		deleteOne(item) {
-			// ...mapActions
-			this.deleteSong(item)
-			if (!this.playlist.length) {
-				this.hide()
-			}
-		},
-		addSong() {
-			this.$refs.addSong.show()
-		}
-	},
-	watch: {
-		currentSong(newSong, oldSong) {
-			if (!this.showFlag || newSong.id === oldSong.id) {
-				return
-			}
-			setTimeout(() => {
-				this.scrollToCurrent(newSong)
-			}, 20)
-		}
-	}
+      const index = this.sequenceList.findIndex(song => {
+        return current.id === song.id
+      })
+      // Scroll to the elements of this list.
+      this.$refs.listContent.scrollToElement(this.$refs.list.$el.children[index], 300)
+    },
+    deleteOne(item) {
+      this.deleteSong(item)
+      if (!this.playlist.length) {
+        this.hide()
+      }
+    },
+    addSong() {
+      this.$refs.addSong.show()
+    }
+  },
+  watch: {
+    currentSong(newSong, oldSong) {
+      if (!this.showFlag || newSong.id === oldSong.id) {
+        return
+      }
+      setTimeout(() => {
+        this.scrollToCurrent(newSong)
+      }, 20)
+    }
+  }
 }
 </script>
 
