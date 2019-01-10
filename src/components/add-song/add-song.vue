@@ -85,61 +85,61 @@ import { mapGetters, mapActions } from 'vuex'
 import Song from 'common/js/song'
 
 export default {
-	components: {
-		SearchBox,
-		SongList,
-		SearchList,
-		Scroll,
-		Switches,
-		TopTip,
-		Suggest
-	},
-	mixins: [searchMixin],
-	data() {
-		return {
-			showFlag: false,
-			showSinger: false,
-			currentIndex: 0,
-			songs: [],
-			switches: [{ name: '最近播放' }, { name: '搜索历史' }]
-		}
-	},
-	computed: {
-		...mapGetters(['playHistory'])
-	},
-	methods: {
-		...mapActions(['insertSong']),
-		show() {
-			this.showFlag = true
-			// Prevent Re-rendering without dom loading.
-			setTimeout(() => {
-				if (this.currentIndex === 0) {
-					this.$refs.songList.refresh()
-				} else {
-					this.$refs.searchList.refresh()
-				}
-			}, 20)
-		},
-		hide() {
-			this.showFlag = false
-		},
-		selectSong(song, index) {
-			if (index !== 0) {
+  components: {
+    SearchBox,
+    SongList,
+    SearchList,
+    Scroll,
+    Switches,
+    TopTip,
+    Suggest
+  },
+  mixins: [searchMixin],
+  data() {
+    return {
+      showFlag: false,
+      showSinger: false,
+      currentIndex: 0,
+      songs: [],
+      switches: [{ name: '最近播放' }, { name: '搜索历史' }]
+    }
+  },
+  computed: {
+    ...mapGetters(['playHistory'])
+  },
+  methods: {
+    ...mapActions(['insertSong']),
+    show() {
+      this.showFlag = true
+      // Prevent Re-rendering without dom loading.
+      setTimeout(() => {
+        if (this.currentIndex === 0) {
+          this.$refs.songList.refresh()
+        } else {
+          this.$refs.searchList.refresh()
+        }
+      }, 20)
+    },
+    hide() {
+      this.showFlag = false
+    },
+    selectSong(song, index) {
+      if (index !== 0) {
         // ...mapActions
         // song 实例插入
-				this.insertSong(new Song(song))
-				this.$refs.topTip.show()
-			}
-		},
-		selectSuggest() {
-			this.$refs.topTip.show()
-			// (mixin.js)
-			this.saveSearch()
-		},
-		switchItem(index) {
-			this.currentIndex = index
-		}
-	}
+        this.insertSong(new Song(song))
+        this.$refs.topTip.show()
+      }
+    },
+    selectSuggest() {
+      this.$refs.topTip.show()
+      // (mixin.js)
+      this.saveSearch()
+    },
+    switchItem(index) {
+      this.currentIndex = index
+    }
+  }
 }
 </script>
 
