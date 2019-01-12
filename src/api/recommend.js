@@ -6,7 +6,8 @@ import axios from 'axios'
 /* use jsonp fetch data (carousel data) */
 export function getRecommend() {
   /* static/jsonp1.png: open in chrome, copy url(copy '?' before) */
-  const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
+  const url =
+    'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
   /* Object.assign: object extend attributes */
   /* It will return the target object. */
   const data = Object.assign({}, commonParams, {

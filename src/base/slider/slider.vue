@@ -40,7 +40,6 @@ export default {
       currentPageIndex: 0
     }
   },
-  /* dom ready */
   mounted() {
     /* setTimeout: 20s, dom will Refresh, Because the browser 17s refreshes once */
     setTimeout(() => {
@@ -51,7 +50,6 @@ export default {
         this._autoPlay()
       }
     }, 20)
-    /* Window change event */
     window.addEventListener('resize', () => {
       if (!this.slider) {
         return
@@ -74,7 +72,7 @@ export default {
       const sliderWidth = this.$refs.slider.clientWidth
       for (let i = 0; i < this.children.length; i++) {
         const child = this.children[i]
-        /* (common/js/dom.js): addClass() */
+        /* addClass() : (common/js/dom.js) */
         addClass(child, 'slider-item')
         child.style.width = sliderWidth + 'px'
         width += sliderWidth
@@ -91,7 +89,6 @@ export default {
     },
     _initSlider() {
       /* better-scroll Copy two child elements in carousel Head and tail, For looping */
-      /* <https://ustbhuangyi.github.io/better-scroll/doc/zh-hans/#better-scroll%20%E6%98%AF%E4%BB%80%E4%B9%88> */
       this.slider = new BScroll(this.$refs.slider, {
         scrollX: true,
         scrollY: false,

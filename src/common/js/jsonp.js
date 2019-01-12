@@ -1,10 +1,9 @@
 import originJsonp from 'jsonp'
 
 /**
- * jsonp package
  * https://github.com/webmodules/jsonp
- * @param url: url address, (jsonp support parameter)
- * @param data: pass to back-end parameter, url carry parameter, yourself define parameter
+ * @param url: url address
+ * @param data: pass to back-end parameter
  * @param option: jsonp support parameter
  * @returns {Promise}
  */
@@ -25,7 +24,7 @@ export default function jsonp(url, data, option) {
 /**
  * pass back-end parameter
  * @param data
- * @returns {string}
+ * @returns {string} url
  */
 export function param(data) {
   let url = ''

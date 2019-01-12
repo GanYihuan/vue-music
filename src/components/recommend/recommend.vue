@@ -69,7 +69,6 @@ export default {
     Loading,
     Scroll
   },
-  /* insert mixin.js */
   mixins: [playlistMixin],
   data() {
     return {
@@ -77,7 +76,6 @@ export default {
       discList: []
     }
   },
-  /* get back-end data, data not monitor */
   created() {
     /* get back-end data (Carousel data) async */
     this._getRecommend()
