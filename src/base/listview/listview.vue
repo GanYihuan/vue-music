@@ -83,7 +83,6 @@ export default {
       default: null
     }
   },
-  /* data and props Data needs to be monitored */
   data() {
     return {
       /* Real-time scroll position */
@@ -94,7 +93,6 @@ export default {
       diff: -1
     }
   },
-  /* get back-end data, created not monitor, data, props will monitor */
   created() {
     this.touch = {}
     this.listenScroll = true
@@ -122,11 +120,11 @@ export default {
     onShortCutTouchStart(e) {
       /* 获取列表项的 index 值 */
       const anchorIndex = getData(e.target, 'index')
-      /* e.touches[0]: Finger click position */
+      /* e.touches[0]: 点击的位置 */
       const firstTouch = e.touches[0]
-      /* vertical click position */
+      /* 点击的垂直距离 */
       this.touch.y1 = firstTouch.pageY
-      /* the first time the finger clicks on the letter subscript */
+      /* 保存点击的位置 index */
       this.touch.anchorIndex = anchorIndex
       this._scrollTo(anchorIndex)
     },
