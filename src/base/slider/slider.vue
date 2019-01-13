@@ -62,10 +62,9 @@ export default {
   methods: {
     _setSliderWidth(isResize) {
       this.children = this.$refs.sliderGroup.children
-      // console.log(this.children.length)
       /*
-      this.children.length: 5
-      better-scroll copy two child elements in carousel Head and tail, For looping
+      console.log(this.children.length) = 5
+      better-scroll copy 2 child elements in carousel Head and tail, For looping
       dom: 5+2=7
       */
       let width = 0
@@ -77,7 +76,6 @@ export default {
         child.style.width = sliderWidth + 'px'
         width += sliderWidth
       }
-      /* Double the length For looping (the carousel component), isResize mean not executed */
       if (this.loop && !isResize) {
         width += 2 * sliderWidth
       }
@@ -88,7 +86,6 @@ export default {
       this.dots = new Array(this.children.length)
     },
     _initSlider() {
-      /* better-scroll Copy two child elements in carousel Head and tail, For looping */
       this.slider = new BScroll(this.$refs.slider, {
         scrollX: true,
         scrollY: false,
@@ -105,8 +102,7 @@ export default {
         /* better-scroll and fastclick versus, Clicking on the carousel in mobile mode does not jump */
         // click: true
       })
-      /* better-scroll distribute event */
-      // 滚动过程结束时触发
+      // better-scroll 滚动过程结束时触发
       this.slider.on('scrollEnd', () => {
         /* pageIndex: 第几个子元素 */
         let pageIndex = this.slider.getCurrentPage().pageX
@@ -121,7 +117,6 @@ export default {
         }
       })
     },
-    /* jump to next page */
     _autoPlay() {
       let pageIndex = this.currentPageIndex + 1
       if (this.loop) {

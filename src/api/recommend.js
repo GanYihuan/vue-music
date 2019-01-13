@@ -3,7 +3,10 @@ import { commonParams, options } from './config'
 /* ajax */
 import axios from 'axios'
 
-/* use jsonp fetch data (carousel data) */
+/**
+ * use jsonp fetch data (轮播图数据)
+ * @return: jsonp
+ */
 export function getRecommend() {
   /* static/jsonp1.png: open in chrome, copy url(copy '?' before) */
   const url =
@@ -23,7 +26,7 @@ export function getRecommend() {
  * @returns {Promise.<TResult>|*}
  */
 export function getDiscList() {
-  /* request back-end address, the back-end address sends an HTTP request to qq music to obtain the data. */
+  /* request back-end address that sends HTTP request to qq music get data. */
   const url = '/api/getDiscList'
   const data = Object.assign({}, commonParams, {
     platform: 'yqq',
