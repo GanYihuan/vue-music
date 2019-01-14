@@ -1,7 +1,7 @@
 <template>
   <!-- static/11-切换 -->
   <ul class="switches">
-    <li 
+    <li
       class="switch-item"
       v-for="(item,index) in switches"
       :key="index"
@@ -15,21 +15,21 @@
 
 <script type="text/ecmascript-6">
 export default {
-	props: {
-		switches: {
-			type: Array,
-			default: null
-		},
-		currentIndex: {
-			type: Number,
-			default: 0
-		}
-	},
-	methods: {
-		switchItem(index) {
-			this.$emit('switch', index)
-		}
-	}
+  props: {
+    switches: {
+      type: Array,
+      default: null
+    },
+    currentIndex: {
+      type: Number,
+      default: 0
+    }
+  },
+  methods: {
+    switchItem(index) {
+      this.$emit('switch', index)
+    }
+  }
 }
 </script>
 
