@@ -14,36 +14,9 @@
 
 ## 2-2 Vue-cli 脚手架安装
 
-> node 升级
-
-```console
-npm i nvm
-nvm ls
-nvm install 8.9.1
-nvm use 8.9.1
-```
-
-> vue enviroment
-
-```console
-npm i -g vue-cli
-vue init webpack imooc-music
-```
-
-- 'RunTime-only': Lighter
-- vue-router: y
-- ESLint: y
-- Standard
-- karma, e2e test: n
-- npm install
-
-```console
-npm run start
-```
-
 ## 2-3 项目目录介绍及图标字体、公共样式等资源准备
 
-> ESLint webpack File changes must be renew `npm run start`
+> ESLint webpack File changes must run `npm run start`
 > Directory introduction
 
 - api: (back-end request, jsonp request, ajax request)
@@ -58,7 +31,6 @@ npm run start
 npm install sass-loader node-sass stylus stylus-loader -D
 ```
 
-- **eslintrc.js** Configuration
 - **webpack.base.conf.js** Alias ​​configuration, 'common' correspond 'src/common'
   > import 'common/scss/index.scss'
 
