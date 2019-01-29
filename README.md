@@ -76,15 +76,11 @@ resolve: {
 
 > back-end proxy, http request
 
-```console
-npm i axios -S
-```
+cnpm i axios -S
 
 - Modify host **config/index.js**
 
-```js
 host: '0.0.0.0',
-```
 
 ## 4-9 歌单列表组件开发和数据的应用
 

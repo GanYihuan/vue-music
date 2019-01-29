@@ -1,14 +1,14 @@
 <template>
   <!-- static/01-推荐界面 -->
   <div class="recommend" ref="recommend">
-    <!-- :data="discList": Prevent async loading from causing rendering timing errors, Make sure the data has arrived -->
+    <!-- :data="discList": make sure dom render in page -->
     <scroll
       class="recommend-content"
       ref="scroll"
       :data="discList"
     >
       <div>
-        <!-- v-if="recommends.length": Prevent async loading from causing rendering timing errors, Make sure the data has arrived -->
+        <!-- v-if="recommends.length": make sure dom render in page -->
         <div
           class="slider-wrapper"
           ref="sliderWrapper"
@@ -86,19 +86,17 @@ export default {
     ...mapMutations({
       setDisc: 'SET_DISC'
     }),
-    /* If there is a mini player, the singer list bottom will add height to display it. */
+    /* if mini player, singer list bottom add height */
     handlePlaylist(playlist) {
       const bottom = playlist.length > 0 ? '60px' : ''
       this.$refs.recommend.style.bottom = bottom
       this.$refs.scroll.refresh()
     },
-    // 保证 dom 渲染好，一旦有一张图片撑开了 slider, dom 变化了, 数据变化, better-scroll 要 refresh
+    /* img load dom change, better-scroll refresh */
     loadImage() {
-      /* carousel render too late cause height wrong */
       if (!this.checkloaded) {
-        /* invoked once */
         this.checkloaded = true
-        /* better-scroll: refresh() */
+        /* better-scroll: when dom size change, refresh */
         this.$refs.scroll.refresh()
       }
     },

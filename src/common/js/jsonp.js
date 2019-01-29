@@ -8,7 +8,6 @@ import originJsonp from 'jsonp'
  * @returns {Promise}
  */
 export default function jsonp(url, data, option) {
-  // indexOf('?'): url find '?'
   url += (url.indexOf('?') < 0 ? '?' : '&') + param(data)
   return new Promise((resolve, reject) => {
     originJsonp(url, option, (err, data) => {
@@ -21,18 +20,13 @@ export default function jsonp(url, data, option) {
   })
 }
 
-/**
- * pass back-end parameter
- * @param data
- * @returns {string} url
- */
 export function param(data) {
   let url = ''
   for (const k in data) {
     const value = data[k] !== undefined ? data[k] : ''
-    // encodeURIComponent(): encode a string as a URI component.
+    // encodeURIComponent(): encode string as URI component
     url += `&${k}=${encodeURIComponent(value)}`
   }
-  // Get rid of the first '&'
+  // get rid of first '&'
   return url ? url.substring(1) : ''
 }

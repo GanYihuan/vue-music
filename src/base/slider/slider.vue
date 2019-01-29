@@ -41,7 +41,7 @@ export default {
     }
   },
   mounted() {
-    /* setTimeout: 20s, dom will Refresh, Because the browser 17s refreshes once */
+    /* setTimeout: 20s, browser 17s refreshe once */
     setTimeout(() => {
       this._setSliderWidth()
       this._initDots()
@@ -55,7 +55,7 @@ export default {
         return
       }
       this._setSliderWidth(true)
-      /* better-scroll: refresh */
+      /* better-scroll: when dom size change, refresh */
       this.slider.refresh()
     })
   },
@@ -64,14 +64,14 @@ export default {
       this.children = this.$refs.sliderGroup.children
       /*
       console.log(this.children.length) = 5
-      better-scroll copy 2 child elements in carousel Head and tail, For looping
+      better-scroll copy 2 dom For loop
       dom: 5+2=7
       */
       let width = 0
       const sliderWidth = this.$refs.slider.clientWidth
       for (let i = 0; i < this.children.length; i++) {
         const child = this.children[i]
-        /* addClass() : (common/js/dom.js) */
+        /* addClass(): common/js/dom.js */
         addClass(child, 'slider-item')
         child.style.width = sliderWidth + 'px'
         width += sliderWidth
@@ -82,7 +82,6 @@ export default {
       this.$refs.sliderGroup.style.width = width + 'px'
     },
     _initDots() {
-      /* length: 5 */
       this.dots = new Array(this.children.length)
     },
     _initSlider() {
@@ -120,12 +119,12 @@ export default {
     _autoPlay() {
       let pageIndex = this.currentPageIndex + 1
       if (this.loop) {
-        /* add one copy to the first element by default */
+        /* better-scroll: add one copy at the first element for loop */
         pageIndex += 1
       }
       this.timer = setTimeout(() => {
         /*
-        goToPage(): better-scroll func
+        better-scrol func: goToPage()
         pageIndex: x
         0: y
         400: time interval
