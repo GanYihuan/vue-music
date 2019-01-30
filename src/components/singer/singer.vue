@@ -20,10 +20,8 @@ import { ERR_OK } from 'api/config'
 import { playlistMixin } from 'common/js/mixin'
 import ListView from 'base/listview/listview'
 import Singer from 'common/js/singer'
-
 const HOT_SINGER_LEN = 10
 const HOT_NAME = '热门'
-
 export default {
   components: {
     ListView
@@ -68,7 +66,7 @@ export default {
       })
     },
     _normalizeSinger(list) {
-      /* data structure 热门,A,B... */
+      /* previous 10 data, include '热门' */
       const map = {
         hot: {
           title: HOT_NAME,
@@ -76,7 +74,6 @@ export default {
         }
       }
       list.forEach((item, index) => {
-        /* previous 10 data, include '热门' */
         if (index < HOT_SINGER_LEN) {
           map.hot.items.push(
             new Singer({
@@ -85,9 +82,8 @@ export default {
             })
           )
         }
-        /* after 10 data */
+        /* after 10 data, not include '热门' */
         const key = item.Findex
-        /* data structure */
         if (!map[key]) {
           map[key] = {
             title: key,
@@ -101,7 +97,7 @@ export default {
           })
         )
       })
-      /* Data that distinguishes letters from Chinese characters */
+      /* distinguishes '热门' & letter */
       const ret = []
       const hot = []
       for (const key in map) {
