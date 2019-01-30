@@ -27,7 +27,7 @@ export function getData(el, name, val) {
   return el.getAttribute(prefix + name)
 }
 
-// Configuration of different browser CSS.
+// Configuration of different browser CSS
 const elementStyle = document.createElement('div').style
 const vendor = (() => {
   const transformNames = {

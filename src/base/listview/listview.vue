@@ -9,7 +9,7 @@
     :probeType='probeType'
     @scroll="scroll"
   >
-    <!-- 歌手信息 -->
+    <!-- singer -->
     <ul>
       <li
         class="list-group"
@@ -31,7 +31,7 @@
         </ul>
       </li>
     </ul>
-    <!-- 右侧字母 -->
+    <!-- 'A','B','C'... -->
     <div
       class="list-shortcut"
       @touchstart="onShortCutTouchStart"
@@ -68,10 +68,8 @@
 import { getData } from 'common/js/dom'
 import Scroll from 'base/scroll/scroll'
 import loading from 'base/loading/loading'
-
 const ANCHOR_HEIGHT = 18
 const FIXED_TITLE_HEIGHT = 30
-
 export default {
   components: {
     Scroll,
@@ -85,7 +83,7 @@ export default {
   },
   data() {
     return {
-      /* Real-time scroll position */
+      /* real-time scroll position */
       scrollY: -1,
       /* which letters should be displayed */
       currentIndex: 0,
@@ -99,7 +97,7 @@ export default {
     this.probeType = 3
   },
   computed: {
-    /* Right list 'A','B'... */
+    /* 'A','B','C'... */
     shortcutList() {
       return this.data.map(group => {
         return group.title.substr(0, 1)
@@ -118,13 +116,11 @@ export default {
       this.$emit('select', item)
     },
     onShortCutTouchStart(e) {
-      /* 获取列表项的 index 值 */
+      /* getData(): get index */
       const anchorIndex = getData(e.target, 'index')
-      /* e.touches[0]: 点击的位置 */
+      /* e.touches[0]: click position */
       const firstTouch = e.touches[0]
-      /* 点击的垂直距离 */
       this.touch.y1 = firstTouch.pageY
-      /* 保存点击的位置 index */
       this.touch.anchorIndex = anchorIndex
       this._scrollTo(anchorIndex)
     },
@@ -132,9 +128,8 @@ export default {
       const firstTouch = e.touches[0]
       this.touch.y2 = firstTouch.pageY
       /* | 0: Math.floor */
-      /* delta: Shifted a few 'letter' positions after the finger swiped */
       const delta = ((this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT) | 0
-      /* After sliding your finger, letter subscript on the stopped position */
+      /* stopped position */
       const anchorIndex = parseInt(this.touch.anchorIndex) + delta
       this._scrollTo(anchorIndex)
     },
@@ -146,26 +141,23 @@ export default {
       this.scrollY = pos.y
     },
     _scrollTo(index) {
-      /* click on the upper and lower blank of the letter */
+      /* click on the blank */
       /* !index: index === null */
       if (!index && index !== 0) {
         return
       }
-      /* handle boundary */
       if (index < 0) {
         index = 0
       } else if (index > this.listHeight.length - 2) {
         index = this.listHeight.length - 2
       }
-      /* 当前元素的上线 */
       this.scrollY = -this.listHeight[index]
-      /* scroll.vue: First parameter: Scroll to the corresponding element, Second parameter: 动画时间 */
+      /* scroll.vue: First parameter: Scroll to the element, Second parameter: animate time */
       this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
     },
     _calculateHeight() {
       let height = 0
       const listGroup = this.$refs.listGroup
-      /* listHeight has one more element than listGroup  */
       this.listHeight = []
       this.listHeight.push(height)
       for (let i = 0; i < listGroup.length; i++) {
@@ -185,8 +177,8 @@ export default {
     diff(newVal) {
       const fixedTop = newVal > 0 && newVal < FIXED_TITLE_HEIGHT ? newVal - FIXED_TITLE_HEIGHT : 0
       /*
-      When the title animation is not triggered
-      fixedTop is not changing
+      When the title animation not triggered
+      fixedTop not changing
       */
       if (this.fixedTop === fixedTop) {
         return
@@ -194,11 +186,9 @@ export default {
       this.fixedTop = fixedTop
       this.$refs.fixed.style.transform = `translate3d(0, ${fixedTop}px, 0)`
     },
-    /* Real-time scroll position */
     scrollY(newY) {
-      /* Keep the height of the group */
       const listHeight = this.listHeight
-      /* When scrolling to the top newY > 0 */
+      /* When scrolling to the top, newY > 0 */
       if (newY > 0) {
         this.currentIndex = 0
         return
@@ -206,21 +196,14 @@ export default {
       /*
       When scrolling to the middle section,
       listHeight has one more element than listGroup
-      listHeight.length-1: the first element upper limit is the second element lower limit,
       */
       for (let i = 0; i < listHeight.length - 1; i++) {
-        /* 当前元素的上线 */
         const height1 = listHeight[i]
-        /* 下一个元素的上线 */
         const height2 = listHeight[i + 1]
-        /* -newY: When scrolling occurs, newY Is negative, Add “-” Ensure that it is positive */
+        /* -newY: When scrolling, newY is negative, add “-” ensure is positive */
         if (-newY >= height1 && -newY < height2) {
           this.currentIndex = i
-          /*
-          newY is negative
-          diff: trigger the animation of the fix title,
-          diff = rolling distance(newY) + 下一个元素的上线
-          */
+          /* diff: trigger animation of the title */
           this.diff = newY + height2
           return
         }
@@ -228,7 +211,6 @@ export default {
       }
       /*
       When scrolling to the bottom
-      -newY is bigger than the last element upper limit
       listHeight.length-2: listHeight has one more element than listGroup
       */
       this.currentIndex = listHeight.length - 2
