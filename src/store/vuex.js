@@ -9,7 +9,7 @@ import mutations from './mutations.js'
 
 Vue.use(Vuex)
 
-/* 开发模式开启，严格模式检查 vuex 数据 */
+/* development mode is on, strict mode check vuex data */
 const debug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({

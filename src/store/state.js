@@ -6,11 +6,10 @@ const state = {
   singer: {},
   playing: false,
   fullScreen: false,
-  // 当前播放列表
   playlist: [],
   /* Player: sequenceList (control play mode) */
   /* when play mode random, playlist !== sequenceList */
-  /* 原始播放列表 */
+  /* Original playlist */
   sequenceList: [],
   mode: playMode.sequence,
   currentIndex: -1,

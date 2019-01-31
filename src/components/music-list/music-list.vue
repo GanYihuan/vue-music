@@ -87,6 +87,7 @@ export default {
     }
   },
   created() {
+    // listen scroll
     this.probeType = 3
     this.listenScroll = true
   },
@@ -110,7 +111,6 @@ export default {
       this.$refs.list.refresh()
     },
     scroll(pos) {
-      // 实时滚动的位置
       this.scrollY = pos.y
     },
     back() {
