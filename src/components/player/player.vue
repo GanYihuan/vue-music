@@ -277,14 +277,12 @@ export default {
       /* only one song */
       if (this.playlist.length === 1) {
         this.loop()
-        /* optimization: 3 prevents the playback control from being triggered. Return does not call songReady = false */
         return
       } else {
         let index = this.currentIndex - 1
         if (index === -1) {
           index = this.playlist.length - 1
         }
-        /* ...mapMutations */
         this.setCurrentIndex(index)
         if (!this.playing) {
           this.togglePlaying()
@@ -293,13 +291,10 @@ export default {
       this.songReady = false
     },
     ready() {
-      /* <audio> prevent limit click operate error */
       this.songReady = true
-      /* ...mapActions */
       this.savePlayHistory(this.currentSong)
     },
     error() {
-      /* <audio> prevent limit click operate error */
       this.songReady = true
     },
     updateTime(e) {
