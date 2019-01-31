@@ -137,7 +137,7 @@ export default {
       let zIndex = 0
       let blur = 0
       const percent = Math.abs(newVal / this.imageHeight)
-      /* 下拉 */
+      /* scroll down */
       if (newVal > 0) {
         scale = 1 + percent
         zIndex = 10
