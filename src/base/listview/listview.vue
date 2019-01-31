@@ -188,31 +188,27 @@ export default {
     },
     scrollY(newY) {
       const listHeight = this.listHeight
-      /* When scrolling to the top, newY > 0 */
+      /* When scroll to the top, newY > 0 */
       if (newY > 0) {
         this.currentIndex = 0
         return
       }
-      /*
-      When scrolling to the middle section,
-      listHeight has one more element than listGroup
-      */
+      /* When scroll to the middle section */
+      /* listHeight has one more element than listGroup */
       for (let i = 0; i < listHeight.length - 1; i++) {
         const height1 = listHeight[i]
         const height2 = listHeight[i + 1]
-        /* -newY: When scrolling, newY is negative, add “-” ensure is positive */
+        /* -newY: When scroll, newY is negative, add “-” ensure positive */
         if (-newY >= height1 && -newY < height2) {
           this.currentIndex = i
-          /* diff: trigger animation of the title */
+          /* diff: trigger animate of the title */
           this.diff = newY + height2
           return
         }
         this.currentIndex = 0
       }
-      /*
-      When scrolling to the bottom
-      listHeight.length-2: listHeight has one more element than listGroup
-      */
+      /* When scroll to the bottom */
+      /* listHeight.length-2: listHeight has one more element than listGroup */
       this.currentIndex = listHeight.length - 2
     }
   }
