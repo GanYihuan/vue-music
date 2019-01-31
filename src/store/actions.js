@@ -123,8 +123,7 @@ export const clearSearchHistory = function({ commit }) {
 }
 
 export const deleteSong = function({ commit, state }, song) {
-  // The state can not be modified in other places, only in mutation.
-  // A copy will not modify the state.
+  // state can't modify only in mutation.
   const playlist = state.playlist.slice()
   const sequenceList = state.sequenceList.slice()
   let currentIndex = state.currentIndex

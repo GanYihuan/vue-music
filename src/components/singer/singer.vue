@@ -37,9 +37,7 @@ export default {
     this._getSingerList()
   },
   methods: {
-    /* invoked vuex/mutations */
     ...mapMutations({
-      /* SET_SINGER: vuex/mutation-type */
       setSinger: 'SET_SINGER'
     }),
     /* if mini player, the singerlist bottom add height */
@@ -49,12 +47,10 @@ export default {
       this.$refs.list.refresh()
     },
     selectSinger(singer) {
-      /* Route jump */
+      /* route jump */
       this.$router.push({
         path: `/singer/${singer.id}`
       })
-      /* this.setSinger: ...mapMutations */
-      /* Save data to vuex/state */
       this.setSinger(singer)
     },
     _getSingerList() {

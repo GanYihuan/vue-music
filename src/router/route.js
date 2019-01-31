@@ -74,7 +74,7 @@ export default new Router({
     {
       path: '/rank',
       component: Rank,
-      /* Secondary routing configuration */
+      /* Secondary routing config */
       children: [
         {
           path: ':id',

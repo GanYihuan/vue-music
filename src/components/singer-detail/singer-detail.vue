@@ -16,7 +16,6 @@ import { getSingerDetail } from 'api/singer'
 import { ERR_OK } from 'api/config'
 import { createSong } from 'common/js/song'
 import MusicList from 'components/music-list/music-list'
-
 export default {
   components: {
     MusicList
@@ -52,7 +51,7 @@ export default {
     _normalizeSongs(list) {
       const ret = []
       list.forEach(item => {
-        // musicData 里面保存着歌手信息，是个对象的集合
+        // [歌手数据](https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&needNewCode=0&platform=yqq&order=listen&begin=0&num=80&songstatus=1&singermid=0025NhlN2yWrP4&jsonpCallback=__jp1)
         const { musicData } = item
         if (musicData.songid && musicData.albummid) {
           ret.push(createSong(musicData))

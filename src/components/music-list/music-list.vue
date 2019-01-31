@@ -52,11 +52,9 @@ import SongList from 'base/song-list/song-list'
 import { prefixStyle } from 'common/js/dom'
 import { playlistMixin } from 'common/js/mixin'
 import { mapActions } from 'vuex'
-
 const RESERVED_HEIGHT = 40
 const transform = prefixStyle('transform')
 const backdrop = prefixStyle('backdrop-filter')
-
 export default {
   components: {
     Scroll,
@@ -94,7 +92,7 @@ export default {
   },
   mounted() {
     this.imageHeight = this.$refs.bgImage.clientHeight
-    /* bg-layer */
+    /* bg-layer minTransalteY */
     this.minTransalteY = -this.imageHeight + RESERVED_HEIGHT
     this.$refs.list.$el.style.top = `${this.imageHeight}px`
   },
@@ -104,7 +102,6 @@ export default {
     }
   },
   methods: {
-    /* vuex/action.js */
     ...mapActions(['selectPlay', 'randomPlay']),
     /* if mini player, singer list bottom add height */
     handlePlaylist(playlist) {
@@ -148,9 +145,9 @@ export default {
         blur = Math.min(percent * 20, 20)
       }
       this.$refs.layer.style[transform] = `translate3d(0,${translateY}px,0)`
-      /* gaussian-blur: iphone can view */
+      /* gaussian-blur: iphone view */
       this.$refs.filter.style[backdrop] = `blur(${blur}px)`
-      /* 滚动到了顶部 */
+      /* scroll to top */
       if (newVal < this.minTransalteY) {
         zIndex = 10
         this.$refs.bgImage.style.paddingTop = 0
