@@ -298,7 +298,7 @@ export default {
       this.songReady = true
     },
     updateTime(e) {
-      /* <audio> 当前播放时间 */
+      /* <audio> current time */
       this.currentTime = e.target.currentTime
     },
     format(interval) {
@@ -347,7 +347,6 @@ export default {
           this.currentLineNum = 0
         })
     },
-    /* handleLyric: call when the lyric change */
     handleLyric({ lineNum, txt }) {
       this.currentLineNum = lineNum
       if (lineNum > 5) {

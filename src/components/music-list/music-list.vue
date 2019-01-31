@@ -117,14 +117,12 @@ export default {
       this.$router.back()
     },
     selectItem(item, index) {
-      /* ...mapActions */
       this.selectPlay({
         list: this.songs,
         index
       })
     },
     random() {
-      /* ...mapActions */
       this.randomPlay({
         list: this.songs
       })
