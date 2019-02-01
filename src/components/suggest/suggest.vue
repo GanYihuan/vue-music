@@ -85,17 +85,9 @@ export default {
       this.page = 1
       this.hasMore = true
       this.$refs.suggest.scrollTo(0, 0)
-      /**
-       * api/search.js
-       * @param query: retrieve value
-       * @param page: page
-       * @param showSinger: want a singer ?
-       * @param perpage: number of per page
-       */
       search(this.query, this.page, this.showSinger, perpage).then(res => {
         if (res.code === ERR_OK) {
           this.result = this._genResult(res.data)
-          /* more data ? */
           this._checkMore(res.data)
         }
       })
@@ -106,13 +98,6 @@ export default {
       }
       /* load next page */
       this.page++
-      /**
-       * api/search.js
-       * @param query: Retrieve the value
-       * @param page: page index
-       * @param showSinger: Do you want a singer ?
-       * @param perpage: The number of returns per page.
-       */
       search(this.query, this.page, this.showSinger, perpage).then(res => {
         if (res.code === ERR_OK) {
           this.result = this.result.concat(this._genResult(res.data))
@@ -122,7 +107,6 @@ export default {
     },
     _genResult(data) {
       let ret = []
-      /* zhida: want singer? */
       if (data.zhida && data.zhida.singerid) {
         /* type: distinguish singer or song */
         /* eslint-disable standard/object-curly-even-spacing */
