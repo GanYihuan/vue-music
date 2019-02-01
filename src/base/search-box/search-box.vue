@@ -9,7 +9,6 @@
 
 <script type="text/ecmascript-6">
 import { debounce } from 'common/js/util'
-
 export default {
   props: {
     placeholder: {

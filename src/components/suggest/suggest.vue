@@ -80,7 +80,7 @@ export default {
     refresh() {
       this.$refs.suggest.refresh()
     },
-    /* request service end, grab search retrieve data */
+    /* request service end */
     search() {
       this.page = 1
       this.hasMore = true
@@ -96,7 +96,6 @@ export default {
       if (!this.hasMore) {
         return
       }
-      /* load next page */
       this.page++
       search(this.query, this.page, this.showSinger, perpage).then(res => {
         if (res.code === ERR_OK) {
@@ -121,7 +120,6 @@ export default {
       const ret = []
       list.forEach(musicData => {
         if (musicData.songid && musicData.albummid) {
-          /* convert to song instance */
           ret.push(createSong(musicData))
         }
       })

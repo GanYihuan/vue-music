@@ -64,20 +64,18 @@ export const randomPlay = function({ commit }, { list }) {
 
 // 点击搜索列表的歌曲1添加到当前播放列表
 export const insertSong = function({ commit, state }, song) {
-  // The state can not be modified in other places, only in mutation.
-  // A copy will not modify the state.
+  // state can't modify unless mutation, copy not modify
   const playlist = state.playlist.slice()
   const sequenceList = state.sequenceList.slice()
   let currentIndex = state.currentIndex
   // 记录当前歌曲2
   const currentSong = playlist[currentIndex]
-  // 查找当前播放列表要插入的歌曲1下标
+  // 查找当前播放列表, 歌曲1下标
   const fpIndex = findIndex(playlist, song)
-  // 插入到当前歌曲2的下一个索引
+  // 歌曲1插入到歌曲2的下一个索引上
   currentIndex++
-  // 插入要插入的歌曲1到当前播放列表歌曲2位置的下一个索引上
   playlist.splice(currentIndex, 0, song)
-  // 当前播放列表已经有这首歌曲1
+  // 当前播放列表已经有歌曲1
   if (fpIndex > -1) {
     if (currentIndex > fpIndex) {
       // 删除当前播放列表存在的原来歌曲1
@@ -87,7 +85,6 @@ export const insertSong = function({ commit, state }, song) {
       playlist.splice(fpIndex + 1, 1)
     }
   }
-  // 当前播放列表 playList, 原始播放列表 sequenceList, 不同模式下, playList 展现不同歌曲位置
   // 插入位置, 当前歌曲2在原始播放列表的位置下一位
   const currentSIndex = findIndex(sequenceList, currentSong) + 1
   // 插入的歌曲1在原始播放列表的位置
