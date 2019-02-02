@@ -28,6 +28,17 @@ function insertArray(arr, val, compare, maxLen) {
   }
 }
 
+function deleteFromArray(arr, compare) {
+  const index = arr.findIndex(compare)
+  if (index > -1) {
+    arr.splice(index, 1)
+  }
+}
+
+/**
+ * SEARCH_KEY
+ */
+
 export function saveSearch(query) {
   // gets cached data, historical data, no data returns empty array
   const searches = storage.get(SEARCH_KEY, [])
@@ -42,13 +53,6 @@ export function saveSearch(query) {
   // store cached data
   storage.set(SEARCH_KEY, searches)
   return searches
-}
-
-function deleteFromArray(arr, compare) {
-  const index = arr.findIndex(compare)
-  if (index > -1) {
-    arr.splice(index, 1)
-  }
 }
 
 export function deleteSearch(query) {
@@ -69,6 +73,10 @@ export function loadSearch() {
   return storage.get(SEARCH_KEY, [])
 }
 
+/**
+ * PLAY_KEY
+ */
+
 export function savePlay(song) {
   const songs = storage.get(PLAY_KEY, [])
   insertArray(
@@ -86,6 +94,10 @@ export function savePlay(song) {
 export function loadPlay() {
   return storage.get(PLAY_KEY, [])
 }
+
+/**
+ * FAVORITE_KEY
+ */
 
 export function saveFavorite(song) {
   const songs = storage.get(FAVORITE_KEY, [])

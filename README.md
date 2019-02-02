@@ -487,21 +487,22 @@ npm install good-storage --save
 
 - **add-song.vue**
 
-## 12-1, 12-2 用户中心页面收藏列表的 Vuex 数据设计和实现
+## 12-1
 
-- **user-center.vue**
-- **m-header.vue**
-- Click ❤️ button to jump to the user center
+1. m-header 组件点击跳转到 user-center 组件
+2. 用户中心页面 Switche 功能
+
+## 12-2
+
+1. 点击❤️收藏到缓存里面
 
 ## 12-3 用户中心页面收藏歌曲功能实现（上）processing
 
-- **user-center.vue**
-- **common/js/mixin.js**
+1. 点击❤️收藏到缓存里面
 
 ## 12-4 用户中心页面收藏歌曲功能实现（下）
 
-- **user-center.vue**
-- **playlist.vue**
+1. 点击❤️收藏到缓存里面
 
 ## 12-5, 12-6 用户中心页面剩余功能实现（上）
 
