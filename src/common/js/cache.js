@@ -45,7 +45,7 @@ function insertArray(arr, val, compare, maxLen) {
  * @returns {*}
  */
 export function saveSearch(query) {
-  // gets cached data, historical data, no data returns an empty array.
+  // gets cached data, historical data, no data returns empty array
   const searches = storage.get(SEARCH_KEY, [])
   insertArray(
     searches,
@@ -55,7 +55,7 @@ export function saveSearch(query) {
     },
     SEARCH_MAX_LEN
   )
-  // store cached data, historical data.
+  // store cached data, historical data
   storage.set(SEARCH_KEY, searches)
   return searches
 }

@@ -111,7 +111,6 @@ export default {
     ...mapActions(['insertSong']),
     show() {
       this.showFlag = true
-      // Prevent Re-rendering without dom loading.
       setTimeout(() => {
         if (this.currentIndex === 0) {
           this.$refs.songList.refresh()
@@ -125,15 +124,12 @@ export default {
     },
     selectSong(song, index) {
       if (index !== 0) {
-        // ...mapActions
-        // song 实例插入
         this.insertSong(new Song(song))
         this.$refs.topTip.show()
       }
     },
     selectSuggest() {
       this.$refs.topTip.show()
-      // (mixin.js)
       this.saveSearch()
     },
     switchItem(index) {

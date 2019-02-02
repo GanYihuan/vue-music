@@ -94,7 +94,6 @@ export default {
     ...mapActions(['deleteSong', 'deleteSongList']),
     show() {
       this.showFlag = true
-      // 显示后 dom 重新计算，better-scroll 要刷新
       setTimeout(() => {
         this.$refs.listContent.refresh()
         this.scrollToCurrent(this.currentSong)
@@ -118,7 +117,6 @@ export default {
     },
     selectItem(item, index) {
       if (this.mode === playMode.random) {
-        // 当前歌曲在当前播放列表的位置
         index = this.playlist.findIndex(song => {
           return song.id === item.id
         })
@@ -127,11 +125,9 @@ export default {
       this.setPlayingState(true)
     },
     scrollToCurrent(current) {
-      // 当前歌曲在原始播放列表的索引
       const index = this.sequenceList.findIndex(song => {
         return current.id === song.id
       })
-      // Scroll to the elements of this list.
       this.$refs.listContent.scrollToElement(this.$refs.list.$el.children[index], 300)
     },
     deleteOne(item) {
