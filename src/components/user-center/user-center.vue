@@ -7,13 +7,17 @@
       </div>
       <div class="switches-wrapper">
         <switches
-          :switches="switches"
           :currentIndex="currentIndex"
+          :switches="switches"
           @switch="switchItem"
         >
         </switches>
       </div>
-      <div class="play-btn" ref="playBtn" @click="random">
+      <div
+        class="play-btn"
+        ref="playBtn"
+        @click="random"
+      >
         <i class="icon-play"></i>
         <span class="text">随机播放全部</span>
       </div>

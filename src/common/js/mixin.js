@@ -101,8 +101,6 @@ export const playerMixin = {
       return 'icon-not-favorite'
     },
     isFavorite(song) {
-      /* ...mapGetters */
-      /* Find out whether song is in the favoriteList and if it returns its index index */
       const index = this.favoriteList.findIndex((item) => {
         return item.id === song.id
       })
