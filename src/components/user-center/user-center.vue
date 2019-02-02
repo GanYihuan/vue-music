@@ -65,7 +65,6 @@ export default {
   mixins: [playlistMixin],
   data() {
     return {
-      // The first switch option.
       currentIndex: 0,
       switches: [{ name: '我喜欢的' }, { name: '最近听的' }]
     }
@@ -89,11 +88,10 @@ export default {
   },
   methods: {
     ...mapActions(['insertSong', 'randomPlay']),
-    // Set the mini player to the correct position.
     handlePlaylist(playlist) {
       const bottom = playlist.length > 0 ? '60px' : ''
       this.$refs.listWrapper.style.bottom = bottom
-      // html use v-if value, it might not exist to make sure it's not undefined.
+      // html use v-if, it might not exist, make sure it's not undefined.
       this.$refs.favoriteList && this.$refs.favoriteList.refresh()
       this.$refs.playList && this.$refs.playList.refresh()
     },
@@ -108,11 +106,9 @@ export default {
     },
     random() {
       let list = this.currentIndex === 0 ? this.favoriteList : this.playHistory
-      // No data
       if (list.length === 0) {
         return
       }
-      // List gets the Song instance and gets the Song specific method.
       list = list.map(song => {
         return new Song(song)
       })

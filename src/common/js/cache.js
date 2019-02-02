@@ -60,11 +60,6 @@ export function saveSearch(query) {
   return searches
 }
 
-/**
- * Remove compare from arr array.
- * @param arr:
- * @param compare: return func
- */
 function deleteFromArray(arr, compare) {
   const index = arr.findIndex(compare)
   if (index > -1) {
@@ -72,11 +67,6 @@ function deleteFromArray(arr, compare) {
   }
 }
 
-/**
- * LocalStorage deletes the corresponding search history.
- * @param query
- * @returns {*}
- */
 export function deleteSearch(query) {
   // Gets cached data, historical data.
   const searches = storage.get(SEARCH_KEY, [])
@@ -99,11 +89,6 @@ export function loadSearch() {
   return storage.get(SEARCH_KEY, [])
 }
 
-/**
- * Cache playback history (actions.js)
- * @param song
- * @returns {*}
- */
 export function savePlay(song) {
   // Gets the playback history localStorage and returns an empty array if no.
   const songs = storage.get(PLAY_KEY, [])
@@ -126,11 +111,6 @@ export function loadPlay() {
   return storage.get(PLAY_KEY, [])
 }
 
-/**
- * Save the collection
- * @param song
- * @returns {*}
- */
 export function saveFavorite(song) {
   // Get the collection list localStorage.
   const songs = storage.get(FAVORITE_KEY, [])
@@ -148,11 +128,6 @@ export function saveFavorite(song) {
   return songs
 }
 
-/**
- * Storage deletes collection.
- * @param song
- * @returns {*}
- */
 export function deleteFavorite(song) {
   const songs = storage.get(FAVORITE_KEY, [])
   // Remove compare from arr array.
