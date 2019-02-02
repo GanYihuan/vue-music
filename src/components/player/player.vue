@@ -466,14 +466,14 @@ export default {
       }
       clearTimeout(this.timer)
       this.timer = setTimeout(() => {
-        /* sync method, data it's sync */
+        /* method & data it's sync */
         this.$refs.audio.play()
         this.getLyric()
       }, 1000)
     },
     playing(newPlaying) {
       const audio = this.$refs.audio
-      /* sync method, data it's sync */
+      /* method & data it's sync */
       /* 在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM */
       this.$nextTick(() => {
         newPlaying ? audio.play() : audio.pause()

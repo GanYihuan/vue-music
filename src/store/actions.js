@@ -120,7 +120,6 @@ export const clearSearchHistory = function({ commit }) {
 }
 
 export const deleteSong = function({ commit, state }, song) {
-  // state can't modify only in mutation.
   const playlist = state.playlist.slice()
   const sequenceList = state.sequenceList.slice()
   let currentIndex = state.currentIndex
@@ -141,7 +140,6 @@ export const deleteSong = function({ commit, state }, song) {
   }
 }
 
-// Empty the mini song list.
 export const deleteSongList = function({ commit }) {
   commit(types.SET_CURRENT_INDEX, -1)
   commit(types.SET_PLAYLIST, [])
@@ -149,17 +147,14 @@ export const deleteSongList = function({ commit }) {
   commit(types.SET_PLAYING_STATE, false)
 }
 
-// Save the playback history.
 export const savePlayHistory = function({ commit }, song) {
   commit(types.SET_PLAY_HISTORY, savePlay(song))
 }
 
-// Save the collection
 export const saveFavoriteList = function({ commit }, song) {
   commit(types.SET_FAVORITE_LIST, saveFavorite(song))
 }
 
-// Cancel the collection
 export const deleteFavoriteList = function({ commit }, song) {
   commit(types.SET_FAVORITE_LIST, deleteFavorite(song))
 }

@@ -62,7 +62,6 @@ export const playerMixin = {
     changeMode() {
       /* 3 mode */
       const mode = (this.mode + 1) % 3
-      /* ...mapMutations */
       this.setPlayMode(mode)
       let list = null
       if (mode === playMode.random) {
@@ -74,23 +73,18 @@ export const playerMixin = {
       // 需求: 当切换播放模式时, 当前听的歌曲不改变，后面的歌曲改变
       // list 改变时 index 也改变, 这样 curentSong.id 能不变 (getters)
       this.resetCurrentIndex(list)
-      /* ...mapMutations */
       this.setPlaylist(list)
     },
     resetCurrentIndex(list) {
-      /* 当前歌曲索引 */
       const index = list.findIndex((item) => {
         return item.id === this.currentSong.id
       })
-      /* ...mapMutations */
       this.setCurrentIndex(index)
     },
     toggleFavorite(song) {
       if (this.isFavorite(song)) {
-        /* ...mapActions */
         this.deleteFavoriteList(song)
       } else {
-        /* ...mapActions */
         this.saveFavoriteList(song)
       }
     },
@@ -143,7 +137,6 @@ export const searchMixin = {
     },
     /* Save the search results to localStorage */
     saveSearch() {
-      /* ...mapActions */
       this.saveSearchHistory(this.query)
     }
   }
