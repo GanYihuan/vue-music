@@ -74,7 +74,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['favoriteList', 'playHistory']),
+    ...mapGetters([
+      'favoriteList',
+      'playHistory'
+    ]),
     noResult() {
       if (this.currentIndex === 0) {
         return !this.favoriteList.length
@@ -91,7 +94,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['insertSong', 'randomPlay']),
+    ...mapActions([
+      'insertSong',
+      'randomPlay'
+    ]),
     handlePlaylist(playlist) {
       const bottom = playlist.length > 0 ? '60px' : ''
       this.$refs.listWrapper.style.bottom = bottom

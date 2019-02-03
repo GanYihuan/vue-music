@@ -494,15 +494,16 @@ npm install good-storage --save
 
 ## 12-2
 
-1. 点击❤️收藏到缓存里面
+1. action 定义收藏功能
+2. cache.js 实现 action 里面的功能, FAVORITE_KEY
 
 ## 12-3 用户中心页面收藏歌曲功能实现（上）processing
 
-1. 点击❤️收藏到缓存里面
+1. mixin.js 实现收藏点击的函数
 
 ## 12-4 用户中心页面收藏歌曲功能实现（下）
 
-1. 点击❤️收藏到缓存里面
+1. playlist.vue & user-center.vue 调用收藏点击的函数
 
 ## 12-5, 12-6 用户中心页面剩余功能实现（上）
 
