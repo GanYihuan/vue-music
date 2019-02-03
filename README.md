@@ -505,13 +505,15 @@ npm install good-storage --save
 
 1. playlist.vue & user-center.vue 调用收藏点击的函数
 
-## 12-5, 12-6 用户中心页面剩余功能实现（上）
+## 12-5 用户中心页面剩余功能实现（上）
 
-- **user-center.vue**
-- Back button function
-- Random play button function
-- Set height
-- 404 interface
+1. user-center.vue back 函数
+2. random 函数
+
+## 12-6
+
+1. user-center.vue 高度设置
+2. no-result.vue
 
 ## 13-1 编译打包-播放内核小 bug 修复
 
