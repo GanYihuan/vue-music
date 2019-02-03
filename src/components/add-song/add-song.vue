@@ -18,8 +18,8 @@
       </div>
       <div class="shortcut" v-show="!query">
         <switches
-          :switches="switches"
           :currentIndex="currentIndex"
+          :switches="switches"
           @switch="switchItem"
         >
         </switches>
@@ -47,7 +47,7 @@
                 @delete="deleteSearchHistory"
                 @select="addQuery"
               >
-              </search-list>
+              </search-list>`
             </div>
           </scroll>
         </div>
@@ -77,7 +77,6 @@ import SongList from 'base/song-list/song-list'
 import SearchList from 'base/search-list/search-list'
 import Scroll from 'base/scroll/scroll'
 import Switches from 'base/switches/switches'
-// Cue components when adding songs.
 import TopTip from 'base/top-tip/top-tip'
 import Suggest from 'components/suggest/suggest'
 import { searchMixin } from 'common/js/mixin'
@@ -99,8 +98,8 @@ export default {
     return {
       showFlag: false,
       showSinger: false,
-      currentIndex: 0,
       songs: [],
+      currentIndex: 0,
       switches: [{ name: '最近播放' }, { name: '搜索历史' }]
     }
   },

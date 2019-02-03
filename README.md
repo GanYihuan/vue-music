@@ -428,64 +428,63 @@ npm install good-storage --save
 
 ## 11-1 歌曲列表组件布局和功能介绍
 
-- **playlist.vue**
+- playlist.vue 基本样式
 
 ## 11-2 歌曲列表组件显示和隐藏的控制
 
-- **playlist.vue**
-- **player.vue**
-- prevent bubble
+1. player.vue 点击展示 playlist.vue
 
 ## 11-3, 11-4 歌曲列表组件播放列表的实现（1）
 
-- **playlist.vue**
-- `this.$refs.listContent.scrollToElement(this.$refs.list.$el.children[index],300)`
+1. playlist.vue 获取播放按钮 & 点击歌曲
+2. playlist.vue 滚动到指定位置
 
-## 11-5, 11-6 歌曲列表组件播放列表的实现（3）
+## 11-5
 
-- **store/actions.js**
-- **playlist.vue**
+1. playlist.vue 删除一首歌(action)
+
+## 11-6
+
+1. playlist.vue 删除一首歌函数
 
 ## 11-7 歌曲列表组件播放列表的实现（5）
 
-- **playlist.vue**
-- **confirm.vue**
-- transition-group
+1. playlist.vue confirm 组件
 
 ## 11-8, 10-9 歌曲列表组件 playerMixin 的抽象（上）
 
-- **common/js/mixin.js**
+1. mixin.js
 
 ## 11-10 歌曲列表组件 add-song 组件实现（1）
 
-- **add-song.vue**
+1. add-song.vue show & hide
 
 ## 11-11 歌曲列表组件 add-song 组件实现（2）
 
-- **add-song.vue**
-- **common/js/mixin.js**
+1. mixin.js
 
 ## 11-12 歌曲列表组件 add-song 组件实现（3）
 
-- **switches.vue**
+1. switches.vue
 
-## 11-13, 11-4 歌曲列表组件 add-song 组件实现（4）
+## 11-13
 
-- **add-song.vue**
-- **common/js/cache.js**
+1. player.vue 保存播放歌曲历史记录 ready()
+2. cache.js PLAY_KEY
+
+## 11-4
+
+1. add-song.vue 点击歌曲添加到列表里
 
 ## 11-15 歌曲列表组件 add-song 组件实现（6）
 
-- **add-song.vue**
-- **common/js/mixin.js**
+1. add-song.vue 搜索历史
 
-## 11-16 歌曲列表组件 top-list 组件实现
+## 11-16
 
-- **top-tip.vue**
+1. top-tip.vue
 
-## 11-17 歌曲列表组件 scroll 组件能力的扩展
-
-- **add-song.vue**
+## 11-17
 
 ## 12-1
 

@@ -8,7 +8,6 @@ export const playlistMixin = {
       'playlist'
     ])
   },
-  /* dom ready */
   mounted() {
     this.handlePlaylist(this.playlist)
   },
@@ -21,7 +20,6 @@ export const playlistMixin = {
     }
   },
   methods: {
-    // If the component does not define the handlePlaylist, it calls the handlePlaylist in the mixin.
     handlePlaylist() {
       throw new Error('component must implement handlePlaylist method')
     }
@@ -60,7 +58,6 @@ export const playerMixin = {
       'deleteFavoriteList'
     ]),
     changeMode() {
-      /* 3 mode */
       const mode = (this.mode + 1) % 3
       this.setPlayMode(mode)
       let list = null
@@ -69,9 +66,9 @@ export const playerMixin = {
       } else {
         list = this.sequenceList
       }
-      // list 改变，currentSong 马上改变 (getters)
-      // 需求: 当切换播放模式时, 当前听的歌曲不改变，后面的歌曲改变
-      // list 改变时 index 也改变, 这样 curentSong.id 能不变 (getters)
+      // list change，currentSong change (getters)
+      // require: when mode change, current song not change, behide song change
+      // list change index change, so curentSong.id not change (getters)
       this.resetCurrentIndex(list)
       this.setPlaylist(list)
     },
@@ -111,7 +108,6 @@ export const searchMixin = {
   data() {
     return {
       query: '',
-      /* Late scroll refresh guarantees that the dom has been loaded. */
       refreshDelay: 120
     }
   },
@@ -128,14 +124,12 @@ export const searchMixin = {
     onQueryChange(query) {
       this.query = query
     },
-    /* When scrolling, the search box loses focus and the purpose is to cancel the mobile keyboard */
     blurInput() {
       this.$refs.searchBox.blur()
     },
     addQuery(query) {
       this.$refs.searchBox.setQuery(query)
     },
-    /* Save the search results to localStorage */
     saveSearch() {
       this.saveSearchHistory(this.query)
     }
