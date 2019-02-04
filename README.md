@@ -316,27 +316,24 @@ npm i create-keyframe-animation -S
 
 ## 9-1 排行页面布局介绍及排行榜数据抓取
 
-- **rank.vue**
+1. rank.js 后端数据
 
 ## 9-2 排行页排行榜数据应用
 
-- **rank.vue**
-- **loading.vue**
+1. rank.vue 处理数据
 
 ## 9-3 榜单详情页布局介绍及 Vuex 实现路由数据通讯
 
-- **rank.vue**(rank page)
-- **top-list.vue**(handle data)
+1. top-tip 数据传递到 music-list 里面
 
 ## 9-4 榜单详情页数据抓取和应用
 
-- **top-list.vue**
-- **api/rank.js**
+1. rank.js 后端数据
+2. top-list.vue 数据处理
 
 ## 9-5 带排行的 song-list 组件扩展和应用
 
-- **top-list.vue**
-- **song-list.vue**
+1. song-list.vue 排行
 
 ## 10-1 搜索页面页面布局和功能介绍
 
