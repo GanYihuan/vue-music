@@ -302,17 +302,16 @@ npm i create-keyframe-animation -S
 
 ## 8-1 歌单详情页布局介绍及 Vuex 实现路由数据通讯
 
-- **recommend.vue**
-- **disc.vue**
+1. recommend.vue 路由跳转
+2. disc.vue 传递数据
 
 ## 8-2 歌单详情页数据抓取
 
-- **disc.vue**
-- **api/recommend.js**
+1. recommend.js 后端数据
 
 ## 8-3 歌单详情页数据的处理和应用
 
-- **disc.vue**
+1. disc.vue 数据处理
 
 ## 9-1 排行页面布局介绍及排行榜数据抓取
 
