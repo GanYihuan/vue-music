@@ -85,7 +85,7 @@ export const insertSong = function({ commit, state }, song) {
       playlist.splice(fpIndex + 1, 1)
     }
   }
-  // 插入位置, 当前歌曲2在原始播放列表的位置下一位
+  // 插入位置, 当前歌曲2在原始播放列表的位置的下一位
   const currentSIndex = findIndex(sequenceList, currentSong) + 1
   // 插入的歌曲1在原始播放列表的位置
   const fsIndex = findIndex(sequenceList, song)

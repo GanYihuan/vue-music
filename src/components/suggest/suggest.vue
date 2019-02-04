@@ -80,7 +80,7 @@ export default {
     refresh() {
       this.$refs.suggest.refresh()
     },
-    /* request service end */
+    /* request service-end */
     search() {
       this.page = 1
       this.hasMore = true

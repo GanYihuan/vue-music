@@ -98,7 +98,7 @@ export default {
     this._getHotKey()
   },
   computed: {
-    /* when hotKey, searchHistory changes, scroll resets the height */
+    /* when hotKey, searchHistory changes, scroll reset height */
     shortcut() {
       return this.hotKey.concat(this.searchHistory)
     }

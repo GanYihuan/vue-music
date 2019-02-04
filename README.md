@@ -342,89 +342,59 @@ npm i create-keyframe-animation -S
 
 ## 10-2 搜索页面 search-box 组件开发
 
-- **search.vue**
-- **search-box.vue**
+1. search-box.vue 搜索值
 
 ## 10-3 搜索页面热门搜索数据抓取和应用
 
-- **api/search.js**
-- **search-box.vue**
-- **search.vue**
+1. search.js 后端请求, search.vue 调用后端请求
 
 ## 10-4 搜索页面 suggest 组件开发（1）
 
-- **api/search.js**
-- **suggest.vue**(search result)
-- jsonp request
+1. search.js 后端请求, suggest.vue 后端数据处理
 
 ## 10-5 搜索页面 suggest 组件开发（2）
 
-- **suggest.vue**(search result)
+1. suggest.vue 下拉刷新
+2. loading.vue
 
-## 10-6, 10-7, 10-8, 10-9 搜索页面 suggest 组件开发（3）
+## 10-6, 10-7, 10-8
 
-- **store/action.js**
-- **suggest.vue**(search result)
-- selectItem()
+1. 点击搜索列表的歌曲1添加到当前播放列表 insertSong
 
-## 10-10 搜索页面 suggest 组件开发（7）
+## 10-9
 
-- **suggest.vue**
-- **no-result.vue**
-- **common/js/util**
-- Returns 404 when no search results are available.
-- Optimization request: 节流功能，在处理搜索框输入字符时，搜索结果不是输入字符出来的结果，再输入一定时间请求。
-- When you scroll, you lose focus, and the mobile input keyboard does not block the interface.
+## 10-10
 
-> 要节流函数所有不在 watch 里面写
+1. no-result.vue
+2. search-box.vue 节流函数
+3. blur
 
-```js
-created() {
-  // debounce(): **common/js/util.js** Throttling function
-  // Throttling function, optimizing request.
-  this.$watch(
-    'query',
-    debounce(newQuery => {
-      this.$emit('query', newQuery)
-    }, 200)
-  )
-},
-```
+## 10-11
 
-## 10-11, 10-12, 10-13: 搜索页面搜索结果保存功能实现（1）
+1. action saveSearchHistory
 
-- **common/js/cache.js**
-- **store/actions.js**
+## 10-12
 
-```console
-npm install good-storage --save
-```
-
-- localStorage package
-- storage.set(key, val)
-- storage.get(key, def)
-- storage.remove(key)
-- sessionStorage 封装
-- storage.session.set(key, val)
-- storage.session.get(key, def)
+1. cache SEARCH_KEY
+2. npm install good-storage --save
 
 ## 10-14 搜索页面 search-list 组件功能实现（上）
 
-- **search-list.vue**
-- **search.vue**
+1. search.vue 传递数据给 search-list.vue
 
 ## 10-15 搜索页面 search-list 组件功能实现（下）
 
-- **common/js/cache.js**
-- **search.vue**
+1. search-list.vue
+2. cache.js SEARCH_KEY
+3. 调用 deleteSearchHistory
 
 ## 10-16 搜索页面 confirm 组件功能实现
 
-- **confirm.js**
+1. confirm.vue
 
 ## 10-17, 10-18 搜索页面剩余功能实现（上）
 
-- **search.vue**
+1. 高度自适应
 
 ## 11-1 歌曲列表组件布局和功能介绍
 
