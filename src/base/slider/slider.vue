@@ -18,6 +18,7 @@
 <script type="text/ecmascript-6">
 import BScroll from 'better-scroll'
 import { addClass } from 'common/js/dom'
+
 export default {
   props: {
     loop: {
@@ -54,7 +55,7 @@ export default {
         return
       }
       this._setSliderWidth(true)
-      /* better-scroll: when dom size change, refresh */
+      /* better-scroll: dom change, refresh */
       this.slider.refresh()
     })
   },
@@ -105,7 +106,7 @@ export default {
         /* pageIndex: 第几个子元素 */
         let pageIndex = this.slider.getCurrentPage().pageX
         if (this.loop) {
-          /* add one copy to the first element by default */
+          /* better-scroll: add one copy at the first element for loop */
           pageIndex -= 1
         }
         this.currentPageIndex = pageIndex
@@ -132,7 +133,7 @@ export default {
       }, this.interval)
     }
   },
-  /* Clear the timer after the route is cut */
+  /* Clear the timer after the route change */
   destroyed() {
     clearTimeout(this.timer)
   }

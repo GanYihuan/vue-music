@@ -16,71 +16,37 @@
 
 ## 2-3 项目目录介绍及图标字体、公共样式等资源准备
 
-> ESLint webpack File changes must run `npm run start`
-> Directory introduction
-
-- api: (back-end request, jsonp request, ajax request)
-- common: (Shared static resources: img, common js, style)
-- components: (Common component)
-- base: (Share component)
-- router: (route)
-- store: (Vuex data)
-- main.js (entrance)
-
-```console
-npm install sass-loader node-sass stylus stylus-loader -D
-```
-
-- **webpack.base.conf.js** Alias ​​configuration, 'common' correspond 'src/common'
-  > import 'common/scss/index.scss'
-
-```js
-resolve: {
-  extensions: ['.js', '.vue', '.json'],
-  alias: {
-    'common': resolve('src/common')
-  }
-}
-```
-
 ## 3-1 页面入口 + header 组件的编写
 
 ## 3-2 路由配置 + tab 顶导组件开发
 
 ## 4-1 页面简介 + 轮播图数据分析
 
-- (chrome) XHR: ajax request
-- chrome check jsonp
-- **static/jsonp1.png**
-- jsonp data
-- [推荐界面数据](https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg)
-
 ## 4-2 jsonp 原理介绍 + Promise 封装
+
+1. jsonp
 
 ## 4-3 jsonp 的应用 + 轮播图数据抓取
 
 ## 4-4 轮播图组件实现（上)
 
-## 4-5, 4-6 轮播图组件实现
+1. addClass()
+2. 横向轮播
+
+## 4-5
+
+1. slider.vue 轮播
+
+## 4-6
+
+1. slider.vue 改变窗口大小
 
 ## 4-7 歌单数据接口分析
 
-- Get song single data interface
-- Status:500 server error
-- keep-alive: Cache content after loading a route, And the cache is read at load time to prevent continuous loading
+1. keep-alive
+2. 歌单数据
 
 ## 4-8 axios 介绍和后端接口代理
-
-- **webpack.dev.conf.js**
-- **recommend.js**
-
-> back-end proxy, http request
-
-cnpm i axios -S
-
-- Modify host **config/index.js**
-
-host: '0.0.0.0',
 
 ## 4-9 歌单列表组件开发和数据的应用
 
@@ -230,34 +196,50 @@ npm i babel-preset-stage-1 -D
 
 ## 7-2 播放器 Vuex 数据设计
 
+1. state.js & getter.js & mutation.js
+
 ## 7-3 播放器 Vuex 的相关应用
+
+1. player.vue 使用 vuex 数据
+2. music-list.vue 显示 player.vue 页面
 
 ## 7-4 播放器基础样式及歌曲数据的应用
 
-- back()
-- open()
+1. player.vue back() & open()
 
-## 7-5, 7-6, 7-7 播放器展开收起动画（中）
+## 7-5
 
-- use js create css animate
+1. player.vue 动画
 
-```console
-npm i create-keyframe-animation -S
-```
+## 7-6
+
+1. 动画钩子
+2. npm i create-keyframe-animation -S
+
+## 7-7
+
+1. create-keyframe-animation 使用
 
 ## 7-8 播放器歌曲播放功能实现
 
-## 7-9, 7-10 播放器歌曲前进后退功能实现（上）
+1. player.vue 播放功能
+2. audio
 
-- prev()
-- next()
-- back()
-- ready()
-- error()
+## 7-9 播放器歌曲前进后退功能实现（上）
+
+1. player.vue prev() next()
+2. audio 内部函数
+
+## 7-10
 
 ## 7-11 播放器播放时间获取和更新
 
+1. player.vue audio 播放时间
+2. 时间补零
+
 ## 7-12 播放器 progress-bar 进度条组件实现（上）
+
+1. 进度条长度控制
 
 ## 7-13, 7-14 播放器 progress-bar 进度条组件实现（中）
 

@@ -274,7 +274,6 @@ export default {
       if (!this.songReady) {
         return
       }
-      /* only one song */
       if (this.playlist.length === 1) {
         this.loop()
         return
@@ -448,6 +447,7 @@ export default {
     }
   },
   watch: {
+    // currentSong change, invoked play(), so watch
     currentSong(newSong, oldSong) {
       /* no song */
       if (!newSong.id) {

@@ -7,9 +7,7 @@ const state = {
   playing: false,
   fullScreen: false,
   playlist: [],
-  /* Player: sequenceList (control play mode) */
   /* when play mode random, playlist !== sequenceList */
-  /* Original playlist */
   sequenceList: [],
   mode: playMode.sequence,
   currentIndex: -1,

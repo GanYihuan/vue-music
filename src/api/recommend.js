@@ -12,7 +12,6 @@ export function getRecommend() {
   const url =
     'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
   /* Object.assign: object extend attributes */
-  /* It will return the target object. */
   const data = Object.assign({}, commonParams, {
     platform: 'h5',
     uin: 0,

@@ -14,7 +14,7 @@ const express = require('express')
 const app = express()
 
 // 接口代理绕过主机和引用程序
-// ajax
+// browser: XMLHttpRequst, node.js: http
 const axios = require('axios')
 var apiRoutes = express.Router()
 app.use('/api', apiRoutes)

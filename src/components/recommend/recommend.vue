@@ -62,6 +62,7 @@ import { getRecommend, getDiscList } from 'api/recommend'
 import { playlistMixin } from 'common/js/mixin'
 import { ERR_OK } from 'api/config'
 import { mapMutations } from 'vuex'
+
 export default {
   components: {
     Slider,
@@ -85,17 +86,15 @@ export default {
     ...mapMutations({
       setDisc: 'SET_DISC'
     }),
-    /* if mini player, singer list bottom add height */
     handlePlaylist(playlist) {
       const bottom = playlist.length > 0 ? '60px' : ''
       this.$refs.recommend.style.bottom = bottom
       this.$refs.scroll.refresh()
     },
-    /* img load dom change, better-scroll refresh */
     loadImage() {
       if (!this.checkloaded) {
         this.checkloaded = true
-        /* better-scroll: when dom size change, refresh */
+        /* better-scroll: dom change, refresh */
         this.$refs.scroll.refresh()
       }
     },
