@@ -70,6 +70,7 @@ import Scroll from 'base/scroll/scroll'
 import loading from 'base/loading/loading'
 const ANCHOR_HEIGHT = 18
 const FIXED_TITLE_HEIGHT = 30
+
 export default {
   components: {
     Scroll,

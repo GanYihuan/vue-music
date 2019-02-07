@@ -7,13 +7,11 @@
       @select="selectSinger"
     >
     </list-view>
-    <!-- **singer-detail.vue** render here -->
     <router-view></router-view>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-/* vuex grammer suger */
 import { mapMutations } from 'vuex'
 import { getSingerList } from 'api/singer'
 import { ERR_OK } from 'api/config'
@@ -22,6 +20,7 @@ import ListView from 'base/listview/listview'
 import Singer from 'common/js/singer'
 const HOT_SINGER_LEN = 10
 const HOT_NAME = '热门'
+
 export default {
   components: {
     ListView
@@ -40,7 +39,6 @@ export default {
     ...mapMutations({
       setSinger: 'SET_SINGER'
     }),
-    /* if mini player, the singerlist bottom add height */
     handlePlaylist(playlist) {
       const bottom = playlist.length > 0 ? '60px' : ''
       this.$refs.singer.style.bottom = bottom
