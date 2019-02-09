@@ -1,6 +1,6 @@
 <template>
-  <!-- static/02-歌手列表.png -->
-  <!-- :data="data" Data is obtained async, Data changes to refresh the scroll -->
+  <!-- static/02-歌手界面-视图.png -->
+  <!-- :data="data": data is async, data change refresh scroll -->
   <scroll
     class="listview"
     ref="listview"
@@ -64,7 +64,6 @@
 </template>
 
 <script type="text/ecmascript-6">
-/* get & set <li class="item" :data-index></li> */
 import { getData } from 'common/js/dom'
 import Scroll from 'base/scroll/scroll'
 import loading from 'base/loading/loading'

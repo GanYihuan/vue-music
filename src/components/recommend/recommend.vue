@@ -49,7 +49,7 @@
         <loading></loading>
       </div>
     </scroll>
-    <!-- Secondary-routing container -->
+    <!-- second-route container -->
     <router-view></router-view>
   </div>
 </template>

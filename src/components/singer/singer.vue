@@ -1,5 +1,5 @@
 <template>
-  <!-- static/02-歌手列表.png -->
+  <!-- static/02-歌手界面-数据.png -->
   <div class="singer" ref="singer">
     <list-view
       ref="list"

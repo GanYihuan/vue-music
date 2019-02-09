@@ -109,6 +109,7 @@ export default {
           /* better-scroll: add one copy at the first element for loop */
           pageIndex -= 1
         }
+        /* currentPageIndex: 当前元素序号 */
         this.currentPageIndex = pageIndex
         if (this.autoPlay) {
           clearTimeout(this.timer)
@@ -117,6 +118,7 @@ export default {
       })
     },
     _autoPlay() {
+      /* pageIndex: 当前元素序号 + 1 即滚动到的 下一个元素序号 */
       let pageIndex = this.currentPageIndex + 1
       if (this.loop) {
         /* better-scroll: add one copy at the first element for loop */
