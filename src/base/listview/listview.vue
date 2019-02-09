@@ -152,7 +152,7 @@ export default {
         index = this.listHeight.length - 2
       }
       this.scrollY = -this.listHeight[index]
-      /* scroll.vue: First parameter: Scroll to the element, Second parameter: animate time */
+      /* scroll.vue: First parameter: element, Second parameter: animate time */
       this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
     },
     _calculateHeight() {
@@ -168,7 +168,7 @@ export default {
     }
   },
   watch: {
-    /* 17ms dom Rendering completed */
+    /* browser 17ms dom render complete */
     data() {
       setTimeout(() => {
         this._calculateHeight()
@@ -177,8 +177,8 @@ export default {
     diff(newVal) {
       const fixedTop = newVal > 0 && newVal < FIXED_TITLE_HEIGHT ? newVal - FIXED_TITLE_HEIGHT : 0
       /*
-      When the title animation not triggered
-      fixedTop not changing
+      when the title animation not trigger
+      fixedTop not change
       */
       if (this.fixedTop === fixedTop) {
         return
@@ -188,12 +188,12 @@ export default {
     },
     scrollY(newY) {
       const listHeight = this.listHeight
-      /* When scroll to the top, newY > 0 */
+      /* when scroll to the top, newY > 0 */
       if (newY > 0) {
         this.currentIndex = 0
         return
       }
-      /* When scroll to the middle section */
+      /* when scroll to the middle section */
       /* listHeight has one more element than listGroup */
       for (let i = 0; i < listHeight.length - 1; i++) {
         const height1 = listHeight[i]
@@ -207,7 +207,7 @@ export default {
         }
         this.currentIndex = 0
       }
-      /* When scroll to the bottom */
+      /* when scroll to the bottom */
       /* listHeight.length-2: listHeight has one more element than listGroup */
       this.currentIndex = listHeight.length - 2
     }
