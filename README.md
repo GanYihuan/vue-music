@@ -97,98 +97,50 @@
 
 ## 6-2 子路由配置以及转场动画实现
 
-- **route.js**(Secondary routing configuration)
-- **singer.vue**(Route jump starting point)
-- **singer-detail.vue**(歌手详情界面 handle data)
-- **music-list.vue**(歌手详情界面)
-- animate
+1. singer.vue 路由跳转到 singer-detail.vue
 
 ## 6-3 初识 Vuex
 
-- **static/vuex.png**
-- introduce vuex
-
-```console
-npm i vuex -S
-```
+1. vuex
 
 ## 6-4 Vuex 初始化及歌手数据的配置
 
-- **store/vuex.js**(vuex config)
-- **store/state.js**(Defining data)
-- **store/getters.js**(get vuex/state data)
-- **store/mutation-types**(mutation operate name)
-- **store/mutations.js**(handle vuex/state data)
-- **store/action.js**(package mutation, async)
-- **singer.vue**(save data to vuex/state)
-- **singer-detail.vue**(get vuex/state data)
-
-> 支持新语法, ...mapState(), **.babelrc** 配置
-
-```console
-npm i babel-preset-stage-1 -D
-```
-
-```json
-"presets": [
-  "stage-1"
-],
-```
+1. vuex 运用
 
 ## 6-5 歌手详情数据抓取
 
-- **api/singer.js**(jsonp get data)
-- **singer-detail.vue**(handle data)
+1. singer.js 后端数据
+2. singer-detail.vue 处理后端数据
 
 ## 6-6, 6-7 歌手详情数据处理和 Song 类的封装
 
-- **common/js/song.js**(Song Class package)
-- **singer-detail.vue**(Extract an object from the data, handle data)
+1. song.js 封装
+2. singer-detail.vue 处理数据
 
 ## 6-8 music-list 组件开发（1）
 
-- **singer-detail.vue**(handle data)
-- **music-list.vue**(歌手详情界面)
-- accept data
+1. singer-detail 传递数据给 music-list
 
 ## 6-9 music-list 组件开发（2）
 
-- **music-list.vue**(歌手详情界面)
-- `this.$refs.list.$el.style.top`
-
-```css
-.bg-image {
-  /* // w:h = 10:7 */
-  position: relative;
-  padding-top: 70%;
-  width: 100%;
-  height: 0;
-  /* // w:h = 10:7 */
-}
-```
+1. music-list 传递数据给 song-list
 
 ## 6-10 music-list 组件开发（3）
 
-- **music-list.vue**(歌手详情界面)
-- scrollY()
+1. music-list 蒙层 dom 操作
 
 ## 6-11, 6-12 music-list 组件开发（4）
 
-- **music-list.vue**(歌手详情界面)
-- scrollY()
-- Create a slider mask effect
+1. music-list dom 操作
 
 ## 6-13 music-list 组件开发（6）
 
-- **dom.js**
-- **music-list.vue**(歌手详情界面)
-- webkit prefix package
+1. dom.js 封装浏览器前缀
 
 ## 6-14 music-list 组件开发（7）
 
-- **music-list.vue**(歌手详情界面)
-- back btn
-- loading
+1. music-list back()
+2. loading
 
 ## 7-1 播放器页面设计详解
 

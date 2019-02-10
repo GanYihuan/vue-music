@@ -1,6 +1,5 @@
 <template>
-  <!-- static/03-歌手详情页.png/歌手详情页 -->
-  <!-- singer-detail.vue handle data, music-list.vue show component -->
+  <!-- static/03-歌手详情页.png/歌手详情页-视图 -->
   <div class="music-list">
     <div class="back" @click="back">
       <i class="icon-back"></i>
@@ -20,7 +19,6 @@
       </div>
       <div class="filter" ref="filter"></div>
     </div>
-    <!-- 黑色蒙层 -->
     <div class="bg-layer" ref="layer"></div>
     <scroll
       class="list"
@@ -55,6 +53,7 @@ import { mapActions } from 'vuex'
 const RESERVED_HEIGHT = 40
 const transform = prefixStyle('transform')
 const backdrop = prefixStyle('backdrop-filter')
+
 export default {
   components: {
     Scroll,
@@ -87,7 +86,6 @@ export default {
     }
   },
   created() {
-    // listen scroll
     this.probeType = 3
     this.listenScroll = true
   },
@@ -104,7 +102,6 @@ export default {
   },
   methods: {
     ...mapActions(['selectPlay', 'randomPlay']),
-    /* if mini player, singer list bottom add height */
     handlePlaylist(playlist) {
       const bottom = playlist.length > 0 ? '60px' : ''
       this.$refs.list.$el.style.bottom = bottom

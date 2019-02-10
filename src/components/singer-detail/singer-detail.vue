@@ -1,5 +1,5 @@
 <template>
-  <!-- static/03-歌手详情页.png/歌手详情页 -->
+  <!-- static/03-歌手详情页.png/歌手详情页-数据 -->
   <transition name="slide">
     <music-list
       :songs="songs"
@@ -16,6 +16,7 @@ import { getSingerDetail } from 'api/singer'
 import { ERR_OK } from 'api/config'
 import { createSong } from 'common/js/song'
 import MusicList from 'components/music-list/music-list'
+
 export default {
   components: {
     MusicList
