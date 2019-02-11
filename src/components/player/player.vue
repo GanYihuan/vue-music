@@ -362,7 +362,7 @@ export default {
     middleTouchStart(e) {
       this.touch.initiated = true
       this.touch.moved = false
-      /* finger click position */
+      /* finger click info */
       const touch = e.touches[0]
       this.touch.startX = touch.pageX
       this.touch.startY = touch.pageY

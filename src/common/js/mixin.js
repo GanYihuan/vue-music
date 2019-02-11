@@ -72,6 +72,7 @@ export const playerMixin = {
       this.resetCurrentIndex(list)
       this.setPlaylist(list)
     },
+    // when mode change, current song not change
     resetCurrentIndex(list) {
       const index = list.findIndex((item) => {
         return item.id === this.currentSong.id

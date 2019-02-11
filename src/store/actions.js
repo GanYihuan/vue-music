@@ -24,12 +24,11 @@ function findIndex(list, song) {
 
 /*
 Click on song-list to invoked
-action Execution, mutation will changes, mapping state data
-{commit, state}: commit: submit, state: get state data
-{list, index}: **music-list.vue** selectItem(item, index) {}
+action commit, mutation change, map state data
+{commit, state} -> commit: submit, state: get state data
+{list, index} -> **music-list.vue** selectItem(item, index) {}
 */
 export const selectPlay = function({ commit, state }, { list, index }) {
-  /* submit mutation */
   commit(types.SET_SEQUENCE_LIST, list)
   if (state.mode === playMode.random) {
     const randomList = shuffle(list)
