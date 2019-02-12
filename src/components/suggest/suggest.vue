@@ -92,22 +92,10 @@ export default {
         }
       })
     },
-    searchMore() {
-      if (!this.hasMore) {
-        return
-      }
-      this.page++
-      search(this.query, this.page, this.showSinger, perpage).then(res => {
-        if (res.code === ERR_OK) {
-          this.result = this.result.concat(this._genResult(res.data))
-          this._checkMore(res.data)
-        }
-      })
-    },
     _genResult(data) {
       let ret = []
       if (data.zhida && data.zhida.singerid) {
-        /* type: distinguish singer or song */
+        /* type: distinguish singer & song */
         /* eslint-disable standard/object-curly-even-spacing */
         ret.push({ ...data.zhida, ...{ type: TYPE_SINGER }})
       }
@@ -124,6 +112,18 @@ export default {
         }
       })
       return ret
+    },
+    searchMore() {
+      if (!this.hasMore) {
+        return
+      }
+      this.page++
+      search(this.query, this.page, this.showSinger, perpage).then(res => {
+        if (res.code === ERR_OK) {
+          this.result = this.result.concat(this._genResult(res.data))
+          this._checkMore(res.data)
+        }
+      })
     },
     _checkMore(data) {
       const song = data.song

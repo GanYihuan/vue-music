@@ -46,7 +46,11 @@
         </div>
       </scroll>
     </div>
-    <div class="search-result" v-show="query" ref="searchResult">
+    <div
+      class="search-result"
+      v-show="query"
+      ref="searchResult"
+    >
       <suggest
         ref="suggest"
         :query="query"
@@ -55,7 +59,6 @@
       >
       </suggest>
     </div>
-    <!-- @confirm: if true, call func -->
     <confirm
       ref="confirm"
       text="是否清空所有搜索历史"
@@ -63,7 +66,6 @@
       @confirm="clearSearchHistory"
     >
     </confirm>
-    <!-- The secondary routing -->
     <router-view></router-view>
   </div>
 </template>
@@ -98,7 +100,7 @@ export default {
     this._getHotKey()
   },
   computed: {
-    /* when hotKey, searchHistory changes, scroll reset height */
+    /* when hotKey | searchHistory changes, scroll reset height */
     shortcut() {
       return this.hotKey.concat(this.searchHistory)
     }
