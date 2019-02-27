@@ -66,27 +66,28 @@ export const insertSong = function({ commit, state }, song) {
   // state can't modify unless mutation, copy not modify
   const playlist = state.playlist.slice()
   const sequenceList = state.sequenceList.slice()
+  // 歌曲2下标
   let currentIndex = state.currentIndex
   // 记录当前歌曲2
   const currentSong = playlist[currentIndex]
-  // 查找当前播放列表, 歌曲1下标
+  // fpIndex 歌曲1下标, 查找当前播放列表
   const fpIndex = findIndex(playlist, song)
-  // 歌曲1插入到歌曲2的下一个索引上
+  // 歌曲1 插入到 歌曲2 的下一个索引上
   currentIndex++
   playlist.splice(currentIndex, 0, song)
-  // 当前播放列表已经有歌曲1
+  // 当前播放列表是否有 歌曲1
   if (fpIndex > -1) {
     if (currentIndex > fpIndex) {
-      // 删除当前播放列表存在的原来歌曲1
+      // 删除当前播放列表存在的原来 歌曲1
       playlist.splice(fpIndex, 1)
       currentIndex--
     } else {
       playlist.splice(fpIndex + 1, 1)
     }
   }
-  // 插入位置, 当前歌曲2在原始播放列表的位置的下一位
+  // 插入位置, 当前 歌曲2 在原始播放列表的位置的下一位
   const currentSIndex = findIndex(sequenceList, currentSong) + 1
-  // 插入的歌曲1在原始播放列表的位置
+  // 插入的 歌曲1 在原始播放列表的位置
   const fsIndex = findIndex(sequenceList, song)
   sequenceList.splice(currentSIndex, 0, song)
   if (fsIndex > -1) {
