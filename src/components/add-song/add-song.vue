@@ -123,6 +123,7 @@ export default {
     },
     selectSong(song, index) {
       if (index !== 0) {
+        // new Song() -> 传入实例, song 不是实例是对象
         this.insertSong(new Song(song))
         this.$refs.topTip.show()
       }
