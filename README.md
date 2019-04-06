@@ -14,7 +14,7 @@
 
 ## running App interface image
 
-- [01-Recommended interface](https://i.loli.net/2019/04/06/5ca861da160ba.png)
+- ![01-Recommended interface](https://i.loli.net/2019/04/06/5ca861da160ba.png)
 
 ## Content outline
 
