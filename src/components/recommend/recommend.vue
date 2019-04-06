@@ -1,5 +1,5 @@
 <template>
-  <!-- static/01-推荐界面 -->
+  <!-- [01-Recommended interface](https://i.loli.net/2019/04/06/5ca861da160ba.png) -->
   <div class="recommend" ref="recommend">
     <!-- :data="discList": make sure dom render in page -->
     <scroll
@@ -77,10 +77,8 @@ export default {
     }
   },
   created() {
-    /* get back-end data (Carousel data) async */
-    this._getRecommend()
-    /* get back-end data (Song list data) async */
-    this._getDiscList()
+    this._getRecommend() // async get back-end data (Carousel data)
+    this._getDiscList() // async get back-end data (Song list data)
   },
   methods: {
     ...mapMutations({
@@ -94,8 +92,7 @@ export default {
     loadImage() {
       if (!this.checkloaded) {
         this.checkloaded = true
-        /* better-scroll: dom change, refresh */
-        this.$refs.scroll.refresh()
+        this.$refs.scroll.refresh() // better-scroll: dom change, refresh
       }
     },
     selectItem(item) {
@@ -105,21 +102,23 @@ export default {
       this.setDisc(item)
     },
     _getRecommend() {
-      getRecommend().then(res => {
-        /* res: [推荐界面数据](https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg) */
-        if (res.code === ERR_OK) {
-          this.recommends = res.data.slider
-        }
-      })
+      getRecommend()
+        .then(res => {
+          // [Recommended interface data](https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg)
+          if (res.code === ERR_OK) {
+            this.recommends = res.data.slider
+          }
+        })
     },
     _getDiscList() {
-      getDiscList().then(res => {
-        if (res.code === ERR_OK) {
-          /* res: [歌单数据](https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&needNewCode=0&platform=yqq&order=listen&begin=0&num=80&songstatus=1&singermid=0025NhlN2yWrP4&jsonpCallback=__jp1) */
-          /* Status: 500, server error, axios can fix */
-          this.discList = res.data.list
-        }
-      })
+      getDiscList()
+        .then(res => {
+          if (res.code === ERR_OK) {
+            // [Song list data](https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0)
+            // Status: 500, server error, axios can fix
+            this.discList = res.data.list
+          }
+        })
     }
   }
 }

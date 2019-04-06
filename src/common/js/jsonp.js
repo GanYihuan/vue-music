@@ -1,7 +1,6 @@
 import originJsonp from 'jsonp'
 
 /**
- * https://github.com/webmodules/jsonp
  * @param url: url address
  * @param data: pass to back-end parameter
  * @param option: jsonp support parameter
@@ -24,9 +23,7 @@ export function param(data) {
   let url = ''
   for (const k in data) {
     const value = data[k] !== undefined ? data[k] : ''
-    // encodeURIComponent(): encode string as URI component
-    url += `&${k}=${encodeURIComponent(value)}`
+    url += `&${k}=${encodeURIComponent(value)}` // encodeURIComponent(): encode string as URI component
   }
-  // get rid of first '&'
-  return url ? url.substring(1) : ''
+  return url ? url.substring(1) : '' // get rid of first '&'
 }

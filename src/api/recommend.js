@@ -1,17 +1,17 @@
 import jsonp from 'common/js/jsonp'
 import { commonParams, options } from './config'
-/* ajax */
-import axios from 'axios'
+import axios from 'axios' // Promise based HTTP client for the browser and node.js
 
 /**
- * use jsonp fetch data (轮播图数据)
+ * Carousel data
+ * @param {type}
  * @return: jsonp
  */
 export function getRecommend() {
-  /* static/jsonp1.png: open in chrome, copy url(copy '?' before) */
+  // ![jsonp data](https://i.loli.net/2019/04/06/5ca8638bac881.png) open in chrome, copy url(copy '?' before)
   const url =
     'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
-  /* Object.assign: object extend attributes */
+  // Object.assign: object extend attributes, (copy the values of all enumerable own properties from one or more source objects to a target object)
   const data = Object.assign({}, commonParams, {
     platform: 'h5',
     uin: 0,
@@ -21,7 +21,7 @@ export function getRecommend() {
 }
 
 /**
- * fetch data (热门歌单推荐数据)
+ * Popular song list recommendation data
  * @returns {Promise.<TResult>|*}
  */
 export function getDiscList() {
