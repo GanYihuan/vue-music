@@ -46,7 +46,7 @@ const UserCenter = resolve => {
 
 export default new Router({
   routes: [
-    /* default route path */
+    // default route path
     {
       path: '/',
       redirect: '/recommend'
@@ -54,7 +54,7 @@ export default new Router({
     {
       path: '/recommend',
       component: Recommend,
-      children: [
+      children: [ // Secondary routing config
         {
           path: ':id',
           component: Disc
@@ -74,7 +74,6 @@ export default new Router({
     {
       path: '/rank',
       component: Rank,
-      /* Secondary routing config */
       children: [
         {
           path: ':id',

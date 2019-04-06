@@ -7,9 +7,9 @@
     And the cache is read at load time to prevent continuous loading
     -->
     <!-- <keep-alive exclude="Detail"> -->
-    <!-- name=Detail Components are not cached -->
+    <!-- name=Detail Component will not cached -->
     <keep-alive>
-      <!-- router render here -->
+      <!-- children router render here -->
       <router-view></router-view>
     </keep-alive>
     <player></player>

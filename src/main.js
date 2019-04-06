@@ -9,16 +9,13 @@ import store from './store/vuex'
 
 import 'common/scss/index.scss'
 
-/* Mobile debugging tools. */
 /* eslint-disable no-unused-vars */
-// import vConsole from 'vconsole'
+// import vConsole from 'vconsole' //  Mobile debugging tools
 // console.log('test')
 
-/* fastclick: mobile end Clicks 300MS Delay */
-fastclick.attach(document.body)
+fastclick.attach(document.body) // fastclick: mobile-end click 300MS delay
 Vue.config.productionTip = false
 
-/* VueLazyload */
 Vue.use(VueLazyload, {
   loading: require('common/image/default.png')
 })

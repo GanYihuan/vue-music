@@ -1,5 +1,5 @@
 <template>
-  <!-- 01-推荐界面/头部 -->
+  <!-- 01-Recommended interface/head -->
   <div class="m-header">
     <div class="icon"></div>
     <h1 class="text">Chicken Music</h1>
