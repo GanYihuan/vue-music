@@ -41,8 +41,7 @@ export default {
     }
   },
   mounted() {
-    /* setTimeout: 20s, browser 17s refreshe once */
-    setTimeout(() => {
+    setTimeout(() => { // setTimeout: 20s, browser 17s refreshe once
       this._setSliderWidth()
       this._initDots()
       this._initSlider()
@@ -55,8 +54,7 @@ export default {
         return
       }
       this._setSliderWidth(true)
-      /* better-scroll: dom change, refresh */
-      this.slider.refresh()
+      this.slider.refresh() // better-scroll: dom change, refresh
     })
   },
   methods: {
@@ -71,8 +69,7 @@ export default {
       const sliderWidth = this.$refs.slider.clientWidth
       for (let i = 0; i < this.children.length; i++) {
         const child = this.children[i]
-        /* addClass(): common/js/dom.js */
-        addClass(child, 'slider-item')
+        addClass(child, 'slider-item') // addClass(): common/js/dom.js
         child.style.width = sliderWidth + 'px'
         width += sliderWidth
       }
@@ -88,28 +85,19 @@ export default {
       this.slider = new BScroll(this.$refs.slider, {
         scrollX: true,
         scrollY: false,
-        /* Whether to open the sliding inertia when sliding quickly */
-        momentum: false,
-        /* for slide component */
-        snap: true,
-        /* Is it possible to seamlessly cycle the carousel? */
-        snapLoop: this.loop,
-        /* The threshold at which the page can be switched when the finger is swiped, You can switch the threshold of the page when you swipe your finger */
-        snapThreshold: 0.2,
-        /* Animation time for carousel switching */
-        snapSpeed: 400
-        /* better-scroll and fastclick versus, Clicking on the carousel in mobile mode does not jump */
+        momentum: false, // Whether to open the sliding inertia when sliding quickly
+        snap: true, // for slide component
+        snapLoop: this.loop, // Is it possible to seamlessly cycle the carousel ?
+        snapThreshold: 0.2, // The threshold at which the page can be switched when the finger is swiped, You can switch the threshold of the page when you swipe your finger
+        snapSpeed: 400 // Animation time for carousel switching
+        // better-scroll and fastclick versus, Clicking on the carousel in mobile mode does not jump
         // click: true
       })
-      // better-scroll 滚动过程结束时触发
-      this.slider.on('scrollEnd', () => {
-        /* pageIndex: 第几个子元素 */
-        let pageIndex = this.slider.getCurrentPage().pageX
+      this.slider.on('scrollEnd', () => { // better-scroll scrollEnd trigger
+        let pageIndex = this.slider.getCurrentPage().pageX // pageIndex: stop page index
         if (this.loop) {
-          /* better-scroll: add one copy at the first element for loop */
-          pageIndex -= 1
+          pageIndex -= 1 // better-scroll: add one copy at the first element for loop
         }
-        /* currentPageIndex: 当前元素序号 */
         this.currentPageIndex = pageIndex
         if (this.autoPlay) {
           clearTimeout(this.timer)
@@ -118,11 +106,9 @@ export default {
       })
     },
     _autoPlay() {
-      /* pageIndex: 当前元素序号 + 1 即滚动到的 下一个元素序号 */
-      let pageIndex = this.currentPageIndex + 1
+      let pageIndex = this.currentPageIndex + 1 // pageIndex: stop page index + 1, scroll to next page
       if (this.loop) {
-        /* better-scroll: add one copy at the first element for loop */
-        pageIndex += 1
+        pageIndex += 1 // better-scroll: add one copy at the first element for loop
       }
       this.timer = setTimeout(() => {
         /*
@@ -135,8 +121,7 @@ export default {
       }, this.interval)
     }
   },
-  /* Clear the timer after the route change */
-  destroyed() {
+  destroyed() { // Clear the timer after the route change
     clearTimeout(this.timer)
   }
 }

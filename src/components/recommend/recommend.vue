@@ -49,7 +49,7 @@
         <loading></loading>
       </div>
     </scroll>
-    <!-- second-route container -->
+    <!-- children router render here -->
     <router-view></router-view>
   </div>
 </template>
@@ -78,7 +78,7 @@ export default {
   },
   created() {
     this._getRecommend() // async get back-end data (Carousel data)
-    this._getDiscList() // async get back-end data (Song list data)
+    this._getDiscList() // async get back-end data (Popular song list recommendation data)
   },
   methods: {
     ...mapMutations({
@@ -114,8 +114,8 @@ export default {
       getDiscList()
         .then(res => {
           if (res.code === ERR_OK) {
-            // [Song list data](https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0)
-            // Status: 500, server error, axios can fix
+            // [Popular song list recommendation data](https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0)
+            // Status: 500, server error, axios fix
             this.discList = res.data.list
           }
         })

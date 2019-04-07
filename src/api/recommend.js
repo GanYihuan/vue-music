@@ -25,7 +25,7 @@ export function getRecommend() {
  * @returns {Promise.<TResult>|*}
  */
 export function getDiscList() {
-  /* request back-end address that sends HTTP request to qq music get data. */
+  // request back-end address that sends HTTP request to qq music get data
   const url = '/api/getDiscList'
   const data = Object.assign({}, commonParams, {
     platform: 'yqq',
@@ -38,10 +38,9 @@ export function getDiscList() {
     rnd: Math.random(),
     format: 'json'
   })
+  // **webpack.dev.conf.js** invoked back-end interface
   return axios
     .get(url, {
-      /* api/recommend.js/getDiscList invoked back-end interface */
-      /* webpack.dev.conf.js app.get('/api/getDiscList', (req, res) => {}) */
       params: data
     })
     .then(res => {

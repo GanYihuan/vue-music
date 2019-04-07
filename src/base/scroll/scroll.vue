@@ -20,51 +20,39 @@ export default {
       type: Number,
       default: 1
     },
-    /*
-    better-scroll: By default, the native click event of the browser is blocked.
-    when set-to true，better-scroll will distributed click event
-    add a attribute _constructed to distribute event params, which value it's true
-    */
-    click: {
+    click: { // better-scroll: By default, the native click event of the browser is blocked. when set true，better-scroll will distributed click event
       type: Boolean,
       default: true
     },
-    /* listen scroll event */
     listenScroll: {
       type: Boolean,
       default: false
     },
-    /* Data is obtained async, Data changes to recalculate the scroll */
-    data: {
+    data: { // Data is async, Data changes to recalculate the scroll
       type: Array,
       default: null
     },
-    /* Pull down to refresh */
-    pullup: {
+    pullup: { // Pull down to refresh
       type: Boolean,
       default: false
     },
-    /* hide mobile keyboard */
-    beforeScroll: {
+    beforeScroll: { // hide mobile keyboard
       type: Boolean,
       default: false
     },
-    /* delay refresh */
     refreshDelay: {
       type: Number,
       default: 20
     }
   },
-  /* dom ready */
   mounted() {
-    /* maySure dom has render */
-    setTimeout(() => {
+    setTimeout(() => { // maySure dom has render
       this._initScroll()
     }, 20)
   },
   methods: {
     _initScroll() {
-      /* When there is no value */
+      // When it's no value
       if (!this.$refs.wrapper) {
         return
       }
@@ -78,14 +66,11 @@ export default {
           that.$emit('scroll', pos)
         })
       }
-      /* pullup: drop-down refresh */
-      if (this.pullup) {
-        /* listen scrollEnd */
+      if (this.pullup) { // pullup: drop-down refresh
         this.scroll.on('scrollEnd', () => {
-          /* The parent scrollToEnd is triggered when the screen is scrolling down to 50px. */
+          // parent scrollToEnd trigger when the screen is scrolling down 50px
           if (this.scroll.y <= this.scroll.maxScrollY + 50) {
-            /* scrollToEnd: scroll to bottom */
-            this.$emit('scrollToEnd')
+            this.$emit('scrollToEnd') // scrollToEnd: scroll to bottom
           }
         })
       }
@@ -105,8 +90,8 @@ export default {
       this.scroll && this.scroll.refresh()
     },
     scrollTo() {
-      /* apply: Call a function with this value given And provide parameters as an array */
-      /* apply: scrollTo Receiving parameter, apply Pass the parameters to scroll.scrollTo */
+      // apply: Call a function with this value given And provide parameters as an array
+      // apply: scrollTo Receiving parameter, apply Pass the parameters to scroll.scrollTo
       this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
     },
     scrollToElement() {
