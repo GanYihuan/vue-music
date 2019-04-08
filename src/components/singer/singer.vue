@@ -1,5 +1,5 @@
 <template>
-  <!-- static/02-歌手界面-数据.png -->
+  <!-- ![singer interface](https://i.loli.net/2019/04/08/5caac3c529537.png) -->
   <div class="singer" ref="singer">
     <list-view
       ref="list"
@@ -32,8 +32,7 @@ export default {
     }
   },
   created() {
-    /* get data(singer data) */
-    this._getSingerList()
+    this._getSingerList() // get singer data
   },
   methods: {
     ...mapMutations({
@@ -45,8 +44,7 @@ export default {
       this.$refs.list.refresh()
     },
     selectSinger(singer) {
-      /* route jump */
-      this.$router.push({
+      this.$router.push({ // route jump
         path: `/singer/${singer.id}`
       })
       this.setSinger(singer)
@@ -54,13 +52,12 @@ export default {
     _getSingerList() {
       getSingerList().then(res => {
         if (res.code === ERR_OK) {
-          /* [歌手数据](https://c.y.qq.com/v8/fcg-bin/v8.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&channel=singer&page=list&key=all_all_all&pagesize=100&pagenum=1&hostUin=0&needNewCode=0&platform=yqq&jsonpCallback=__jp0) */
+          // [singer data](https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&needNewCode=0&platform=yqq&order=listen&begin=0&num=80&songstatus=1&singermid=0025NhlN2yWrP4&jsonpCallback=__jp1)
           this.singers = this._normalizeSinger(res.data.list)
         }
       })
     },
     _normalizeSinger(list) {
-      /* previous 10 data, include '热门' */
       const map = {
         hot: {
           title: HOT_NAME,
@@ -68,7 +65,7 @@ export default {
         }
       }
       list.forEach((item, index) => {
-        if (index < HOT_SINGER_LEN) {
+        if (index < HOT_SINGER_LEN) { // previous 10 data, include '热门'
           map.hot.items.push(
             new Singer({
               name: item.Fsinger_name,
@@ -76,9 +73,8 @@ export default {
             })
           )
         }
-        /* after 10 data, not include '热门' */
         const key = item.Findex
-        if (!map[key]) {
+        if (!map[key]) { // after 10 data, not include '热门'
           map[key] = {
             title: key,
             items: []
@@ -91,19 +87,17 @@ export default {
           })
         )
       })
-      /* distinguishes '热门' & letter */
       const ret = []
       const hot = []
       for (const key in map) {
         const val = map[key]
-        if (val.title.match(/[a-zA-Z]/)) {
+        if (val.title.match(/[a-zA-Z]/)) { // distinguishes '热门' & letter
           ret.push(val)
         } else if (val.title === HOT_NAME) {
           hot.push(val)
         }
       }
-      /* ascend sort */
-      ret.sort((a, b) => {
+      ret.sort((a, b) => { // ascend sort
         return a.title.charCodeAt(0) - b.title.charCodeAt(0)
       })
       return hot.concat(ret)

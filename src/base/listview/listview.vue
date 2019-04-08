@@ -1,5 +1,5 @@
 <template>
-  <!-- static/02-歌手界面-视图.png -->
+  <!-- ![singer interface](https://i.loli.net/2019/04/08/5caac3c529537.png) -->
   <!-- :data="data": data is async, data change refresh scroll -->
   <scroll
     class="listview"
@@ -9,7 +9,6 @@
     :probeType='probeType'
     @scroll="scroll"
   >
-    <!-- singer -->
     <ul>
       <li
         class="list-group"
@@ -31,7 +30,6 @@
         </ul>
       </li>
     </ul>
-    <!-- 'A','B','C'... -->
     <div
       class="list-shortcut"
       @touchstart="onShortCutTouchStart"
@@ -49,7 +47,6 @@
         </li>
       </ul>
     </div>
-    <!-- 分类字母 -->
     <div
       class="list-fixed"
       ref="fixed"
@@ -83,12 +80,9 @@ export default {
   },
   data() {
     return {
-      /* real-time scroll position */
-      scrollY: -1,
-      /* which letters should be displayed */
-      currentIndex: 0,
-      /* diff: current element celling to pre element floor gaps */
-      diff: -1
+      scrollY: -1, // real-time scroll position
+      currentIndex: 0, // which letters should be display
+      diff: -1 // diff: current element celling to pre element floor gaps
     }
   },
   created() {
@@ -97,8 +91,7 @@ export default {
     this.probeType = 3
   },
   computed: {
-    /* 'A','B','C'... */
-    shortcutList() {
+    shortcutList() { // 'A','B','C'...
       return this.data.map(group => {
         return group.title.substr(0, 1)
       })
@@ -107,7 +100,6 @@ export default {
       if (this.scrollY > 0) {
         return ''
       }
-      /* make sure !== undefined */
       return this.data[this.currentIndex] ? this.data[this.currentIndex].title : ''
     }
   },
@@ -116,10 +108,8 @@ export default {
       this.$emit('select', item)
     },
     onShortCutTouchStart(e) {
-      /* getData(): get index */
-      const anchorIndex = getData(e.target, 'index')
-      /* e.touches[0]: click position */
-      const firstTouch = e.touches[0]
+      const anchorIndex = getData(e.target, 'index') // getData(): get index
+      const firstTouch = e.touches[0] // e.touches[0]: click position
       this.touch.y1 = firstTouch.pageY
       this.touch.anchorIndex = anchorIndex
       this._scrollTo(anchorIndex)
@@ -127,23 +117,18 @@ export default {
     onShortCutTouchMove(e) {
       const firstTouch = e.touches[0]
       this.touch.y2 = firstTouch.pageY
-      /* | 0: Math.floor */
-      const delta = ((this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT) | 0
-      /* stopped position */
-      const anchorIndex = parseInt(this.touch.anchorIndex) + delta
+      const delta = ((this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT) | 0 // | 0: Math.floor
+      const anchorIndex = parseInt(this.touch.anchorIndex) + delta // stop position index
       this._scrollTo(anchorIndex)
     },
     refresh() {
       this.$refs.listview.refresh()
     },
     scroll(pos) {
-      /* pos.y: Real-time scroll position */
       this.scrollY = pos.y
     },
     _scrollTo(index) {
-      /* click on the blank */
-      /* !index: index === null */
-      if (!index && index !== 0) {
+      if (!index && index !== 0) { // click on the blank
         return
       }
       if (index < 0) {
@@ -152,8 +137,7 @@ export default {
         index = this.listHeight.length - 2
       }
       this.scrollY = -this.listHeight[index]
-      /* scroll.vue: First parameter: element, Second parameter: animate time */
-      this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0)
+      this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0) // scrollToElement: element, animate time
     },
     _calculateHeight() {
       let height = 0
@@ -168,19 +152,14 @@ export default {
     }
   },
   watch: {
-    /* browser 17ms dom render complete */
-    data() {
+    data() { // 20: browser 17ms dom render complete
       setTimeout(() => {
         this._calculateHeight()
       }, 20)
     },
     diff(newVal) {
       const fixedTop = newVal > 0 && newVal < FIXED_TITLE_HEIGHT ? newVal - FIXED_TITLE_HEIGHT : 0
-      /*
-      when the title animation not trigger
-      fixedTop not change
-      */
-      if (this.fixedTop === fixedTop) {
+      if (this.fixedTop === fixedTop) { // when the title animation not trigger, fixedTop not change
         return
       }
       this.fixedTop = fixedTop
@@ -188,28 +167,22 @@ export default {
     },
     scrollY(newY) {
       const listHeight = this.listHeight
-      /* when scroll to the top, newY > 0 */
-      if (newY > 0) {
+      if (newY > 0) { // when scroll to the top, newY > 0
         this.currentIndex = 0
         return
       }
-      /* when scroll to the middle section */
-      /* listHeight has one more element than listGroup */
-      for (let i = 0; i < listHeight.length - 1; i++) {
+      // listHeight one more element than listGroup
+      for (let i = 0; i < listHeight.length - 1; i++) { // when scroll to the middle section,
         const height1 = listHeight[i]
         const height2 = listHeight[i + 1]
-        /* -newY: When scroll, newY is negative, add “-” ensure positive */
-        if (-newY >= height1 && -newY < height2) {
+        if (-newY >= height1 && -newY < height2) { // -newY: When scroll, newY is negative, add “-” ensure positive
           this.currentIndex = i
-          /* diff: trigger animate of the title */
-          this.diff = newY + height2
+          this.diff = newY + height2 // diff: trigger animate of the title
           return
         }
         this.currentIndex = 0
       }
-      /* when scroll to the bottom */
-      /* listHeight.length-2: listHeight has one more element than listGroup */
-      this.currentIndex = listHeight.length - 2
+      this.currentIndex = listHeight.length - 2 // when scroll to the bottom
     }
   }
 }

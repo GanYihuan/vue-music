@@ -91,7 +91,7 @@ export default {
     },
     scrollTo() {
       // apply: Call a function with this value given And provide parameters as an array
-      // apply: scrollTo Receiving parameter, apply Pass the parameters to scroll.scrollTo
+      // apply: Pass parameters to scroll.scrollTo
       this.scroll && this.scroll.scrollTo.apply(this.scroll, arguments)
     },
     scrollToElement() {
