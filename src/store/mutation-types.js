@@ -1,7 +1,12 @@
-/**
- * operate mutation method
- * @type {string}
+/*
+ * @Description: define operate mutation method
+ * @version:
+ * @Author: GanEhank
+ * @LastEditors: GanEhank
+ * @Date: 2018-06-18 08:12:39
+ * @LastEditTime: 2019-04-08 18:34:25
  */
+
 export const SET_SINGER = 'SET_SINGER'
 export const SET_PLAYING_STATE = 'SET_PLAYING_STATE'
 export const SET_FULL_SCREEN = 'SET_FULL_SCREEN'

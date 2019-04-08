@@ -1,10 +1,8 @@
-/* lyric parse */
-import { getLyric } from 'api/song'
+import { getLyric } from 'api/song' // lyric parse
 import { ERR_OK } from 'api/config'
-/* base64 解码 */
-import { Base64 } from 'js-base64'
+import { Base64 } from 'js-base64' // base64 解码
 
-/* https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&needNewCode=0&platform=yqq&order=listen&begin=0&num=80&songstatus=1&singermid=0025NhlN2yWrP4&jsonpCallback=__jp1 */
+// [Song](https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&needNewCode=0&platform=yqq&order=listen&begin=0&num=80&songstatus=1&singermid=0025NhlN2yWrP4&jsonpCallback=__jp1)
 export default class Song {
   constructor({ id, mid, singer, name, album, duration, image, url }) {
     this.id = id
@@ -17,8 +15,7 @@ export default class Song {
     this.url = url
   }
 
-  /* api/song/getLyric() */
-  getLyric() {
+  getLyric() { // api/song/getLyric()
     if (this.lyric) {
       return Promise.resolve(this.lyric)
     }
@@ -35,13 +32,11 @@ export default class Song {
   }
 }
 
-/* factory method */
-export function createSong(musicData) {
+export function createSong(musicData) { // factory method
   return new Song({
     id: musicData.songid,
     mid: musicData.songmid,
-    /* some item have two singer */
-    singer: filterSinger(musicData.singer),
+    singer: filterSinger(musicData.singer), // some item have two singer
     name: musicData.songname,
     album: musicData.albumname,
     duration: musicData.interval,
@@ -50,8 +45,7 @@ export function createSong(musicData) {
   })
 }
 
-/* some item have two singer */
-function filterSinger(singer) {
+function filterSinger(singer) { // some item have two singer
   const ret = []
   if (!singer) {
     return ''

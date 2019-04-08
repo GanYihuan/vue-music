@@ -1,4 +1,12 @@
-/* operate lots of mutation, async */
+/*
+ * @Description: async operate mutations
+ * @version:
+ * @Author: GanEhank
+ * @LastEditors: GanEhank
+ * @Date: 2018-06-18 08:12:39
+ * @LastEditTime: 2019-04-08 18:32:28
+ */
+
 import * as types from './mutation-types'
 import { playMode } from 'common/js/config'
 import { shuffle } from 'common/js/util'

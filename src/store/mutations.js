@@ -1,27 +1,28 @@
-/**
- * modify data operation
+/*
+ * @Description: modify data operation
+ * @version:
+ * @Author: GanEhank
+ * @LastEditors: GanEhank
+ * @Date: 2018-06-18 08:12:39
+ * @LastEditTime: 2019-04-08 18:33:24
  */
+
 import * as types from './mutation-types'
 
 const mutations = {
-  // state; pass parameter
   [types.SET_SINGER](state, singer) {
-    /* singer: string */
     state.singer = singer
   },
   [types.SET_PLAYING_STATE](state, flag) {
-    /* flag: boolean */
     state.playing = flag
   },
   [types.SET_FULL_SCREEN](state, flag) {
     state.fullScreen = flag
   },
   [types.SET_PLAYLIST](state, list) {
-    /* list: array */
     state.playlist = list
   },
   [types.SET_SEQUENCE_LIST](state, list) {
-    // list: array
     state.sequenceList = list
   },
   [types.SET_PLAY_MODE](state, mode) {

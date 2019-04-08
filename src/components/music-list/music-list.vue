@@ -1,5 +1,5 @@
 <template>
-  <!-- static/03-歌手详情页.png/歌手详情页-视图 -->
+  <!-- [singer detail interface](https://i.loli.net/2019/04/08/5caac3e8e7a0f.png) -->
   <div class="music-list">
     <div class="back" @click="back">
       <i class="icon-back"></i>
@@ -82,8 +82,7 @@ export default {
   },
   data() {
     return {
-      /* real time roll position */
-      scrollY: 0
+      scrollY: 0 // real time roll position
     }
   },
   created() {
@@ -92,8 +91,7 @@ export default {
   },
   mounted() {
     this.imageHeight = this.$refs.bgImage.clientHeight
-    /* bg-layer minTransalteY */
-    this.minTransalteY = -this.imageHeight + RESERVED_HEIGHT
+    this.minTransalteY = -this.imageHeight + RESERVED_HEIGHT // bg-layer minTransalteY
     this.$refs.list.$el.style.top = `${this.imageHeight}px`
   },
   computed: {
@@ -106,6 +104,7 @@ export default {
     handlePlaylist(playlist) {
       const bottom = playlist.length > 0 ? '60px' : ''
       this.$refs.list.$el.style.bottom = bottom
+      // console.log(this.$refs.list, '-----------')
       this.$refs.list.refresh()
     },
     scroll(pos) {
@@ -133,18 +132,15 @@ export default {
       let zIndex = 0
       let blur = 0
       const percent = Math.abs(newVal / this.imageHeight)
-      /* scroll down */
-      if (newVal > 0) {
+      if (newVal > 0) { // scroll down
         scale = 1 + percent
         zIndex = 10
       } else {
         blur = Math.min(percent * 20, 20)
       }
       this.$refs.layer.style[transform] = `translate3d(0,${translateY}px,0)`
-      /* gaussian-blur: iphone view */
-      this.$refs.filter.style[backdrop] = `blur(${blur}px)`
-      /* scroll to top */
-      if (newVal < this.minTransalteY) {
+      this.$refs.filter.style[backdrop] = `blur(${blur}px)` // gaussian-blur: iphone view
+      if (newVal < this.minTransalteY) { // scroll to top
         zIndex = 10
         this.$refs.bgImage.style.paddingTop = 0
         this.$refs.bgImage.style.height = `${RESERVED_HEIGHT}px`

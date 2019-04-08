@@ -9,8 +9,7 @@ import mutations from './mutations.js'
 
 Vue.use(Vuex)
 
-/* development mode is on, strict mode check vuex data */
-const debug = process.env.NODE_ENV !== 'production'
+const debug = process.env.NODE_ENV !== 'production' // development mode is on, strict mode check vuex data
 
 export default new Vuex.Store({
   actions,

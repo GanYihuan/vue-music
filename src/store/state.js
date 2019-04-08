@@ -1,4 +1,12 @@
-/* define data */
+/*
+ * @Description: define data
+ * @version:
+ * @Author: GanEhank
+ * @LastEditors: GanEhank
+ * @Date: 2018-06-18 08:12:39
+ * @LastEditTime: 2019-04-08 18:33:50
+ */
+
 import { playMode } from 'common/js/config'
 import { loadSearch, loadPlay, loadFavorite } from 'common/js/cache'
 
@@ -7,20 +15,14 @@ const state = {
   playing: false,
   fullScreen: false,
   playlist: [],
-  /* when play mode random, playlist !== sequenceList */
-  sequenceList: [],
+  sequenceList: [], // when play mode random, playlist !== sequenceList
   mode: playMode.sequence,
   currentIndex: -1,
-  /* song single object */
-  disc: {},
-  /* List interface jump interface: the list details interface. */
-  topList: {},
-  /* loadSearch: Read from the local cache. search-list */
-  searchHistory: loadSearch(),
-  /* loadPlay: Read the search history from the local cache. */
-  playHistory: loadPlay(),
-  /* collect list */
-  favoriteList: loadFavorite()
+  disc: {}, // song single object
+  topList: {}, // List interface jump interface: the list details interface.
+  searchHistory: loadSearch(), // loadSearch: Read from the local cache. search-list
+  playHistory: loadPlay(), // loadPlay: Read the search history from the local cache.
+  favoriteList: loadFavorite() // collect list
 }
 
 export default state

@@ -1,5 +1,5 @@
 <template>
-  <!-- static/03-歌手详情页.png/歌手详情页-数据 -->
+  <!-- ![singer detail interface](https://i.loli.net/2019/04/08/5caac3e8e7a0f.png) -->
   <transition name="slide">
     <music-list
       :songs="songs"
@@ -52,7 +52,7 @@ export default {
     _normalizeSongs(list) {
       const ret = []
       list.forEach(item => {
-        // [歌手数据](https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&needNewCode=0&platform=yqq&order=listen&begin=0&num=80&songstatus=1&singermid=0025NhlN2yWrP4&jsonpCallback=__jp1)
+        // [singer data](https://c.y.qq.com/v8/fcg-bin/fcg_v8_singer_track_cp.fcg?g_tk=5381&inCharset=utf-8&outCharset=utf-8&notice=0&format=jsonp&hostUin=0&needNewCode=0&platform=yqq&order=listen&begin=0&num=80&songstatus=1&singermid=0025NhlN2yWrP4&jsonpCallback=__jp1)
         const { musicData } = item
         if (musicData.songid && musicData.albummid) {
           ret.push(createSong(musicData))
