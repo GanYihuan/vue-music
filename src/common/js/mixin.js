@@ -66,14 +66,13 @@ export const playerMixin = {
       } else {
         list = this.sequenceList
       }
-      // list change，currentSong change (getters)
+      // list change，currentSong change **getters.js**
       // require: when mode change, current song not change, behide song change
-      // list change index change, so curentSong.id not change (getters)
+      // list change index change, so curentSong.id not change **getters.js**
       this.resetCurrentIndex(list)
       this.setPlaylist(list)
     },
-    // when mode change, current song not change
-    resetCurrentIndex(list) {
+    resetCurrentIndex(list) { // when mode change, current song not change
       const index = list.findIndex((item) => {
         return item.id === this.currentSong.id
       })

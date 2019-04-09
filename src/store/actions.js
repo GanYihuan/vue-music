@@ -4,7 +4,7 @@
  * @Author: GanEhank
  * @LastEditors: GanEhank
  * @Date: 2018-06-18 08:12:39
- * @LastEditTime: 2019-04-09 11:56:53
+ * @LastEditTime: 2019-04-09 20:30:25
  */
 
 import * as types from './mutation-types'
@@ -20,7 +20,7 @@ import {
 } from 'common/js/cache'
 
 /**
- * find out whether have this song in the list
+ * this song in the list index
  * @return: randomlist song index
  */
 function findIndex(list, song) {
@@ -41,9 +41,7 @@ export const selectPlay = function({ commit, state }, { list, index }) {
   if (state.mode === playMode.random) {
     const randomList = shuffle(list)
     commit(types.SET_PLAYLIST, randomList)
-    /* return song(list[index]) at randomList index */
-    // 返回播放的这首歌在随机播放列表的下标
-    index = findIndex(randomList, list[index])
+    index = findIndex(randomList, list[index]) // return song(list[index]) at randomList index
   } else {
     commit(types.SET_PLAYLIST, list)
   }
@@ -52,21 +50,19 @@ export const selectPlay = function({ commit, state }, { list, index }) {
   commit(types.SET_PLAYING_STATE, true)
 }
 
-/* random play, no index */
+/**
+ * random play, no index
+ * @param {type}
+ * @return:
+ */
 export const randomPlay = function({ commit }, { list }) {
-  /* change the playback mode to random mode */
-  commit(types.SET_PLAY_MODE, playMode.random)
-  /* submit mutation, change the list of song sequences */
-  commit(types.SET_SEQUENCE_LIST, list)
+  commit(types.SET_PLAY_MODE, playMode.random) // change playback mode become random mode
+  commit(types.SET_SEQUENCE_LIST, list) // submit mutation, change the list of song sequences
   const randomList = shuffle(list)
-  /* change the playlist song */
-  commit(types.SET_PLAYLIST, randomList)
-  /* click on the current song index */
-  commit(types.SET_CURRENT_INDEX, 0)
-  /* change to full screen mode */
-  commit(types.SET_FULL_SCREEN, true)
-  /* change the current state of play */
-  commit(types.SET_PLAYING_STATE, true)
+  commit(types.SET_PLAYLIST, randomList) // change the playlist song
+  commit(types.SET_CURRENT_INDEX, 0) // click on the current song index
+  commit(types.SET_FULL_SCREEN, true) // change to full screen mode
+  commit(types.SET_PLAYING_STATE, true) // change the current state of play
 }
 
 // 点击搜索列表的歌曲1添加到当前播放列表

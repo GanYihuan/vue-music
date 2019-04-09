@@ -1,4 +1,8 @@
-/* return [min, max] */
+/**
+ * @param {Number} min
+ * @param {Number} max
+ * @return: [min, max]
+ */
 function getRandomInt(min, max) {
   /*
   [moz](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
@@ -9,9 +13,13 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+/**
+ * may Array out-of-order
+ * @param {Array} arr
+ * @return: out-of-order Array
+ */
 export function shuffle(arr) {
-  /* create copy prevent multiple call */
-  const _arr = arr.slice()
+  const _arr = arr.slice() // create copy prevent multiple call
   for (let i = 0; i < _arr.length; i++) {
     const j = getRandomInt(0, i)
     const t = _arr[i]
@@ -21,7 +29,12 @@ export function shuffle(arr) {
   return _arr
 }
 
-/* throttling func */
+/**
+ * throttling function
+ * @param {function} func
+ * @param {Number} delay
+ * @return:
+ */
 export function debounce(func, delay) {
   let timer
   return function(...args) {

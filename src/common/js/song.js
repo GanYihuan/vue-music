@@ -14,7 +14,6 @@ export default class Song {
     this.image = image
     this.url = url
   }
-
   getLyric() { // api/song/getLyric()
     if (this.lyric) {
       return Promise.resolve(this.lyric)

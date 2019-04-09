@@ -242,8 +242,7 @@ export default {
       this.$refs.audio.play()
       this.setPlayingState(true)
       if (this.currentLyric) {
-        // <audio>, song jump to begin
-        this.currentLyric.seek(0)
+        this.currentLyric.seek(0) // <audio>, song jump to begin
       }
     },
     next() {
@@ -322,8 +321,7 @@ export default {
       this.currentSong
         .getLyric()
         .then(lyric => {
-          // prevent fast switch, result in unmatched lyric
-          if (this.currentSong.lyric !== lyric) {
+          if (this.currentSong.lyric !== lyric) { // prevent fast switch, result in unmatched lyric
             return
           }
           this.currentLyric = new Lyric(lyric, this.handleLyric)

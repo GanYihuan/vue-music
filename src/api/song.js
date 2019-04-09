@@ -1,11 +1,13 @@
 import { commonParams } from './config'
-/* ajax axios,request HTTPRequest */
-import axios from 'axios'
+import axios from 'axios' // ajax axios,request HTTPRequest
 
-/* get lyric */
+/**
+ * get Lyric
+ * @param {Number} mid
+ * @return: Lyric
+ */
 export function getLyric(mid) {
-  /* browser accesse address, back-end proxy address */
-  const url = '/api/lyric'
+  const url = '/api/lyric' // browser accesse address, back-end proxy address
   const data = Object.assign({}, commonParams, {
     songmid: mid,
     platform: 'yqq',
