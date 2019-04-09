@@ -1,5 +1,5 @@
 <template>
-  <!-- static/04-音乐播放界面.png/歌曲控件 -->
+  <!-- ![music player interface](https://i.loli.net/2019/04/09/5cac16b7d5a91.png) -->
   <div
     class="progress-bar"
     ref="progressBar"
@@ -39,21 +39,16 @@ export default {
   methods: {
     progressTouchStart(e) {
       this.touch.init = true
-      /* this.touch.startX: finger x-axis distance */
-      this.touch.startX = e.touches[0].pageX
-      /* 进度条已经走过的距离，黄色显示 */
-      this.touch.left = this.$refs.progress.clientWidth
+      this.touch.startX = e.touches[0].pageX // this.touch.startX: finger x-axis distance
+      this.touch.left = this.$refs.progress.clientWidth // The distance the progress bar has traveled, Yellow display
     },
     progressTouchMove(e) {
       if (!this.touch.init) {
         return
       }
-      /* 进度能移动的距离 = 进度条长度 - 进度条小球的宽度 */
-      const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-      /* progressbar move distance = current finger x-axis distance - pre finger x-axis distance */
-      const detailX = e.touches[0].pageX - this.touch.startX
-      /* offsetWidth: yellow color, real progress width */
-      const offsetWidth = Math.min(
+      const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth // The distance that the progress can move = Progress bar length - Progress bar ball width
+      const detailX = e.touches[0].pageX - this.touch.startX // progressbar move distance = current finger x-axis distance - pre finger x-axis distance
+      const offsetWidth = Math.min( // offsetWidth: yellow color, real progress width
         progressBarWidth,
         Math.max(0, this.touch.left + detailX)
       )
@@ -64,33 +59,25 @@ export default {
       this._triggerPercent()
     },
     _triggerPercent() {
-      /* 进度能移动的距离 = 进度条长度 - 进度条小球的宽度 */
       const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-      /* 进度条已经走过的距离 / 进度能移动的距离 */
-      const percent = this.$refs.progress.clientWidth / progressBarWidth
+      const percent = this.$refs.progress.clientWidth / progressBarWidth // The distance the progress bar has traveled / The distance that the progress can move
       this.$emit('percentChange', percent)
     },
     progressClick(e) {
-      /* getBoundingClientRect: **static/getBoundingClientRect.png** */
-      const rect = this.$refs.progressBar.getBoundingClientRect()
-      /* offsetWidth: real progress = stop position - rect */
-      const offsetWidth = e.pageX - rect.left
+      const rect = this.$refs.progressBar.getBoundingClientRect() // getBoundingClientRect: **static/getBoundingClientRect.png**
+      const offsetWidth = e.pageX - rect.left // offsetWidth: real progress = stop position - rect
       this._offset(offsetWidth)
       this._triggerPercent()
     },
-    /* 进度条已经走过的距离，黄色显示 */
-    _offset(offsetWidth) {
+    _offset(offsetWidth) { // The distance the progress bar has traveled, Yellow display
       this.$refs.progress.style.width = `${offsetWidth}px`
       this.$refs.progressBtn.style[transform] = `translate3d(${offsetWidth}px, 0, 0)`
     }
   },
   watch: {
     percent(newPercent) {
-      /* !this.touch.init: progress bar drag process cancel */
-      if (newPercent >= 0 && !this.touch.init) {
-        /* 进度能移动的距离 = 进度条长度 - 进度条小球的宽度 */
+      if (newPercent >= 0 && !this.touch.init) { // > !this.touch.init: progress bar drag process cancel
         const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-        /* 进度条已经走过的距离，黄色显示 */
         const offsetWidth = progressBarWidth * newPercent
         this._offset(offsetWidth)
       }
