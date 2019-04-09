@@ -351,8 +351,7 @@ export default {
     middleTouchStart(e) {
       this.touch.initiated = true
       this.touch.moved = false
-      // finger click info
-      const touch = e.touches[0]
+      const touch = e.touches[0] // finger click info
       this.touch.startX = touch.pageX
       this.touch.startY = touch.pageY
     },
@@ -363,8 +362,7 @@ export default {
       const touch = e.touches[0]
       const deltaX = touch.pageX - this.touch.startX
       const deltaY = touch.pageY - this.touch.startY
-      // whether switch depends on x-axis scroll more than y-axic scroll
-      if (Math.abs(deltaY) > Math.abs(deltaX)) {
+      if (Math.abs(deltaY) > Math.abs(deltaX)) { // whether switch depends on x-axis scroll more than y-axic scroll
         return
       }
       if (!this.touch.moved) {
