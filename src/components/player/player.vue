@@ -1,5 +1,5 @@
 <template>
-  <!-- static/04-音乐播放界面 -->
+  <!-- ![music player interface](https://i.loli.net/2019/04/09/5cac16b7d5a91.png) -->
   <div class="player" v-show="playlist.length>0">
     <transition
       name="normal"
@@ -146,12 +146,9 @@ export default {
       currentTime: 0,
       radius: 32,
       currentLyric: null,
-      /* lyrics highlight */
-      currentLineNum: 0,
-      /* disc interface and lyrics interface */
-      currentShow: 'cd',
-      /* CD below lyrics */
-      playingLyric: ''
+      currentLineNum: 0, // lyrics highlight
+      currentShow: 'cd', // disc interface and lyrics interface
+      playingLyric: '' // CD below lyrics
     }
   },
   created() {
@@ -229,7 +226,7 @@ export default {
         return
       }
       this.setPlayingState(!this.playing)
-      /* fixBug: when scroll lyrics can play, preventing the lyrics from scrolling while they stop playing */
+      // fixBug: when scroll lyrics can play, preventing the lyrics from scrolling while they stop playing
       if (this.currentLyric) {
         this.currentLyric.togglePlay()
       }
@@ -246,7 +243,7 @@ export default {
       this.$refs.audio.play()
       this.setPlayingState(true)
       if (this.currentLyric) {
-        /* <audio>, song jump to begin */
+        // <audio>, song jump to begin
         this.currentLyric.seek(0)
       }
     },
@@ -254,7 +251,7 @@ export default {
       if (!this.songReady) {
         return
       }
-      /* only one song */
+      // only one song
       if (this.playlist.length === 1) {
         this.loop()
         return
@@ -297,18 +294,18 @@ export default {
       this.songReady = true
     },
     updateTime(e) {
-      /* <audio> current time */
+      // <audio> current time
       this.currentTime = e.target.currentTime
     },
     format(interval) {
-      /* | 0: math.floor */
+      // | 0: math.floor
       interval = interval | 0
       const minute = (interval / 60) | 0
-      /* _pad: Use 0 to fill 2 bits */
+      // _pad: Use 0 to fill 2 bits
       const second = this._pad(interval % 60)
       return `${minute}:${second}`
     },
-    /* _pad: use 0 to fill 2 bits */
+    // _pad: use 0 to fill 2 bits
     _pad(num, n = 2) {
       let len = num.toString().length
       while (len < n) {
@@ -331,7 +328,7 @@ export default {
       this.currentSong
         .getLyric()
         .then(lyric => {
-          /* prevent fast switch, result in unmatched lyric */
+          // prevent fast switch, result in unmatched lyric
           if (this.currentSong.lyric !== lyric) {
             return
           }
@@ -362,7 +359,7 @@ export default {
     middleTouchStart(e) {
       this.touch.initiated = true
       this.touch.moved = false
-      /* finger click info */
+      // finger click info
       const touch = e.touches[0]
       this.touch.startX = touch.pageX
       this.touch.startY = touch.pageY
@@ -374,7 +371,7 @@ export default {
       const touch = e.touches[0]
       const deltaX = touch.pageX - this.touch.startX
       const deltaY = touch.pageY - this.touch.startY
-      /* whether switch depends on x-axis scroll more than y-axic scroll */
+      // whether switch depends on x-axis scroll more than y-axic scroll
       if (Math.abs(deltaY) > Math.abs(deltaX)) {
         return
       }
@@ -382,13 +379,13 @@ export default {
         this.touch.moved = true
       }
       const left = this.currentShow === 'cd' ? 0 : -window.innerWidth
-      /* page left-scroll distance */
+      // page left-scroll distance
       const offsetWidth = Math.min(
         0,
         Math.max(-window.innerWidth, left + deltaX)
       )
       this.touch.percent = Math.abs(offsetWidth / window.innerWidth)
-      /* lyricList: Vue component, $el access dom */
+      // lyricList: Vue component, $el access dom
       this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px,0,0)`
       this.$refs.lyricList.$el.style[transitionDuration] = 0
       this.$refs.middleL.style.opacity = 1 - this.touch.percent
@@ -401,7 +398,7 @@ export default {
       let offsetWidth
       let opacity
       if (this.currentShow === 'cd') {
-        /* slide <- */
+        // slide <-
         if (this.touch.percent > 0.1) {
           offsetWidth = -window.innerWidth
           opacity = 0
@@ -411,7 +408,7 @@ export default {
           opacity = 1
         }
       } else {
-        /* slide -> */
+        // slide ->
         if (this.touch.percent < 0.9) {
           offsetWidth = 0
           this.currentShow = 'cd'
@@ -429,19 +426,13 @@ export default {
       this.touch.initiated = false
     },
     _getPosAndScale() {
-      /* 小唱片 width */
-      const targetWidth = 40
-      /* 小唱片 paddingLeft */
-      const paddingLeft = 40
-      /* 小唱片 paddingBottom */
-      const paddingBottom = 30
-      /* 大唱片 paddingTop */
-      const paddingTop = 80
-      /* 大唱片 width */
-      const width = window.innerWidth * 0.8
+      const targetWidth = 40 // Small record width
+      const paddingLeft = 40 // Small record paddingLeft
+      const paddingBottom = 30 // Small record paddingBottom
+      const paddingTop = 80 // Big record paddingTop
+      const width = window.innerWidth * 0.8 // Big record width
       const scale = targetWidth / width
-      /* 第四象限坐标系, 大唱片中间点 (x, y) */
-      const x = -(window.innerWidth / 2 - paddingLeft)
+      const x = -(window.innerWidth / 2 - paddingLeft) // Fourth quadrant, Big record middle point (x, y)
       const y = window.innerHeight - paddingTop - width / 2 - paddingBottom
       return { x, y, scale }
     }
@@ -449,16 +440,16 @@ export default {
   watch: {
     // currentSong change, invoked play(), so watch
     currentSong(newSong, oldSong) {
-      /* no song */
+      // no song
       if (!newSong.id) {
         return
       }
-      /* mixin.js/changeMode(), currentSong.id no change currentSong no change */
+      // mixin.js/changeMode(), currentSong.id no change currentSong no change
       if (newSong.id === oldSong.id) {
         return
       }
       if (this.currentLyric) {
-        /* stop timer of the first song */
+        // stop timer of the first song
         this.currentLyric.stop()
         this.currentTime = 0
         this.playingLyric = ''
@@ -466,15 +457,15 @@ export default {
       }
       clearTimeout(this.timer)
       this.timer = setTimeout(() => {
-        /* method & data it's sync */
+        // method & data it's sync
         this.$refs.audio.play()
         this.getLyric()
       }, 1000)
     },
     playing(newPlaying) {
       const audio = this.$refs.audio
-      /* method & data it's sync */
-      /* 在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM */
+      // method & data it's sync
+      // 在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM
       this.$nextTick(() => {
         newPlaying ? audio.play() : audio.pause()
       })

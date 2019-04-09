@@ -12,9 +12,11 @@
 - ![jsonp query param](https://i.loli.net/2019/04/06/5ca869e167a1c.png)
 - [jsonp github](https://github.com/webmodules/jsonp)
 
-## running App interface image
+## App interface
 
 - ![01-Recommended interface](https://i.loli.net/2019/04/06/5ca861da160ba.png)
+- ![singer detail interface](https://i.loli.net/2019/04/08/5caac3e8e7a0f.png)
+- ![music player interface](https://i.loli.net/2019/04/09/5cac16b7d5a91.png)
 
 ## Content outline
 

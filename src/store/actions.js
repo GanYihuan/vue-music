@@ -4,7 +4,7 @@
  * @Author: GanEhank
  * @LastEditors: GanEhank
  * @Date: 2018-06-18 08:12:39
- * @LastEditTime: 2019-04-08 18:32:28
+ * @LastEditTime: 2019-04-09 11:56:53
  */
 
 import * as types from './mutation-types'
@@ -19,23 +19,23 @@ import {
   deleteFavorite
 } from 'common/js/cache'
 
-/*
-sequencelist song index corresponds randomlist song index
-return randomlist song index
-find out whether have song in the list, return its index
-*/
+/**
+ * find out whether have this song in the list
+ * @return: randomlist song index
+ */
 function findIndex(list, song) {
   return list.findIndex(item => {
     return item.id === song.id
   })
 }
 
-/*
-Click on song-list to invoked
-action commit, mutation change, map state data
-{commit, state} -> commit: submit, state: get state data
-{list, index} -> **music-list.vue** selectItem(item, index) {}
-*/
+/**
+ * Click on song-list to invoked
+ * @param commit: submit
+ * @param state: get state data
+ * @param {list, index} -> **music-list.vue** selectItem(item, index) {}
+ * @return:
+ */
 export const selectPlay = function({ commit, state }, { list, index }) {
   commit(types.SET_SEQUENCE_LIST, list)
   if (state.mode === playMode.random) {
