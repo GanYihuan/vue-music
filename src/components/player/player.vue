@@ -226,8 +226,7 @@ export default {
         return
       }
       this.setPlayingState(!this.playing)
-      // fixBug: when scroll lyrics can play, preventing the lyrics from scrolling while they stop playing
-      if (this.currentLyric) {
+      if (this.currentLyric) { // when scroll lyrics can play, preventing the lyrics from scrolling while they stop playing
         this.currentLyric.togglePlay()
       }
     },
@@ -251,8 +250,7 @@ export default {
       if (!this.songReady) {
         return
       }
-      // only one song
-      if (this.playlist.length === 1) {
+      if (this.playlist.length === 1) { // only one song
         this.loop()
         return
       } else {
@@ -294,19 +292,15 @@ export default {
       this.songReady = true
     },
     updateTime(e) {
-      // <audio> current time
-      this.currentTime = e.target.currentTime
+      this.currentTime = e.target.currentTime // <audio> current time
     },
     format(interval) {
-      // | 0: math.floor
-      interval = interval | 0
+      interval = interval | 0 // | 0: math.floor
       const minute = (interval / 60) | 0
-      // _pad: Use 0 to fill 2 bits
-      const second = this._pad(interval % 60)
+      const second = this._pad(interval % 60) // _pad: Use 0 to fill 2 bits
       return `${minute}:${second}`
     },
-    // _pad: use 0 to fill 2 bits
-    _pad(num, n = 2) {
+    _pad(num, n = 2) { // _pad: use 0 to fill 2 bits
       let len = num.toString().length
       while (len < n) {
         num = '0' + num
@@ -438,35 +432,28 @@ export default {
     }
   },
   watch: {
-    // currentSong change, invoked play(), so watch
-    currentSong(newSong, oldSong) {
-      // no song
-      if (!newSong.id) {
+    currentSong(newSong, oldSong) { // currentSong change, invoked play()
+      if (!newSong.id) { // no song
         return
       }
-      // mixin.js/changeMode(), currentSong.id no change currentSong no change
-      if (newSong.id === oldSong.id) {
+      if (newSong.id === oldSong.id) { // mixin.js/changeMode(), currentSong.id no change currentSong no change
         return
       }
       if (this.currentLyric) {
-        // stop timer of the first song
-        this.currentLyric.stop()
+        this.currentLyric.stop() // stop timer of the first song
         this.currentTime = 0
         this.playingLyric = ''
         this.currentLineNum = 0
       }
       clearTimeout(this.timer)
       this.timer = setTimeout(() => {
-        // method & data it's sync
-        this.$refs.audio.play()
+        this.$refs.audio.play() // method & data it's sync
         this.getLyric()
       }, 1000)
     },
     playing(newPlaying) {
       const audio = this.$refs.audio
-      // method & data it's sync
-      // 在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM
-      this.$nextTick(() => {
+      this.$nextTick(() => { // method & data it's sync
         newPlaying ? audio.play() : audio.pause()
       })
     },
