@@ -8,7 +8,7 @@ const FAVORITE_KEY = '__favorite__'
 const FAVORITE_MAX_LEN = 200
 
 /**
- * data insert into array first play
+ * data insert into array first index
  * @param arr: Stored array
  * @param val: Stored value
  * @param compare: func
@@ -40,8 +40,7 @@ function deleteFromArray(arr, compare) {
  */
 
 export function saveSearch(query) {
-  // gets cached data, historical data, no data returns empty array
-  const searches = storage.get(SEARCH_KEY, [])
+  const searches = storage.get(SEARCH_KEY, []) // gets cached data, history data, if no data return empty array
   insertArray(
     searches,
     query,
@@ -50,8 +49,7 @@ export function saveSearch(query) {
     },
     SEARCH_MAX_LEN
   )
-  // store cached data
-  storage.set(SEARCH_KEY, searches)
+  storage.set(SEARCH_KEY, searches) // store cached data
   return searches
 }
 
