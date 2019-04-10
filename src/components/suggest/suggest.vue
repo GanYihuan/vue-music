@@ -78,7 +78,7 @@ export default {
     refresh() {
       this.$refs.suggest.refresh()
     },
-    search() { // request service-end
+    search() { // request service-end data
       this.page = 1
       this.hasMore = true
       this.$refs.suggest.scrollTo(0, 0)
@@ -100,7 +100,7 @@ export default {
       }
       return ret
     },
-    _normalizeSongs(list) {
+    _normalizeSongs(list) { // filter
       const ret = []
       list.forEach(musicData => {
         if (musicData.songid && musicData.albummid) {
