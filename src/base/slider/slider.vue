@@ -1,4 +1,5 @@
 <template>
+  <!-- ![recommend interface](https://i.loli.net/2019/04/06/5ca861da160ba.png) -->
   <div class="slider" ref="slider">
     <div class="slider-group" ref="sliderGroup">
       <slot></slot>

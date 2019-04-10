@@ -1,5 +1,5 @@
 <template>
-  <!-- [](https://i.loli.net/2019/04/10/5cada57184b01.png) -->
+  <!-- ![add song to list interface](https://i.loli.net/2019/04/10/5cada57184b01.png) -->
   <transition name="drop">
     <div class="top-tip" v-show="showFlag" @click.stop="hide">
       <slot></slot>

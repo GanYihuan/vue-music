@@ -1,5 +1,5 @@
 <template>
-  <!-- static/06-排行榜界面.png -->
+  <!-- ![rank interface](https://i.loli.net/2019/04/10/5cadb17a23407.png) -->
   <div class="rank" ref="rank">
     <scroll class="toplist" ref="toplist" :data="topList">
       <ul>

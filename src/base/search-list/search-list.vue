@@ -1,5 +1,5 @@
 <template>
-  <!-- [search list interface](https://i.loli.net/2019/04/10/5cad5641c3b4a.png) -->
+  <!-- ![search list interface](https://i.loli.net/2019/04/10/5cad5641c3b4a.png) -->
   <div class="search-list" v-show="searches.length">
     <transition-group name="list" tag="ul">
       <li

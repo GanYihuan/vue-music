@@ -1,5 +1,5 @@
 <template>
-  <!-- [singer detail interface](https://i.loli.net/2019/04/08/5caac3e8e7a0f.png) -->
+  <!-- ![singer detail interface](https://i.loli.net/2019/04/08/5caac3e8e7a0f.png) -->
   <div class="song-list">
     <ul>
       <li

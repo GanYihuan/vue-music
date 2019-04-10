@@ -1,5 +1,5 @@
 <template>
-  <!-- 12-用户中心页 -->
+  <!-- ![user center interface](https://i.loli.net/2019/04/10/5cadb1c58b527.png) -->
   <transition name="slide">
     <div class="user-center">
       <div class="back" @click="back">
@@ -101,8 +101,7 @@ export default {
     handlePlaylist(playlist) {
       const bottom = playlist.length > 0 ? '60px' : ''
       this.$refs.listWrapper.style.bottom = bottom
-      // html use v-if, it might not exist, make sure it's not undefined.
-      this.$refs.favoriteList && this.$refs.favoriteList.refresh()
+      this.$refs.favoriteList && this.$refs.favoriteList.refresh() // $refs.favoriteList use v-if, make sure it is not undefined
       this.$refs.playList && this.$refs.playList.refresh()
     },
     switchItem(index) {

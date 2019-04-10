@@ -1,5 +1,5 @@
 <template>
-  <!-- [01-Recommended interface](https://i.loli.net/2019/04/06/5ca861da160ba.png) -->
+  <!-- ![recommend interface](https://i.loli.net/2019/04/06/5ca861da160ba.png) -->
   <div class="recommend" ref="recommend">
     <!-- :data="discList": make sure dom render in page -->
     <scroll

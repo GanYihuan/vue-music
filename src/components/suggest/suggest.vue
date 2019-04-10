@@ -84,6 +84,7 @@ export default {
       this.$refs.suggest.scrollTo(0, 0)
       search(this.query, this.page, this.showSinger, perpage).then(res => {
         if (res.code === ERR_OK) {
+          // console.log(res.data, '--------') bug! Cannot read property 'zhida' of undefined
           this.result = this._genResult(res.data)
           this._checkMore(res.data)
         }
@@ -91,7 +92,8 @@ export default {
     },
     _genResult(data) {
       let ret = []
-      if (data.zhida && data.zhida.singerid) { // type: distinguish singer & song
+      // type: distinguish singer & song
+      if (data.zhida && data.zhida.singerid) {
         /* eslint-disable standard/object-curly-even-spacing */
         ret.push({ ...data.zhida, ...{ type: TYPE_SINGER }})
       }

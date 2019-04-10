@@ -1,5 +1,5 @@
 <template>
-  <!-- [add song to list interface](https://i.loli.net/2019/04/10/5cada57184b01.png) -->
+  <!-- ![add song to list interface](https://i.loli.net/2019/04/10/5cada57184b01.png) -->
   <transition name="slide">
     <div class="add-song" v-show="showFlag" @click.stop>
       <div class="header">

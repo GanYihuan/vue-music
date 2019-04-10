@@ -1,5 +1,5 @@
 <template>
-  <!-- static/07-排行榜详情界面.png -->
+  <!-- ![rank detail interface](https://i.loli.net/2019/04/10/5cadb3ddb41c9.png) -->
   <transition name="slide">
     <music-list
       :rank="rank"

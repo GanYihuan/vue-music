@@ -1,5 +1,5 @@
 <template>
-  <!-- static/05-热门歌单.png -->
+  <!-- ![hot song list interface](https://i.loli.net/2019/04/10/5cadb0eae5f9e.png) -->
   <transition name="slide">
     <music-list
       :title="title"
