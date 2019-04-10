@@ -4,7 +4,7 @@
  * @Author: GanEhank
  * @LastEditors: GanEhank
  * @Date: 2018-06-18 08:12:39
- * @LastEditTime: 2019-04-09 20:30:25
+ * @LastEditTime: 2019-04-10 10:10:16
  */
 
 import * as types from './mutation-types'
@@ -65,33 +65,30 @@ export const randomPlay = function({ commit }, { list }) {
   commit(types.SET_PLAYING_STATE, true) // change the current state of play
 }
 
-// 点击搜索列表的歌曲1添加到当前播放列表
+/**
+ * Click on the search list song 1, Add to current playlist
+ * @param {type}
+ * @return:
+ */
 export const insertSong = function({ commit, state }, song) {
-  // state can't modify unless mutation, copy not modify
-  const playlist = state.playlist.slice()
+  const playlist = state.playlist.slice() // state can't modify unless mutation, copy not modify
   const sequenceList = state.sequenceList.slice()
-  // 歌曲2下标
-  let currentIndex = state.currentIndex
-  // 记录当前歌曲2
-  const currentSong = playlist[currentIndex]
-  // fpIndex 歌曲1下标, 查找当前播放列表
-  const fpIndex = findIndex(playlist, song)
-  // 歌曲1 插入到 歌曲2 的下一个索引上
-  currentIndex++
-  playlist.splice(currentIndex, 0, song)
-  // 当前播放列表是否有 歌曲1
-  if (fpIndex > -1) {
+  let currentIndex = state.currentIndex // song 2(current song) index
+  const currentSong = playlist[currentIndex] // song 2 position
+  const fpIndex = findIndex(playlist, song) // song 1(click search list song) index
+  currentIndex++ // song 1 position
+  playlist.splice(currentIndex, 0, song) // song 1 insert song 2 next position
+  if (fpIndex > -1) { // current playlist has song 1 ?
     if (currentIndex > fpIndex) {
-      // 删除当前播放列表存在的原来 歌曲1
-      playlist.splice(fpIndex, 1)
+      playlist.splice(fpIndex, 1) // delete current playlist song 1
       currentIndex--
     } else {
       playlist.splice(fpIndex + 1, 1)
     }
   }
-  // 插入位置, 当前 歌曲2 在原始播放列表的位置的下一位
+  // song 2 at sequenceList index + 1
   const currentSIndex = findIndex(sequenceList, currentSong) + 1
-  // 插入的 歌曲1 在原始播放列表的位置
+  // song 1 at sequenceList index
   const fsIndex = findIndex(sequenceList, song)
   sequenceList.splice(currentSIndex, 0, song)
   if (fsIndex > -1) {
