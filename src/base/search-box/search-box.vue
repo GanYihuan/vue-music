@@ -1,5 +1,5 @@
 <template>
-  <!-- static/08-搜索界面/搜索框 -->
+  <!-- ![search box interface](https://i.loli.net/2019/04/10/5cad4362e8bef.png) -->
   <div class="search-box">
     <i class="icon-search"></i>
     <input ref="query" v-model="query" class="box" :placeholder="placeholder"/>

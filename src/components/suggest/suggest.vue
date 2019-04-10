@@ -1,5 +1,5 @@
 <template>
-  <!-- static/08-搜索结果 -->
+  <!-- ![search box interface](https://i.loli.net/2019/04/10/5cad4362e8bef.png) -->
   <scroll
     class="suggest"
     ref="suggest"
@@ -64,11 +64,9 @@ export default {
   data() {
     return {
       page: 1,
-      /* drop-down refresh */
-      pullup: true,
+      pullup: true, // drop-down refresh
       beforeScroll: true,
-      /* Data loading finish ？ */
-      hasMore: true,
+      hasMore: true, // Data loading finish ？
       result: []
     }
   },
@@ -80,8 +78,7 @@ export default {
     refresh() {
       this.$refs.suggest.refresh()
     },
-    /* request service-end */
-    search() {
+    search() { // request service-end
       this.page = 1
       this.hasMore = true
       this.$refs.suggest.scrollTo(0, 0)
@@ -94,8 +91,7 @@ export default {
     },
     _genResult(data) {
       let ret = []
-      if (data.zhida && data.zhida.singerid) {
-        /* type: distinguish singer & song */
+      if (data.zhida && data.zhida.singerid) { // type: distinguish singer & song
         /* eslint-disable standard/object-curly-even-spacing */
         ret.push({ ...data.zhida, ...{ type: TYPE_SINGER }})
       }
@@ -165,8 +161,7 @@ export default {
     }
   },
   watch: {
-    query(newQuery) {
-      /* request server **api/search.js** */
+    query(newQuery) { // request server **api/search.js**
       this.search(newQuery)
     }
   }

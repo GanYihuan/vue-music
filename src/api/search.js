@@ -3,6 +3,8 @@ import { commonParams, options } from './config'
 
 /**
  * hot search
+ * @param {type}
+ * @return:
  */
 export function getHotKey() {
   const url = 'https://c.y.qq.com/splcloud/fcgi-bin/gethotkey.fcg'

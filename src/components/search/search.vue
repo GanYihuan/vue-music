@@ -1,5 +1,5 @@
 <template>
-  <!-- static/08-搜索界面 -->
+  <!-- ![search box interface](https://i.loli.net/2019/04/10/5cad4362e8bef.png) -->
   <div class="search">
     <div class="search-box-wrapper">
       <search-box ref="searchBox" @query="onQueryChange"></search-box>
@@ -100,8 +100,7 @@ export default {
     this._getHotKey()
   },
   computed: {
-    /* when hotKey | searchHistory changes, scroll reset height */
-    shortcut() {
+    shortcut() { // when hotKey | searchHistory changes, scroll reset height
       return this.hotKey.concat(this.searchHistory)
     }
   },
@@ -129,8 +128,7 @@ export default {
     }
   },
   watch: {
-    /* Prevent current interface from disabling scrolling */
-    query(newQuery) {
+    query(newQuery) { // Prevent current interface from disable scrolle
       if (!newQuery) {
         setTimeout(() => {
           this.$refs.shortcut.refresh()
