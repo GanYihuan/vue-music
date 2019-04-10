@@ -1,5 +1,5 @@
 <template>
-  <!-- 10-mini歌曲列表 -->
+  <!-- [min player list interface](https://i.loli.net/2019/04/10/5cad9ce9ebab7.png) -->
   <transition name="list-fade">
     <div
       class="playlist"

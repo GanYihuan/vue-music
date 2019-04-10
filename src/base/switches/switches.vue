@@ -1,5 +1,5 @@
 <template>
-  <!-- static/11-切换 -->
+  <!-- [search list interface](https://i.loli.net/2019/04/10/5cada57184b01.png) -->
   <ul class="switches">
     <li
       class="switch-item"

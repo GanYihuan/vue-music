@@ -1,5 +1,5 @@
 <template>
-  <!-- 11-添加歌曲到列表 -->
+  <!-- [add song to list interface](https://i.loli.net/2019/04/10/5cada57184b01.png) -->
   <transition name="slide">
     <div class="add-song" v-show="showFlag" @click.stop>
       <div class="header">
@@ -123,8 +123,7 @@ export default {
     },
     selectSong(song, index) {
       if (index !== 0) {
-        // new Song() -> 传入实例, song 不是实例是对象
-        this.insertSong(new Song(song))
+        this.insertSong(new Song(song)) // new Song() -> 传入实例, song 不是实例是对象
         this.$refs.topTip.show()
       }
     },
