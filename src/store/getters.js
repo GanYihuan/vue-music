@@ -4,7 +4,7 @@
  * @Author: GanEhank
  * @LastEditors: GanEhank
  * @Date: 2018-06-18 08:12:39
- * @LastEditTime: 2019-04-08 18:32:51
+ * @LastEditTime: 2019-06-08 19:23:23
  */
 
 export const singer = state => state.singer
