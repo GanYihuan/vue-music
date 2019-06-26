@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import createLogger from 'vuex/dist/logger'
+import createLogger from 'vuex/dist/logger' // 修改 mutations 时 控制台打印操作信息
 
 import * as actions from './actions.js'
 import * as getters from './getters.js'

@@ -91,8 +91,8 @@ export default {
         snapLoop: this.loop, // Is it possible to seamlessly cycle the carousel ?
         snapThreshold: 0.2, // The threshold at which the page can be switched when the finger is swiped, You can switch the threshold of the page when you swipe your finger
         snapSpeed: 400 // Animation time for carousel switching
-        // better-scroll and fastclick versus, Clicking on the carousel in mobile mode does not jump
-        // click: true
+        // eventPassthrough: 'vertical' /* ignore vertical scroll */
+        // click: true /* better-scroll and fastclick versus, Clicking on the carousel in mobile mode does not jump */
       })
       this.slider.on('scrollEnd', () => { // better-scroll scrollEnd trigger
         let pageIndex = this.slider.getCurrentPage().pageX // pageIndex: stop page index
