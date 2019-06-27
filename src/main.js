@@ -13,7 +13,7 @@ import 'common/scss/index.scss'
 // console.log('test')
 
 fastclick.attach(document.body) // fastclick: mobile-end click 300MS delay
-Vue.config.productionTip = false
+Vue.config.productionTip = false // close Vue production tip
 
 Vue.use(VueLazyload, {
   loading: require('common/image/default.png')
