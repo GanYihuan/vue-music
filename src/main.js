@@ -1,7 +1,7 @@
 import 'babel-polyfill'
 import Vue from 'vue'
-import fastclick from 'fastclick'
-import VueLazyload from 'vue-lazyload'
+import fastclick from 'fastclick' // eliminate mobile-end click 300MS delay
+import VueLazyload from 'vue-lazyload' // Vue image lazy loading plug-in
 
 import App from './App.vue'
 import router from './router/route'
@@ -12,9 +12,8 @@ import 'common/scss/index.scss'
 // import vConsole from 'vconsole' //  Mobile debugging tools
 // console.log('test')
 
-fastclick.attach(document.body) // fastclick: mobile-end click 300MS delay
 Vue.config.productionTip = false // close Vue production tip
-
+fastclick.attach(document.body)
 Vue.use(VueLazyload, {
   loading: require('common/image/default.png')
 })
