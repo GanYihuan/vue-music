@@ -1,21 +1,21 @@
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import 'babel-polyfill'
 import Vue from 'vue'
-import fastclick from 'fastclick' // eliminate mobile-end click 300MS delay
-import VueLazyload from 'vue-lazyload' // Vue image lazy loading plug-in
+import App from './App'
+import router from './router'
+import store from './store'
+import fastclick from 'fastclick'
+import VueLazyload from 'vue-lazyload'
 
-import App from './App.vue'
-import router from './router/route'
-import store from './store/vuex'
-import 'common/scss/index.scss'
+import './common/stylus/index.styl'
 
-/* eslint-disable no-unused-vars */
-// import vConsole from 'vconsole' //  Mobile debugging tools
-// console.log('test')
-
-Vue.config.productionTip = false // close Vue production tip
 fastclick.attach(document.body)
+
+Vue.config.productionTip = false
+
 Vue.use(VueLazyload, {
-  loading: require('common/image/default.png')
+  loading: require('@/common/image/default.png')
 })
 
 /* eslint-disable no-new */
@@ -24,6 +24,5 @@ new Vue({
   router,
   store,
   components: { App },
-  template: '<App/>',
-  render: h => h(App)
+  template: '<App/>'
 })

@@ -1,25 +1,18 @@
 <template>
   <div id="app">
-    <m-header></m-header>
-    <tab></tab>
-    <!--
-    keep-alive: Cache content after loading a route,
-    And the cache is read at load time to prevent continuous loading
-    -->
-    <!-- <keep-alive exclude="Detail"> -->
-    <!-- name=Detail Component will not cached -->
-    <keep-alive>
-      <!-- children router render here -->
-      <router-view></router-view>
-    </keep-alive>
-    <player></player>
+      <m-header></m-header>
+      <tab></tab>
+      <keep-alive>
+         <router-view></router-view>
+      </keep-alive>
+      <player></player>
   </div>
 </template>
 
-<script type="text/ecmascript-6">
-import MHeader from 'components/m-header/m-header'
-import Tab from 'components/tab/tab'
-import Player from 'components/player/player'
+<script>
+import MHeader from '@/components/m-header/m-header'
+import Tab from '@/components/tab/tab'
+import Player from '@/components/player/player'
 
 export default {
   name: 'App',
@@ -30,3 +23,11 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus" scoped>
+    @import 'common/stylus/variable'
+
+    #app
+       color: $color-theme
+</style>
+

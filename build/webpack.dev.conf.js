@@ -35,55 +35,100 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     // referer: When the browser sends a request to the web server,
     // it usually brings the Referer to the server, telling the server which page I'm linking from,
     // and the server can get some information for processing.
-    before (app) {
-      app.get('/api/getDiscList', (req, res) => {
-        var url = 'https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg'
-        // Send an HTTP request
-        axios
-          .get(url, {
-            // The request to cheat qq
-            headers: {
-              referer: 'https://c.y.qq.com/',
-              host: 'c.y.qq.com'
-            },
-            // params, (recommend.js/getDiscList) pass to url address
-            params: req.query
-          })
-          .then((response) => {
-            // res: to font-end
-            // response.data: qq response data
-            res.json(response.data)
-          })
-          .catch((e) => {
-            console.log(e)
-          })
+    before(app) {
+      //定义getDiscList接口，回调传入两个参数，前端请求这个接口
+      app.get('/api/getDiscList', function(req, res){
+        var url = "https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_by_tag.fcg"
+        axios.get(url, {
+           headers: {  //通过node请求QQ接口，发送http请求时，修改referer和host
+             referer: 'https://y.qq.com/',
+             host: 'c.y.qq.com'
+           },
+           params: req.query //把前端传过来的params，全部给QQ的url
+        }).then((response) => {   //成功回调
+           res.json(response.data)   //response是QQ接口返回的，res是我们自己的。所以要把数据输出给浏览器前端
+        }).catch((e) => {
+           console.log(e)
+        })
       })
-      app.get('/api/lyric', (req, res) => {
-        let url = 'https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg'
-        axios
-          .get(url, {
-            headers: {
-              // The request to cheat qq
-              referer: 'https://c.y.qq.com/',
-              host: 'c.y.qq.com'
-            },
-            params: req.query
-          })
-          .then((response) => {
-            let ret = response.data
-            if (typeof ret === 'string') {
-              let reg = /^\w+\(({[^()]+})\)$/
-              let matches = ret.match(reg)
-              if (matches) {
-                ret = JSON.parse(matches[1])
+
+      app.get('/api/music', function(req, res){//获取vkey
+        var url="https://c.y.qq.com/base/fcgi-bin/fcg_music_express_mobile3.fcg"
+
+        axios.get(url, {
+          headers: {  //通过node请求QQ接口，发送http请求时，修改referer和host
+            referer: 'https://y.qq.com/',
+            host: 'c.y.qq.com'
+          },
+          params: req.query //把前端传过来的params，全部给QQ的url
+          }).then((response) => {
+               res.json(response.data)
+          }).catch((e) => {
+               console.log(e)
+        })
+      })
+
+      app.get('/api/lyric', function(req, res){
+        var url="https://szc.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg"
+        axios.get(url, {
+          headers: {  //通过node请求QQ接口，发送http请求时，修改referer和host
+            referer: 'https://y.qq.com/',
+            host: 'c.y.qq.com'
+          },
+          params: req.query //把前端传过来的params，全部给QQ的url
+          }).then((response) => {
+              //  res.json(response.data)
+              //将QQ返回的jsonp文件转换为json格式
+               var ret = response.data
+               if (typeof ret === 'string') {
+                   var reg = /^\w+\(({[^()]+})\)$/
+                   // 以单词a-z，A-Z开头，一个或多个
+                   // \(\)转义括号以（）开头结尾
+                   // （）是用来分组
+                   // 【^()】不以左括号/右括号的字符+多个
+                   // {}大括号也要匹配到
+                   var matches = ret.match(reg)
+                   if (matches) {
+                       ret = JSON.parse(matches[1])
+                       // 对匹配到的分组的内容进行转换
+                   }
               }
-            }
-            res.json(ret)
-          })
-          .catch((e) => {
-            console.log(e)
-          })
+              res.json(ret)
+          }).catch((e) => {
+               console.log(e)
+        })
       })
+
+      app.get('/api/getSongList', function (req, res) {
+        var url = 'https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg'
+        axios.get(url, {
+          headers: {
+            referer: 'https://y.qq.com/',
+            host: 'c.y.qq.com'
+          },
+          params: req.query
+        }).then((response) => {
+          res.json(response.data)
+        }).catch((e) => {
+          console.log(e)
+        })
+      })
+
+      app.get('/api/getSearch', function (req, res) {
+        var url = 'https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp'
+        axios.get(url, {
+          headers: {
+            referer: 'https://c.y.qq.com/',
+            host: 'c.y.qq.com'
+          },
+          params: req.query
+        }).then((response) => {
+          res.json(response.data)
+        }).catch((e) => {
+          console.log(e)
+        })
+      })
+
     },
     clientLogLevel: 'warning',
     historyApiFallback: {

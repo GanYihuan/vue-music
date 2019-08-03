@@ -1,30 +1,22 @@
 <template>
-  <!-- ![music player interface](https://i.loli.net/2019/04/09/5cac16b7d5a91.png) -->
-  <div
-    class="progress-bar"
-    ref="progressBar"
-    @click="progressClick"
-  >
-    <div class="bar-inner">
-      <div class="progress" ref="progress"></div>
-      <div
-        class="progress-btn-wrapper"
-        ref="progressBtn"
-        @touchstart="progressTouchStart"
-        @touchmove="progressTouchMove"
-        @touchend="progressTouchEnd"
-      >
-        <div class="progress-btn"></div>
-      </div>
+    <div class="progress-bar" ref="progressBar" @click="progressClick">
+       <div class="bar-inner">
+           <div class="progress" ref="progress"></div>
+           <div class="progress-btn-wrapper" ref="progressBtn"
+                @touchstart.prevent="progressTouchStart"
+                @touchmove.prevent="progressTouchMove"
+                @touchend="progressTouchEnd">
+                <div class="progress-btn"></div>
+           </div>
+       </div>
     </div>
-  </div>
 </template>
 
-<script type="text/ecmascript-6">
-import { prefixStyle } from 'common/js/dom'
+<script>
+import { prefixStyle } from '@/common/js/dom'
 
-const progressBtnWidth = 16
 const transform = prefixStyle('transform')
+const progressBtnWidth = 16
 
 export default {
   props: {
@@ -38,47 +30,46 @@ export default {
   },
   methods: {
     progressTouchStart(e) {
-      this.touch.init = true
-      this.touch.startX = e.touches[0].pageX // this.touch.startX: finger x-axis distance
-      this.touch.left = this.$refs.progress.clientWidth // The distance the progress bar has traveled, Yellow display
+      this.touch.initiated = true // 标志位 表示初始化
+      this.touch.startX = e.touches[0].pageX // 当前拖动点X轴位置
+      this.touch.left = this.$refs.progress.clientWidth // 当前进度条位置
     },
     progressTouchMove(e) {
-      if (!this.touch.init) {
+      if (!this.touch.initiated) {
         return
       }
-      const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth // The distance that the progress can move = Progress bar length - Progress bar ball width
-      const detailX = e.touches[0].pageX - this.touch.startX // progressbar move distance = current finger x-axis distance - pre finger x-axis distance
-      const offsetWidth = Math.min( // offsetWidth: yellow color, real progress width
-        progressBarWidth,
-        Math.max(0, this.touch.left + detailX)
-      )
+      const barWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
+      const deltaX = e.touches[0].pageX - this.touch.startX // 拖动偏移量
+      const offsetWidth = Math.min(barWidth, Math.max(0, this.touch.left + deltaX))
       this._offset(offsetWidth)
     },
     progressTouchEnd() {
-      this.touch.init = false
+      this.touch.initiated = false
+      this._triggerPercent()
+    },
+    progressClick(e) {
+      const rect = this.$refs.progressBar.getBoundingClientRect()
+      const offsetWidth = e.pageX - rect.left
+      this._offset(offsetWidth)
+      // 点击progressBtn 获取e.offset不对
+      // this._offset(e.offsetX)
       this._triggerPercent()
     },
     _triggerPercent() {
-      const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-      const percent = this.$refs.progress.clientWidth / progressBarWidth // The distance the progress bar has traveled / The distance that the progress can move
+      const barWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
+      const percent = this.$refs.progress.clientWidth / barWidth
       this.$emit('percentChange', percent)
     },
-    progressClick(e) {
-      const rect = this.$refs.progressBar.getBoundingClientRect() // getBoundingClientRect: **static/getBoundingClientRect.png**
-      const offsetWidth = e.pageX - rect.left // offsetWidth: real progress = stop position - rect
-      this._offset(offsetWidth)
-      this._triggerPercent()
-    },
-    _offset(offsetWidth) { // The distance the progress bar has traveled, Yellow display
-      this.$refs.progress.style.width = `${offsetWidth}px`
-      this.$refs.progressBtn.style[transform] = `translate3d(${offsetWidth}px, 0, 0)`
+    _offset(offsetWidth) {
+      this.$refs.progress.style.width = `${offsetWidth}px` // 进度条偏移
+      this.$refs.progressBtn.style[transform] = `translate3d(${offsetWidth}px, 0, 0)` // 小球偏移
     }
   },
   watch: {
     percent(newPercent) {
-      if (newPercent >= 0 && !this.touch.init) { // > !this.touch.init: progress bar drag process cancel
-        const progressBarWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
-        const offsetWidth = progressBarWidth * newPercent
+      if (newPercent >= 0 && !this.touch.initiated) {
+        const barWidth = this.$refs.progressBar.clientWidth - progressBtnWidth
+        const offsetWidth = newPercent * barWidth
         this._offset(offsetWidth)
       }
     }
@@ -86,6 +77,35 @@ export default {
 }
 </script>
 
-<style scoped lang="scss" rel="stylesheet/scss">
-@import './progress-bar.scss';
+<style lang="stylus" scoped>
+  @import "../../common/stylus/variable"
+
+  .progress-bar
+    height: 30px
+    .bar-inner
+      position: relative
+      top: 13px
+      height: 4px
+      background: rgba(0, 0, 0, 0.3)
+      .progress
+        position: absolute
+        height: 100%
+        background: $color-theme
+      .progress-btn-wrapper
+        position: absolute
+        left: -8px
+        top: -13px
+        width: 30px
+        height: 30px
+        .progress-btn
+          position: relative
+          top: 7px
+          left: 7px
+          box-sizing: border-box
+          width: 16px  //按钮宽度16px
+          height: 16px
+          border: 3px solid $color-text
+          border-radius: 50%
+          background: $color-theme
 </style>
+
