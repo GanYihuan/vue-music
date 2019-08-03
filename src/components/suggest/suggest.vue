@@ -1,26 +1,33 @@
 <template>
-    <scroll class="suggest"
-            :data="result"
-            :pullup="pullup"
-            :beforeScroll="beforeScroll"
-            @beforeScroll="listScroll"
-            @scrollToEnd="searchMore"
-            ref="suggest">
-        <ul class="suggest-list">
-            <li class="suggest-item" @click="selectItem(item)" v-for="(item, index) in result" :key="index">
-                <div class="icon">
-                    <i :class="getIconCls(item)"></i>
-                </div>
-                <div class="name">
-                    <p class="text" v-html="getDisplayName(item)"></p>
-                </div>
-            </li>
-            <loading v-show="hasMore" title=""></loading>
-        </ul>
-        <div class="no-result-wrapper" v-show="!hasMore && !result.length">
-            <no-result title="抱歉，暂无搜索结果"></no-result>
+  <scroll
+    class="suggest"
+    :data="result"
+    :pullup="pullup"
+    :beforeScroll="beforeScroll"
+    @beforeScroll="listScroll"
+    @scrollToEnd="searchMore"
+    ref="suggest"
+  >
+    <ul class="suggest-list">
+      <li
+        class="suggest-item"
+        @click="selectItem(item)"
+        v-for="(item, index) in result"
+        :key="index"
+      >
+        <div class="icon">
+          <i :class="getIconCls(item)"></i>
         </div>
-    </scroll>
+        <div class="name">
+          <p class="text" v-html="getDisplayName(item)"></p>
+        </div>
+      </li>
+      <loading v-show="hasMore" title></loading>
+    </ul>
+    <div class="no-result-wrapper" v-show="!hasMore && !result.length">
+      <no-result title="抱歉，暂无搜索结果"></no-result>
+    </div>
+  </scroll>
 </template>
 
 <script>
@@ -71,7 +78,7 @@ export default {
       this.page = 1
       this.$refs.suggest.scrollTo(0, 0) // scroll位置重置到顶部
       this.hasMore = true
-      getSearch(this.query, this.page, this.showSinger, perpage).then((res) => {
+      getSearch(this.query, this.page, this.showSinger, perpage).then(res => {
         // console.log(res.data)
         if (res.code === ERR_OK) {
           this.zhida = res.data.zhida
@@ -87,10 +94,12 @@ export default {
         return
       }
       this.page++
-      getSearch(this.query, this.page, this.showSinger, perpage).then((res) => {
+      getSearch(this.query, this.page, this.showSinger, perpage).then(res => {
         if (res.code === ERR_OK) {
           // 把下一页数据，拼接上原页面数据
-          this.searchSongs = this._normalizeSongs(this.firstList.concat(res.data.song.list))
+          this.searchSongs = this._normalizeSongs(
+            this.firstList.concat(res.data.song.list)
+          )
           this._checkMore(res.data.song)
         }
       })
@@ -161,16 +170,19 @@ export default {
     },
     // 判断标志位的状态
     _checkMore(data) {
-      if (!data.list.length || (data.curnum + data.curpage * perpage) >= data.totalnum) {
+      if (
+        !data.list.length ||
+        data.curnum + data.curpage * perpage >= data.totalnum
+      ) {
         this.hasMore = false
       }
     },
     _normalizeSongs(list) {
       const ret = []
       let pushIndex = 0 // 标志位 判断是否是最后一次push
-      list.forEach((musicData) => {
+      list.forEach(musicData => {
         if (musicData.songid && musicData.albumid) {
-          getMusic(musicData.songmid).then((res) => {
+          getMusic(musicData.songmid).then(res => {
             // console.log(res)
             if (res.code === ERR_OK) {
               // console.log(res.data)
@@ -191,9 +203,7 @@ export default {
     ...mapMutations({
       setSinger: 'SET_SINGER'
     }),
-    ...mapActions([
-      'insertSong'
-    ])
+    ...mapActions(['insertSong'])
   },
   watch: {
     query() {
@@ -212,35 +222,50 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
- @import "../../common/stylus/variable"
- @import "../../common/stylus/mixin"
+@import '../../common/stylus/variable';
+@import '../../common/stylus/mixin';
 
-  .suggest
-    height: 100%
-    overflow: hidden
-    .suggest-list
-      padding: 0 30px
-      .suggest-item
-        display: flex
-        align-items: center
-        padding-bottom: 20px
-      .icon
-        flex: 0 0 30px
-        width: 30px
-        [class^="icon-"]
-          font-size: 14px
-          color: $color-text-d
-      .name
-        flex: 1
-        font-size: $font-size-medium
-        color: $color-text-d
-        overflow: hidden
-        .text
-          no-wrap()
-    .no-result-wrapper
-      position: absolute
-      width: 100%
-      top: 50%
-      transform: translateY(-50%)
+.suggest {
+  height: 100%;
+  overflow: hidden;
+
+  .suggest-list {
+    padding: 0 30px;
+
+    .suggest-item {
+      display: flex;
+      align-items: center;
+      padding-bottom: 20px;
+    }
+
+    .icon {
+      flex: 0 0 30px;
+      width: 30px;
+
+      [class^='icon-'] {
+        font-size: 14px;
+        color: $color-text-d;
+      }
+    }
+
+    .name {
+      flex: 1;
+      font-size: $font-size-medium;
+      color: $color-text-d;
+      overflow: hidden;
+
+      .text {
+        no-wrap();
+      }
+    }
+  }
+
+  .no-result-wrapper {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
 </style>
 

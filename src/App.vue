@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-      <m-header></m-header>
-      <tab></tab>
-      <keep-alive>
-         <router-view></router-view>
-      </keep-alive>
-      <player></player>
+    <m-header></m-header>
+    <tab></tab>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+    <player></player>
   </div>
 </template>
 
@@ -25,9 +25,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-    @import 'common/stylus/variable'
+@import 'common/stylus/variable';
 
-    #app
-       color: $color-theme
+#app {
+  color: $color-theme;
+}
 </style>
 

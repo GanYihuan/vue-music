@@ -1,7 +1,7 @@
 <template>
-    <div ref="wrapper">
-        <slot></slot>
-    </div>
+  <div ref="wrapper">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -42,7 +42,8 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => { // 确保DOM已经渲染
+    setTimeout(() => {
+      // 确保DOM已经渲染
       this._initScroll()
     }, 20)
   },
@@ -58,7 +59,8 @@ export default {
 
       if (this.listenScroll) {
         const me = this // 箭头函数中代理this
-        this.scroll.on('scroll', (pos) => { // 监听scroll事件，拿到pos位置对象：有x和y属性
+        this.scroll.on('scroll', pos => {
+          // 监听scroll事件，拿到pos位置对象：有x和y属性
           me.$emit('scroll', pos)
         })
       }
@@ -66,7 +68,7 @@ export default {
       if (this.pullup) {
         this.scroll.on('scrollEnd', () => {
           // 当滚动距离小于等于最大的滚动条的距离 + 50 的时候，向外传递一个scrollToEnd的事件
-          if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
+          if (this.scroll.y <= this.scroll.maxScrollY + 50) {
             this.$emit('scrollToEnd')
           }
         })
@@ -100,7 +102,8 @@ export default {
     }
   },
   watch: {
-    data() { // 监测data的变化
+    data() {
+      // 监测data的变化
       setTimeout(() => {
         this.refresh()
       }, this.refreshDelay)
@@ -109,6 +112,4 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
-
-</style>
+<style lang="stylus" scoped></style>

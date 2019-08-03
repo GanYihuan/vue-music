@@ -1,8 +1,8 @@
 <template>
-    <transition name="slide">
-        <!-- <div class="top-list">排行榜详情页</div> -->
-        <music-list :title="title" :bg-image="bgImage" :songs="songs" :rank="rank"></music-list>
-    </transition>
+  <transition name="slide">
+    <!-- <div class="top-list">排行榜详情页</div> -->
+    <music-list :title="title" :bg-image="bgImage" :songs="songs" :rank="rank"></music-list>
+  </transition>
 </template>
 
 <script>
@@ -27,9 +27,7 @@ export default {
       }
       return this.topList.picUrl
     },
-    ...mapGetters([
-      'topList'
-    ])
+    ...mapGetters(['topList'])
   },
   data() {
     return {
@@ -46,7 +44,7 @@ export default {
         this.$router.push('/rank')
         return
       }
-      getMusicList(this.topList.id).then((res) => {
+      getMusicList(this.topList.id).then(res => {
         if (res.code === ERR_OK) {
           this.songs = this._normalizeSongs(res.songlist)
           // console.log(res.songlist)
@@ -55,11 +53,11 @@ export default {
     },
     _normalizeSongs(list) {
       const ret = []
-      list.forEach((item) => {
+      list.forEach(item => {
         const musicData = item.data
         // console.log(musicData)
         if (musicData.songid && musicData.albumid) {
-          getMusic(musicData.songmid).then((res) => {
+          getMusic(musicData.songmid).then(res => {
             // console.log(res)
             if (res.code === ERR_OK) {
               // console.log(res.data)
@@ -78,19 +76,24 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-    @import "../../common/stylus/variable"
+@import '../../common/stylus/variable';
 
-    .top-list
-       position: fixed
-       z-index: 100 //子路由将之前的页面层盖住
-       top: 0
-       bottom: 0
-       left: 0
-       right: 0
-       background: $color-background
-    .slide-enter-active, .slide-leave-active
-       transition: all 0.3s
-    .slide-enter, .slide-leave-to
-       transform: translate3d(100%, 0, 0)  //100% 完全移动到屏幕右侧 动画开始后向左滑入
+.top-list {
+  position: fixed;
+  z-index: 100; // 子路由将之前的页面层盖住
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $color-background;
+}
+
+.slide-enter-active, .slide-leave-active {
+  transition: all 0.3s;
+}
+
+.slide-enter, .slide-leave-to {
+  transform: translate3d(100%, 0, 0); // 100% 完全移动到屏幕右侧 动画开始后向左滑入
+}
 </style>
 

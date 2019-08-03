@@ -1,8 +1,8 @@
 <template>
-    <div class="singer" ref="singer">
-        <listview :data="singers" @select="selectSinger" ref="list"></listview>
-        <router-view></router-view>
-    </div>
+  <div class="singer" ref="singer">
+    <listview :data="singers" @select="selectSinger" ref="list"></listview>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
@@ -39,10 +39,10 @@ export default {
       this.$router.push({
         path: `/singer/${singer.id}`
       })
-      this.setSinger(singer)// 实现对mutation的提交，向state写入数据
+      this.setSinger(singer) // 实现对mutation的提交，向state写入数据
     },
     _getSingerList() {
-      getSingerList().then((res) => {
+      getSingerList().then(res => {
         if (res.code === ERR_OK) {
           //  console.log(res.data.list)
           //  this.singers = res.data.list
@@ -60,10 +60,12 @@ export default {
       }
       list.forEach((item, index) => {
         if (index < HOT_SINGER_LEN) {
-          map.hot.items.push(new Singer({
-            id: item.Fsinger_mid,
-            name: item.Fsinger_name
-          }))
+          map.hot.items.push(
+            new Singer({
+              id: item.Fsinger_mid,
+              name: item.Fsinger_name
+            })
+          )
         }
         // 根据Findex作聚类
         const key = item.Findex
@@ -73,10 +75,12 @@ export default {
             items: []
           }
         }
-        map[key].items.push(new Singer({
-          id: item.Fsinger_mid,
-          name: item.Fsinger_name
-        }))
+        map[key].items.push(
+          new Singer({
+            id: item.Fsinger_mid,
+            name: item.Fsinger_name
+          })
+        )
       })
       // console.log(map)
       // 为了得到有序列表，需要处理map
@@ -105,9 +109,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-    .singer
-        position: fixed
-        top: 88px
-        bottom: 0
-        width: 100%
+.singer {
+  position: fixed;
+  top: 88px;
+  bottom: 0;
+  width: 100%;
+}
 </style>
