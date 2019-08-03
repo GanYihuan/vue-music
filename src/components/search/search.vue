@@ -120,11 +120,12 @@ export default {
       this.$refs.searchBox.setQuery(query)
     },
     _getHotKey() {
-      getHotKey().then(res => {
-        if (res.code === ERR_OK) {
-          this.hotKey = res.data.hotkey.slice(0, 10)
-        }
-      })
+      getHotKey()
+        .then(res => {
+          if (res.code === ERR_OK) {
+            this.hotKey = res.data.hotkey.slice(0, 10)
+          }
+        })
     }
   },
   watch: {

@@ -49,11 +49,12 @@ export default {
         this.$router.push('/rank')
         return
       }
-      getMusicList(this.topList.id).then(res => {
-        if (res.code === ERR_OK) {
-          this.songs = this._normalizeSongs(res.songlist)
-        }
-      })
+      getMusicList(this.topList.id)
+        .then(res => {
+          if (res.code === ERR_OK) {
+            this.songs = this._normalizeSongs(res.songlist)
+          }
+        })
     },
     _normalizeSongs(list) {
       const ret = []
