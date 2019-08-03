@@ -57,7 +57,7 @@ export default {
   props: {
     data: {
       type: Array,
-      default: []
+      default: null
     }
   },
   data() {
@@ -81,8 +81,8 @@ export default {
     }
   },
   created() {
-    this.touch = {},
-    this.listenScroll = true,
+    this.touch = {}
+    this.listenScroll = true
     this.listHeight = []
   },
   methods: {

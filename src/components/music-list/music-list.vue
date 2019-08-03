@@ -52,7 +52,7 @@ export default {
     },
     songs: {
       type: Array,
-      default: []
+      default: null
     },
     title: {
       type: String,

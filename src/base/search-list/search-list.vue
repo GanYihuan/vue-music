@@ -16,7 +16,7 @@ export default {
   props: {
     searches: {
       type: Array,
-      default: []
+      default: null
     }
   },
   methods: {

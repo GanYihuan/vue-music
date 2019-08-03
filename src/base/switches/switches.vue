@@ -12,7 +12,7 @@ export default {
   props: {
     switches: {
       type: Array,
-      default: []
+      default: null
     },
     currentIndex: {
       type: Number,
