@@ -68,9 +68,7 @@ export default {
     },
     _offset(offsetWidth) {
       this.$refs.progress.style.width = `${offsetWidth}px` // 进度条偏移
-      this.$refs.progressBtn.style[
-        transform
-      ] = `translate3d(${offsetWidth}px, 0, 0)` // 小球偏移
+      this.$refs.progressBtn.style[transform] = `translate3d(${offsetWidth}px, 0, 0)` // 小球偏移
     }
   },
   watch: {

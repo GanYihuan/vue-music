@@ -216,9 +216,7 @@ export default {
     leave(el, done) {
       this.$refs.cdWrapper.style.transition = 'all 0.4s'
       const { x, y, scale } = this._getPosAndScale()
-      this.$refs.cdWrapper.style[
-        transform
-      ] = `translate3d(${x}px, ${y}px, 0) scale(${scale})`
+      this.$refs.cdWrapper.style[transform] = `translate3d(${x}px, ${y}px, 0) scale(${scale})`
       this.$refs.cdWrapper.addEventListener('transitionend', done)
     },
     afterLeave() {
@@ -364,9 +362,7 @@ export default {
       this.touch.percent = Math.abs(offsetWidth / window.innerWidth)
 
       // 滑入歌词offsetWidth = 0 + deltaX(负值)  歌词滑出offsetWidth = -innerWidth + delta(正值)
-      this.$refs.lyricList.$el.style[
-        transform
-      ] = `translate3d(${offsetWidth}px, 0, 0)`
+      this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px, 0, 0)`
       this.$refs.lyricList.$el.style[transitionDuration] = 0
       this.$refs.middleL.style.opacity = 1 - this.touch.percent // 透明度随percent改变
       this.$refs.middleL.style[transitionDuration] = 0
@@ -395,9 +391,7 @@ export default {
         }
       }
       const time = 300
-      this.$refs.lyricList.$el.style[
-        transform
-      ] = `translate3d(${offsetWidth}px, 0, 0)`
+      this.$refs.lyricList.$el.style[transform] = `translate3d(${offsetWidth}px, 0, 0)`
       this.$refs.lyricList.$el.style[transitionDuration] = `${time}ms`
       this.$refs.middleL.style.opacity = opacity
       this.$refs.middleL.style[transitionDuration] = `${time}ms`
