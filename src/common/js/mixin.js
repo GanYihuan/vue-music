@@ -102,7 +102,7 @@ export const playerMixin = {
 
 /*
 search.vue
-add-song.vue
+add-song.vuedeleteSearchHistory
 */
 export const searchMixin = {
   data() {

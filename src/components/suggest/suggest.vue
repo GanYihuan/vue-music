@@ -82,13 +82,13 @@ export default {
       this.page = 1
       this.hasMore = true
       this.$refs.suggest.scrollTo(0, 0)
-      search(this.query, this.page, this.showSinger, perpage).then(res => {
-        if (res.code === ERR_OK) {
-          // console.log(res.data, '--------') bug! Cannot read property 'zhida' of undefined
-          this.result = this._genResult(res.data)
-          this._checkMore(res.data)
-        }
-      })
+      search(this.query, this.page, this.showSinger, perpage)
+        .then(res => {
+          if (res.code === ERR_OK) {
+            this.result = this._genResult(res.data)
+            this._checkMore(res.data)
+          }
+        })
     },
     _genResult(data) {
       let ret = []
