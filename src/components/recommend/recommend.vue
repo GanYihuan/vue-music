@@ -1,14 +1,14 @@
 <template>
   <!-- ![recommend interface](https://i.loli.net/2019/04/06/5ca861da160ba.png) -->
   <div class="recommend" ref="recommend">
-    <!-- :data="discList": make sure dom render in page -->
+    <!-- :data="discList" -> make sure dom render in page -->
     <scroll
       class="recommend-content"
       ref="scroll"
       :data="discList"
     >
       <div>
-        <!-- v-if="recommends.length": make sure dom render in page -->
+        <!-- v-if="recommends.length" -> make sure dom render in page -->
         <div
           class="slider-wrapper"
           ref="sliderWrapper"
@@ -17,8 +17,8 @@
           <slider>
             <div v-for="item in recommends" :key="item.id">
               <a :href="item.linkUrl">
-                <!-- class="needsclick" fastclick Don't block the click process -->
-                <!-- @load="loadImage" carousel render too late cause height wrong -->
+                <!-- class="needsclick" -> fastclick Don't block the click process -->
+                <!-- @load="loadImage" -> carousel render too late cause height wrong -->
                 <img class="needsclick" :src="item.picUrl" @load="loadImage"/>
               </a>
             </div>
@@ -34,7 +34,7 @@
               @click="selectItem(item)"
             >
               <div class="icon">
-                <!-- v-lazy: when scroll then load -->
+                <!-- v-lazy -> when scroll then load -->
                 <img width="60" height="60" v-lazy="item.imgurl"/>
               </div>
               <div class="text">
