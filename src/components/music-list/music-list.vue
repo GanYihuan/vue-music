@@ -104,7 +104,6 @@ export default {
     handlePlaylist(playlist) {
       const bottom = playlist.length > 0 ? '60px' : ''
       this.$refs.list.$el.style.bottom = bottom
-      // console.log(this.$refs.list, '-----------')
       this.$refs.list.refresh()
     },
     scroll(pos) {
@@ -116,7 +115,7 @@ export default {
     selectItem(item, index) {
       this.selectPlay({
         list: this.songs,
-        index
+        index: index
       })
     },
     random() {
