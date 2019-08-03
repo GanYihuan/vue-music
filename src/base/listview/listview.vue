@@ -137,7 +137,7 @@ export default {
         index = this.listHeight.length - 2
       }
       this.scrollY = -this.listHeight[index]
-      this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0) // scrollToElement: element, animate time
+      this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0) // scrollToElement() -> dom, animate time
     },
     _calculateHeight() {
       let height = 0
