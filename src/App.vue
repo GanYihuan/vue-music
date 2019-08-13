@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-13 17:39:43
+ -->
 <template>
   <div id="app">
     <m-header></m-header>

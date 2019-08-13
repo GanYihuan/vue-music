@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-13 19:13:43
+ -->
 <template>
   <div class="recommend" ref="recommend">
     <scroll ref="scroll" class="recommend-content" :data="discList">
@@ -40,13 +48,13 @@
 </template>
 
 <script>
-import Scroll from '@/base/scroll/scroll'
+import { mapMutations } from 'vuex'
 import { getRecommend, getDiscList } from '@/api/recommend'
 import { ERR_OK } from '@/api/config'
+import { playlistMixin } from '@/common/js/mixin'
+import Scroll from '@/base/scroll/scroll'
 import Slider from '@/base/slider/slider'
 import Loading from '@/base/loading/loading'
-import { playlistMixin } from '@/common/js/mixin'
-import { mapMutations } from 'vuex'
 
 export default {
   mixins: [playlistMixin],
@@ -66,10 +74,13 @@ export default {
     this._getDiscList()
   },
   methods: {
+    ...mapMutations({
+      setDisc: 'SET_DISC'
+    }),
     handlePlaylist(playlist) {
       const bottom = playlist.length > 0 ? '60px' : ''
       this.$refs.recommend.style.bottom = bottom // 底部播放器适配
-      this.$refs.scroll.refresh() // 强制scroll重新计算
+      this.$refs.scroll.refresh() // 强制 scroll 重新计算
     },
     loadImage() {
       if (!this.checkloaded) {
@@ -86,7 +97,6 @@ export default {
     _getRecommend() {
       getRecommend().then(res => {
         if (res.code === ERR_OK) {
-          // console.log(res.data.slider)
           this.recommends = res.data.slider
         }
       })
@@ -94,14 +104,10 @@ export default {
     _getDiscList() {
       getDiscList().then(res => {
         if (res.code === ERR_OK) {
-          // console.log(res.data.list)
           this.discList = res.data.list
         }
       })
-    },
-    ...mapMutations({
-      setDisc: 'SET_DISC'
-    })
+    }
   }
 }
 </script>

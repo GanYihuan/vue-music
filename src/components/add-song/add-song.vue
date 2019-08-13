@@ -110,7 +110,7 @@ export default {
     },
     selectSong(song, index) {
       if (index !== 0) {
-        // 从playHistory中获取到的song还是一个对象，需要实例化为Song类
+        // 从playHistory中获取到的song还是一个对象，需要实例化为 Song 类
         this.insertSong(new Song(song))
         this.showTip()
       }
