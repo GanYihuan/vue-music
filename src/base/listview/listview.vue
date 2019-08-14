@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 09:55:52
+ -->
 <template>
   <scroll
     class="listview"
@@ -75,8 +83,7 @@ export default {
   },
   computed: {
     shortcutList() {
-      // 得到title的集合数组，‘热门’取1个字
-      return this.data.map(group => {
+      return this.data.map(group => { // 得到title的集合数组，‘热门’取1个字
         return group.title.substr(0, 1)
       })
     },
@@ -110,7 +117,6 @@ export default {
       this.touch.y2 = firstTouch.pageY
       const delta = ((this.touch.y2 - this.touch.y1) / ANCHOR_HEIGHT) | 0 // 获取列表项差值，| 0 向下取整
       const anchorIndex = parseInt(this.touch.anchorIndex) + delta
-      // console.log(anchorIndex)
       this._scrollTo(anchorIndex)
     },
     refresh() {
@@ -165,7 +171,6 @@ export default {
         if (-newY >= height1 && -newY < height2) {
           this.currentIndex = i
           this.diff = height2 + newY // 得到fixed title上边界距顶部的偏移距离
-          //  console.log(this.currentIndex)
           return
         }
       }

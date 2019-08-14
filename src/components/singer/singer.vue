@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 09:54:27
+ -->
 <template>
   <div class="singer" ref="singer">
     <listview :data="singers" @select="selectSinger" ref="list"></listview>
@@ -6,12 +14,12 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import { getSingerList } from '@/api/singer'
 import { ERR_OK } from '@/api/config'
+import { playlistMixin } from '@/common/js/mixin'
 import Singer from '@/common/js/singer'
 import Listview from '@/base/listview/listview'
-import { mapMutations } from 'vuex'
-import { playlistMixin } from '@/common/js/mixin'
 
 const HOT_NAME = '热门'
 const HOT_SINGER_LEN = 10
@@ -30,6 +38,9 @@ export default {
     this._getSingerList()
   },
   methods: {
+    ...mapMutations({
+      setSinger: 'SET_SINGER'
+    }),
     handlePlaylist(playlist) {
       const bottom = playlist.length > 0 ? '60px' : ''
       this.$refs.singer.style.bottom = bottom // 底部播放器适配
@@ -44,9 +55,6 @@ export default {
     _getSingerList() {
       getSingerList().then(res => {
         if (res.code === ERR_OK) {
-          //  console.log(res.data.list)
-          //  this.singers = res.data.list
-          //  console.log(this._normalizeSinger(this.singers))
           this.singers = this._normalizeSinger(res.data.list)
         }
       })
@@ -67,7 +75,6 @@ export default {
             })
           )
         }
-        // 根据Findex作聚类
         const key = item.Findex
         if (!map[key]) {
           map[key] = {
@@ -82,8 +89,6 @@ export default {
           })
         )
       })
-      // console.log(map)
-      // 为了得到有序列表，需要处理map
       const hot = []
       const ret = []
       for (const key in map) {
@@ -94,16 +99,11 @@ export default {
           hot.push(val)
         }
       }
-      // 为ret数组进行A-Z排序
-      ret.sort((a, b) => {
+      ret.sort((a, b) => { // 为ret数组进行A-Z排序
         return a.title.charCodeAt(0) - b.title.charCodeAt(0)
       })
-
       return hot.concat(ret)
-    },
-    ...mapMutations({
-      setSinger: 'SET_SINGER' // 把mutation的修改映射为一个方法名setSinger
-    })
+    }
   }
 }
 </script>
