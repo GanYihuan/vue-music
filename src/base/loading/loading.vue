@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 11:25:10
+ -->
 <template>
   <div class="loading">
     <img width="24" height="24" src="./loading.gif" />

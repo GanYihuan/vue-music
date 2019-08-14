@@ -1,3 +1,11 @@
+<!--
+ * @Description: 排行
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 11:27:58
+ -->
 <template>
   <div class="rank" ref="rank">
     <scroll class="toplist" :data="topList" ref="toplist">
@@ -23,12 +31,12 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import { getTopList } from '@/api/rank'
 import { ERR_OK } from '@/api/config'
+import { playlistMixin } from '@/common/js/mixin'
 import Scroll from '@/base/scroll/scroll'
 import Loading from '@/base/loading/loading'
-import { playlistMixin } from '@/common/js/mixin'
-import { mapMutations } from 'vuex'
 
 export default {
   mixins: [playlistMixin],
@@ -59,7 +67,6 @@ export default {
     _getTopList() {
       getTopList().then(res => {
         if (res.code === ERR_OK) {
-          // console.log(res.data.topList)
           this.topList = res.data.topList
         }
       })
