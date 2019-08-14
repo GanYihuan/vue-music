@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 11:49:24
+ -->
 <template>
   <div class="search">
     <div class="search-box-wrapper">
@@ -40,14 +48,14 @@
 </template>
 
 <script>
-import SearchBox from '@/base/search-box/search-box'
+import { mapActions } from 'vuex'
 import { getHotKey } from '@/api/search'
 import { ERR_OK } from '@/api/config'
-import Suggest from '@/components/suggest/suggest'
-import { mapActions } from 'vuex'
-import SearchList from '@/base/search-list/search-list'
-import Scroll from '@/base/scroll/scroll'
 import { playlistMixin, searchMixin } from '@/common/js/mixin'
+import SearchBox from '@/base/search-box/search-box'
+import SearchList from '@/base/search-list/search-list'
+import Suggest from '@/components/suggest/suggest'
+import Scroll from '@/base/scroll/scroll'
 import Confirm from '@/base/confirm/confirm'
 
 export default {
@@ -81,16 +89,12 @@ export default {
       this.$refs.searchResult.style.bottom = bottom
       this.$refs.suggest.refresh()
     },
-    //  deleteAll() {
-    //      this.clearSearchHistory()
-    //  },
     showConfirm() {
       this.$refs.confirm.show()
     },
     _getHotKey() {
       getHotKey().then(res => {
         if (res.code === ERR_OK) {
-          // console.log(res.data.hotkey)
           this.hotKey = res.data.hotkey.slice(0, 10)
         }
       })

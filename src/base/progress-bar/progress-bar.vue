@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 12:29:09
+ -->
 <template>
   <div class="progress-bar" ref="progressBar" @click="progressClick">
     <div class="bar-inner">
@@ -57,8 +65,6 @@ export default {
       const rect = this.$refs.progressBar.getBoundingClientRect()
       const offsetWidth = e.pageX - rect.left
       this._offset(offsetWidth)
-      // 点击progressBtn 获取e.offset不对
-      // this._offset(e.offsetX)
       this._triggerPercent()
     },
     _triggerPercent() {

@@ -1,10 +1,10 @@
 <!--
- * @Description:
+ * @Description: 歌手
  * @version:
  * @Author: GanEhank
  * @Date: 2019-08-04 02:31:14
  * @LastEditors: GanEhank
- * @LastEditTime: 2019-08-14 09:55:52
+ * @LastEditTime: 2019-08-14 16:39:56
  -->
 <template>
   <scroll
@@ -56,8 +56,8 @@
 </template>
 
 <script>
-import Scroll from '@/base/scroll/scroll'
 import { getData } from '@/common/js/dom'
+import Scroll from '@/base/scroll/scroll'
 import Loading from '@/base/loading/loading'
 
 const ANCHOR_HEIGHT = 18 // 通过样式设置计算得到
@@ -134,10 +134,8 @@ export default {
       } else if (index > this.listHeight.length - 2) {
         index = this.listHeight.length - 2
       }
-      // 点击时，手动得到元素上限height位置，改变scrollY, 使点击项高亮
-      this.scrollY = -this.listHeight[index]
-      // 第二个参数表示：要不要滚动动画缓动时间; 0 瞬间滚动
-      this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0) // 列表滚动定位
+      this.scrollY = -this.listHeight[index] // 点击时，手动得到元素上限height位置，改变scrollY, 使点击项高亮
+      this.$refs.listview.scrollToElement(this.$refs.listGroup[index], 0) // 列表滚动定位 第二个参数表示：要不要滚动动画缓动时间; 0 瞬间滚动
     },
     _calculateHeight() {
       this.listHight = [] // 每次重新计算每个group高度时，恢复初始值
@@ -159,13 +157,11 @@ export default {
     },
     scrollY(newY) {
       const listHeight = this.listHeight
-      // 当滚动到顶部，newY>0
-      if (newY > 0) {
+      if (newY > 0) { // 当滚动到顶部，newY>0
         this.currentIndex = 0
         return
       }
-      // 在中间部分滚动，遍历到最后一个元素，保证一定有下限，listHeight中的height比元素多一个
-      for (let i = 0; i < listHeight.length - 1; i++) {
+      for (let i = 0; i < listHeight.length - 1; i++) { // 在中间部分滚动，遍历到最后一个元素，保证一定有下限，listHeight中的height比元素多一个
         const height1 = listHeight[i]
         const height2 = listHeight[i + 1]
         if (-newY >= height1 && -newY < height2) {

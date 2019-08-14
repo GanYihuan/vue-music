@@ -1,17 +1,24 @@
+<!--
+ * @Description: 排行榜详情页
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 12:19:11
+ -->
 <template>
   <transition name="slide">
-    <!-- <div class="top-list">排行榜详情页</div> -->
     <music-list :title="title" :bg-image="bgImage" :songs="songs" :rank="rank"></music-list>
   </transition>
 </template>
 
 <script>
-import MusicList from '@/components/music-list/music-list'
 import { mapGetters } from 'vuex'
 import { getMusicList } from '@/api/rank'
 import { ERR_OK } from '@/api/config'
 import { getMusic } from '@/api/singer'
 import { createSong } from '@/common/js/song'
+import MusicList from '@/components/music-list/music-list'
 
 export default {
   components: {
@@ -47,7 +54,6 @@ export default {
       getMusicList(this.topList.id).then(res => {
         if (res.code === ERR_OK) {
           this.songs = this._normalizeSongs(res.songlist)
-          // console.log(res.songlist)
         }
       })
     },
@@ -55,12 +61,9 @@ export default {
       const ret = []
       list.forEach(item => {
         const musicData = item.data
-        // console.log(musicData)
         if (musicData.songid && musicData.albumid) {
           getMusic(musicData.songmid).then(res => {
-            // console.log(res)
             if (res.code === ERR_OK) {
-              // console.log(res.data)
               const svkey = res.data.items
               const songVkey = svkey[0].vkey
               const newSong = createSong(musicData, songVkey)

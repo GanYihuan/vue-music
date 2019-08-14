@@ -1,6 +1,13 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 12:14:46
+ -->
 <template>
   <transition name="slide">
-    <!-- <div class="singer-detail"></div> -->
     <music-list :songs="songs" :title="title" :bg-image="bgImage"></music-list>
   </transition>
 </template>
@@ -31,37 +38,27 @@ export default {
     ...mapGetters(['singer'])
   },
   created() {
-    //  console.log(this.singer)
     this._getDetail()
   },
   methods: {
     _getDetail() {
       if (!this.singer.id) {
-        // 在歌手详情页强制刷新后，即没有获得id时，回退到歌手页面
         this.$router.push('/singer')
         return
       }
       getSingerDetail(this.singer.id).then(res => {
         if (res.code === ERR_OK) {
-          // console.log(res.data.list)
           this.songs = this._normallizeSongs(res.data.list)
-          // console.log(this.songs)
         }
       })
-      // console.log(getSingerDetail(this.singer.id))
     },
     _normallizeSongs(list) {
       const ret = [] // 返回值
       list.forEach(item => {
         const { musicData } = item // 得到music对象
-        // console.log(musicData)
-        // createSong必传两个参数
         if (musicData.songid && musicData.albummid) {
-          // console.log(getMusic(musicData.songmid))
           getMusic(musicData.songmid).then(res => {
-            // console.log(res)
             if (res.code === ERR_OK) {
-              // console.log(res.data)
               const svkey = res.data.items
               const songVkey = svkey[0].vkey
               const newSong = createSong(musicData, songVkey)
@@ -70,7 +67,6 @@ export default {
           })
         }
       })
-      // console.log(ret)
       return ret
     }
   }

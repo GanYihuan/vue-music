@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 17:15:48
+ -->
 <template>
   <scroll
     class="suggest"
@@ -31,15 +39,14 @@
 </template>
 
 <script>
+import { mapMutations, mapActions } from 'vuex'
 import { getSearch } from '@/api/search'
 import { ERR_OK } from '@/api/config'
-// import {filterSinger} from '@/common/js/song'
 import { getMusic } from '@/api/singer'
 import { createSong } from '@/common/js/song'
+import Singer from '@/common/js/singer'
 import Scroll from '@/base/scroll/scroll'
 import Loading from '@/base/loading/loading'
-import Singer from '@/common/js/singer'
-import { mapMutations, mapActions } from 'vuex'
 import NoResult from '@/base/no-result/no-result'
 
 const TYPE_SINGER = 'singer'
@@ -79,12 +86,10 @@ export default {
       this.$refs.suggest.scrollTo(0, 0) // scroll位置重置到顶部
       this.hasMore = true
       getSearch(this.query, this.page, this.showSinger, perpage).then(res => {
-        // console.log(res.data)
         if (res.code === ERR_OK) {
           this.zhida = res.data.zhida
           this.firstList = res.data.song.list
           this.searchSongs = this._normalizeSongs(res.data.song.list)
-          // this.result = this._genResult(this.zhida, this.searchSongs)
           this._checkMore(res.data.song)
         }
       })
@@ -96,8 +101,7 @@ export default {
       this.page++
       getSearch(this.query, this.page, this.showSinger, perpage).then(res => {
         if (res.code === ERR_OK) {
-          // 把下一页数据，拼接上原页面数据
-          this.searchSongs = this._normalizeSongs(
+          this.searchSongs = this._normalizeSongs( // 把下一页数据，拼接上原页面数据
             this.firstList.concat(res.data.song.list)
           )
           this._checkMore(res.data.song)
@@ -155,8 +159,7 @@ export default {
     //    },
     _genResult(data, newValue) {
       let ret = []
-      // push歌手进空数组
-      if (data.singerid) {
+      if (data.singerid) { // push歌手进空数组
         // 使用es6对象扩展运算符...把两个对象添加到一个对象上
         /* eslint-disable standard/object-curly-even-spacing */
         ret.push({ ...this.zhida, ...{ type: TYPE_SINGER }})
@@ -166,10 +169,8 @@ export default {
         ret = ret.concat(newValue)
       }
       this.result = ret
-      // console.log(this.result)
     },
-    // 判断标志位的状态
-    _checkMore(data) {
+    _checkMore(data) { // 判断标志位的状态
       if (
         !data.list.length ||
         data.curnum + data.curpage * perpage >= data.totalnum
@@ -183,19 +184,15 @@ export default {
       list.forEach(musicData => {
         if (musicData.songid && musicData.albumid) {
           getMusic(musicData.songmid).then(res => {
-            // console.log(res)
             if (res.code === ERR_OK) {
-              // console.log(res.data)
               const svkey = res.data.items
               const songVkey = svkey[0].vkey
               const newSong = createSong(musicData, songVkey)
               ret.push(newSong)
-              // 把歌曲源数据push后判断是否异步完成
               pushIndex++
               this.pushOver = list.length === pushIndex
             }
           })
-          // ret.push(createSong(musicData, songVkey))
         }
       })
       return ret
@@ -209,11 +206,8 @@ export default {
     query() {
       this.search()
     },
-    // 监听异步问题，对数据无法操作，把值赋值出来
-    searchSongs(newValue) {
-      // console.log(this.pushOver)
-      // 判断异步完成后去合并已存在的数组和singer
-      if (this.pushOver) {
+    searchSongs(newValue) { // 监听异步问题，对数据无法操作，把值赋值出来
+      if (this.pushOver) { // 判断异步完成后去合并已存在的数组和singer
         this._genResult(this.zhida, newValue)
       }
     }

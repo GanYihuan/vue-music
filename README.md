@@ -4,7 +4,7 @@
  * @Author: GanEhank
  * @Date: 2019-08-04 01:20:42
  * @LastEditors: GanEhank
- * @LastEditTime: 2019-08-14 11:23:33
+ * @LastEditTime: 2019-08-14 12:11:21
  -->
 
 # vue-music
@@ -34,3 +34,4 @@
 recommend
 dis -> music-list -> song-list
 rank
+search -> search-box

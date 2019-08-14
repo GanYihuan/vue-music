@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 12:25:43
+ -->
 <template>
   <div class="player" v-show="playlist.length">
     <transition
@@ -457,11 +465,9 @@ export default {
       // 确保DOM已存在 不使用this.$nextTick，保证手机微信中从后台切回前台时歌曲重新播放
       setTimeout(() => {
         this.$refs.audio.play()
-        //  this.currentSong.getLyric()//测试歌词
         this.getLyric()
       }, 1000)
     },
-
     playing(newPlaying) {
       const audio = this.$refs.audio
       this.$nextTick(() => {

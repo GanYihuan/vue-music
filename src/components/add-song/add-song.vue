@@ -4,7 +4,7 @@
  * @Author: GanEhank
  * @Date: 2019-08-04 02:31:14
  * @LastEditors: GanEhank
- * @LastEditTime: 2019-08-14 10:36:17
+ * @LastEditTime: 2019-08-14 16:58:17
  -->
 <template>
   <transition name="slide">
@@ -62,16 +62,16 @@
 </template>
 
 <script>
-import SearchBox from '@/base/search-box/search-box'
-import Suggest from '@/components/suggest/suggest'
+import { mapGetters, mapActions } from 'vuex'
 import { searchMixin } from '@/common/js/mixin'
+import Song from '@/common/js/song'
+import SearchBox from '@/base/search-box/search-box'
 import Switches from '@/base/switches/switches'
 import Scroll from '@/base/scroll/scroll'
-import { mapGetters, mapActions } from 'vuex'
 import SongList from '@/base/song-list/song-list'
-import Song from '@/common/js/song'
 import SearchList from '@/base/search-list/search-list'
 import TopTip from '@/base/top-tip/top-tip'
+import Suggest from '@/components/suggest/suggest'
 
 export default {
   mixins: [searchMixin],
@@ -118,8 +118,7 @@ export default {
     },
     selectSong(song, index) {
       if (index !== 0) {
-        // 从playHistory中获取到的song还是一个对象，需要实例化为 Song 类
-        this.insertSong(new Song(song))
+        this.insertSong(new Song(song)) // 从playHistory中获取到的song还是一个对象，需要实例化为 Song 类
         this.showTip()
       }
     },

@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 16:49:59
+ -->
 <template>
   <div class="progress-circle">
     <!-- viewBox 视口位置 与半径、宽高相关 stroke-dasharray 描边虚线 周长2πr stroke-dashoffset 描边偏移 未描边部分-->
