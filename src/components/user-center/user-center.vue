@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 11:02:24
+ -->
 <template>
   <transition name="slide">
     <div class="user-center">
@@ -31,13 +39,13 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+import { playlistMixin } from '@/common/js/mixin'
+import Song from '@/common/js/song'
 import Switches from '@/base/switches/switches'
 import Scroll from '@/base/scroll/scroll'
 import SongList from '@/base/song-list/song-list'
 import NoResult from '@/base/no-result/no-result'
-import { mapGetters, mapActions } from 'vuex'
-import Song from '@/common/js/song'
-import { playlistMixin } from '@/common/js/mixin'
 
 export default {
   mixins: [playlistMixin],
@@ -74,8 +82,7 @@ export default {
     handlePlaylist(playlist) {
       const bottom = playlist.length > 0 ? '60px' : ''
       this.$refs.listWrapper.style.bottom = bottom
-      // 判断列表DOM存在后再执行refresh
-      this.$refs.favoriteList && this.$refs.favoriteList.refresh()
+      this.$refs.favoriteList && this.$refs.favoriteList.refresh() // 判断列表DOM存在后再执行refresh
       this.$refs.playList && this.$refs.playList.refresh()
     },
     switchItem(index) {
@@ -92,8 +99,7 @@ export default {
       if (list.length === 0) {
         return
       }
-      // 这时list还不是实例，需要遍历list进行实例化
-      list = list.map(song => {
+      list = list.map(song => { // 这时list还不是实例，需要遍历list进行实例化
         return new Song(song)
       })
       this.randomPlay({
