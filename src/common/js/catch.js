@@ -1,23 +1,16 @@
 /*
- * @Description:
+ * @Description: Storage相关
  * @version:
  * @Author: GanEhank
  * @Date: 2019-08-04 02:31:14
  * @LastEditors: GanEhank
- * @LastEditTime: 2019-08-13 18:14:11
+ * @LastEditTime: 2019-08-14 17:36:35
  */
-/**
- * Storage相关
- */
-
 import storage from 'good-storage'
-
 const SEARCH_KEY = '_search_' // 双下划线标识内部key, 避免与外部key冲突
 const SEARCH_MAX_LENGTH = 15 // 搜索历史最多存入数组15个
-
 const PLAY_KEY = '_play_'
 const PLAY_MAX_LENGTH = 200
-
 const FAVORITE_KEY = '_favorite_'
 const FAVORITE_MAX_LENGTH = 200
 
@@ -47,22 +40,18 @@ function deleteFromArray(arr, compare) {
 // 插入最新搜索历史到本地缓存，同时返回新的搜索历史数组
 export function saveSearch(query) {
   const searches = storage.get(SEARCH_KEY, []) // 如果已有历史就get缓存中的数组，没有就空数组
-
   insertArray(searches, query, (item) => { // 对传入的项与已有数组进行操作
     return item === query
   }, SEARCH_MAX_LENGTH)
-
   storage.set(SEARCH_KEY, searches) // 把操作过后的数组set进缓存，直接替换掉原历史
   return searches
 }
 
 export function deleteSearch(query) {
   const searches = storage.get(SEARCH_KEY, [])
-
   deleteFromArray(searches, (item) => {
     return item === query
   })
-
   storage.set(SEARCH_KEY, searches)
   return searches
 }
