@@ -1,3 +1,12 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 01:20:42
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 10:49:40
+ -->
+
 # vue-music
 
 ## data
@@ -19,3 +28,8 @@
 ## Content outline
 
 ![Content outline](https://i.loli.net/2019/01/12/5c39f01b7e72b.jpeg)
+
+## page
+
+recommend
+dis -> music-list -> song-list

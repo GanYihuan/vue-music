@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 10:39:04
+ -->
 <template>
   <div class="music-list">
     <div class="back" @click="back">
@@ -33,12 +41,12 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+import { prefixStyle } from '@/common/js/dom'
+import { playlistMixin } from '@/common/js/mixin'
 import Scroll from '@/base/scroll/scroll'
 import SongList from '@/base/song-list/song-list'
-import { prefixStyle } from '@/common/js/dom'
 import Loading from '@/base/loading/loading'
-import { mapActions } from 'vuex'
-import { playlistMixin } from '@/common/js/mixin'
 
 const RESERVED_HEIGHT = 40 // 顶部以下偏移常量
 const transform = prefixStyle('transform')
@@ -84,12 +92,9 @@ export default {
     this.listenScroll = true
   },
   mounted() {
-    // 记录imageHeight，计算最远滚动位置，不超过minTranslateY
-    this.imageHeight = this.$refs.bgImage.clientHeight
+    this.imageHeight = this.$refs.bgImage.clientHeight // 记录imageHeight，计算最远滚动位置，不超过minTranslateY
     this.minTranslateY = -this.imageHeight + RESERVED_HEIGHT
-
-    // 根据当前加载好的bgImage的高度，设置list的top值
-    this.$refs.list.$el.style.top = `${this.$refs.bgImage.clientHeight}px`
+    this.$refs.list.$el.style.top = `${this.$refs.bgImage.clientHeight}px` // 根据当前加载好的bgImage的高度，设置list的top值
   },
   methods: {
     handlePlaylist(playlist) {
@@ -118,12 +123,9 @@ export default {
   },
   watch: {
     scrollY(newY) {
-      // 设置最大滚动量，限制bg-layer滚动
-      const translateY = Math.max(this.minTranslateY, newY)
+      const translateY = Math.max(this.minTranslateY, newY) // 设置最大滚动量，限制bg-layer滚动, 不小于 this.minTranslateY
       this.$refs.layer.style[transform] = `translate3d(0, ${translateY}px, 0)`
-
-      // 滚动到顶部时，图片遮住文字
-      let zIndex = 0
+      let zIndex = 0 // 滚动到顶部时，图片遮住文字
       if (newY < this.minTranslateY) {
         zIndex = 10
         this.$refs.bgImage.style.paddingTop = 0
@@ -134,7 +136,6 @@ export default {
         this.$refs.bgImage.style.height = 0
         this.$refs.playBtn.style.display = ''
       }
-
       // 列表从初始位置下拉后，图片放大缩小效果
       // 列表滚动到顶部时，（iphone手机中）图片有一个高斯模糊的变化
       let scale = 1
@@ -148,7 +149,6 @@ export default {
       }
       this.$refs.bgImage.style[transform] = `scale(${scale})`
       this.$refs.filter.style[backdrop] = `blur(${blur}px)`
-
       this.$refs.bgImage.style.zIndex = zIndex
     }
   }

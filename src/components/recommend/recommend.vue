@@ -1,10 +1,10 @@
 <!--
- * @Description:
+ * @Description: 热门歌单推荐
  * @version:
  * @Author: GanEhank
  * @Date: 2019-08-04 02:31:14
  * @LastEditors: GanEhank
- * @LastEditTime: 2019-08-14 08:47:58
+ * @LastEditTime: 2019-08-14 10:12:08
  -->
 <template>
   <div class="recommend" ref="recommend">

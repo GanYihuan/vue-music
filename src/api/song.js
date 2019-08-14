@@ -4,10 +4,10 @@
  * @Author: GanEhank
  * @Date: 2019-08-04 02:31:14
  * @LastEditors: GanEhank
- * @LastEditTime: 2019-08-13 19:07:58
+ * @LastEditTime: 2019-08-14 10:17:51
  */
-import { commonParams } from './config'
 import axios from 'axios'
+import { commonParams } from './config'
 
 export function getLyric(mid) {
   const url = '/api/lyric'

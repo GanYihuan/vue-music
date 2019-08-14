@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 10:36:17
+ -->
 <template>
   <transition name="slide">
     <div class="add-song" v-show="showFlag" @click.stop>
