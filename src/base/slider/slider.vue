@@ -1,3 +1,11 @@
+<!--
+ * @Description:
+ * @version:
+ * @Author: GanEhank
+ * @Date: 2019-08-04 02:31:14
+ * @LastEditors: GanEhank
+ * @LastEditTime: 2019-08-14 09:05:44
+ -->
 <template>
   <div class="slider" ref="slider">
     <div class="slider-group" ref="sliderGroup">
@@ -62,27 +70,20 @@ export default {
   methods: {
     _setSliderWidth(isResize) {
       this.children = this.$refs.sliderGroup.children
-      // console.log(this.children.length)
-
       let width = 0
       const sliderWidth = this.$refs.slider.clientWidth
       for (let i = 0; i < this.children.length; i++) {
         const child = this.children[i]
         addClass(child, 'slider-item')
-
-        child.style.width = sliderWidth + 'px' // 不要忘记加单位！
+        child.style.width = sliderWidth + 'px'
         width += sliderWidth
       }
-
       if (this.loop && !isResize) {
-        // 如果loop为true,BScroll的snap属性会左右克隆两个DOM，保证循环切换
-        width += 2 * sliderWidth
+        width += 2 * sliderWidth // 如果loop为true,BScroll的snap属性会左右克隆两个DOM，保证循环切换
       }
-
-      this.$refs.sliderGroup.style.width = width + 'px' // 不要忘记加单位!
+      this.$refs.sliderGroup.style.width = width + 'px'
     },
     _initDots() {
-      // console.log(this.children.length)
       this.dots = new Array(this.children.length)
     },
     _initSlider() {
@@ -95,7 +96,6 @@ export default {
         snapThreshold: 0.3,
         snapSpeed: 400
       })
-
       this.slider.on('scrollEnd', () => {
         // 每次切换到下一张之后，会派发一个scrollEnd事件
         let pageIndex = this.slider.getCurrentPage().pageX
@@ -103,7 +103,6 @@ export default {
           pageIndex -= 1
         }
         this.currentPageIndex = pageIndex
-
         if (this.autoPlay) {
           clearTimeout(this.timer)
           this._play()

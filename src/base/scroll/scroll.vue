@@ -4,7 +4,7 @@
  * @Author: GanEhank
  * @Date: 2019-08-04 02:31:14
  * @LastEditors: GanEhank
- * @LastEditTime: 2019-08-13 19:20:46
+ * @LastEditTime: 2019-08-14 08:49:55
  -->
 <template>
   <div ref="wrapper">
@@ -64,7 +64,6 @@ export default {
         probeType: this.probeType,
         click: this.click
       })
-
       if (this.listenScroll) {
         const me = this // 箭头函数中代理this
         this.scroll.on('scroll', pos => {
@@ -72,7 +71,6 @@ export default {
           me.$emit('scroll', pos)
         })
       }
-
       if (this.pullup) {
         this.scroll.on('scrollEnd', () => {
           // 当滚动距离小于等于最大的滚动条的距离 + 50 的时候，向外传递一个scrollToEnd的事件
@@ -81,7 +79,6 @@ export default {
           }
         })
       }
-
       if (this.beforeScroll) {
         this.scroll.on('beforeScrollStart', () => {
           this.$emit('beforeScroll')

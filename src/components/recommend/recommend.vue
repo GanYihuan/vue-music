@@ -4,13 +4,13 @@
  * @Author: GanEhank
  * @Date: 2019-08-04 02:31:14
  * @LastEditors: GanEhank
- * @LastEditTime: 2019-08-13 19:13:43
+ * @LastEditTime: 2019-08-14 08:47:58
  -->
 <template>
   <div class="recommend" ref="recommend">
-    <scroll ref="scroll" class="recommend-content" :data="discList">
+    <scroll class="recommend-content" :data="discList" ref="scroll">
       <div>
-        <div v-if="recommends.length" class="slide-wrapper">
+        <div class="slide-wrapper" v-if="recommends.length">
           <slider>
             <div v-for="(item, index) in recommends" :key="index">
               <a :href="item.linkUrl">
@@ -77,7 +77,7 @@ export default {
     ...mapMutations({
       setDisc: 'SET_DISC'
     }),
-    handlePlaylist(playlist) {
+    handlePlaylist(playlist) { // playlist -> ...mapGetters([
       const bottom = playlist.length > 0 ? '60px' : ''
       this.$refs.recommend.style.bottom = bottom // 底部播放器适配
       this.$refs.scroll.refresh() // 强制 scroll 重新计算

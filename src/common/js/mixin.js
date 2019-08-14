@@ -4,7 +4,7 @@
  * @Author: GanEhank
  * @Date: 2019-08-04 02:31:14
  * @LastEditors: GanEhank
- * @LastEditTime: 2019-08-13 19:12:47
+ * @LastEditTime: 2019-08-14 08:52:53
  */
 import { mapGetters, mapMutations, mapActions } from 'vuex'
 import { playMode } from '@/common/js/config'
